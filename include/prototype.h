@@ -1,11 +1,11 @@
 /*
 ** prototype.h for  in /home/xx/Rendu/PSU/42SH
-** 
+**
 ** Made by boris saint-bonnet
 ** Login   <saint-_o@epitech.net>
-** 
+**
 ** Started on  Wed May 18 05:04:14 2016 boris saint-bonnet
-** Last update Wed May 18 05:08:02 2016 boris saint-bonnet
+** Last update Thu May 19 04:19:53 2016 Lucas Gambini
 */
 
 #ifndef __PROTOTYPE_H__
@@ -13,8 +13,9 @@
 
 /*
 ** PARSING
-*/ 
+*/
 
+char	*pre_check(char *s);
 char    *my_strcut(char *s, int beg, int nb, int end);
 char    *check_and(char *s);
 char    *check_left_redirection(char *s);
@@ -30,6 +31,5 @@ int	my_strlen(char *s);
 char	*my_strdup(char *src);
 char	*my_strcatc(char *path, char *command);
 char    *my_epurstr(char *str);
-  
-# endif /* !PROTOTYPE_H__ */
 
+# endif /* !PROTOTYPE_H__ */

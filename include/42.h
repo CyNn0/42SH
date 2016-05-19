@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 18 04:20:11 2016 boris saint-bonnet
-** Last update Wed May 18 13:18:12 2016 Philippe Lefevre
+** Last update Thu May 19 04:19:06 2016 Lucas Gambini
 */
 
 #ifndef		__42_H__
@@ -23,6 +23,7 @@
 # include	<stdlib.h>
 # include	<unistd.h>
 # include	"prototype.h"
+# include	"get_next_line.h"
 
 /*
 ** STRUCTURES
