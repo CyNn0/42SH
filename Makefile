@@ -5,7 +5,7 @@
 ## Login   <saint-_o@epitech.net>
 ##
 ## Started on  Wed May 18 04:15:48 2016 boris saint-bonnet
-## Last update Thu May 19 21:56:59 2016 boris saint-bonnet
+## Last update Thu May 19 23:25:15 2016 boris saint-bonnet
 ##
 
 CC		=		gcc -g -g3
@@ -25,12 +25,12 @@ SRC		=		sources/main.c					\
 				sources/parsing/check_separator.c		\
 				sources/parsing/check_and.c			\
 				sources/parsing/pre_check.c			\
-				sources/string.c				\
-				sources/my_strcut.c				\
+				sources/parsing/my_strcut.c			\
 				sources/utils/get_next_line.c			\
-				sources/my_env_in_list.c			\
-				sources/linked_list.c				\
-				sources/print_env.c				\
+				sources/env/my_env_in_list.c			\
+				sources/linked_list/linked_list.c		\
+				sources/env/print_env.c				\
+				sources/utils/string.c				\
 
 OBJ		=		$(SRC:.c=.o)
 
