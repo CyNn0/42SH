@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 18 04:46:54 2016 boris saint-bonnet
-** Last update Thu May 19 15:15:19 2016 Lucas Gambini
+** Last update Thu May 19 16:39:19 2016 Lucas Gambini
 */
 
 # include "42.h"
@@ -86,7 +86,7 @@ char    *check_right_redirection(char *s)
       if (s[i] == '>' && s[i + 1] == '>' && s[i - 1] != ' ')
 	ret = dep_right_redirection3(ret, i);
       if (s[i] == '>' && s[i + 1] == '>' && s[i + 1] != ' ')
-	ret = dep_right_redirection3(ret, i);
+	ret = dep_right_redirection4(ret, i);
     }
   return ((ret == NULL) ? (s) : (ret));
 }
