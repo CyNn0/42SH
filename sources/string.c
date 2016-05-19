@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 18 04:31:16 2016 boris saint-bonnet
-** Last update Thu May 19 04:41:22 2016 Lucas Gambini
+** Last update Thu May 19 15:17:01 2016 Lucas Gambini
 */
 
 # include "42.h"
@@ -33,6 +33,7 @@ char    *my_strdup(char *src)
       i++;
     }
   string[i] = '\0';
+  free(src);
   return (string);
 }
 

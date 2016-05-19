@@ -1,11 +1,11 @@
 /*
 ** my_strcut.c for  in /home/xx/Rendu/PSU/42SH
-** 
+**
 ** Made by boris saint-bonnet
 ** Login   <saint-_o@epitech.net>
-** 
+**
 ** Started on  Wed May 18 05:01:52 2016 boris saint-bonnet
-** Last update Wed May 18 06:46:42 2016 boris saint-bonnet
+** Last update Thu May 19 05:16:57 2016 Lucas Gambini
 */
 
 #include "42.h"
