@@ -1,11 +1,11 @@
 /*
 ** string.c for  in /home/xx/Rendu/PSU/42SH/sources
-** 
+**
 ** Made by boris saint-bonnet
 ** Login   <saint-_o@epitech.net>
-** 
+**
 ** Started on  Wed May 18 04:31:16 2016 boris saint-bonnet
-** Last update Wed May 18 04:39:29 2016 boris saint-bonnet
+** Last update Thu May 19 04:41:22 2016 Lucas Gambini
 */
 
 # include "42.h"
@@ -25,7 +25,7 @@ char    *my_strdup(char *src)
   int   i;
 
   if ((string = malloc(sizeof(char) * (my_strlen(src) + 1))) == NULL)
-    return NULL;
+    return (NULL);
   i = 0;
   while (src && src[i])
     {
