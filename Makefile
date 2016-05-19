@@ -5,12 +5,14 @@
 ## Login   <saint-_o@epitech.net>
 ##
 ## Started on  Wed May 18 04:15:48 2016 boris saint-bonnet
-## Last update Thu May 19 23:25:15 2016 boris saint-bonnet
+## Last update Thu May 19 23:27:28 2016 boris saint-bonnet
 ##
 
 CC		=		gcc -g -g3
 
 RM		=		rm -f
+
+PLZ		=		echo PLS
 
 NAME		=		42sh
 
