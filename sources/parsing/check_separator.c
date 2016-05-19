@@ -1,11 +1,11 @@
 /*
 ** check_separator.c for  in /home/xx/Rendu/PSU/42SH/sources
-** 
+**
 ** Made by boris saint-bonnet
 ** Login   <saint-_o@epitech.net>
-** 
+**
 ** Started on  Wed May 18 04:48:59 2016 boris saint-bonnet
-** Last update Wed May 18 06:41:43 2016 boris saint-bonnet
+** Last update Fri May 20 01:03:43 2016 Lucas Gambini
 */
 
 # include "42.h"

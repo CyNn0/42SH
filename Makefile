@@ -21,9 +21,8 @@ CFLAGS		+=		-Iinclude -ansi -pedantic
 CFLAGS		+=		-g -g3
 
 SRC		=		sources/main.c					\
-				sources/parsing/check_rednpipe.c		\
+				sources/parsing/check_sep.c		\
 				sources/parsing/check_separator.c		\
-				sources/parsing/check_and.c			\
 				sources/parsing/pre_check.c			\
 				sources/parsing/my_strcut.c			\
 				sources/utils/get_next_line.c			\
