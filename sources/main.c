@@ -5,23 +5,26 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 18 04:19:45 2016 boris saint-bonnet
-** Last update Thu May 19 04:45:14 2016 Lucas Gambini
+** Last update Thu May 19 22:21:44 2016 boris saint-bonnet
 */
 
 # include "42.h"
 
 void	shell(char *env[])
 {
-  char	*buffer;
+  char		*buffer;
+  t_list	*list;
 
-  (void)env; /* TMP */
-  write(1, "$> ", 3);
+  list = NULL;
+  list = my_env_in_list(list, env);
+  print_prompt(list);
   while ((buffer = get_next_line(0)))
     {
       buffer = pre_check(buffer);
       printf("%s\n", buffer);
       free(buffer);
-      write(1, "$> ", 3);
+      print_env(list);
+      print_prompt(list);
     }
 }
 

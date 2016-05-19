@@ -5,37 +5,10 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 18 04:31:16 2016 boris saint-bonnet
-** Last update Thu May 19 15:17:01 2016 Lucas Gambini
+** Last update Thu May 19 21:52:30 2016 boris saint-bonnet
 */
 
 # include "42.h"
-
-int     my_strlen(char *s)
-{
-  int   i;
-
-  i = -1;
-  while (s[++i] != '\0');
-  return (i);
-}
-
-char    *my_strdup(char *src)
-{
-  char  *string;
-  int   i;
-
-  if ((string = malloc(sizeof(char) * (my_strlen(src) + 1))) == NULL)
-    return (NULL);
-  i = 0;
-  while (src && src[i])
-    {
-      string[i] = src[i];
-      i++;
-    }
-  string[i] = '\0';
-  free(src);
-  return (string);
-}
 
 char    *my_strcatc(char *path, char *command)
 {
@@ -45,8 +18,8 @@ char    *my_strcatc(char *path, char *command)
 
   if (path == NULL || command == NULL)
     return (NULL);
-  if ((ret = malloc(sizeof(char) * (my_strlen(path) +
-				    my_strlen(command) + 2))) == NULL)
+  if ((ret = malloc(sizeof(char) * (strlen(path) +
+				    strlen(command) + 2))) == NULL)
     return (NULL);
   i = -1;
   while (path[++i] != '\0')
@@ -67,7 +40,7 @@ char            *my_epurstr(char *str)
 
   i = 0;
   j = 0;
-  if ((epured = malloc(sizeof(epured) * my_strlen(str))) == NULL)
+  if ((epured = malloc(sizeof(epured) * strlen(str))) == NULL)
     return (NULL);
   while (str[i] == ' ' || str[i] == '\t')
     i++;

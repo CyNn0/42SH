@@ -5,10 +5,10 @@
 ## Login   <saint-_o@epitech.net>
 ##
 ## Started on  Wed May 18 04:15:48 2016 boris saint-bonnet
-## Last update Wed May 18 05:02:43 2016 boris saint-bonnet
+## Last update Thu May 19 21:56:59 2016 boris saint-bonnet
 ##
 
-CC		=		gcc
+CC		=		gcc -g -g3
 
 RM		=		rm -f
 
@@ -27,7 +27,10 @@ SRC		=		sources/main.c					\
 				sources/parsing/pre_check.c			\
 				sources/string.c				\
 				sources/my_strcut.c				\
-				sources/utils/get_next_line.c		\
+				sources/utils/get_next_line.c			\
+				sources/my_env_in_list.c			\
+				sources/linked_list.c				\
+				sources/print_env.c				\
 
 OBJ		=		$(SRC:.c=.o)
 

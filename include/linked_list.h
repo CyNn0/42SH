@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 ** 
 ** Started on  Wed May 18 04:22:31 2016 boris saint-bonnet
-** Last update Wed May 18 10:04:35 2016 boris saint-bonnet
+** Last update Thu May 19 21:51:34 2016 boris saint-bonnet
 */
 
 # ifndef __LINKED_LIST_H__
@@ -21,7 +21,6 @@
 # define SIMPLE_L 4 /* simple redirection gauche*/
 # define DOUBLE_R 5 /* double redirection droite */
 # define DOUBLE_L 6 /* double redirection gauche */
-# define ENV_PATH list->myEnv->path
 
 typedef struct          s_node
 {
@@ -40,7 +39,6 @@ typedef struct		s_path
 
 typedef struct		s_env
 {
-  struct s_path		*path;
   struct s_node		*head;
   struct s_node		*tail;
 }			t_env;
@@ -57,14 +55,21 @@ typedef struct          s_cmd
 
 typedef struct          s_list
 {
-  struct s_env	*myEnv;
-  struct s_cmd *head;
-  struct s_cmd *tail;
+  struct s_path		*path;
+  struct s_env		*myEnv;
+  struct s_cmd		*head;
+  struct s_cmd		*tail;
 }                       t_list;
 
-t_list  *create_list();
+t_list  *create_list(t_list *list);
 t_list  *push(t_list *list, t_cmd *cmd);
+t_list  *push_env(t_list *list, char *data, char *name);
 t_list  *get_circle(t_list *list);
+t_list  *my_env_in_list(t_list *list, char **env);
 t_list  *del_link(t_list *list, t_cmd *cmd);
+int	 print_env(t_list *list);
+int	get_name(char *name);
+char	*find_user(t_list *list, char *name);
+void    print_prompt(t_list *list);
 
 # endif /* !__LINKED_LIST_H__ */
