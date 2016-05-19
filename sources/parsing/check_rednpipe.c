@@ -1,21 +1,21 @@
 /*
-** check_pipes.c for  in /home/xx/Rendu/PSU/42SH/sources
+** check_rednpipe.c for  in /home/xx/Rendu/PSU/42SH/sources
 **
 ** Made by boris saint-bonnet
 ** Login   <saint-_o@epitech.net>
 **
-** Started on  Wed May 18 04:48:21 2016 boris saint-bonnet
-** Last update Thu May 19 16:41:38 2016 Lucas Gambini
+** Started on  Wed May 18 04:46:54 2016 boris saint-bonnet
+** Last update Thu May 19 23:49:48 2016 Lucas Gambini
 */
 
 # include "42.h"
 
-char	*dep_pipe4(char *ret, int i)
+char	*dep_4(char *ret, int i)
 {
   char	*bef;
   char	*aft;
 
-  bef = my_strcut(ret, 0, (i + 2), 0);
+  bef = my_strcut(ret, 0, (i + 5), 0);
   aft = my_strcut(ret, (i + 5), 0, 0);
   ret = my_strcatc(bef, aft);
   free(bef);
@@ -23,7 +23,7 @@ char	*dep_pipe4(char *ret, int i)
   return (ret);
 }
 
-char	*dep_pipe3(char *ret, int i)
+char	*dep_3(char *ret, int i)
 {
   char	*bef;
   char	*aft;
@@ -36,7 +36,7 @@ char	*dep_pipe3(char *ret, int i)
   return (ret);
 }
 
-char	*dep_pipe2(char *s, char *ret, int i)
+char	*dep_2(char *s, char *ret, int i)
 {
   char  *bef;
   char  *aft;
@@ -57,7 +57,7 @@ char	*dep_pipe2(char *s, char *ret, int i)
   return (ret);
 }
 
-char	*dep_pipe1(char *s, char *ret, int i)
+char	*dep_1(char *s, char *ret, int i)
 {
   char	*bef;
   char	*aft;
@@ -70,7 +70,7 @@ char	*dep_pipe1(char *s, char *ret, int i)
   return (ret);
 }
 
-char    *check_pipe(char *s)
+char    *check_rednpipe(char *s, char sep)
 {
   int   i;
   char  *ret;
@@ -79,16 +79,14 @@ char    *check_pipe(char *s)
   ret = NULL;
   while (s[++i] != '\0')
     {
-      if (s[i] == '|' && s[i - 1] != '|' && s[i + 1] != '|' && s[i - 1] != ' ')
-	ret = dep_pipe1(s, ret, i);
-      if (s[i] == '|' && s[i - 1] != '|' && s[i + 1] != '|' && s[i + 1] != ' ')
-	ret = dep_pipe2(s, ret, i);
-      if (s[i] == '|' && s[i + 1] == '|' && s[i - 1] != ' ')
-	ret = dep_pipe3(ret, i);
-      if (s[i] == '|' && s[i + 1] == '|' && s[i + 1] != ' ')
-	ret = dep_pipe4(ret, i);
+      if (s[i] == sep && s[i - 1] != sep && s[i + 1] != sep && s[i - 1] != ' ')
+	ret = dep_1(s, ret, i);
+      if (s[i] == sep && s[i - 1] != sep && s[i + 1] != sep && s[i + 1] != ' ')
+	ret = dep_2(s, ret, i);
+      if (s[i] == sep && s[i + 1] == sep && s[i - 1] != ' ')
+	ret = dep_3(ret, i);
+      if (s[i] == sep && s[i + 1] == sep && s[i + 1] != ' ')
+	ret = dep_4(ret, i);
     }
-  if (ret == NULL)
-    return (s);
-  return (ret);
+  return ((ret == NULL) ? (s) : (ret));
 }
