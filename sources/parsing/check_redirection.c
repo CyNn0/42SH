@@ -1,16 +1,16 @@
 /*
-** check_left_redirection.c for  in /home/xx/Rendu/PSU/42SH/sources
+** check_right_redirection.c for  in /home/xx/Rendu/PSU/42SH/sources
 **
 ** Made by boris saint-bonnet
 ** Login   <saint-_o@epitech.net>
 **
-** Started on  Wed May 18 04:47:33 2016 boris saint-bonnet
-** Last update Thu May 19 16:32:53 2016 Lucas Gambini
+** Started on  Wed May 18 04:46:54 2016 boris saint-bonnet
+** Last update Thu May 19 23:39:10 2016 Lucas Gambini
 */
 
 # include "42.h"
 
-char	*dep_left_redirection4(char *ret, int i)
+char	*dep_redirection4(char *ret, int i)
 {
   char	*bef;
   char	*aft;
@@ -23,7 +23,7 @@ char	*dep_left_redirection4(char *ret, int i)
   return (ret);
 }
 
-char	*dep_left_redirection3(char *ret, int i)
+char	*dep_redirection3(char *ret, int i)
 {
   char	*bef;
   char	*aft;
@@ -36,7 +36,7 @@ char	*dep_left_redirection3(char *ret, int i)
   return (ret);
 }
 
-char	*dep_left_redirection2(char *s, char *ret, int i)
+char	*dep_redirection2(char *s, char *ret, int i)
 {
   char  *bef;
   char  *aft;
@@ -57,7 +57,7 @@ char	*dep_left_redirection2(char *s, char *ret, int i)
   return (ret);
 }
 
-char	*dep_left_redirection1(char *s, char *ret, int i)
+char	*dep_redirection1(char *s, char *ret, int i)
 {
   char	*bef;
   char	*aft;
@@ -70,25 +70,23 @@ char	*dep_left_redirection1(char *s, char *ret, int i)
   return (ret);
 }
 
-char    *check_left_redirection(char *s)
+char    *check_redirection(char *s, char sep)
 {
   int   i;
   char  *ret;
 
   i = -1;
   ret = NULL;
-  while (s[++i])
+  while (s[++i] != '\0')
     {
-      if (s[i] == '<' && s[i - 1] != '<' && s[i + 1] != '<' && s[i - 1] != ' ')
-	ret = dep_left_redirection1(s, ret, i);
-      if (s[i] == '<' && s[i - 1] != '<' && s[i + 1] != '<' && s[i + 1] != ' ')
-	ret = dep_left_redirection2(s, ret, i);
-      if (s[i] == '<' && s[i + 1] == '<' && s[i - 1] != ' ')
-	ret = dep_left_redirection3(ret, i);
-      if (s[i] == '<' && s[i + 1] == '<')
-	ret = dep_left_redirection4(ret, i);
+      if (s[i] == sep && s[i - 1] != sep && s[i + 1] != sep && s[i - 1] != ' ')
+	ret = dep_redirection1(s, ret, i);
+      if (s[i] == sep && s[i - 1] != sep && s[i + 1] != sep && s[i + 1] != ' ')
+	ret = dep_redirection2(s, ret, i);
+      if (s[i] == sep && s[i + 1] == sep && s[i - 1] != ' ')
+	ret = dep_redirection3(ret, i);
+      if (s[i] == sep && s[i + 1] == sep && s[i + 1] != ' ')
+	ret = dep_redirection4(ret, i);
     }
-  if (ret == NULL)
-    return (s);
-  return (ret);
+  return ((ret == NULL) ? (s) : (ret));
 }

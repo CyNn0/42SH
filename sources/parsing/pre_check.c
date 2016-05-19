@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 18 04:54:23 2016 boris saint-bonnet
-** Last update Thu May 19 21:53:42 2016 boris saint-bonnet
+** Last update Thu May 19 23:30:42 2016 Lucas Gambini
 */
 
 # include "42.h"
@@ -16,8 +16,8 @@ char	*pre_check(char *s)
 
   if ((ret = strdup(s)) == NULL)
     return (s);
-  ret = check_right_redirection(ret);
-  ret = check_left_redirection(ret);
+  ret = check_redirection(ret, '<');
+  ret = check_redirection(ret, '>');
   ret = check_separator(ret);
   ret = check_pipe(ret);
   ret = check_and(ret);
