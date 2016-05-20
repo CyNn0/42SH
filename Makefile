@@ -5,7 +5,7 @@
 ## Login   <saint-_o@epitech.net>
 ##
 ## Started on  Wed May 18 04:15:48 2016 boris saint-bonnet
-## Last update Fri May 20 06:34:42 2016 Lucas Gambini
+## Last update Fri May 20 07:04:40 2016 boris saint-bonnet
 ##
 
 CC		=		gcc -g -g3
@@ -35,7 +35,7 @@ SRC		=		sources/main.c					\
                                 sources/parsing/my_strtok.c                     \
 				sources/linked_list/free_fighter.c		\
 				sources/parsing/get_cmd.c			\
-
+				sources/parsing/check_bquotes.c			\
 
 OBJ		=		$(SRC:.c=.o)
 
