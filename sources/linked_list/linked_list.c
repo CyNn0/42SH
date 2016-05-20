@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 ** 
 ** Started on  Thu May 19 18:53:01 2016 boris saint-bonnet
-** Last update Fri May 20 04:26:11 2016 boris saint-bonnet
+** Last update Fri May 20 04:49:04 2016 boris saint-bonnet
 */
 
 # include "42.h"
@@ -31,7 +31,8 @@ t_list		*push_env(t_list *list, char *data, char *name)
 {
   t_node        *node;
 
-  node = malloc(sizeof(*node));
+  if ((node = malloc(sizeof(*node))) == NULL)
+    return (NULL);
   if (list != NULL)
     {
       if (node != NULL)

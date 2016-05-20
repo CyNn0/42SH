@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 ** 
 ** Started on  Fri May 20 02:55:24 2016 boris saint-bonnet
-** Last update Fri May 20 03:08:11 2016 boris saint-bonnet
+** Last update Fri May 20 04:52:31 2016 boris saint-bonnet
 */
 
 # include "42.h"
@@ -15,6 +15,7 @@ int     my_strcspn(char *str, char *srch)
   char  c;
   char  *p;
   char  *s;
+
   s = str;
   c = *s;
   while (c != 0)
@@ -36,6 +37,7 @@ int     my_strspn(char *p, char *s)
 {
   int   i;
   int   j;
+
   i = 0;
   j = 0;
   while (p[i])

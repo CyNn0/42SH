@@ -1,3 +1,13 @@
+/*
+** get_next_line.c for  in /home/xx/Rendu/PSU/42SH
+** 
+** Made by boris saint-bonnet
+** Login   <saint-_o@epitech.net>
+** 
+** Started on  Fri May 20 04:47:07 2016 boris saint-bonnet
+** Last update Fri May 20 04:47:43 2016 boris saint-bonnet
+*/
+
 #include		"get_next_line.h"
 
 char			*my_realloc(char *cur, int n)
