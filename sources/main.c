@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 18 04:19:45 2016 boris saint-bonnet
-** Last update Fri May 20 23:23:11 2016 boris saint-bonnet
+** Last update Sat May 21 00:36:11 2016 Lucas Gambini
 */
 
 # include "42.h"
@@ -25,7 +25,7 @@ void	shell(char *env[])
       buffer = pre_check(buffer);
       if (buffer != NULL)
 	printf("%s\n", buffer);
-      /* list = get_cmd(list, buffer); */
+      list = get_cmd(list, buffer);
       free(buffer);
       print_prompt(list);
     }
