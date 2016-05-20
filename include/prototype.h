@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 18 05:04:14 2016 boris saint-bonnet
-** Last update Fri May 20 05:13:10 2016 Lucas Gambini
+** Last update Fri May 20 06:37:50 2016 Lucas Gambini
 */
 
 #ifndef __PROTOTYPE_H__

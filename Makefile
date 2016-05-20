@@ -5,7 +5,7 @@
 ## Login   <saint-_o@epitech.net>
 ##
 ## Started on  Wed May 18 04:15:48 2016 boris saint-bonnet
-## Last update Fri May 20 04:33:48 2016 boris saint-bonnet
+## Last update Fri May 20 06:34:42 2016 Lucas Gambini
 ##
 
 CC		=		gcc -g -g3
@@ -33,7 +33,8 @@ SRC		=		sources/main.c					\
 				sources/path/path_to_list.c                     \
                                 sources/path/print_path.c                       \
                                 sources/parsing/my_strtok.c                     \
-																sources/linked_list/free_fighter.c							\
+				sources/linked_list/free_fighter.c		\
+				sources/parsing/get_cmd.c			\
 
 
 OBJ		=		$(SRC:.c=.o)
