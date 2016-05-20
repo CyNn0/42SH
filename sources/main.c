@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 18 04:19:45 2016 boris saint-bonnet
-** Last update Thu May 19 23:31:43 2016 Lucas Gambini
+** Last update Fri May 20 03:37:34 2016 boris saint-bonnet
 */
 
 # include "42.h"
@@ -16,12 +16,15 @@ void	shell(char *env[])
   t_list	*list;
 
   list = NULL;
-  list = my_env_in_list(list, env);
+  if ((list = my_env_in_list(list, env)) == NULL)
+    return;
   print_prompt(list);
+  path_to_list(list);
   while ((buffer = get_next_line(0)))
     {
       buffer = pre_check(buffer);
       printf("%s\n", buffer);
+      print_path(list);
       free(buffer);
       print_prompt(list);
     }

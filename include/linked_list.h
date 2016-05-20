@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 ** 
 ** Started on  Wed May 18 04:22:31 2016 boris saint-bonnet
-** Last update Thu May 19 21:51:34 2016 boris saint-bonnet
+** Last update Fri May 20 04:29:32 2016 boris saint-bonnet
 */
 
 # ifndef __LINKED_LIST_H__
@@ -24,10 +24,10 @@
 
 typedef struct          s_node
 {
-  char  *name;
-  char  *data;
-  struct s_node *prev;
-  struct s_node *next;
+  char			*name;
+  char			*data;
+  struct s_node		*prev;
+  struct s_node		*next;
 }                       t_node;
 
 
@@ -67,9 +67,13 @@ t_list  *push_env(t_list *list, char *data, char *name);
 t_list  *get_circle(t_list *list);
 t_list  *my_env_in_list(t_list *list, char **env);
 t_list  *del_link(t_list *list, t_cmd *cmd);
+t_list  *push_path(t_list *list, char *data);
+t_list	*path_to_list(t_list *list);
 int	 print_env(t_list *list);
 int	get_name(char *name);
+int	print_path(t_list *list);
 char	*find_user(t_list *list, char *name);
+char    *find_path(t_list *list);
 void    print_prompt(t_list *list);
 
 # endif /* !__LINKED_LIST_H__ */

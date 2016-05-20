@@ -5,7 +5,7 @@
 ## Login   <saint-_o@epitech.net>
 ##
 ## Started on  Wed May 18 04:15:48 2016 boris saint-bonnet
-## Last update Thu May 19 23:29:34 2016 Lucas Gambini
+## Last update Fri May 20 04:33:48 2016 boris saint-bonnet
 ##
 
 CC		=		gcc -g -g3
@@ -21,7 +21,7 @@ CFLAGS		+=		-Iinclude -ansi -pedantic
 CFLAGS		+=		-g -g3
 
 SRC		=		sources/main.c					\
-				sources/parsing/check_sep.c		\
+				sources/parsing/check_sep.c			\
 				sources/parsing/check_separator.c		\
 				sources/parsing/pre_check.c			\
 				sources/parsing/my_strcut.c			\
@@ -30,6 +30,10 @@ SRC		=		sources/main.c					\
 				sources/linked_list/linked_list.c		\
 				sources/env/print_env.c				\
 				sources/utils/string.c				\
+				sources/path/path_to_list.c                     \
+                                sources/path/print_path.c                       \
+                                sources/parsing/my_strtok.c                     \
+
 
 OBJ		=		$(SRC:.c=.o)
 

@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 18 05:04:14 2016 boris saint-bonnet
-** Last update Fri May 20 01:56:49 2016 Lucas Gambini
+** Last update Fri May 20 04:35:22 2016 boris saint-bonnet
 */
 
 #ifndef __PROTOTYPE_H__
@@ -30,5 +30,6 @@ char	*my_strcatc(char *path, char *command);
 char    *my_epurstr(char *str);
 char	*strdup(const char *chaine);
 char	*get_current_dir_name(void);
+char	*my_strtok(char *str, char *delim);
 
 # endif /* !PROTOTYPE_H__ */
