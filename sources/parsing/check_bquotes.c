@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 ** 
 ** Started on  Fri May 20 06:37:19 2016 boris saint-bonnet
-** Last update Fri May 20 07:03:33 2016 boris saint-bonnet
+** Last update Sat May 21 01:25:22 2016 boris saint-bonnet
 */
 
 # include "42.h"
@@ -29,6 +29,8 @@ char		*my_bquotes(char *str)
   int		i;
 
   i = -1;
+  if (!str)
+    return (NULL);
   if (check_bquotes(str) == -1)
     return (str);
   while (str[++i] != '`');

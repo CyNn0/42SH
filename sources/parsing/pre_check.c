@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 18 04:54:23 2016 boris saint-bonnet
-** Last update Fri May 20 07:49:57 2016 boris saint-bonnet
+** Last update Sat May 21 01:29:06 2016 boris saint-bonnet
 */
 
 # include "42.h"
@@ -15,11 +15,10 @@ char    *my_strcatc(char *path, char *command, int cond, int bool)
   char  *ret;
   int   i;
   int   j;
-
-  if (path == NULL || command == NULL)
-    return (NULL);
-  if ((ret = malloc(sizeof(char) * (strlen(path) +
-				    strlen(command) + 2))) == NULL)
+  
+  if (path == NULL || command == NULL
+      || (ret = malloc(sizeof(char) * (strlen(path) +
+				       strlen(command) + 2))) == NULL)
     return (NULL);
   i = -1;
   while (path[++i] != '\0')
@@ -44,10 +43,10 @@ char	*pre_check(char *s)
   char  *ret;
 
   ret = strdup(s);
+  free(s);
   if (triple(ret) == -1)
     {
       free(ret);
-      free(s);
       return (NULL);
     }
   ret = simples(ret, '&');
