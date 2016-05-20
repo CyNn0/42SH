@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 18 04:19:45 2016 boris saint-bonnet
-** Last update Fri May 20 03:37:34 2016 boris saint-bonnet
+** Last update Fri May 20 06:13:02 2016 Lucas Gambini
 */
 
 # include "42.h"
@@ -27,7 +27,9 @@ void	shell(char *env[])
       print_path(list);
       free(buffer);
       print_prompt(list);
+      break;
     }
+  free_fighter(list);
 }
 
 int	main(int ac, char *av[], char *env[])

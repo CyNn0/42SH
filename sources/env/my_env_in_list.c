@@ -1,11 +1,11 @@
 /*
 ** my_env_in_list.c for  in /home/xx/Rendu/PSU/42SH
-** 
+**
 ** Made by boris saint-bonnet
 ** Login   <saint-_o@epitech.net>
-** 
+**
 ** Started on  Thu May 19 19:23:14 2016 boris saint-bonnet
-** Last update Thu May 19 22:16:01 2016 boris saint-bonnet
+** Last update Fri May 20 05:34:20 2016 Lucas Gambini
 */
 
 # include "42.h"
@@ -41,6 +41,8 @@ t_list  *my_env_in_list(t_list *list, char **env)
       name = strncpy(name, env[i], j);
       data = strdup(env[i] + (j + 1));
       list = push_env(list, data, name);
+	free(name);
+	free(data);
       i++;
     }
   return (list);

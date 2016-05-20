@@ -1,11 +1,11 @@
 /*
 ** linked_list.c for  in /home/xx/Rendu/PSU/42SH
-** 
+**
 ** Made by boris saint-bonnet
 ** Login   <saint-_o@epitech.net>
-** 
+**
 ** Started on  Thu May 19 18:53:01 2016 boris saint-bonnet
-** Last update Fri May 20 04:49:04 2016 boris saint-bonnet
+** Last update Fri May 20 05:47:45 2016 Lucas Gambini
 */
 
 # include "42.h"
@@ -37,8 +37,10 @@ t_list		*push_env(t_list *list, char *data, char *name)
     {
       if (node != NULL)
 	{
-	  node->data = strdup(data);
-	  node->name = strdup(name);
+	  if ((node->data = strdup(data)) == NULL)
+	    return (list);
+	  if ((node->name = strdup(name)) == NULL)
+	    return (list);
 	  node->next = NULL;
 	  if (list->myEnv->tail == NULL)
 	    {

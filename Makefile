@@ -33,6 +33,7 @@ SRC		=		sources/main.c					\
 				sources/path/path_to_list.c                     \
                                 sources/path/print_path.c                       \
                                 sources/parsing/my_strtok.c                     \
+																sources/linked_list/free_fighter.c							\
 
 
 OBJ		=		$(SRC:.c=.o)

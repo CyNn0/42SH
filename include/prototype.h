@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 18 05:04:14 2016 boris saint-bonnet
-** Last update Fri May 20 04:35:22 2016 boris saint-bonnet
+** Last update Fri May 20 05:13:10 2016 Lucas Gambini
 */
 
 #ifndef __PROTOTYPE_H__
@@ -26,6 +26,7 @@ char    *check_separator(char *s);
 
 int	my_strlen(char *s);
 char	*my_strdup(char *src);
+char	*my_strndup(const char *src, size_t n);
 char	*my_strcatc(char *path, char *command);
 char    *my_epurstr(char *str);
 char	*strdup(const char *chaine);

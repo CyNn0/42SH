@@ -1,11 +1,11 @@
 /*
 ** linkedlist.h for  in /home/xx/Rendu/PSU/42SH
-** 
+**
 ** Made by boris saint-bonnet
 ** Login   <saint-_o@epitech.net>
-** 
+**
 ** Started on  Wed May 18 04:22:31 2016 boris saint-bonnet
-** Last update Fri May 20 04:29:32 2016 boris saint-bonnet
+** Last update Fri May 20 04:51:26 2016 Lucas Gambini
 */
 
 # ifndef __LINKED_LIST_H__
@@ -34,7 +34,7 @@ typedef struct          s_node
 typedef struct		s_path
 {
   struct s_node		*head;
-  struct s_node		*tail;  
+  struct s_node		*tail;
 }			t_path;
 
 typedef struct		s_env
@@ -75,5 +75,6 @@ int	print_path(t_list *list);
 char	*find_user(t_list *list, char *name);
 char    *find_path(t_list *list);
 void    print_prompt(t_list *list);
+void	free_fighter(t_list *list);
 
 # endif /* !__LINKED_LIST_H__ */
