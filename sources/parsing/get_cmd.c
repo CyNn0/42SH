@@ -5,7 +5,7 @@
 ** Login   <gambin_l@epitech.net>
 **
 ** Started on  Fri May 20 06:28:24 2016 Lucas Gambini
-** Last update Sat May 21 10:46:01 2016 Lucas Gambini
+** Last update Sat May 21 10:55:33 2016 Lucas Gambini
 */
 
 # include "42.h"
@@ -35,7 +35,7 @@ t_list		*set_cmd(t_list *list, char **tab)
       if ((cmdtab = cmd_to_tab(tab[i], ' ', ' ', ' ')) == NULL
 	  || ((list = push_cmd(list, cmdtab))) == NULL)
 	return (list);
-      list->tail->flag = get_flag(tab[i]);
+      /*list->tail->flag = get_flag(tab[i]);*/
       free(tab[i]);
     }
   free(tab);
