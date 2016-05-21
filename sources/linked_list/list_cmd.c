@@ -5,7 +5,7 @@
 ** Login   <gambin_l@epitech.net>
 **
 ** Started on  Fri May 20 06:45:22 2016 Lucas Gambini
-** Last update Sat May 21 09:53:46 2016 Lucas Gambini
+** Last update Sat May 21 22:53:28 2016 Lucas Gambini
 */
 
 # include "42.h"
@@ -14,6 +14,8 @@ t_list		*free_cmd(t_list *list)
 {
   t_cmd		*tmp;
 
+  if (list->head == NULL || list->tail == NULL)
+    return (list);
   tmp = list->head->next;
   while (tmp != NULL)
     {

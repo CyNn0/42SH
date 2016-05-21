@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 18 04:20:11 2016 boris saint-bonnet
-** Last update Fri May 20 07:43:31 2016 boris saint-bonnet
+** Last update Sat May 21 23:35:56 2016 Lucas Gambini
 */
 
 #ifndef		__42_H__
@@ -14,7 +14,8 @@
 /*
 ** DEFINE
 */
-
+# define SUCCESs	0
+# define ERROR		1
 # define BLACK		"\033[1;30m"
 # define RED		"\033[1;31m"
 # define GREEN		"\033[1;32m"
