@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 18 04:54:23 2016 boris saint-bonnet
-** Last update Sat May 21 01:29:06 2016 boris saint-bonnet
+** Last update Sun May 22 00:02:19 2016 Lucas Gambini
 */
 
 # include "42.h"
@@ -15,7 +15,7 @@ char    *my_strcatc(char *path, char *command, int cond, int bool)
   char  *ret;
   int   i;
   int   j;
-  
+
   if (path == NULL || command == NULL
       || (ret = malloc(sizeof(char) * (strlen(path) +
 				       strlen(command) + 2))) == NULL)
@@ -35,6 +35,31 @@ char    *my_strcatc(char *path, char *command, int cond, int bool)
   ret[i] = '\0';
   if (bool >= 0)
     free (path);
+  return (ret);
+}
+
+char    *clean_str(char *str)
+{
+  int   i;
+  int   j;
+  char  *ret;
+
+  i = 0;
+  j = -1;
+  if ((ret = malloc(sizeof(char) * ((int)strlen(str) + 1))) == NULL)
+    return (NULL);
+  while (i < (int)strlen(str) && (str[i] == ' ' || str[i] == '\t'))
+    i++;
+  i--;
+  while (str[++i])
+    {
+      if (str[i] != ' ' && str[i] != '\t')
+        ret[++j] = str[i];
+      else if ((str[i] == '\t' && str[i + 1] != '\t' && str[i + 1] != ' ') ||
+               (str[i] == ' ' && str[i + 1] != ' ' && str[i + 1] != '\t'))
+        ret[++j] = ' ';
+    }
+  ret[++j] = '\0';
   return (ret);
 }
 
@@ -58,6 +83,6 @@ char	*pre_check(char *s)
   ret = doubles(ret, '<');
   ret = doubles(ret, '&');
   ret = doubles(ret, ';');
-  ret = doubles(ret, '|');  
-  return (ret);
+  ret = doubles(ret, '|');
+  return (clean_str(ret));
 }
