@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 18 04:22:31 2016 boris saint-bonnet
-** Last update Sat May 21 09:54:55 2016 Lucas Gambini
+** Last update Sat May 21 23:43:33 2016 Lucas Gambini
 */
 
 # ifndef __LINKED_LIST_H__
@@ -16,11 +16,12 @@
 */
 
 # define EXE 1 /* Simple execution */
-# define PIPE  2 /* pipe */
-# define SIMPLE_R 3 /* Simple redirection droite */
-# define SIMPLE_L 4 /* simple redirection gauche*/
-# define DOUBLE_R 5 /* double redirection droite */
-# define DOUBLE_L 6 /* double redirection gauche */
+# define PIPE 2 /* pipe */
+# define DOUBLE_PIPE 3 /* double pipes */
+# define SIMPLE_R 4 /* Simple redirection droite */
+# define SIMPLE_L 5 /* simple redirection gauche*/
+# define DOUBLE_R 6 /* double redirection droite */
+# define DOUBLE_L 7 /* double redirection gauche */
 
 typedef struct          s_node
 {
