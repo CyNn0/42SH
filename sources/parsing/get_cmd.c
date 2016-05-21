@@ -5,26 +5,32 @@
 ** Login   <gambin_l@epitech.net>
 **
 ** Started on  Fri May 20 06:28:24 2016 Lucas Gambini
-** Last update Sat May 21 23:50:40 2016 Lucas Gambini
+** Last update Sun May 22 00:48:59 2016 Lucas Gambini
 */
 
 # include "42.h"
 
-/*char		get_flag(char *seg)
+char		get_flag(char *seg, char *line)
 {
   int		i;
-  char		flag;
 
   i = -1;
-  flag = 0;
-  while (seg[++i])
-    {
-      (seg[i] == '|') ? ()
-	  : ();
-    }
-}*/
+  while (strncmp(seg, &line[++i], (int)strlen(seg)) != 0);
+  i += (int)strlen(seg);
+  if (line[i] == 0 || line[i + 1] == 0)
+    return (EXE);
+  if (line[i + 1] == '|' && line[i + 2] != '|')
+    return (PIPE);
+  else if (line[i + 1] == '|' && line[i + 2] == '|')
+    return (DOUBLE_PIPE);
+  if (line[i + 1] == '&' && line[i + 2] != '&')
+    return (SIMPLE_AND);
+  else if (line[i + 1] == '&' && line[i + 2] == '&')
+    return (DOUBLE_AND);
+  return (1);
+}
 
-t_list		*set_cmd(t_list *list, char **tab)
+t_list		*set_cmd(t_list *list, char **tab, char *line)
 {
   int		i;
   char		**cmdtab;
@@ -35,7 +41,7 @@ t_list		*set_cmd(t_list *list, char **tab)
       if ((cmdtab = cmd_to_tab(tab[i], ' ', ' ', ' ')) == NULL
 	  || ((list = push_cmd(list, cmdtab))) == NULL)
 	return (list);
-      /*list->tail->flag = get_flag(tab[i]);*/
+      list->tail->flag = get_flag(tab[i], line);
       free(tab[i]);
     }
   free(tab);
@@ -49,7 +55,7 @@ t_list		*get_cmd(t_list *list, char *line)
   if (line == NULL || (tab = cmd_to_tab(line, '|', ';', '&')) == NULL)
     return (NULL);
   tab = clean_tab(tab);
-  list = set_cmd(list, tab);
+  list = set_cmd(list, tab, line);
   show_cmd_list(list);
   free(line);
   return (list);
