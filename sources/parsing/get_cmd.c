@@ -5,26 +5,51 @@
 ** Login   <gambin_l@epitech.net>
 **
 ** Started on  Fri May 20 06:28:24 2016 Lucas Gambini
-** Last update Sat May 21 08:58:50 2016 Lucas Gambini
+** Last update Sat May 21 10:46:01 2016 Lucas Gambini
 */
 
 # include "42.h"
 
-void		show_tab(char **tab)
+/*char		get_flag(char *seg)
 {
-  int		y;
+  int		i;
+  char		flag;
 
-  y = -1;
-  while (tab[++y])
-    printf("%s$\n", tab[y]);
+  i = -1;
+  flag = 0;
+  while (seg[++i])
+    {
+      (seg[i] == '|') ? ()
+	  : ();
+    }
+}*/
+
+t_list		*set_cmd(t_list *list, char **tab)
+{
+  int		i;
+  char		**cmdtab;
+
+  i = -1;
+  while (tab[++i])
+    {
+      if ((cmdtab = cmd_to_tab(tab[i], ' ', ' ', ' ')) == NULL
+	  || ((list = push_cmd(list, cmdtab))) == NULL)
+	return (list);
+      list->tail->flag = get_flag(tab[i]);
+      free(tab[i]);
+    }
+  free(tab);
+  return (list);
 }
 
 t_list		*get_cmd(t_list *list, char *line)
 {
   char		**tab;
 
-  if (line == NULL || (tab = cmd_to_tab(line)) == NULL)
+  if (line == NULL || (tab = cmd_to_tab(line, '|', ';', '&')) == NULL)
     return (NULL);
-  show_tab(tab);
+  tab = clean_tab(tab);
+  list = set_cmd(list, tab);
+  show_cmd_list(list);
   return (list);
 }

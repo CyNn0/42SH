@@ -5,32 +5,63 @@
 ** Login   <gambin_l@epitech.net>
 **
 ** Started on  Fri May 20 06:45:22 2016 Lucas Gambini
-** Last update Fri May 20 06:52:25 2016 Lucas Gambini
+** Last update Sat May 21 09:53:46 2016 Lucas Gambini
 */
 
 # include "42.h"
 
-t_list		*push_path(t_list *list, char **cmd)
+t_list		*free_cmd(t_list *list)
 {
-  t_cmd        *cmd;
+  t_cmd		*tmp;
 
-  if ((cmd = malloc(sizeof(*cmd))) == NULL)
-    return (NULL);
-  if (data == NULL)
-    return (list);
-  cmd->cmd = cmd;
-  cmd->next = NULL;
-  if (list->path->tail == NULL)
+  tmp = list->head->next;
+  while (tmp != NULL)
     {
-      cmd->prev = NULL;
-      list->head = cmd;
-      list->tail = cmd;
+      free_tab(tmp->cmd);
+      free(tmp->prev);
+      tmp = tmp->next;
+    }
+  free(list->tail);
+  list->head = NULL;
+  list->tail = NULL;
+  return (list);
+}
+
+void		show_cmd_list(t_list *list)
+{
+  t_cmd		*tmp;
+  int		i;
+
+  tmp = list->head;
+  i = -1;
+  while (tmp != NULL)
+    {
+      printf("Maillon: %d\n", ++i);
+      show_tab(tmp->cmd);
+      tmp = tmp->next;
+    }
+}
+
+t_list		*push_cmd(t_list *list, char **cmd)
+{
+  t_cmd        	*new;
+
+  if ((new = malloc(sizeof(t_cmd))) == NULL
+      || list == NULL)
+    return (NULL);
+  new->cmd = cmd;
+  new->next = NULL;
+  if (list->tail == NULL)
+    {
+      new->prev = NULL;
+      list->head = new;
+      list->tail = new;
     }
   else
     {
-      list->tail->next = cmd;
-      cmd->prev = list->tail;
-      list->tail = cmd;
+      list->tail->next = new;
+      new->prev = list->tail;
+      list->tail = new;
     }
   return (list);
 }

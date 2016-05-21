@@ -38,6 +38,8 @@ SRC		=		sources/main.c					\
 				sources/linked_list/free_fighter.c		\
 				sources/parsing/get_cmd.c			\
 				sources/parsing/cmd_to_tab.c			\
+				sources/parsing/cmdtab_func.c			\
+				sources/linked_list/list_cmd.c		\
 
 OBJ		=		$(SRC:.c=.o)
 
