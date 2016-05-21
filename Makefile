@@ -5,7 +5,7 @@
 ## Login   <saint-_o@epitech.net>
 ##
 ## Started on  Wed May 18 04:15:48 2016 boris saint-bonnet
-## Last update Sun May 22 00:11:34 2016 Lucas Gambini
+## Last update Sun May 22 01:03:06 2016 Lucas Gambini
 ##
 
 CC		=		gcc -g -g3
@@ -33,21 +33,21 @@ SRC		=		sources/main.c					\
 				sources/parsing/double.c			\
 				sources/parsing/pre_check.c			\
 				sources/parsing/my_strcut.c			\
-				sources/utils/get_next_line.c			\
-				sources/env/my_env_in_list.c			\
-				sources/linked_list/linked_list.c		\
-				sources/env/print_env.c				\
-				sources/utils/string.c				\
-				sources/path/path_to_list.c                     \
-                                sources/path/print_path.c                       \
-                                sources/parsing/my_strtok.c                     \
-				sources/parsing/check_bquotes.c			\
-				sources/parsing/simple.c			\
-				sources/linked_list/free_fighter.c		\
 				sources/parsing/get_cmd.c			\
 				sources/parsing/cmd_to_tab.c			\
 				sources/parsing/cmdtab_func.c			\
-				sources/linked_list/list_cmd.c		\
+                                sources/parsing/my_strtok.c                     \
+				sources/parsing/check_bquotes.c			\
+				sources/parsing/simple.c			\
+				sources/utils/get_next_line.c			\
+				sources/utils/string.c				\
+				sources/linked_list/linked_list.c		\
+				sources/linked_list/free_fighter.c		\
+				sources/linked_list/list_cmd.c			\
+				sources/env/my_env_in_list.c			\
+				sources/env/print_env.c				\
+				sources/path/path_to_list.c                     \
+                                sources/path/print_path.c                       \
 
 OBJ		=		$(SRC:.c=.o)
 
