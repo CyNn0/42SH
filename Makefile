@@ -5,7 +5,7 @@
 ## Login   <saint-_o@epitech.net>
 ##
 ## Started on  Wed May 18 04:15:48 2016 boris saint-bonnet
-## Last update Sat May 21 00:36:46 2016 Lucas Gambini
+## Last update Sun May 22 00:11:34 2016 Lucas Gambini
 ##
 
 CC		=		gcc -g -g3
@@ -13,6 +13,14 @@ CC		=		gcc -g -g3
 RM		=		rm -f
 
 PLZ		=		echo PLS
+
+ECHO            =       	/bin/echo -e
+DEFAULT         =       	"\033[00m"
+GREEN           =       	"\033[0;32m"
+TEAL            =       	"\033[1;36m"
+RED             =       	"\033[5;31m"
+YELLOW          =       	"\033[1;33m"
+FINISH          =       	"\033[5;1;35m"
 
 NAME		=		42sh
 
@@ -55,5 +63,10 @@ fclean:				clean
 				$(RM) $(NAME)
 
 re:				fclean all
+
+%.o:				%.c
+		                @$(CC) $(CFLAGS) -c $^ -o $@ && \
+		                $(ECHO) $(GREEN) "[OK]   " $(TEAL) $^ $(DEFAULT) ||\
+	        	        $(ECHO) $(RED) "[ERROR]" $(TEAL) $^ $(DEFAULT)
 
 .PHONY:				all clean fclean re
