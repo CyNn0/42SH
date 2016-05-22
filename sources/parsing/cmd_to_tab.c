@@ -5,7 +5,7 @@
 ** Login   <gambin_l@epitech.net>
 **
 ** Started on  Sat May 21 08:49:15 2016 Lucas Gambini
-** Last update Sun May 22 00:58:47 2016 Lucas Gambini
+** Last update Sun May 22 02:20:03 2016 Lucas Gambini
 */
 
 # include "42.h"
@@ -22,7 +22,8 @@ int		count_seg_nbr(char *line, char sp1, char sp2, char sp3)
       if (line[i] == sp1 || line[i] == sp2 || line[i] == sp3)
 	{
 	  flag++;
-	  while (line[i] == sp1 || line[i] == sp2 || line[i] == sp3)
+	  while ((line[i] == sp1 || line[i] == sp2 || line[i] == sp3)
+		 && line[i + 1])
 	    i++;
 	}
     }
