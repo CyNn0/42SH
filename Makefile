@@ -5,7 +5,7 @@
 ## Login   <saint-_o@epitech.net>
 ##
 ## Started on  Wed May 18 04:15:48 2016 boris saint-bonnet
-## Last update Mon May 23 17:50:22 2016 Lucas Gambini
+## Last update Mon May 23 18:37:34 2016 boris saint-bonnet
 ##
 
 CC		=		gcc -g -g3
@@ -50,6 +50,8 @@ SRC		=		sources/main.c					\
 				sources/env/print_env.c				\
 				sources/path/path_to_list.c                     \
                                 sources/path/print_path.c                       \
+				sources/redirect/simple_right.c			\
+				sources/redirect/double_right.c			\
 
 OBJ		=		$(SRC:.c=.o)
 
