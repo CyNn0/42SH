@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 ** 
 ** Started on  Fri May 20 07:31:51 2016 boris saint-bonnet
-** Last update Mon May 23 16:41:46 2016 boris saint-bonnet
+** Last update Mon May 23 17:11:21 2016 cyril puccio
 */
 
 # include "42.h"
@@ -60,4 +60,12 @@ int     triple(char *s)
     }
   free(sep);
   return (0);
+}
+
+int	check_error(char *s)
+{
+  if (s[0] != '&')
+    if (triple(s) == - 1 || s[0] == '|')
+      write (2, "Invalid null command.\n", strlen("Invalid null command.\n"));
+  return (-1);
 }
