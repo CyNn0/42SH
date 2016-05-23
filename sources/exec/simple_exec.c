@@ -5,10 +5,10 @@
 ** Login   <puccio_c@epitech.net>
 **
 ** Started on  Mon May 23 13:05:23 2016 cyril puccio
-** Last update Mon May 23 20:30:04 2016 boris saint-bonnet
+** Last update Mon May 23 20:38:07 2016 Philippe Lefevre
 */
 
-#include	"42.h"
+#include		"42.h"
 
 void			print_signal_message(int status)
 {
@@ -38,7 +38,7 @@ void			print_signal_message(int status)
     }
 }
 
- int		xwaitpid(int pid, int status, int opt)
+ int			xwaitpid(int pid, int status, int opt)
 {
   int			ret;
 
@@ -52,7 +52,7 @@ void			print_signal_message(int status)
   return (ret);
 }
 
-static char		*parsing_cmd_exec_find_path(t_path *path, char *bin)
+char			*exec_find_path(t_path *path, char *bin)
 {
   t_node		*tmp;
   char			*cmd;
@@ -60,7 +60,8 @@ static char		*parsing_cmd_exec_find_path(t_path *path, char *bin)
   tmp = path->head;
   while (tmp != NULL)
     {
-      cmd = malloc(strlen(tmp->data) + strlen(bin) + 2);
+      if ((cmd = malloc(strlen(tmp->data) + strlen(bin) + 2)) == NULL)
+	 return (NULL);
       cmd = strcpy(cmd, tmp->data);
       cmd = strcat(cmd, "/");
       cmd = strcat(cmd, bin);
@@ -82,7 +83,8 @@ int			simple_exec(t_cmd *cmd, t_path *path, char **env)
 
   if (path->head->data != NULL)
     {
-      cmd->cmd[0] = parsing_cmd_exec_find_path(path, cmd->cmd[0]);
+      if ((cmd->cmd[0] = exec_find_path(path, cmd->cmd[0])) == NULL)
+	return (FAILURE);
       if ((pid = fork()) == -1)
 	fprintf(stderr, "Error: Fork Failed\n");
       else if (pid == 0)
