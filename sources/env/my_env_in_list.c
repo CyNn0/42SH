@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Thu May 19 19:23:14 2016 boris saint-bonnet
-** Last update Mon May 23 16:57:07 2016 Gambini Lucas
+** Last update Mon May 23 17:14:50 2016 Gambini Lucas
 */
 
 # include "42.h"
@@ -33,6 +33,7 @@ int		envlen(t_env *myEnv)
     while (tmp)
       {
 	i++;
+	printf("%d --> %s$\n", i, tmp->data);
 	tmp = tmp->next;
       }
     return (i);
@@ -41,9 +42,10 @@ int		envlen(t_env *myEnv)
 char		**extract_env(t_env *myEnv)
 {
     char	**env;
+    int		envlen;
 
-    printf("%d\n", envlen(myEnv));
-    if ((env = malloc(sizeof(char *) * (envlen(myEnv)))) == NULL)
+    envlen = envlen(myEnv));
+    if ((env = malloc(sizeof(char *) * envlen)) == NULL)
       return (NULL);
     return (env);
 }
