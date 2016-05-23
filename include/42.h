@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 18 04:20:11 2016 boris saint-bonnet
-** Last update Sat May 21 23:35:56 2016 Lucas Gambini
+** Last update Mon May 23 17:42:18 2016 boris saint-bonnet
 */
 
 #ifndef		__42_H__
@@ -14,8 +14,8 @@
 /*
 ** DEFINE
 */
-# define SUCCESs	0
-# define ERROR		1
+# define SUCCESS	10
+# define ERROR		-1
 # define BLACK		"\033[1;30m"
 # define RED		"\033[1;31m"
 # define GREEN		"\033[1;32m"
@@ -25,6 +25,7 @@
 # define CYAN		"\033[1;36m"
 # define GREY		"\033[1;37m"
 # define DEFAULT	"\033[0;m"
+# define ERRNO          (perror("Error; "))
 
 /*
 ** INCLUDES
