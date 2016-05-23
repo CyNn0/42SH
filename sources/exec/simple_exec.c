@@ -5,7 +5,7 @@
 ** Login   <lefevr_h@epitech.net>
 **
 ** Started on  Mon May 23 23:00:09 2016 Philippe Lefevre
-** Last update Mon May 23 23:06:44 2016 Philippe Lefevre
+** Last update Mon May 23 23:49:35 2016 Philippe Lefevre
 */
 
 #include		"42.h"
@@ -44,7 +44,7 @@ void			print_signal_message(int status)
 
   ret = waitpid(pid, &status, opt);
   if (ret == -1)
-    fprintf(stderr, "Can't perfom waitpid (pid = %d)\n", pid);
+    fprintf(stderr, "Error: %s\n", strerror(errno));
   if (WIFEXITED(status))
     status = WEXITSTATUS(status);
   else
@@ -87,9 +87,12 @@ int			simple_exec(t_cmd *cmd, t_path *path, char **env)
       if (!(access(cmd->cmd[0], X_OK)))
 	{
 	  if ((pid = fork()) == -1)
-	    fprintf(stderr, "Error: Fork Failed\n");
+	    fprintf(stderr, "Error: %s\n", strerror(errno));
 	  else if (pid == 0)
-	    execve(cmd->cmd[0], cmd->cmd, env);
+	    {
+	      execve(cmd->cmd[0], cmd->cmd, env);
+	      fprintf(stderr, "Error: %s\n", strerror(errno));
+	    }
 	  else
 	    xwaitpid(pid, 0, 0); /* setenv $? avec le retour de la fonction */
 	  return (SUCCESS);
