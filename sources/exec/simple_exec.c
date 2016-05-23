@@ -5,7 +5,7 @@
 ** Login   <puccio_c@epitech.net>
 **
 ** Started on  Mon May 23 13:05:23 2016 cyril puccio
-** Last update Mon May 23 20:38:07 2016 Philippe Lefevre
+** Last update Mon May 23 20:59:51 2016 Philippe Lefevre
 */
 
 #include		"42.h"
@@ -85,7 +85,7 @@ int			simple_exec(t_cmd *cmd, t_path *path, char **env)
     {
       if ((cmd->cmd[0] = exec_find_path(path, cmd->cmd[0])) == NULL)
 	return (FAILURE);
-      if ((pid = fork()) == -1)
+      if ((pid = vfork()) == -1)
 	fprintf(stderr, "Error: Fork Failed\n");
       else if (pid == 0)
 	{
@@ -93,7 +93,7 @@ int			simple_exec(t_cmd *cmd, t_path *path, char **env)
 	  my_exit(status);
 	}
       else
-	xwaitpid(pid, 0, 0);
+	xwaitpid(pid, 0, 0); /* setenv $? avec le retour de la fonction */
       if (!(access(cmd->cmd[0], F_OK)) && !((access(cmd->cmd[0], X_OK))))
 	  return (SUCCESS);
     }
