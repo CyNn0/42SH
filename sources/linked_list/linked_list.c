@@ -5,12 +5,12 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Thu May 19 18:53:01 2016 boris saint-bonnet
-** Last update Fri May 20 05:47:45 2016 Lucas Gambini
+** Last update Mon May 23 19:00:31 2016 boris saint-bonnet
 */
 
 # include "42.h"
 
-t_list *create_list(t_list *list)
+t_list		*create_list(t_list *list)
 {
   if ((list = malloc(sizeof(*list))) == NULL)
     return (NULL);
@@ -85,7 +85,7 @@ t_list		*push_path(t_list *list, char *data)
   return (list);
 }
 
-char	*find_user(t_list *list, char *str)
+char		*find_user(t_list *list, char *str)
 {
   t_node        *tmp;
 
