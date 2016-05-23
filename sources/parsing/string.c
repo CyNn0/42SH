@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 18 04:31:16 2016 boris saint-bonnet
-** Last update Mon May 23 17:33:37 2016 Gambini Lucas
+** Last update Mon May 23 18:00:12 2016 Gambini Lucas
 */
 
 # include "42.h"
@@ -25,28 +25,6 @@ char    *my_strcatenv(char *path, char *command)
   while (path[++i] != '\0')
     ret[i] = path[i];
   ret[i++] = '=';
-  j = 0;
-  while (command[j] != '\0')
-    ret[i++] = command[j++];
-  ret[i] = '\0';
-  return (ret);
-}
-
-char    *my_strcatc(char *path, char *command)
-{
-  char  *ret;
-  int   i;
-  int   j;
-
-  if (path == NULL || command == NULL)
-    return (NULL);
-  if ((ret = malloc(sizeof(char) * (strlen(path) +
-				    strlen(command) + 2))) == NULL)
-    return (NULL);
-  i = -1;
-  while (path[++i] != '\0')
-    ret[i] = path[i];
-  ret[i++] = ' ';
   j = 0;
   while (command[j] != '\0')
     ret[i++] = command[j++];

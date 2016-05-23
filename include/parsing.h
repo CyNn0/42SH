@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Fri May 20 07:33:52 2016 boris saint-bonnet
-** Last update Mon May 23 16:53:41 2016 cyril puccio
+** Last update Mon May 23 17:54:32 2016 Gambini Lucas
 */
 
 # ifndef __PARSING_H__
@@ -16,6 +16,7 @@ int     triple(char *s);
 int	check_bquotes(char *str);
 int	check_error(char *s);
 char    *my_strcatc(char *path, char *command, int cond, int bool);
+char    *my_strcatenv(char *path, char *command);
 char	*my_bquotes(char *str);
 char    *doubles(char *s, char c);
 char    *simples(char *s, char c);

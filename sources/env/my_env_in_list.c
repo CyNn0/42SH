@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Thu May 19 19:23:14 2016 boris saint-bonnet
-** Last update Mon May 23 17:14:50 2016 Gambini Lucas
+** Last update Mon May 23 18:21:50 2016 Gambini Lucas
 */
 
 # include "42.h"
@@ -18,7 +18,7 @@ int	get_name(char *name)
   while (name[++i])
     if (name[i] == '=')
       return (i);
-  return (0);
+  return (SUCCESS);
 }
 
 int		envlen(t_env *myEnv)
@@ -33,7 +33,6 @@ int		envlen(t_env *myEnv)
     while (tmp)
       {
 	i++;
-	printf("%d --> %s$\n", i, tmp->data);
 	tmp = tmp->next;
       }
     return (i);
@@ -42,11 +41,21 @@ int		envlen(t_env *myEnv)
 char		**extract_env(t_env *myEnv)
 {
     char	**env;
-    int		envlen;
+    t_node	*tmp;
+    int		len;
+    int		i;
 
-    envlen = envlen(myEnv));
-    if ((env = malloc(sizeof(char *) * envlen)) == NULL)
+    len = envlen(myEnv);
+    i = -1;
+    tmp = myEnv->head;
+    if ((env = malloc(sizeof(char *) * (len + 1))) == NULL)
       return (NULL);
+    env[len] = NULL;
+    while (++i < len)
+      {
+	env[i] = my_strcatenv(tmp->name, tmp->data);
+	tmp = tmp->next;
+      }
     return (env);
 }
 
