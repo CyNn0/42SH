@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 18 04:22:31 2016 boris saint-bonnet
-** Last update Sun May 22 00:48:35 2016 Lucas Gambini
+** Last update Mon May 23 15:57:15 2016 Gambini Lucas
 */
 
 # ifndef __LINKED_LIST_H__
@@ -20,13 +20,14 @@
 # define DOUBLE_PIPE 3 /* double pipes */
 # define SIMPLE_AND 4 /* & simple */
 # define DOUBLE_AND 5 /* & double */
-
-/* MAYBE USELESS */
 # define SIMPLE_R 6 /* Simple redirection droite */
 # define SIMPLE_L 7 /* simple redirection gauche*/
 # define DOUBLE_R 8 /* double redirection droite */
 # define DOUBLE_L 9 /* double redirection gauche */
-/* MAYBE USELESS */
+
+typedef char    bool;
+# define false 0
+# define true (!false);
 
 typedef struct          s_node
 {
@@ -61,7 +62,10 @@ typedef struct          s_cmd
   int			fdin;
   int			fdout;
   char			**cmd;
+  char			token;
   char			flag;
+  bool			is_built;
+  bool			go_on;
   struct s_cmd		*prev;
   struct s_cmd		*next;
 }                       t_cmd;
@@ -100,5 +104,6 @@ t_list	*get_cmd(t_list *cmd, char *line);
 t_list	*push_cmd(t_list *list, char **cmd);
 void	show_cmd_list(t_list *list);
 t_list	*free_cmd(t_list *list);
+t_list	*post_parser(t_list *list);
 
 # endif /* !__LINKED_LIST_H__ */
