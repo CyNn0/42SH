@@ -1,11 +1,11 @@
 /*
-** exec.c for exec in /home/puccio_c/rendu/minishell/42SH/sources/exec
+** simple_exec.c for 42SH in /home/lefevr_h/Workspace/Github/42SH/sources/exec
 **
-** Made by cyril puccio
-** Login   <puccio_c@epitech.net>
+** Made by Philippe Lefevre
+** Login   <lefevr_h@epitech.net>
 **
-** Started on  Mon May 23 13:05:23 2016 cyril puccio
-** Last update Mon May 23 22:55:25 2016 Philippe Lefevre
+** Started on  Mon May 23 23:00:09 2016 Philippe Lefevre
+** Last update Mon May 23 23:06:44 2016 Philippe Lefevre
 */
 
 #include		"42.h"
