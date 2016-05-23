@@ -1,11 +1,11 @@
 /*
-** get_next_line.c for  in /home/xx/Rendu/PSU/42SH
-** 
-** Made by boris saint-bonnet
-** Login   <saint-_o@epitech.net>
-** 
-** Started on  Fri May 20 04:47:07 2016 boris saint-bonnet
-** Last update Fri May 20 04:47:43 2016 boris saint-bonnet
+** get_next_line.c for 42SH in /home/lefevr_h/Workspace/Github/42SH/sources/utils
+**
+** Made by Philippe Lefevre
+** Login   <lefevr_h@epitech.net>
+**
+** Started on  Mon May 23 18:57:18 2016 Philippe Lefevre
+** Last update Mon May 23 18:57:21 2016 Philippe Lefevre
 */
 
 #include		"get_next_line.h"
