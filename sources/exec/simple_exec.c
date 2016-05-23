@@ -5,7 +5,7 @@
 ** Login   <puccio_c@epitech.net>
 **
 ** Started on  Mon May 23 13:05:23 2016 cyril puccio
-** Last update Mon May 23 20:12:30 2016 Philippe Lefevre
+** Last update Mon May 23 20:26:58 2016 boris saint-bonnet
 */
 
 #include	"42.h"
@@ -38,7 +38,7 @@ void			print_signal_message(int status)
     }
 }
 
-int			xwaitpid(int pid, int status, int opt)
+static int		xwaitpid(int pid, int status, int opt)
 {
   int			ret;
 
@@ -93,7 +93,7 @@ int			simple_exec(t_cmd *cmd, t_path *path, char **env)
       else
 	xwaitpid(pid, 0, 0);
       if (!(access(cmd->cmd[0], F_OK)) && !((access(cmd->cmd[0], X_OK))))
-	  return (0);
+	  return (SUCCESS);
     }
-  return (-1);
+  return (FAILURE);
 }
