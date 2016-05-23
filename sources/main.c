@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 18 04:19:45 2016 boris saint-bonnet
-** Last update Sun May 22 01:48:53 2016 Lucas Gambini
+** Last update Mon May 23 17:01:15 2016 Gambini Lucas
 */
 
 # include "42.h"
@@ -24,7 +24,7 @@ int	shell(char *env[])
     {
       if ((list = get_cmd(list, pre_check(buffer))) == NULL)
 	return (-1);
-      /* INSERER EXEC ICI */
+      exec_scatter(list);
       list = free_cmd(list);
       print_prompt(list);
     }

@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Thu May 19 19:23:14 2016 boris saint-bonnet
-** Last update Mon May 23 11:14:59 2016 Lucas Gambini
+** Last update Mon May 23 16:57:07 2016 Gambini Lucas
 */
 
 # include "42.h"
@@ -19,6 +19,33 @@ int	get_name(char *name)
     if (name[i] == '=')
       return (i);
   return (0);
+}
+
+int		envlen(t_env *myEnv)
+{
+    int		i;
+    t_node	*tmp;
+
+    i = 0;
+    if (!myEnv->head || !myEnv->tail)
+      return (0);
+    tmp = myEnv->head;
+    while (tmp)
+      {
+	i++;
+	tmp = tmp->next;
+      }
+    return (i);
+}
+
+char		**extract_env(t_env *myEnv)
+{
+    char	**env;
+
+    printf("%d\n", envlen(myEnv));
+    if ((env = malloc(sizeof(char *) * (envlen(myEnv)))) == NULL)
+      return (NULL);
+    return (env);
 }
 
 t_list  *my_env_in_list(t_list *list, char **env)

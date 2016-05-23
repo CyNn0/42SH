@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 18 04:22:31 2016 boris saint-bonnet
-** Last update Mon May 23 15:57:15 2016 Gambini Lucas
+** Last update Mon May 23 17:00:32 2016 Gambini Lucas
 */
 
 # ifndef __LINKED_LIST_H__
@@ -105,5 +105,7 @@ t_list	*push_cmd(t_list *list, char **cmd);
 void	show_cmd_list(t_list *list);
 t_list	*free_cmd(t_list *list);
 t_list	*post_parser(t_list *list);
+char	**extract_env(t_env *myEnv);
+int	exec_scatter(t_list *list);
 
 # endif /* !__LINKED_LIST_H__ */
