@@ -5,7 +5,7 @@
 ** Login   <puccio_c@epitech.net>
 **
 ** Started on  Mon May 23 13:05:23 2016 cyril puccio
-** Last update Mon May 23 20:26:58 2016 boris saint-bonnet
+** Last update Mon May 23 20:30:04 2016 boris saint-bonnet
 */
 
 #include	"42.h"
@@ -38,7 +38,7 @@ void			print_signal_message(int status)
     }
 }
 
-static int		xwaitpid(int pid, int status, int opt)
+ int		xwaitpid(int pid, int status, int opt)
 {
   int			ret;
 
