@@ -5,7 +5,7 @@
 ** Login   <gambin_l@epitech.net>
 **
 ** Started on  Mon May 23 16:43:07 2016 Lucas Gambini
-** Last update Mon May 23 19:27:53 2016 Gambini Lucas
+** Last update Mon May 23 21:46:44 2016 Gambini Lucas
 */
 
 #include "42.h"
@@ -27,5 +27,6 @@ int	exec_scatter(t_list *list)
 		      : ((simple_exec(tmp, list->path, env))))));
       tmp = tmp->next;
     }
+  free_tab(env);
   return (SUCCESS);
 }
