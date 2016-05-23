@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 ** 
 ** Started on  Mon May 23 16:49:33 2016 boris saint-bonnet
-** Last update Mon May 23 19:08:50 2016 boris saint-bonnet
+** Last update Mon May 23 19:13:46 2016 boris saint-bonnet
 */
 
 # include "42.h"
@@ -58,6 +58,6 @@ t_right		parsing_dr(char **cmd)
 	  var.flag = 1;
 	  break;
 	}
-      return (var);
     }
+  return (var);
 }

@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 18 04:22:31 2016 boris saint-bonnet
-** Last update Mon May 23 18:53:34 2016 boris saint-bonnet
+** Last update Mon May 23 19:13:16 2016 boris saint-bonnet
 */
 
 # ifndef __LINKED_LIST_H__
@@ -88,7 +88,7 @@ typedef struct		s_history
 typedef struct		s_right
 {
   char			*name;
-  int			*cmd;
+  char			*cmd;
   int			flag;
 }			t_right;
 
