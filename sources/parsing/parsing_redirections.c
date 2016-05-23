@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 ** 
 ** Started on  Mon May 23 16:49:33 2016 boris saint-bonnet
-** Last update Mon May 23 18:58:42 2016 boris saint-bonnet
+** Last update Mon May 23 19:08:50 2016 boris saint-bonnet
 */
 
 # include "42.h"
@@ -22,13 +22,13 @@ t_right		parsing_sr(char **cmd)
 	var.name = strdup(cmd[++i]);
       if (i == 1)
 	{
-	  var.cmd = strdup(cmd->cmd[2]);
+	  var.cmd = strdup(cmd[2]);
 	  var.flag = 3;
 	  break;
 	}
       else
 	{
-	  var.cmd = strdup(cmd->cmd[0]);
+	  var.cmd = strdup(cmd[0]);
 	  var.flag = 1;
 	  break;
 	}
@@ -48,13 +48,13 @@ t_right		parsing_dr(char **cmd)
 	var.name = strdup(cmd[++i]);
       if (i == 1)
 	{
-	  var.cmd = strdup(cmd->cmd[2]);
+	  var.cmd = strdup(cmd[2]);
 	  var.flag = 3;
 	  break;
 	}
       else
 	{
-	  var.cmd = strdup(cmd->cmd[0]);
+	  var.cmd = strdup(cmd[0]);
 	  var.flag = 1;
 	  break;
 	}
