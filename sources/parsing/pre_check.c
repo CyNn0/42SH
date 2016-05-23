@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 18 04:54:23 2016 boris saint-bonnet
-** Last update Sun May 22 00:02:19 2016 Lucas Gambini
+** Last update Mon May 23 12:30:21 2016 boris saint-bonnet
 */
 
 # include "42.h"
@@ -67,7 +67,7 @@ char	*pre_check(char *s)
 {
   char  *ret;
 
-  ret = strdup(s);
+  ret = clean_str(s);
   free(s);
   if (triple(ret) == -1)
     {
@@ -84,5 +84,6 @@ char	*pre_check(char *s)
   ret = doubles(ret, '&');
   ret = doubles(ret, ';');
   ret = doubles(ret, '|');
-  return (clean_str(ret));
+  printf("ret : %s\n", ret);
+  return (ret);
 }

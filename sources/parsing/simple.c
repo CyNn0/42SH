@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 ** 
 ** Started on  Fri May 20 07:28:50 2016 boris saint-bonnet
-** Last update Sat May 21 01:37:29 2016 boris saint-bonnet
+** Last update Mon May 23 14:14:03 2016 boris saint-bonnet
 */
 
 #include "42.h"
@@ -13,7 +13,6 @@
 char    *simples(char *s, char c)
 {
   t_pars        var;
-
   var.ret = strdup(s);
   free(s);
   while ((check_finish(var.ret, c, 1) == -1))

@@ -5,12 +5,12 @@
 ** Login   <gambin_l@epitech.net>
 **
 ** Started on  Fri May 20 06:28:24 2016 Lucas Gambini
-** Last update Sun May 22 00:57:27 2016 Lucas Gambini
+** Last update Mon May 23 12:17:01 2016 boris saint-bonnet
 */
 
 # include "42.h"
 
-char		get_flag(char *seg, char *line)
+char		get_token(char *seg, char *line)
 {
   int		i;
 
@@ -41,7 +41,13 @@ t_list		*set_cmd(t_list *list, char **tab, char *line)
       if ((cmdtab = cmd_to_tab(tab[i], ' ', ' ', ' ')) == NULL
 	  || ((list = push_cmd(list, cmdtab))) == NULL)
 	return (list);
-      list->tail->flag = get_flag(tab[i], line);
+      list->tail->token = get_token(tab[i], line);
+      list->tail->fdin = -1;
+      list->tail->fdout = -1;
+      if (list->tail->token == PIPE)
+	list->tail->fdout = 1;
+      if (list->tail->prev != NULL && list->tail->prev->token == PIPE)
+	list->tail->fdin = 1;
       free(tab[i]);
     }
   free(tab);
@@ -56,6 +62,8 @@ t_list		*get_cmd(t_list *list, char *line)
     return (NULL);
   tab = clean_tab(tab);
   list = set_cmd(list, tab, line);
+  list = post_parser(list);
+  show_tab(list->head->cmd);
   show_cmd_list(list);
   free(line);
   return (list);
