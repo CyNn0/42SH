@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 18 04:20:11 2016 boris saint-bonnet
-** Last update Mon May 23 19:11:54 2016 boris saint-bonnet
+** Last update Mon May 23 19:26:00 2016 Gambini Lucas
 */
 
 #ifndef		__42_H__
@@ -38,6 +38,7 @@
 # include	<string.h>
 # include	<sys/types.h>
 # include	<sys/stat.h>
+# include	<sys/wait.h>
 # include	<fcntl.h>
 # include	<stdlib.h>
 # include	<unistd.h>
@@ -45,6 +46,7 @@
 # include	"get_next_line.h"
 # include	"linked_list.h"
 # include	"parsing.h"
+# include	"exec.h"
 /*
 ** STRUCTURES
 */
