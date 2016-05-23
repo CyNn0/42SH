@@ -43,7 +43,8 @@ SRC		=		sources/main.c					\
 				sources/parsing/post_parser.c			\
 				sources/parsing/scatter.c			\
 				sources/parsing/string.c			\
-				sources/utils/get_next_line.c			\
+				sources/misc/get_next_line.c			\
+				sources/misc/exit.c				\
 				sources/linked_list/linked_list.c		\
 				sources/linked_list/free_fighter.c		\
 				sources/linked_list/list_cmd.c			\
