@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 18 04:20:11 2016 boris saint-bonnet
-** Last update Mon May 23 17:43:30 2016 boris saint-bonnet
+** Last update Mon May 23 17:54:52 2016 boris saint-bonnet
 */
 
 #ifndef		__42_H__
@@ -25,7 +25,9 @@
 # define CYAN		"\033[1;36m"
 # define GREY		"\033[1;37m"
 # define DEFAULT	"\033[0;m"
-# define ERRNO          (perror("Error; "))
+# define ERRNO          perror("Error; ")
+# define __SIMPLE	O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH
+# define __DOUBLE	O_WRONLY | O_CREAT | O_APPEND, S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH
 
 /*
 ** INCLUDES
