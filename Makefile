@@ -5,7 +5,7 @@
 ## Login   <saint-_o@epitech.net>
 ##
 ## Started on  Wed May 18 04:15:48 2016 boris saint-bonnet
-## Last update Sun May 22 08:41:06 2016 boris saint-bonnet
+## Last update Sun May 22 01:03:06 2016 Lucas Gambini
 ##
 
 CC		=		gcc -g -g3
@@ -32,10 +32,8 @@ SRC		=		sources/main.c					\
 				sources/parsing/check_error.c			\
 				sources/parsing/double.c			\
 				sources/parsing/pre_check.c			\
-				sources/parsing/set_exec.c			\
 				sources/parsing/my_strcut.c			\
 				sources/parsing/get_cmd.c			\
-				sources/parsing/post_pars_cmd.c			\
 				sources/parsing/cmd_to_tab.c			\
 				sources/parsing/cmdtab_func.c			\
                                 sources/parsing/my_strtok.c                     \
@@ -43,7 +41,6 @@ SRC		=		sources/main.c					\
 				sources/parsing/simple.c			\
 				sources/utils/get_next_line.c			\
 				sources/utils/string.c				\
-				sources/utils/tab_lenght.c			\
 				sources/linked_list/linked_list.c		\
 				sources/linked_list/free_fighter.c		\
 				sources/linked_list/list_cmd.c			\

@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 18 04:22:31 2016 boris saint-bonnet
-** Last update Mon May 23 14:22:25 2016 boris saint-bonnet
+** Last update Sun May 22 00:48:35 2016 Lucas Gambini
 */
 
 # ifndef __LINKED_LIST_H__
@@ -21,10 +21,6 @@
 # define SIMPLE_AND 4 /* & simple */
 # define DOUBLE_AND 5 /* & double */
 
-typedef char	bool;
-
-# define false 0
-#define true (!false);
 /* MAYBE USELESS */
 # define SIMPLE_R 6 /* Simple redirection droite */
 # define SIMPLE_L 7 /* simple redirection gauche*/
@@ -65,9 +61,7 @@ typedef struct          s_cmd
   int			fdin;
   int			fdout;
   char			**cmd;
-  char		        token;
   char			flag;
-  bool			is_buil;
   struct s_cmd		*prev;
   struct s_cmd		*next;
 }                       t_cmd;
@@ -106,6 +100,5 @@ t_list	*get_cmd(t_list *cmd, char *line);
 t_list	*push_cmd(t_list *list, char **cmd);
 void	show_cmd_list(t_list *list);
 t_list	*free_cmd(t_list *list);
-char	**set_exec(t_cmd *cmd);
 
 # endif /* !__LINKED_LIST_H__ */

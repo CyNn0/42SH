@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 ** 
 ** Started on  Fri May 20 07:31:51 2016 boris saint-bonnet
-** Last update Mon May 23 14:18:40 2016 boris saint-bonnet
+** Last update Fri May 20 08:08:24 2016 boris saint-bonnet
 */
 
 # include "42.h"
@@ -20,7 +20,7 @@ int     check_finish(char *s, char c, int nb)
   if (nb == 1)
     {
       while (s[++i])
-	if (i > 0 && s[i] == c && s[i + 1] && s[i + 1] != c &&
+	if (s[i] == c && s[i - 1] && s[i + 1] != c &&
 	    s[i - 1] && s[i - 1] != c)
 	  if (s[i + 1] != ' ' || s[i - 1] != ' ')
 	    ok++;
@@ -28,7 +28,7 @@ int     check_finish(char *s, char c, int nb)
   if (nb == 2)
     {
       while (s[++i])
-	if (s[i] == c && s[i + 1] && s[i + 1] == c && s[i - 1] && s[i - 1] != c)
+	if (s[i] == c && s[i + 1] && s[i + 1] == c && s[i - 1])
 	  if (s[i - 1] != ' ' || s[i + 2] != ' ')
 	    ok++;
     }
