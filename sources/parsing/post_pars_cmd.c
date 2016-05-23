@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 ** 
 ** Started on  Sun May 22 04:40:04 2016 boris saint-bonnet
-** Last update Mon May 23 14:23:11 2016 boris saint-bonnet
+** Last update Mon May 23 14:28:13 2016 boris saint-bonnet
 */
 
 # include "42.h"
@@ -45,12 +45,8 @@ char		**set_exec(t_cmd *cmd)
     {
       if (cmd->flag == SIMPLE_R)
         return (cmd->cmd = set_sr(cmd->cmd));
-      /* if (cmd->flag == DOUBLE_R) */
-      /* 	return (res = set_dr(cmd->cmd, tab_lenght(cmd->cmd))); */
-      /* if (cmd->flag == SIMPLE_L) */
-      /* 	return (res = set_sl(cmd->cmd, tab_lenght(cmd->cmd))); */
-      /* if (cmd->flag == DOUBLE_L) */
-      /* 	return (res = set_dl(cmd->cmd, tab_lenght(cmd->cmd) + 1)); */
+      if (cmd->flag == DOUBLE_R)
+      	return (cmd->cmd = set_dr(cmd->cmd));
     }
   return(cmd->cmd);
 }
