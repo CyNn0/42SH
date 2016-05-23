@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 18 04:22:31 2016 boris saint-bonnet
-** Last update Mon May 23 18:50:36 2016 boris saint-bonnet
+** Last update Mon May 23 18:53:34 2016 boris saint-bonnet
 */
 
 # ifndef __LINKED_LIST_H__
@@ -92,6 +92,9 @@ typedef struct		s_right
   int			flag;
 }			t_right;
 
+
+t_right  parsing_sr(char **cmd);
+t_right  parsing_dr(char **cmd);
 t_list  *create_list(t_list *list);
 t_list  *push(t_list *list, t_cmd *cmd);
 t_list  *push_env(t_list *list, char *data, char *name);

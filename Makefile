@@ -5,7 +5,7 @@
 ## Login   <saint-_o@epitech.net>
 ##
 ## Started on  Wed May 18 04:15:48 2016 boris saint-bonnet
-## Last update Mon May 23 18:37:34 2016 boris saint-bonnet
+## Last update Mon May 23 18:52:54 2016 boris saint-bonnet
 ##
 
 CC		=		gcc -g -g3
@@ -38,6 +38,7 @@ SRC		=		sources/main.c					\
 				sources/parsing/cmdtab_func.c			\
                                 sources/parsing/my_strtok.c                     \
 				sources/parsing/check_bquotes.c			\
+				sources/parsing/parsing_redirection.c		\
 				sources/parsing/simple.c			\
 				sources/parsing/post_parser.c			\
 				sources/parsing/scatter.c			\
