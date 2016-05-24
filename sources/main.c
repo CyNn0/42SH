@@ -5,34 +5,34 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 18 04:19:45 2016 boris saint-bonnet
-** Last update Mon May 23 18:15:57 2016 Gambini Lucas
+** Last update Mon May 23 23:39:52 2016 Philippe Lefevre
 */
 
-# include "42.h"
+#include		"42.h"
 
-int	shell(char *env[])
+int			shell(char *env[])
 {
-  char		*buffer;
-  t_list	*list;
+  char			*buffer;
+  t_list		*list;
 
   list = NULL;
   if ((list = my_env_in_list(list, env)) == NULL)
-    return (-1);
+    return (FAILURE);
   print_prompt(list);
   path_to_list(list);
   while ((buffer = get_next_line(0)))
     {
       if ((list = get_cmd(list, pre_check(buffer))) == NULL)
-	return (-1);
+	return (FAILURE);
       exec_scatter(list);
       list = free_cmd(list);
       print_prompt(list);
     }
   free_fighter(list);
-  return (0);
+  return (SUCCESS);
 }
 
-int	main(int ac, char *av[], char *env[])
+int			main(int ac, char **av, char **env)
 {
   (void)ac;
   (void)av;

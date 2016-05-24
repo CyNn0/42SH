@@ -1,14 +1,14 @@
 /*
-** exec.c for exec in /home/puccio_c/rendu/minishell/42SH/sources/exec
+** simple_exec.c for 42SH in /home/lefevr_h/Workspace/Github/42SH/sources/exec
 **
-** Made by cyril puccio
-** Login   <puccio_c@epitech.net>
+** Made by Philippe Lefevre
+** Login   <lefevr_h@epitech.net>
 **
-** Started on  Mon May 23 13:05:23 2016 cyril puccio
-** Last update Mon May 23 20:12:30 2016 Philippe Lefevre
+** Started on  Mon May 23 23:00:09 2016 Philippe Lefevre
+** Last update Mon May 23 23:49:35 2016 Philippe Lefevre
 */
 
-#include	"42.h"
+#include		"42.h"
 
 void			print_signal_message(int status)
 {
@@ -38,13 +38,13 @@ void			print_signal_message(int status)
     }
 }
 
-int			xwaitpid(int pid, int status, int opt)
+ int			xwaitpid(int pid, int status, int opt)
 {
   int			ret;
 
   ret = waitpid(pid, &status, opt);
   if (ret == -1)
-    fprintf(stderr, "Can't perfom waitpid (pid = %d)\n", pid);
+    fprintf(stderr, "Error: %s\n", strerror(errno));
   if (WIFEXITED(status))
     status = WEXITSTATUS(status);
   else
@@ -52,7 +52,7 @@ int			xwaitpid(int pid, int status, int opt)
   return (ret);
 }
 
-static char		*parsing_cmd_exec_find_path(t_path *path, char *bin)
+char			*exec_find_path(t_path *path, char *bin)
 {
   t_node		*tmp;
   char			*cmd;
@@ -60,7 +60,8 @@ static char		*parsing_cmd_exec_find_path(t_path *path, char *bin)
   tmp = path->head;
   while (tmp != NULL)
     {
-      cmd = malloc(strlen(tmp->data) + strlen(bin) + 2);
+      if ((cmd = malloc(strlen(tmp->data) + strlen(bin) + 2)) == NULL)
+	 return (NULL);
       cmd = strcpy(cmd, tmp->data);
       cmd = strcat(cmd, "/");
       cmd = strcat(cmd, bin);
@@ -77,23 +78,25 @@ static char		*parsing_cmd_exec_find_path(t_path *path, char *bin)
 
 int			simple_exec(t_cmd *cmd, t_path *path, char **env)
 {
-  int			status;
   pid_t			pid;
 
   if (path->head->data != NULL)
     {
-      cmd->cmd[0] = parsing_cmd_exec_find_path(path, cmd->cmd[0]);
-      if ((pid = fork()) == -1)
-	fprintf(stderr, "Error: Fork Failed\n");
-      else if (pid == 0)
+      if ((cmd->cmd[0] = exec_find_path(path, cmd->cmd[0])) == NULL)
+	return (FAILURE);
+      if (!(access(cmd->cmd[0], X_OK)))
 	{
-	  status = execve(cmd->cmd[0], cmd->cmd, env);
-	  my_exit(status);
+	  if ((pid = fork()) == -1)
+	    fprintf(stderr, "Error: %s\n", strerror(errno));
+	  else if (pid == 0)
+	    {
+	      execve(cmd->cmd[0], cmd->cmd, env);
+	      fprintf(stderr, "Error: %s\n", strerror(errno));
+	    }
+	  else
+	    xwaitpid(pid, 0, 0); /* setenv $? avec le retour de la fonction */
+	  return (SUCCESS);
 	}
-      else
-	xwaitpid(pid, 0, 0);
-      if (!(access(cmd->cmd[0], F_OK)) && !((access(cmd->cmd[0], X_OK))))
-	  return (0);
     }
-  return (-1);
+  return (FAILURE);
 }

@@ -5,16 +5,18 @@
 ** Login   <Lucas Gambini@epitech.net>
 **
 ** Started on  Mon May 23 19:17:09 2016 Gambini Lucas
-** Last update Mon May 23 20:12:11 2016 Philippe Lefevre
+** Last update Mon May 23 23:36:30 2016 Philippe Lefevre
 */
 
-# ifndef __EXEC__
-#define __EXEC__
+#ifndef			_EXEC_H_
+# define		_EXEC_H_
 
-# include	<signal.h>
+# include		<signal.h>
 
-int		simple_exec(t_cmd *cmd, t_path *path, char **env);
-int		double_right(t_cmd *cmd, t_path *path, char **env);
-int		simple_right(t_cmd *cmd, t_path *path, char **env);
+char			*exec_find_path(t_path *path, char *bin);
 
-# endif /* __EXEC__ */
+int			simple_exec(t_cmd *cmd, t_path *path, char **env);
+int			double_right(t_cmd *cmd, t_path *path, char **env);
+int			simple_right(t_cmd *cmd, t_path *path, char **env);
+
+#endif			/* !_EXEC_H_ */
