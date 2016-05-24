@@ -5,7 +5,7 @@
 ** Login   <gambin_l@epitech.net>
 **
 ** Started on  Mon May 23 16:43:07 2016 Lucas Gambini
-** Last update Mon May 23 21:46:44 2016 Gambini Lucas
+** Last update Tue May 24 09:37:51 2016 Gambini Lucas
 */
 
 #include "42.h"
@@ -18,7 +18,7 @@ int	exec_scatter(t_list *list)
   tmp = list->head;
   env = extract_env(list->myEnv);
   (void)env;
-  while (tmp)
+  while (tmp && tmp->cmd[0])
     {
       (tmp->flag == SIMPLE_R) ? (simple_right(tmp, list->path, env))
 	  : ((tmp->flag == SIMPLE_L) ? (printf("SIMPLE_L\n"))

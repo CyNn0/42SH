@@ -5,7 +5,7 @@
 ** Login   <gambin_l@epitech.net>
 **
 ** Started on  Fri May 20 06:28:24 2016 Lucas Gambini
-** Last update Mon May 23 18:17:47 2016 Gambini Lucas
+** Last update Tue May 24 09:38:16 2016 Gambini Lucas
 */
 
 # include "42.h"
@@ -54,7 +54,7 @@ t_list		*get_cmd(t_list *list, char *line)
   char		**tab;
 
   if (line == NULL || (tab = cmd_to_tab(line, '|', ';', '&')) == NULL)
-    return (NULL);
+    return (list);
   tab = clean_tab(tab);
   list = set_cmd(list, tab, line);
   list = post_parser(list);

@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 18 04:54:23 2016 boris saint-bonnet
-** Last update Mon May 23 18:15:51 2016 Gambini Lucas
+** Last update Tue May 24 09:20:49 2016 Gambini Lucas
 */
 
 # include "42.h"
@@ -69,7 +69,7 @@ char	*pre_check(char *s)
 
   ret = strdup(s);
   free(s);
-  if (check_error(ret) == -1)
+  if (check_error(ret) == FAILURE)
     {
       free(ret);
       return (NULL);

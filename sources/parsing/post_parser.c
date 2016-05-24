@@ -5,7 +5,7 @@
 ** Login   <gambin_l@epitech.net>
 **
 ** Started on  Mon May 23 15:55:00 2016 Lucas Gambini
-** Last update	Mon May 23 16:11:52 2016 Full Name
+** Last update Tue May 24 09:34:50 2016 Gambini Lucas
 */
 
 #include "42.h"
@@ -14,6 +14,7 @@ void            check_flag(t_cmd *tmp)
 {
   char          *redirect;
   int           i;
+
   redirect = "><";
   i = -1;
   while (tmp->cmd[++i])
