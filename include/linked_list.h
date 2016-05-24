@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 18 04:22:31 2016 boris saint-bonnet
-** Last update Tue May 24 17:45:14 2016 Gambini Lucas
+** Last update Tue May 24 23:13:08 2016 boris saint-bonnet
 */
 
 # ifndef __LINKED_LIST_H__
@@ -109,6 +109,8 @@ int	get_name(char *name);
 int	print_path(t_list *list);
 char	*find_user(t_list *list, char *name);
 char    *find_path(t_list *list);
+void    init_double(char **cmd, t_right *var);
+void    init_var(char **cmd, t_right *var);
 void    print_prompt(t_list *list);
 void	free_fighter(t_list *list);
 t_list	*get_cmd(t_list *cmd, char *line);
