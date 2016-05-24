@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 ** 
 ** Started on  Mon May 23 18:34:11 2016 boris saint-bonnet
-** Last update Tue May 24 23:12:14 2016 boris saint-bonnet
+** Last update Wed May 25 01:04:10 2016 boris saint-bonnet
 */
 
 # include "42.h"
@@ -16,6 +16,8 @@ int             double_right(t_cmd *cmd, t_path *path, char **env)
   int           fd;
 
   init_double(cmd->cmd, &var);
+  if ((access(var.name, W_OK)) == -1)
+    __3RRN0()
   if ((fd = open(var.name, __DOUBLE)) == -1)
     return (FAILURE);
   exec_right(fd, path, env, var);
