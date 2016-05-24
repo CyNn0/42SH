@@ -1,11 +1,11 @@
 /*
 ** check_built.c for check_built in /home/puccio_c/rendu/minishell/42SH/sources/parsing
-** 
+**
 ** Made by cyril puccio
 ** Login   <puccio_c@epitech.net>
-** 
+**
 ** Started on  Mon May 23 17:29:52 2016 cyril puccio
-** Last update Mon May 23 18:34:08 2016 cyril puccio
+** Last update Tue May 24 13:14:42 2016 Gambini Lucas
 */
 
 # include "42.h"
@@ -39,7 +39,7 @@ int	check_built(t_cmd *cmd)
 	if (strcmp(cmd->cmd[i], builtin[j]) == 0)
 	  {
 	    free_built(builtin);
-	    return (j);
+	    return (j * 10);
 	  }
     }
   free_built(builtin);

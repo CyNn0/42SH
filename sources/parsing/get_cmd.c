@@ -5,7 +5,7 @@
 ** Login   <gambin_l@epitech.net>
 **
 ** Started on  Fri May 20 06:28:24 2016 Lucas Gambini
-** Last update Tue May 24 09:38:16 2016 Gambini Lucas
+** Last update Tue May 24 12:58:00 2016 Gambini Lucas
 */
 
 # include "42.h"
@@ -43,6 +43,7 @@ t_list		*set_cmd(t_list *list, char **tab, char *line)
 	return (list);
       list->tail->token = get_token(tab[i], line);
       list->tail->flag = 0;
+      list->tail->go_on = 1;
       free(tab[i]);
     }
   free(tab);
