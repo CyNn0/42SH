@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 18 04:22:31 2016 boris saint-bonnet
-** Last update Mon May 23 19:16:52 2016 Gambini Lucas
+** Last update Mon May 23 20:56:16 2016 boris saint-bonnet
 */
 
 # ifndef __LINKED_LIST_H__
@@ -89,7 +89,7 @@ typedef struct		s_right
 {
   char			*name;
   char			*cmd;
-  int			flag;
+  char			**flag;
 }			t_right;
 
 

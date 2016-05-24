@@ -5,7 +5,7 @@
 ## Login   <saint-_o@epitech.net>
 ##
 ## Started on  Wed May 18 04:15:48 2016 boris saint-bonnet
-## Last update Tue May 24 13:05:19 2016 Lucas Gambini
+## Last update Tue May 24 16:52:16 2016 boris saint-bonnet
 ##
 
 CC		=		gcc -g -g3
@@ -38,7 +38,6 @@ SRC		=		sources/main.c					\
 				sources/parsing/cmdtab_func.c			\
                                 sources/parsing/my_strtok.c                     \
 				sources/parsing/check_bquotes.c			\
-				sources/parsing/parsing_redirections.c		\
 				sources/parsing/simple.c			\
 				sources/parsing/post_parser.c			\
 				sources/parsing/scatter.c			\
@@ -54,6 +53,7 @@ SRC		=		sources/main.c					\
 				sources/path/path_to_list.c                     \
                                 sources/path/print_path.c                       \
 				sources/redirect/simple_right.c			\
+				sources/redirect/exec_right.c			\
 				sources/redirect/double_right.c			\
 				sources/exec/simple_exec.c			\
 
