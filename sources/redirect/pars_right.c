@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 ** 
 ** Started on  Tue May 24 21:31:11 2016 boris saint-bonnet
-** Last update Tue May 24 23:12:42 2016 boris saint-bonnet
+** Last update Wed May 25 02:26:58 2016 boris saint-bonnet
 */
 
 # include "42.h"
@@ -19,12 +19,12 @@ void            init_var(char **cmd, t_right *var)
   j = 1;
   if ((var->cmd = malloc((tab_lenght(cmd)) * sizeof(char*))) == NULL)
     my_exit(42);
-  var->cmd[tab_lenght(cmd) - 1] = NULL;
+  var->cmd[tab_lenght(cmd) - 1] = NULL;;
   while (cmd[++i])
     {
       if ((strcmp(cmd[i], ">")) == 0)
 	{
-	  var->name = strdup(cmd[++i]);
+	  while ((var->name = strdup(cmd[++i])) == NULL);
 	  if (i == 1)
 	    {
 	      var->cmd[0] = strdup(cmd[++i]);

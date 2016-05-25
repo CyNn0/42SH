@@ -5,10 +5,23 @@
 ** Login   <saint-_o@epitech.net>
 ** 
 ** Started on  Fri May 20 07:30:47 2016 boris saint-bonnet
-** Last update Sat May 21 01:38:32 2016 boris saint-bonnet
+** Last update Wed May 25 01:48:58 2016 boris saint-bonnet
 */
 
 # include "42.h"
+
+void	double_first(t_pars *var, char c)
+{
+  if (var->ret[0] == c && var->ret[1] && var->ret[1] == c &&
+      var->ret[2] && var->ret[2] != ' ')
+    {
+      var->bef = my_strcut(var->ret, 0, 2, 0);
+      var->aft = my_strcut(var->ret, 2, 0, 0);
+      free(var->ret);
+      var->ret = my_strcatc(var->bef, var->aft, 3, 0);
+      free(var->aft);
+    }
+}
 
 void    double_space_after(t_pars *var)
 {
@@ -27,6 +40,7 @@ char    *doubles(char *s, char c)
 
   var.ret = strdup(s);
   free(s);
+  double_first(&var, c);
   while (check_finish(var.ret, c, 2) == -1)
     {
       var.i = -1;

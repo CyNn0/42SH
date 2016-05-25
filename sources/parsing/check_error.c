@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Fri May 20 07:31:51 2016 boris saint-bonnet
-** Last update Tue May 24 09:41:35 2016 Gambini Lucas
+** Last update Wed May 25 02:31:16 2016 boris saint-bonnet
 */
 
 # include "42.h"
@@ -52,6 +52,7 @@ int     triple(char *s)
 	{
 	  if (s[i] == sep[j] && s[i + 1] == sep[j] && s[i + 2] == sep[j])
 	    {
+	      fprintf(stderr, "Error parsing nears '%c'\n", s[i + 2]);
 	      free(sep);
 	      return (-1);
 	    }
@@ -66,9 +67,6 @@ int	check_error(char *s)
 {
   if (s[0] != '&')
     if (triple(s) == -1 || s[0] == '|')
-      {
-	write (2, "Invalid null command.\n", strlen("Invalid null command.\n"));
-	return (FAILURE);
-      }
+      return (FAILURE);
   return (SUCCESS);
 }

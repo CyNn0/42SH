@@ -5,10 +5,23 @@
 ** Login   <saint-_o@epitech.net>
 ** 
 ** Started on  Fri May 20 07:28:50 2016 boris saint-bonnet
-** Last update Sat May 21 01:37:29 2016 boris saint-bonnet
+** Last update Wed May 25 01:47:40 2016 boris saint-bonnet
 */
 
 #include "42.h"
+
+void    simple_first(t_pars *var, char c)
+{
+  if (var->ret[0] == c && var->ret[1] && var->ret[1] != c &&
+      var->ret[1] != ' ' && var->ret[2])
+    {
+      var->bef = my_strcut(var->ret, 0, 1, 0);
+      var->aft = my_strcut(var->ret, 1, 0, 0);
+      free(var->ret);
+      var->ret = my_strcatc(var->bef, var->aft, 3, 0);
+      free(var->aft);
+    }
+}
 
 char    *simples(char *s, char c)
 {
@@ -16,6 +29,7 @@ char    *simples(char *s, char c)
 
   var.ret = strdup(s);
   free(s);
+  simple_first(&var, c);
   while ((check_finish(var.ret, c, 1) == -1))
     {
       var.i = -1;
