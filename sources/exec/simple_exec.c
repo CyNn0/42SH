@@ -5,7 +5,7 @@
 ** Login   <lefevr_h@epitech.net>
 **
 ** Started on  Mon May 23 23:00:09 2016 Philippe Lefevre
-** Last update Wed May 25 09:17:16 2016 Gambini Lucas
+** Last update Wed May 25 10:18:33 2016 Lucas Gambini
 */
 
 #include		"42.h"
@@ -78,11 +78,14 @@ char			*exec_find_path(t_path *path, char *bin)
 
 int			check_go_on(t_cmd *cmd)
 {
-    (cmd->next && cmd->token == DOUBLE_PIPE) ? (cmd->next->go_on = 1)
+  if (cmd->next)
+    {
+      (cmd->token == DOUBLE_PIPE) ? (cmd->next->go_on = 1)
 	: (cmd->next->go_on = 0);
-    (cmd->next && cmd->token == DOUBLE_AND) ? (cmd->next->go_on = 0)
+      (cmd->token == DOUBLE_AND) ? (cmd->next->go_on = 0)
 	: (cmd->next->go_on = 1);
-    return (SUCCESS);
+    }
+  return (SUCCESS);
 }
 
 int			simple_exec(t_cmd *cmd, t_path *path, char **env)

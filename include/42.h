@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 18 04:20:11 2016 boris saint-bonnet
-** Last update Wed May 25 03:01:37 2016 boris saint-bonnet
+** Last update Wed May 25 10:08:13 2016 Gambini Lucas
 */
 
 #ifndef			_42_H_
@@ -20,6 +20,7 @@
 # include		<sys/types.h>
 # include		<sys/stat.h>
 # include		<sys/wait.h>
+# include		<sys/ioctl.h>
 # include		<fcntl.h>
 # include		<stdlib.h>
 # include		<unistd.h>
