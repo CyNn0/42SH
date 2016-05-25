@@ -5,7 +5,7 @@
 ## Login   <saint-_o@epitech.net>
 ##
 ## Started on  Wed May 18 04:15:48 2016 boris saint-bonnet
-## Last update Wed May 25 23:19:58 2016 boris saint-bonnet
+## Last update Thu May 26 01:34:48 2016 Hubert Leo
 ##
 
 CC		=	gcc -g -g3
@@ -57,7 +57,9 @@ SRC		=	sources/main.c				\
                         sources/path/print_path.c		\
 			sources/redirect/simple_right.c		\
 			sources/redirect/exec_right.c		\
+			sources/redirect/exec_left.c		\
 			sources/redirect/pars_right.c		\
+			sources/redirect/pars_left.c		\
 			sources/redirect/double_right.c		\
 			sources/exec/simple_exec.c		\
 			sources/builtins/echo/echo.c		\

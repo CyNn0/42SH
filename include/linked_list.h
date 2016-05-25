@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 18 04:22:31 2016 boris saint-bonnet
-** Last update Wed May 25 23:19:29 2016 boris saint-bonnet
+** Last update Thu May 26 01:35:14 2016 Hubert Leo
 */
 
 #ifndef			_LINKED_LIST_H__
@@ -102,6 +102,13 @@ typedef struct		s_right
   char			**cmd;
   int			is_builtin;
 }			t_right;
+
+typedef struct		s_left
+{
+  char			*name;
+  char			**cmd;
+  int			is_builtin;
+}			t_left;
 
 t_right			parsing_sr(char **cmd);
 t_right			parsing_dr(char **cmd);
