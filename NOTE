@@ -1,0 +1,12 @@
+  
+   NOTE for  in /home/xx/Rendu/PSU/42SH
+   
+   Made by boris saint-bonnet
+   Login   <saint-_o@epitech.net>
+   
+   Started on  Wed May 25 01:04:41 2016 boris saint-bonnet
+   Last update Wed May 25 02:27:34 2016 boris saint-bonnet
+  
+Erreur valgrind execve sur redirections droites --> Il faut vérifier qu'on lui envoie une valeur exploitable si il y'a a pas d'argument envoyer la commande
+
+SIGSEV ls -la > && toto ingérable le préparsing coupe la chaine à "&&" du coup le nom de sortie n'est pas dans le t_cmd

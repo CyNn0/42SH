@@ -5,7 +5,7 @@
 ## Login   <saint-_o@epitech.net>
 ##
 ## Started on  Wed May 18 04:15:48 2016 boris saint-bonnet
-## Last update Wed May 25 10:16:21 2016 Lucas Gambini
+## Last update Wed May 25 10:49:27 2016 boris saint-bonnet
 ##
 
 CC		=		gcc -g -g3
@@ -50,6 +50,7 @@ SRC		=		sources/main.c					\
 				sources/linked_list/free_fighter.c		\
 				sources/linked_list/list_cmd.c			\
 				sources/linked_list/history.c			\
+				sources/linked_list/push_variable.c		\
 				sources/env/my_env_in_list.c			\
 				sources/env/print_env.c				\
 				sources/path/path_to_list.c                     \
