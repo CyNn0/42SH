@@ -5,7 +5,7 @@
 ** Login   <puccio_c@epitech.net>
 **
 ** Started on  Mon May 23 17:29:52 2016 cyril puccio
-** Last update Tue May 24 13:14:42 2016 Gambini Lucas
+** Last update Wed May 25 08:13:19 2016 Gambini Lucas
 */
 
 # include "42.h"
@@ -39,7 +39,7 @@ int	check_built(t_cmd *cmd)
 	if (strcmp(cmd->cmd[i], builtin[j]) == 0)
 	  {
 	    free_built(builtin);
-	    return (j * 10);
+	    return (j + 20);
 	  }
     }
   free_built(builtin);

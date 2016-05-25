@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 18 04:22:31 2016 boris saint-bonnet
-** Last update Wed May 25 06:32:41 2016 boris saint-bonnet
+** Last update Wed May 25 08:15:18 2016 Gambini Lucas
 */
 
 # ifndef __LINKED_LIST_H__
@@ -64,7 +64,6 @@ typedef struct          s_cmd
   char			**cmd;
   char			token;
   char			flag;
-  bool			is_built;
   bool			go_on;
   struct s_cmd		*prev;
   struct s_cmd		*next;
