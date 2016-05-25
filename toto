@@ -1,0 +1,19 @@
+42sh
+auteur
+include
+Makefile
+NOTE
+sources
+toto
+total 218
+drwxrwxrwx 1 root root   4096 mai   25 18:44 .
+drwxrwxrwx 1 root root   4096 mai   24 12:42 ..
+-rwxrwxrwx 1 root root 195552 mai   25 18:43 42sh
+-rwxrwxrwx 1 root root     45 mai   23 15:41 auteur
+drwxrwxrwx 1 root root   4096 mai   25 18:44 .git
+drwxrwxrwx 1 root root   4096 mai   25 17:05 include
+-rwxrwxrwx 1 root root   2429 mai   25 17:33 Makefile
+-rwxrwxrwx 1 root root      3 mai   25 10:53 NOTE
+drwxrwxrwx 1 root root   4096 mai   25 18:43 sources
+-rwxrwxrwx 1 root root     47 mai   25 18:44 toto
+mabite
