@@ -5,7 +5,7 @@
 ** Login   <lefevr_h@epitech.net>
 **
 ** Started on  Mon May 23 23:00:09 2016 Philippe Lefevre
-** Last update Wed May 25 08:45:40 2016 Gambini Lucas
+** Last update Wed May 25 09:17:16 2016 Gambini Lucas
 */
 
 #include		"42.h"
@@ -76,6 +76,15 @@ char			*exec_find_path(t_path *path, char *bin)
   return (bin);
 }
 
+int			check_go_on(t_cmd *cmd)
+{
+    (cmd->next && cmd->token == DOUBLE_PIPE) ? (cmd->next->go_on = 1)
+	: (cmd->next->go_on = 0);
+    (cmd->next && cmd->token == DOUBLE_AND) ? (cmd->next->go_on = 0)
+	: (cmd->next->go_on = 1);
+    return (SUCCESS);
+}
+
 int			simple_exec(t_cmd *cmd, t_path *path, char **env)
 {
   pid_t			pid;
@@ -91,9 +100,6 @@ int			simple_exec(t_cmd *cmd, t_path *path, char **env)
 	  else if (pid == 0)
 	    {
 	      execve(cmd->cmd[0], cmd->cmd, env);
-		if (cmd->next)
-		  (cmd->token == DOUBLE_PIPE) ? (cmd->next->go_on = 0)
-		    : (cmd->next->go_on = 1);
 	      fprintf(stderr, "Error: %s\n", strerror(errno));
 	    }
 	  else
@@ -101,6 +107,7 @@ int			simple_exec(t_cmd *cmd, t_path *path, char **env)
 	  return (SUCCESS);
 	}
     }
-    fprintf(stderr, "%s: Command not found.\n", cmd->cmd[0]);
+  fprintf(stderr, "%s: Command not found.\n", cmd->cmd[0]);
+    check_go_on(cmd);
   return (FAILURE);
 }
