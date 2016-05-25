@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 18 04:22:31 2016 boris saint-bonnet
-** Last update Wed May 25 11:21:14 2016 Philippe Lefevre
+** Last update Wed May 25 11:35:59 2016 Philippe Lefevre
 */
 
 # ifndef __LINKED_LIST_H__
@@ -90,6 +90,8 @@ typedef struct          s_list
   struct s_history	*myHist;
   struct s_cmd		*head;
   struct s_cmd		*tail;
+  int			do_exit;
+  int			value_exit;
 }                       t_list;
 
 typedef struct		s_right
