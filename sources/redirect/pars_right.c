@@ -5,10 +5,10 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Tue May 24 21:31:11 2016 boris saint-bonnet
-** Last update Wed May 25 12:08:40 2016 Philippe Lefevre
+** Last update Wed May 25 16:47:27 2016 Philippe Lefevre
 */
 
-# include "42.h"
+#include	"42.h"
 
 void            init_var(char **cmd, t_right *var)
 {
@@ -45,7 +45,7 @@ void            init_var(char **cmd, t_right *var)
 	      var->cmd[0] = strdup(cmd[0]);
 	      while (cmd[i] && strcmp(cmd[i], ">") != 0)
 		var->cmd[j++] = strdup(cmd[i++]);
-                var->cmd[j] = NULL;
+	      var->cmd[j] = NULL;
 	      break;
 	    }
 	}
