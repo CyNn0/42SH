@@ -5,7 +5,7 @@
 ** Login   <gambin_l@epitech.net>
 **
 ** Started on  Mon May 23 16:43:07 2016 Lucas Gambini
-** Last update Wed May 25 13:23:14 2016 Gambini Lucas
+** Last update Wed May 25 13:25:31 2016 Lucas Gambini
 */
 
 #include	"42.h"
@@ -31,7 +31,7 @@ int		exec_scatter(t_list *list)
   while (!(list->do_exit) && tmp && tmp->cmd[0])
     {
       builtin = check_built(list, tmp);
-      printf("%d\n", tmp->is_builtin)
+      (void)builtin;
       if (tmp->go_on == 1)
 	normal_scatter(tmp, env, list->path);
       tmp = tmp->next;
