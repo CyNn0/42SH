@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 18 04:22:31 2016 boris saint-bonnet
-** Last update Wed May 25 10:15:24 2016 Gambini Lucas
+** Last update Wed May 25 10:24:33 2016 Gambini Lucas
 */
 
 # ifndef __LINKED_LIST_H__
@@ -69,18 +69,24 @@ typedef struct          s_cmd
   struct s_cmd		*next;
 }                       t_cmd;
 
-typedef struct		s_history
+typedef struct		s_hist
 {
   char			*s;
-  struct s_history	*next;
-  struct s_history	*prev;
+  struct s_hist		*next;
+  struct s_hist		*prev;
+}			t_hist;
+
+typedef struct		s_history
+{
+  struct s_hist		*head;
+  struct s_hist		*tail;
 }			t_history;
 
 typedef struct          s_list
 {
-  struct s_history	*hist;
   struct s_path		*path;
   struct s_env		*myEnv;
+  struct s_history	*myHist;
   struct s_cmd		*head;
   struct s_cmd		*tail;
 }                       t_list;
@@ -122,5 +128,6 @@ t_list	*post_parser(t_list *list);
 char	**extract_env(t_env *myEnv);
 int	exec_scatter(t_list *list);
 int	normal_scatter(t_cmd *cmd, char **env, t_path *path);
+t_list	*add_history(t_list *list, char *line);
 
 # endif /* !__LINKED_LIST_H__ */
