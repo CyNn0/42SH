@@ -5,7 +5,7 @@
 ** Login   <hubert_i@epitech.net>
 **
 ** Started on  Mon May 23 18:01:20 2016 Hubert Leo
-** Last update Wed May 25 12:42:35 2016 Philippe Lefevre
+** Last update Wed May 25 15:30:37 2016 Gambini Lucas
 */
 
 #ifndef			_BUILTIN_H_
@@ -41,7 +41,7 @@ void			put_echo(char *str);
 int			print_varenv(char *cmd, int i, t_env *env);
 int			echo_print(t_echo *flags, char *cmd, t_env *env);
 char			is_in_quotes(char *cmd);
-int			exec_echo(t_cmd *cmd, t_env *env);
+int			exec_echo(t_list *list, char **cmd);
 char			*get_varenv(char *cmd, int i, int to_space);
 int			count_to_space(char *cmd, int i);
 

@@ -5,7 +5,7 @@
 ** Login   <lefevr_h@epitech.net>
 **
 ** Started on  Mon May 23 23:00:09 2016 Philippe Lefevre
-** Last update Wed May 25 11:02:41 2016 Philippe Lefevre
+** Last update Wed May 25 15:40:52 2016 Gambini Lucas
 */
 
 #include		"42.h"
@@ -88,13 +88,29 @@ int			check_go_on(t_cmd *cmd)
   return (SUCCESS);
 }
 
-int			simple_exec(t_cmd *cmd, t_path *path, char **env)
+int			simple_exec_builtin(t_list *list, char **cmd,
+					    int	builtin)
+{
+    int			(*p[5])(t_list*, char**);
+
+    /*p[0] = &exec_cd;
+    p[1] = &exec_setenv;
+    p[2] = &exec_unsetenv;*/
+    p[3] = &exec_echo;
+    p[builtin](list, cmd);
+    return (SUCCESS);
+}
+
+int			simple_exec(t_cmd *cmd, t_list *list,
+				    char **env, int builtin)
 {
   pid_t			pid;
 
-  if (path->head->data != NULL)
+  if (builtin >= 0)
+    return (simple_exec_builtin(list, cmd->cmd, builtin));
+  if (list->path->head->data != NULL)
     {
-      if ((cmd->cmd[0] = exec_find_path(path, cmd->cmd[0])) == NULL)
+      if ((cmd->cmd[0] = exec_find_path(list->path, cmd->cmd[0])) == NULL)
 	return (FAILURE);
       if (!(access(cmd->cmd[0], X_OK)))
 	{

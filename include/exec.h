@@ -5,7 +5,7 @@
 ** Login   <Lucas Gambini@epitech.net>
 **
 ** Started on  Mon May 23 19:17:09 2016 Gambini Lucas
-** Last update Wed May 25 12:14:51 2016 Philippe Lefevre
+** Last update Wed May 25 15:37:02 2016 Gambini Lucas
 */
 
 #ifndef                 _EXEC_H_
@@ -15,10 +15,9 @@
 
 int                     check_built(t_list *list, t_cmd *cmd);
 char                    *exec_find_path(t_path *path, char *bin);
-int                     simple_exec(t_cmd *cmd, t_path *path, char **env);
-int                     double_right(t_cmd *cmd, t_path *path, char **env);
-int                     simple_right(t_cmd *cmd, t_path *path, char **env);
-int                     exec_right(int fd, t_path *path,
+int                     simple_exec(t_cmd *cmd, t_list *list,
+				    char **env, int builtin);
+int                     exec_right(int fd, t_list *list,
                                    char **env, t_right var);
 
 #endif                  /* !_EXEC_H_ */

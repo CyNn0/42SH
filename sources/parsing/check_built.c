@@ -5,7 +5,7 @@
 ** Login   <puccio_c@epitech.net>
 **
 ** Started on  Mon May 23 17:29:52 2016 cyril puccio
-** Last update Wed May 25 13:22:36 2016 Gambini Lucas
+** Last update Wed May 25 15:45:32 2016 Gambini Lucas
 */
 
 #include		"42.h"
@@ -40,7 +40,7 @@ int			check_built(t_list *list, t_cmd *cmd)
 	  {
 	    free_built(builtin);
 	    if (j == 4)
-	      builtin_exit(list, cmd->cmd);
+	      return (builtin_exit(list, cmd->cmd));
 	    cmd->is_builtin = j;
 	    return (j + 20);
 	  }

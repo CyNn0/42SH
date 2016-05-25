@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 18 04:22:31 2016 boris saint-bonnet
-** Last update Wed May 25 13:23:38 2016 Gambini Lucas
+** Last update Wed May 25 15:37:06 2016 Gambini Lucas
 */
 
 #ifndef			_LINKED_LIST_H__
@@ -100,6 +100,7 @@ typedef struct		s_right
 {
   char			*name;
   char			**cmd;
+  int			is_builtin;
 }			t_right;
 
 t_right			parsing_sr(char **cmd);
@@ -114,9 +115,14 @@ t_list			*del_link(t_list *list, t_cmd *cmd);
 t_list			*push_path(t_list *list, char *data);
 t_list			*path_to_list(t_list *list);
 t_list			my_setenv(t_list *list, t_cmd *cmd);
+t_list			*free_cmd(t_list *list);
+t_list			*post_parser(t_list *list);
+t_list			*get_cmd(t_list *cmd, char *line);
+t_list			*push_cmd(t_list *list, char **cmd);
+t_list			*add_history(t_list *list, char *line);
 int			setenv_checking(t_list *list);
-int			simple_right(t_cmd *cmd, t_path *path, char **env);
-int			double_right(t_cmd *cmd, t_path *path, char **env);
+int			simple_right(t_cmd *cmd, t_list *list, char **env, int builtin);
+int			double_right(t_cmd *cmd, t_list *list, char **env, int builtin);
 int			print_env(t_env *list);
 int			get_name(char *name);
 int			print_path(t_list *list);
@@ -128,14 +134,9 @@ void			init_double(char **cmd, t_right *var);
 void			init_var(char **cmd, t_right *var);
 void			print_prompt(t_list *list);
 void			free_fighter(t_list *list);
-t_list			*get_cmd(t_list *cmd, char *line);
-t_list			*push_cmd(t_list *list, char **cmd);
 void			show_cmd_list(t_list *list);
-t_list			*free_cmd(t_list *list);
-t_list			*post_parser(t_list *list);
 char			**extract_env(t_env *myEnv);
 int			exec_scatter(t_list *list);
-t_list			*add_history(t_list *list, char *line);
 void			my_exit(int status);
 int			builtin_exit(t_list *list, char **cmd);
 

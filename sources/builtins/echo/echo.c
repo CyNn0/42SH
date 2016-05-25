@@ -5,7 +5,7 @@
 ** Login   <hubert_i@epitech.net>
 **
 ** Started on  Mon May 23 17:29:37 2016 Hubert Leo
-** Last update Wed May 25 03:07:36 2016 Hubert Leo
+** Last update Wed May 25 15:30:02 2016 Gambini Lucas
 */
 
 #include "42.h"
@@ -19,7 +19,7 @@ char		is_in_quotes(char *cmd)
   return (1);
 }
 
-int		exec_echo(t_cmd *cmd, t_env *env)
+int		exec_echo(t_list *list, char **cmd)
 {
   t_echo	*echo;
   int		i;
@@ -28,16 +28,16 @@ int		exec_echo(t_cmd *cmd, t_env *env)
   if ((echo = init_echo()) == NULL)
     return (FAILURE);
   j = (i = 1) - 1;
-  while (cmd->cmd[i])
+  while (cmd[i])
     {
-      if (echo->check_flags == 1 && strlen(cmd->cmd[i]) >= 1 && cmd->cmd[i][0] == '-')
-	check_options(echo, cmd->cmd[i]);
+      if (echo->check_flags == 1 && strlen(cmd[i]) >= 1 && cmd[i][0] == '-')
+	check_options(echo, cmd[i]);
       else
 	{
 	  if (j > 0)
 	    write(1, " ", 1);
 	  echo->check_flags = 0;
-      	  echo_print(echo, cmd->cmd[i], env);
+      	  echo_print(echo, cmd[i], list->myEnv);
 	  j++;
       	}
       i++;
