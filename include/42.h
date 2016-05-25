@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 18 04:20:11 2016 boris saint-bonnet
-** Last update Wed May 25 01:08:30 2016 boris saint-bonnet
+** Last update Wed May 25 03:01:37 2016 boris saint-bonnet
 */
 
 #ifndef			_42_H_
@@ -30,6 +30,7 @@
 # include		"linked_list.h"
 # include		"parsing.h"
 # include		"exec.h"
+# include		"builtins.h"
 
 /*
 ** DEFINE
