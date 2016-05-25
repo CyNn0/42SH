@@ -1,11 +1,11 @@
 /*
 ** pars_right.c for  in /home/xx/Rendu/PSU/42SH
-** 
+**
 ** Made by boris saint-bonnet
 ** Login   <saint-_o@epitech.net>
-** 
+**
 ** Started on  Tue May 24 21:31:11 2016 boris saint-bonnet
-** Last update Wed May 25 02:58:39 2016 boris saint-bonnet
+** Last update Wed May 25 08:10:33 2016 Gambini Lucas
 */
 
 # include "42.h"
@@ -31,12 +31,12 @@ void            init_var(char **cmd, t_right *var)
 	      return;
 	    }
 	  var->name = strdup(cmd[++i]);
-	  
 	  if (i == 1)
 	    {
 	      var->cmd[0] = strdup(cmd[++i]);
 	      while (cmd[++i] && strcmp(cmd[i], ">") != 0)
 		var->cmd[j++] = strdup(cmd[i]);
+	      var->cmd[j] = NULL;
 	      break;
 	    }
 	  else
@@ -45,6 +45,7 @@ void            init_var(char **cmd, t_right *var)
 	      var->cmd[0] = strdup(cmd[0]);
 	      while (cmd[i] && strcmp(cmd[i], ">") != 0)
 		var->cmd[j++] = strdup(cmd[i++]);
+                var->cmd[j] = NULL;
 	      break;
 	    }
 	}
@@ -77,6 +78,7 @@ void            init_double(char **cmd, t_right *var)
 	      var->cmd[0] = strdup(cmd[++i]);
 	      while (cmd[++i] && strcmp(cmd[i], ">>") != 0)
 		var->cmd[j++] = strdup(cmd[i]);
+	      var->cmd[j] = NULL;
 	      break;
 	    }
 	  else
@@ -85,6 +87,7 @@ void            init_double(char **cmd, t_right *var)
 	      var->cmd[0] = strdup(cmd[0]);
 	      while (cmd[i] && strcmp(cmd[i], ">>") != 0)
 		var->cmd[j++] = strdup(cmd[i++]);
+	      var->cmd[j] = NULL;
 	      break;
 	    }
 	}

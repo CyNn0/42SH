@@ -5,7 +5,7 @@
 ** Login   <gambin_l@epitech.net>
 **
 ** Started on  Mon May 23 16:43:07 2016 Lucas Gambini
-** Last update Wed May 25 07:39:49 2016 Gambini Lucas
+** Last update Wed May 25 08:07:09 2016 Gambini Lucas
 */
 
 #include	"42.h"
@@ -19,7 +19,6 @@ int		exec_scatter(t_list *list)
   env = extract_env(list->myEnv);
   while (tmp && tmp->cmd[0])
     {
-      printf("%s && %d && %d\n", tmp->cmd[0], tmp->go_on, tmp->token);
       if (check_built(tmp) == FAILURE && tmp->go_on == 1)
 	{
 	  (tmp->flag == SIMPLE_R) ? (simple_right(tmp, list->path, env))
