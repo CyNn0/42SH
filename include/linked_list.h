@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 18 04:22:31 2016 boris saint-bonnet
-** Last update Wed May 25 11:11:08 2016 Philippe Lefevre
+** Last update Wed May 25 11:21:14 2016 Philippe Lefevre
 */
 
 # ifndef __LINKED_LIST_H__
@@ -26,6 +26,7 @@
 # define DOUBLE_L 9 /* double redirection gauche */
 
 typedef int    bool;
+
 # define false 0
 # define true (!false);
 
@@ -102,14 +103,17 @@ t_right  parsing_dr(char **cmd);
 t_list  *create_list(t_list *list);
 t_list  *push(t_list *list, t_cmd *cmd);
 t_list  *push_env(t_list *list, char *data, char *name);
+t_list	*push_variable(t_list *list, char *name, char *data);
 t_list  *get_circle(t_list *list);
 t_list  *my_env_in_list(t_list *list, char **env);
 t_list  *del_link(t_list *list, t_cmd *cmd);
 t_list  *push_path(t_list *list, char *data);
 t_list	*path_to_list(t_list *list);
-int      simple_right(t_cmd *cmd, t_path *path, char **env);
-int      double_right(t_cmd *cmd, t_path *path, char **env);
-int	 print_env(t_env *list);
+t_list	*my_setenv(t_list *list, t_cmd *cmd);
+int	setenv_checking(t_list *list);
+int	simple_right(t_cmd *cmd, t_path *path, char **env);
+int	double_right(t_cmd *cmd, t_path *path, char **env);
+int	print_env(t_env *list);
 int	get_name(char *name);
 int	print_path(t_list *list);
 char	*find_user(t_list *list, char *name);
