@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Thu May 19 18:53:01 2016 boris saint-bonnet
-** Last update Wed May 25 10:26:44 2016 Gambini Lucas
+** Last update Wed May 25 11:44:31 2016 boris saint-bonnet
 */
 
 # include "42.h"
@@ -46,6 +46,7 @@ t_list		*push_env(t_list *list, char *data, char *name)
 	  if ((node->name = strdup(name)) == NULL)
 	    return (list);
 	  node->next = NULL;
+	  node->p = true;
 	  if (list->myEnv->tail == NULL)
 	    {
 	      node->prev = NULL;
@@ -74,6 +75,7 @@ t_list		*push_path(t_list *list, char *data)
   node->data = strdup(data);
   node->name = NULL;
   node->next = NULL;
+  node->p = true;
   if (list->path->tail == NULL)
     {
       node->prev = NULL;

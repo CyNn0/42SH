@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 18 04:22:31 2016 boris saint-bonnet
-** Last update Wed May 25 11:35:59 2016 Philippe Lefevre
+** Last update Wed May 25 11:41:25 2016 boris saint-bonnet
 */
 
 # ifndef __LINKED_LIST_H__
@@ -34,6 +34,7 @@ typedef struct          s_node
 {
   char			*name;
   char			*data;
+  bool			p;
   struct s_node		*prev;
   struct s_node		*next;
 }                       t_node;
