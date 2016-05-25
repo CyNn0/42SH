@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 18 04:19:45 2016 boris saint-bonnet
-** Last update Wed May 25 11:19:44 2016 Philippe Lefevre
+** Last update Wed May 25 11:32:33 2016 Gambini Lucas
 */
 
 #include		"42.h"
@@ -24,6 +24,7 @@ int			shell(char *env[])
   path_to_list(list);
   while (exit && (buffer = get_next_line(0)))
     {
+      list = add_history(list, buffer);
       if ((list = get_cmd(list, pre_check(buffer))) == NULL)
 	return (FAILURE);
       if (exec_scatter(list) == 24)
