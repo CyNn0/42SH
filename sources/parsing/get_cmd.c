@@ -5,14 +5,14 @@
 ** Login   <gambin_l@epitech.net>
 **
 ** Started on  Fri May 20 06:28:24 2016 Lucas Gambini
-** Last update Wed May 25 07:41:44 2016 Gambini Lucas
+** Last update Wed May 25 17:25:54 2016 Philippe Lefevre
 */
 
-# include "42.h"
+#include		"42.h"
 
-char		get_token(char *seg, char *line)
+char			get_token(char *seg, char *line)
 {
-  int		i;
+  int			i;
 
   i = -1;
   while (strncmp(seg, &line[++i], (int)strlen(seg)) != 0);
@@ -30,10 +30,10 @@ char		get_token(char *seg, char *line)
   return (1);
 }
 
-t_list		*set_cmd(t_list *list, char **tab, char *line)
+t_list			*set_cmd(t_list *list, char **tab, char *line)
 {
-  int		i;
-  char		**cmdtab;
+  int			i;
+  char			**cmdtab;
 
   i = -1;
   while (tab[++i])
@@ -53,9 +53,9 @@ t_list		*set_cmd(t_list *list, char **tab, char *line)
   return (list);
 }
 
-t_list		*get_cmd(t_list *list, char *line)
+t_list			*get_cmd(t_list *list, char *line)
 {
-  char		**tab;
+  char			**tab;
 
   if (line == NULL || (tab = cmd_to_tab(line, '|', ';', '&')) == NULL)
     return (list);

@@ -5,15 +5,15 @@
 ** Login   <gambin_l@epitech.net>
 **
 ** Started on  Sat May 21 08:49:15 2016 Lucas Gambini
-** Last update Sun May 22 02:20:03 2016 Lucas Gambini
+** Last update Wed May 25 17:24:43 2016 Philippe Lefevre
 */
 
-# include "42.h"
+#include		"42.h"
 
-int		count_seg_nbr(char *line, char sp1, char sp2, char sp3)
+int			count_seg_nbr(char *line, char sp1, char sp2, char sp3)
 {
-  int		i;
-  int		flag;
+  int			i;
+  int			flag;
 
   i = -1;
   flag = 0;
@@ -30,10 +30,10 @@ int		count_seg_nbr(char *line, char sp1, char sp2, char sp3)
   return (flag + 1);
 }
 
-int		count_seg_len(char *line, char sp1, char sp2, char sp3)
+int			count_seg_len(char *line, char sp1, char sp2, char sp3)
 {
-  int		len;
-  int		i;
+  int			len;
+  int			i;
 
   len = 0;
   i = -1;
@@ -42,12 +42,12 @@ int		count_seg_len(char *line, char sp1, char sp2, char sp3)
   return (len);
 }
 
-char		**cmd_to_tab(char *line, char sp1, char sp2, char sp3)
+char			**cmd_to_tab(char *line, char sp1, char sp2, char sp3)
 {
-  char		**tab;
-  int		i;
-  int		y;
-  int		x;
+  char			**tab;
+  int			i;
+  int			y;
+  int			x;
 
   i = 0;
   y = -1;

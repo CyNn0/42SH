@@ -5,14 +5,14 @@
 ** Login   <gambin_l@epitech.net>
 **
 ** Started on  Fri May 20 06:45:22 2016 Lucas Gambini
-** Last update Tue May 24 09:36:36 2016 Gambini Lucas
+** Last update Wed May 25 17:32:03 2016 Philippe Lefevre
 */
 
-# include "42.h"
+#include		"42.h"
 
-t_list		*free_cmd(t_list *list)
+t_list			*free_cmd(t_list *list)
 {
-  t_cmd		*tmp;
+  t_cmd			*tmp;
 
   if (list->head == NULL || list->tail == NULL)
     return (list);
@@ -29,10 +29,10 @@ t_list		*free_cmd(t_list *list)
   return (list);
 }
 
-void		show_cmd_list(t_list *list)
+void			show_cmd_list(t_list *list)
 {
-  t_cmd		*tmp;
-  int		i;
+  t_cmd			*tmp;
+  int			i;
 
   tmp = list->head;
   i = -1;
@@ -44,9 +44,9 @@ void		show_cmd_list(t_list *list)
     }
 }
 
-t_list		*push_cmd(t_list *list, char **cmd)
+t_list			*push_cmd(t_list *list, char **cmd)
 {
-  t_cmd        	*new;
+  t_cmd			*new;
 
   if ((new = malloc(sizeof(t_cmd))) == NULL
       || list == NULL)
