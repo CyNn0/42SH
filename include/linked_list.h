@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 18 04:22:31 2016 boris saint-bonnet
-** Last update Wed May 25 17:02:42 2016 Philippe Lefevre
+** Last update Wed May 25 23:19:29 2016 boris saint-bonnet
 */
 
 #ifndef			_LINKED_LIST_H__
@@ -111,16 +111,16 @@ t_list			*push_env(t_list *list, char *data, char *name);
 t_list			*push_variable(t_list *list, char *name, char *data);
 t_list			*get_circle(t_list *list);
 t_list			*my_env_in_list(t_list *list, char **env);
-t_list			*del_link(t_list *list, t_cmd *cmd);
+t_list			*del_link(t_list *list, char *name);
 t_list			*push_path(t_list *list, char *data);
 t_list			*path_to_list(t_list *list);
-t_list			my_setenv(t_list *list, t_cmd *cmd);
+t_list			*my_setenv(t_list *list, char **cmd);
 t_list			*free_cmd(t_list *list);
 t_list			*post_parser(t_list *list);
 t_list			*get_cmd(t_list *cmd, char *line);
 t_list			*push_cmd(t_list *list, char **cmd);
 t_list			*add_history(t_list *list, char *line);
-int			setenv_checking(t_list *list);
+int			setenv_checking(t_list *list, char **cmd);
 int			simple_right(t_cmd *cmd, t_list *list, char **env, int builtin);
 int			double_right(t_cmd *cmd, t_list *list, char **env, int builtin);
 int			print_env(t_env *list);

@@ -5,19 +5,19 @@
 ** Login   <saint-_o@epitech.net>
 ** 
 ** Started on  Wed May 25 04:06:44 2016 boris saint-bonnet
-** Last update Wed May 25 23:07:52 2016 boris saint-bonnet
+** Last update Wed May 25 23:18:09 2016 boris saint-bonnet
 */
 
 #include "42.h"
 
-int	        setenv_checking(t_list *list)
+int	        setenv_checking(t_list *list, char **cmd)
 {
-  if (list->cmd[2])
+  if (cmd[2])
     {
-      fprintf(stderr, "%s: Too many arguments.\n", list->cmd[0]);
+      fprintf(stderr, "%s: Too many arguments.\n", cmd[0]);
       return (FAILURE);
     }
-  else if (!list->cmd[1])
+  else if (!cmd[1])
     {
       print_env(list->myEnv);
       return (SUCCESS);
@@ -29,12 +29,12 @@ t_list		*my_setenv(t_list *list, char **cmd)
 {
   t_node        *tmp;
 
-  if ((setenv_checking(list)) == FAILURE)
+  if ((setenv_checking(list, cmd)) == FAILURE)
     return (list);
   tmp = list->myEnv->head;
   if (strlen(cmd[0]) == 0)
     {
-      list = push_variable(list, "", data);
+      list = push_variable(list, "", cmd[1]);
       return (list);
     }
   while (tmp != NULL)
