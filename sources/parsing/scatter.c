@@ -5,7 +5,7 @@
 ** Login   <gambin_l@epitech.net>
 **
 ** Started on  Mon May 23 16:43:07 2016 Lucas Gambini
-** Last update Tue May 24 21:30:18 2016 boris saint-bonnet
+** Last update Wed May 25 07:39:49 2016 Gambini Lucas
 */
 
 #include	"42.h"
@@ -19,7 +19,8 @@ int		exec_scatter(t_list *list)
   env = extract_env(list->myEnv);
   while (tmp && tmp->cmd[0])
     {
-      if (check_built(tmp) == FAILURE)
+      printf("%s && %d && %d\n", tmp->cmd[0], tmp->go_on, tmp->token);
+      if (check_built(tmp) == FAILURE && tmp->go_on == 1)
 	{
 	  (tmp->flag == SIMPLE_R) ? (simple_right(tmp, list->path, env))
 	    : ((tmp->flag == SIMPLE_L) ? (printf("SIMPLE_L\n"))
@@ -27,8 +28,7 @@ int		exec_scatter(t_list *list)
 		  : ((tmp->flag == DOUBLE_L) ? (printf("DOUBLE_L\n"))
 		     : ((simple_exec(tmp, list->path, env))))));
 	}
-      (tmp->go_on == 1) ? (tmp = tmp->next)
-	: (tmp = tmp->next->next);
+      tmp = tmp->next;
     }
   free_tab(env);
   return (SUCCESS);

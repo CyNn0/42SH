@@ -5,7 +5,7 @@
 ** Login   <lefevr_h@epitech.net>
 **
 ** Started on  Mon May 23 23:00:09 2016 Philippe Lefevre
-** Last update Tue May 24 23:46:30 2016 boris saint-bonnet
+** Last update Wed May 25 07:37:56 2016 Gambini Lucas
 */
 
 #include		"42.h"
@@ -91,6 +91,9 @@ int			simple_exec(t_cmd *cmd, t_path *path, char **env)
 	  else if (pid == 0)
 	    {
 	      execve(cmd->cmd[0], cmd->cmd, env);
+		if (cmd->next)
+		  (cmd->token == DOUBLE_PIPE) ? (cmd->next->go_on = 0)
+		    : (cmd->next->go_on = 1);
 	      fprintf(stderr, "Error: %s\n", strerror(errno));
 	    }
 	  else

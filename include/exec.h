@@ -5,22 +5,20 @@
 ** Login   <Lucas Gambini@epitech.net>
 **
 ** Started on  Mon May 23 19:17:09 2016 Gambini Lucas
-** Last update Tue May 24 17:38:04 2016 Gambini Lucas
+** Last update Wed May 25 07:45:05 2016 Gambini Lucas
 */
 
-#ifndef			_EXEC_H_
-# define		_EXEC_H_
+#ifndef                 _EXEC_H_
+# define                _EXEC_H_
 
-# include		<signal.h>
+# include               <signal.h>
 
-int			check_built(t_cmd *cmd);
+int                     check_built(t_cmd *cmd);
+char                    *exec_find_path(t_path *path, char *bin);
+int                     simple_exec(t_cmd *cmd, t_path *path, char **env);
+int                     double_right(t_cmd *cmd, t_path *path, char **env);
+int                     simple_right(t_cmd *cmd, t_path *path, char **env);
+int                     exec_right(int fd, t_path *path,
+                                   char **env, t_right var);
 
-char			*exec_find_path(t_path *path, char *bin);
-
-int			simple_exec(t_cmd *cmd, t_path *path, char **env);
-int			double_right(t_cmd *cmd, t_path *path, char **env);
-int			simple_right(t_cmd *cmd, t_path *path, char **env);
-int		        exec_right(int fd, t_path *path,
-				   char **env, t_right var);
-
-#endif			/* !_EXEC_H_ */
+#endif                  /* !_EXEC_H_ */

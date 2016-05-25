@@ -5,7 +5,7 @@
 ** Login   <gambin_l@epitech.net>
 **
 ** Started on  Fri May 20 06:28:24 2016 Lucas Gambini
-** Last update Tue May 24 12:58:00 2016 Gambini Lucas
+** Last update Wed May 25 07:41:44 2016 Gambini Lucas
 */
 
 # include "42.h"
@@ -44,6 +44,9 @@ t_list		*set_cmd(t_list *list, char **tab, char *line)
       list->tail->token = get_token(tab[i], line);
       list->tail->flag = 0;
       list->tail->go_on = 1;
+      if (list->tail->prev)
+	(list->tail->prev->token == DOUBLE_PIPE) ? (list->tail->go_on = 0)
+	  : (list->tail->go_on = 1);
       free(tab[i]);
     }
   free(tab);
