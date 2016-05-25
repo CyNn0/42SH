@@ -5,7 +5,7 @@
 ** Login   <hubert_i@epitech.net>
 **
 ** Started on  Mon May 23 18:01:20 2016 Hubert Leo
-** Last update Wed May 25 12:02:03 2016 Philippe Lefevre
+** Last update Wed May 25 12:42:35 2016 Philippe Lefevre
 */
 
 #ifndef			_BUILTIN_H_
@@ -14,7 +14,6 @@
 /*
 ** INCLUDES
 */
-
 
 /*
 ** STRUCTURES

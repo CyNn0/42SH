@@ -5,30 +5,29 @@
 ** Login   <lefevr_h@epitech.net>
 **
 ** Started on  Wed May 25 11:24:01 2016 Philippe Lefevre
-** Last update Wed May 25 12:28:39 2016 Philippe Lefevre
+** Last update Wed May 25 12:49:31 2016 Philippe Lefevre
 */
 
 #include		"42.h"
 
-int			builtin_exit(t_list *list, char *str)
+int			builtin_exit(t_list *list, char **cmd)
 {
-  char			*cmd;
   int			i;
 
-  i = 0;
-  cmd = strtok(str, " ");
   list->do_exit = 1;
-  while ((cmd = strtok(NULL, " ")) != NULL)
+  i = -1;
+  while (cmd[++i])
     {
-      list->value_exit = atoi(cmd);
-      printf("(%d)\n", list->value_exit);
-      i++;
+      list->value_exit = atoi(cmd[i]);
+      printf("(%s)\n", cmd[i]);
+      /* arrete la boucle quand separator */
     }
-  if (i > 1)
+  if (i > 2)
     list->do_exit =
   fprintf(stderr, "exit: too many argumentsexit: too many arguments\n");
   else
     return (SUCCESS);
+  list->do_exit = 0;
   list->value_exit = 0;
   return (FAILURE);
 }

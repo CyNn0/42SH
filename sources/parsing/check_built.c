@@ -5,25 +5,25 @@
 ** Login   <puccio_c@epitech.net>
 **
 ** Started on  Mon May 23 17:29:52 2016 cyril puccio
-** Last update Wed May 25 12:25:36 2016 Philippe Lefevre
+** Last update Wed May 25 12:41:31 2016 Philippe Lefevre
 */
 
-# include "42.h"
+#include		"42.h"
 
-void	free_built(char *tab[])
+void			free_built(char *tab[])
 {
-  int	i;
+  int			i;
 
   i = -1;
   while (tab[++i] != NULL)
     free(tab[i]);
 }
 
-int	check_built(t_list *list, t_cmd *cmd)
+int			check_built(t_list *list, t_cmd *cmd)
 {
-  char	*builtin[6];
-  int	i;
-  int	j;
+  char			*builtin[6];
+  int			i;
+  int			j;
 
   i = -1;
   builtin[0] = strdup("cd");
@@ -41,7 +41,7 @@ int	check_built(t_list *list, t_cmd *cmd)
 	    free_built(builtin);
 	    if ((strncmp(cmd->cmd[i], "exit ", 5) != 0)
 		|| (strcmp(cmd->cmd[i], "exit ") != 0))
-	      builtin_exit(list, cmd->cmd[i]);
+	      builtin_exit(list, cmd->cmd);
 	    return (j + 20);
 	  }
     }
