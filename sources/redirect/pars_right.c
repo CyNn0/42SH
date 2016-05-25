@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 ** 
 ** Started on  Tue May 24 21:31:11 2016 boris saint-bonnet
-** Last update Wed May 25 02:45:22 2016 boris saint-bonnet
+** Last update Wed May 25 02:58:39 2016 boris saint-bonnet
 */
 
 # include "42.h"
@@ -90,7 +90,6 @@ void            init_double(char **cmd, t_right *var)
 	}
     }
 }
-
 
 int             tab_lenght(char **tab)
 {

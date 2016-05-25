@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Mon May 23 17:57:28 2016 boris saint-bonnet
-** Last update Wed May 25 01:09:20 2016 boris saint-bonnet
+** Last update Wed May 25 02:59:18 2016 boris saint-bonnet
 */
 
 # include 	"42.h"
@@ -20,5 +20,7 @@ int		simple_right(t_cmd *cmd, t_path *path, char **env)
     return (FAILURE);
   exec_right(fd, path, env, var);
   close(fd);
+  free(var.name);
+  free_tab(var.cmd);
   return (SUCCESS);
 }
