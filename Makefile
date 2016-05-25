@@ -70,7 +70,9 @@ OBJ		=		$(SRC:.c=.o)
 all:				$(NAME)
 
 $(NAME):			$(OBJ)
-				$(CC) -o $(NAME) $(OBJ) $(CFLAGS)
+				@$(CC) -o $(NAME) $(OBJ) $(CFLAGS) && \
+				$(ECHO) $(GREEN) "[OK]	" $(TEAL) $(NAME) $(DEFAULT) || \
+				$(ECHO) $(RED) "[XX]" $(TEAL) $(NAME) $(DEFAULT)
 
 clean:
 				$(RM) $(OBJ)
