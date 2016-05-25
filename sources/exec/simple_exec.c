@@ -5,7 +5,7 @@
 ** Login   <lefevr_h@epitech.net>
 **
 ** Started on  Mon May 23 23:00:09 2016 Philippe Lefevre
-** Last update Wed May 25 10:18:33 2016 Lucas Gambini
+** Last update Wed May 25 11:02:41 2016 Philippe Lefevre
 */
 
 #include		"42.h"
@@ -111,6 +111,6 @@ int			simple_exec(t_cmd *cmd, t_path *path, char **env)
 	}
     }
   fprintf(stderr, "%s: Command not found.\n", cmd->cmd[0]);
-    check_go_on(cmd);
+  check_go_on(cmd);
   return (FAILURE);
 }
