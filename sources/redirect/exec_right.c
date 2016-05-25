@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Mon May 23 20:22:56 2016 boris saint-bonnet
-** Last update Wed May 25 15:33:53 2016 Gambini Lucas
+** Last update Wed May 25 16:45:30 2016 Gambini Lucas
 */
 
 #include 		"42.h"
@@ -19,7 +19,6 @@ int			exec_right_builtin(int fd, t_right var, t_list *list)
   p[1] = &exec_setenv;
   p[2] = &exec_unsetenv;*/
   p[3] = &exec_echo;
-
   if ((pid = fork()) == -1)
     fprintf(stderr, "Error: Fork Failed\n");
   else if (pid == 0)
