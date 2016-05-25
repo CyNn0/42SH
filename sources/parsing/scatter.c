@@ -5,7 +5,7 @@
 ** Login   <gambin_l@epitech.net>
 **
 ** Started on  Mon May 23 16:43:07 2016 Gambini Lucas
-** Last update Wed May 25 16:45:26 2016 Gambini Lucas
+** Last update Wed May 25 16:51:09 2016 Gambini Lucas
 */
 
 #include	"42.h"
@@ -31,7 +31,8 @@ int		exec_scatter(t_list *list)
   env = extract_env(list->myEnv);
   while (!(list->do_exit) && tmp && tmp->cmd[0])
     {
-      builtin = check_built(list, tmp);
+      if ((builtin = check_built(list, tmp)) == 4);
+	return (SUCCESS);
       if (tmp->go_on == 1)
 	normal_scatter(tmp, env, list, builtin - 20);
       tmp = tmp->next;
