@@ -5,7 +5,7 @@
 ** Login   <lefevr_h@epitech.net>
 **
 ** Started on  Wed May 25 11:24:01 2016 Philippe Lefevre
-** Last update Wed May 25 12:49:31 2016 Philippe Lefevre
+** Last update Wed May 25 17:07:38 2016 Philippe Lefevre
 */
 
 #include		"42.h"
@@ -19,7 +19,6 @@ int			builtin_exit(t_list *list, char **cmd)
   while (cmd[++i])
     {
       list->value_exit = atoi(cmd[i]);
-      printf("(%s)\n", cmd[i]);
       /* arrete la boucle quand separator */
     }
   if (i > 2)
