@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 18 04:22:31 2016 boris saint-bonnet
-** Last update Wed May 25 10:24:33 2016 Gambini Lucas
+** Last update Wed May 25 10:48:51 2016 Gambini Lucas
 */
 
 # ifndef __LINKED_LIST_H__
@@ -107,9 +107,9 @@ t_list  *my_env_in_list(t_list *list, char **env);
 t_list  *del_link(t_list *list, t_cmd *cmd);
 t_list  *push_path(t_list *list, char *data);
 t_list	*path_to_list(t_list *list);
-int      simple_right(t_cmd *cmd, t_path *path, char **env);
-int      double_right(t_cmd *cmd, t_path *path, char **env);
-int	 print_env(t_env *list);
+int	simple_right(t_cmd *cmd, t_path *path, char **env);
+int	double_right(t_cmd *cmd, t_path *path, char **env);
+int	print_env(t_env *list);
 int	get_name(char *name);
 int	print_path(t_list *list);
 char	*find_user(t_list *list, char *name);
