@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 ** 
 ** Started on  Tue May 24 21:31:11 2016 boris saint-bonnet
-** Last update Wed May 25 02:26:58 2016 boris saint-bonnet
+** Last update Wed May 25 02:45:22 2016 boris saint-bonnet
 */
 
 # include "42.h"
@@ -24,7 +24,14 @@ void            init_var(char **cmd, t_right *var)
     {
       if ((strcmp(cmd[i], ">")) == 0)
 	{
-	  while ((var->name = strdup(cmd[++i])) == NULL);
+	  if (!(cmd[i + 1]))
+	    {
+	      fprintf(stderr, "Error: parsing nears '%c'\n", cmd[i][0]);
+	      var->name = NULL;
+	      return;
+	    }
+	  var->name = strdup(cmd[++i]);
+	  
 	  if (i == 1)
 	    {
 	      var->cmd[0] = strdup(cmd[++i]);
@@ -58,6 +65,12 @@ void            init_double(char **cmd, t_right *var)
     {
       if ((strcmp(cmd[i], ">>")) == 0)
 	{
+          if (!(cmd[i + 1]))
+	    {
+	      fprintf(stderr, "Error: parsing nears '%c'\n", cmd[i][0]);
+	      var->name = NULL;
+	      return;
+	    }
 	  var->name = strdup(cmd[++i]);
 	  if (i == 1)
 	    {
