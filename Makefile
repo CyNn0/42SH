@@ -5,7 +5,7 @@
 ## Login   <saint-_o@epitech.net>
 ##
 ## Started on  Wed May 18 04:15:48 2016 boris saint-bonnet
-## Last update Tue May 24 21:32:09 2016 boris saint-bonnet
+## Last update Wed May 25 03:05:49 2016 Hubert Leo
 ##
 
 CC		=		gcc -g -g3
@@ -57,6 +57,10 @@ SRC		=		sources/main.c					\
 				sources/redirect/pars_right.c			\
 				sources/redirect/double_right.c			\
 				sources/exec/simple_exec.c			\
+				sources/builtins/echo/echo.c			\
+				sources/builtins/echo/check_options.c		\
+				sources/builtins/echo/print.c			\
+				sources/builtins/echo/get_varenv.c		\
 
 OBJ		=		$(SRC:.c=.o)
 
