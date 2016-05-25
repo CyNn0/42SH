@@ -5,7 +5,7 @@
 ** Login   <lefevr_h@epitech.net>
 **
 ** Started on  Wed May 25 11:24:01 2016 Philippe Lefevre
-** Last update Wed May 25 12:20:29 2016 Philippe Lefevre
+** Last update Wed May 25 12:28:39 2016 Philippe Lefevre
 */
 
 #include		"42.h"
@@ -16,12 +16,12 @@ int			builtin_exit(t_list *list, char *str)
   int			i;
 
   i = 0;
-  printf("%s\n", "je suis la");
   cmd = strtok(str, " ");
   list->do_exit = 1;
   while ((cmd = strtok(NULL, " ")) != NULL)
     {
       list->value_exit = atoi(cmd);
+      printf("(%d)\n", list->value_exit);
       i++;
     }
   if (i > 1)
