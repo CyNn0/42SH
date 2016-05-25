@@ -5,14 +5,14 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Thu May 19 18:58:06 2016 boris saint-bonnet
-** Last update Wed May 25 04:11:01 2016 boris saint-bonnet
+** Last update Wed May 25 17:02:16 2016 Philippe Lefevre
 */
 
-# include "42.h"
+#include		"42.h"
 
-int    print_env(t_env *list)
+int			print_env(t_env *list)
 {
-  t_node        *tmp;
+  t_node		*tmp;
 
   tmp = list->head;
   if (list != NULL)
@@ -26,9 +26,9 @@ int    print_env(t_env *list)
   return (0);
 }
 
-void	print_prompt(t_list *list)
+int			print_prompt(t_list *list)
 {
-  char	*dirname;
+  char			*dirname;
 
   dirname = get_current_dir_name();
   write(1, GREEN, strlen(CYAN));
@@ -42,4 +42,5 @@ void	print_prompt(t_list *list)
   write(1, " ", 1);
   write(1, DEFAULT, strlen(DEFAULT));
   free(dirname);
+  return (0);
 }
