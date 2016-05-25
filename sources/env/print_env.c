@@ -5,16 +5,16 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Thu May 19 18:58:06 2016 boris saint-bonnet
-** Last update Sat May 21 22:54:37 2016 Lucas Gambini
+** Last update Wed May 25 04:11:01 2016 boris saint-bonnet
 */
 
 # include "42.h"
 
-int    print_env(t_list *list)
+int    print_env(t_env *list)
 {
   t_node        *tmp;
 
-  tmp = list->myEnv->head;
+  tmp = list->head;
   if (list != NULL)
     {
       while (tmp != NULL)
