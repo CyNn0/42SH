@@ -5,11 +5,11 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 18 04:22:31 2016 boris saint-bonnet
-** Last update Wed May 25 11:41:25 2016 boris saint-bonnet
+** Last update Wed May 25 12:16:47 2016 Philippe Lefevre
 */
 
-# ifndef __LINKED_LIST_H__
-# define __LINKED_LIST_H__
+#ifndef			_LINKED_LIST_H__
+# define		_LINKED_LIST_H__
 
 /*
 ** DEFINE
@@ -101,40 +101,42 @@ typedef struct		s_right
   char			**cmd;
 }			t_right;
 
-t_right  parsing_sr(char **cmd);
-t_right  parsing_dr(char **cmd);
-t_list  *create_list(t_list *list);
-t_list  *push(t_list *list, t_cmd *cmd);
-t_list  *push_env(t_list *list, char *data, char *name);
-t_list	*push_variable(t_list *list, char *name, char *data);
-t_list  *get_circle(t_list *list);
-t_list  *my_env_in_list(t_list *list, char **env);
-t_list  *del_link(t_list *list, t_cmd *cmd);
-t_list  *push_path(t_list *list, char *data);
-t_list	*path_to_list(t_list *list);
-t_list	*my_setenv(t_list *list, t_cmd *cmd);
-int	setenv_checking(t_list *list);
-int	simple_right(t_cmd *cmd, t_path *path, char **env);
-int	double_right(t_cmd *cmd, t_path *path, char **env);
-int	print_env(t_env *list);
-int	get_name(char *name);
-int	print_path(t_list *list);
-char	*find_user(t_list *list, char *name);
-char    *find_path(t_list *list);
-void    simple_first(t_pars *var, char c);
-void    double_first(t_pars *var, char c);
-void    init_double(char **cmd, t_right *var);
-void    init_var(char **cmd, t_right *var);
-void    print_prompt(t_list *list);
-void	free_fighter(t_list *list);
-t_list	*get_cmd(t_list *cmd, char *line);
-t_list	*push_cmd(t_list *list, char **cmd);
-void	show_cmd_list(t_list *list);
-t_list	*free_cmd(t_list *list);
-t_list	*post_parser(t_list *list);
-char	**extract_env(t_env *myEnv);
-int	exec_scatter(t_list *list);
-int	normal_scatter(t_cmd *cmd, char **env, t_path *path);
-t_list	*add_history(t_list *list, char *line);
+t_right			parsing_sr(char **cmd);
+t_right			parsing_dr(char **cmd);
+t_list			*create_list(t_list *list);
+t_list			*push(t_list *list, t_cmd *cmd);
+t_list			*push_env(t_list *list, char *data, char *name);
+t_list			*push_variable(t_list *list, char *name, char *data);
+t_list			*get_circle(t_list *list);
+t_list			*my_env_in_list(t_list *list, char **env);
+t_list			*del_link(t_list *list, t_cmd *cmd);
+t_list			*push_path(t_list *list, char *data);
+t_list			*path_to_list(t_list *list);
+t_list			my_setenv(t_list *list, t_cmd *cmd);
+int			setenv_checking(t_list *list);
+int			simple_right(t_cmd *cmd, t_path *path, char **env);
+int			double_right(t_cmd *cmd, t_path *path, char **env);
+int			print_env(t_env *list);
+int			get_name(char *name);
+int			print_path(t_list *list);
+char			*find_user(t_list *list, char *name);
+char			*find_path(t_list *list);
+void			simple_first(t_pars *var, char c);
+void			double_first(t_pars *var, char c);
+void			init_double(char **cmd, t_right *var);
+void			init_var(char **cmd, t_right *var);
+void			print_prompt(t_list *list);
+void			free_fighter(t_list *list);
+t_list			*get_cmd(t_list *cmd, char *line);
+t_list			*push_cmd(t_list *list, char **cmd);
+void			show_cmd_list(t_list *list);
+t_list			*free_cmd(t_list *list);
+t_list			*post_parser(t_list *list);
+char			**extract_env(t_env *myEnv);
+int			exec_scatter(t_list *list);
+int			normal_scatter(t_cmd *cmd, char **env, t_path *path);
+t_list			*add_history(t_list *list, char *line);
+void			my_exit(int status);
+int			builtin_exit(t_list *list, char *str);
 
-# endif /* !__LINKED_LIST_H__ */
+#endif			/* !__LINKED_LIST_H__ */

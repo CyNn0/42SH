@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 18 04:19:45 2016 boris saint-bonnet
-** Last update Wed May 25 11:45:35 2016 Philippe Lefevre
+** Last update Wed May 25 12:22:02 2016 Philippe Lefevre
 */
 
 #include		"42.h"
@@ -27,6 +27,7 @@ int			shell(char *env[])
       list = add_history(list, buffer);
       if ((list = get_cmd(list, pre_check(buffer))) == NULL)
 	return (FAILURE);
+      exec_scatter(list);
       list = free_cmd(list);
       print_prompt(list);
     }

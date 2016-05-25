@@ -64,6 +64,7 @@ SRC		=		sources/main.c					\
 				sources/builtins/echo/check_options.c		\
 				sources/builtins/echo/print.c			\
 				sources/builtins/echo/get_varenv.c		\
+				sources/builtins/exit.c
 
 OBJ		=		$(SRC:.c=.o)
 
