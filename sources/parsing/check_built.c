@@ -5,7 +5,7 @@
 ** Login   <puccio_c@epitech.net>
 **
 ** Started on  Mon May 23 17:29:52 2016 cyril puccio
-** Last update Wed May 25 12:41:31 2016 Philippe Lefevre
+** Last update Wed May 25 13:14:42 2016 Gambini Lucas
 */
 
 #include		"42.h"
@@ -39,8 +39,8 @@ int			check_built(t_list *list, t_cmd *cmd)
 	if (strcmp(cmd->cmd[i], builtin[j]) == 0)
 	  {
 	    free_built(builtin);
-	    if ((strncmp(cmd->cmd[i], "exit ", 5) != 0)
-		|| (strcmp(cmd->cmd[i], "exit ") != 0))
+	    if ((strncmp(cmd->cmd[i], "exit ", 5) == 0)
+		|| (strcmp(cmd->cmd[i], "exit ") == 0))
 	      builtin_exit(list, cmd->cmd);
 	    return (j + 20);
 	  }

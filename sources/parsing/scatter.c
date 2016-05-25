@@ -5,7 +5,7 @@
 ** Login   <gambin_l@epitech.net>
 **
 ** Started on  Mon May 23 16:43:07 2016 Lucas Gambini
-** Last update Wed May 25 12:19:33 2016 Philippe Lefevre
+** Last update Wed May 25 12:28:28 2016 Gambini Lucas
 */
 
 #include	"42.h"
@@ -22,8 +22,8 @@ int		exec_scatter(t_list *list)
     {
       if ((builtin = check_built(list, tmp)) == FAILURE && tmp->go_on == 1)
 	normal_scatter(tmp, env, list->path);
-      /*else
-	builtin_scatter(list, tmp, builtin);*/
+      else
+	builtin_scatter(list, tmp, (builtin - 20));
       tmp = tmp->next;
     }
   free_tab(env);
