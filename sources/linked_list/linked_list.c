@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Thu May 19 18:53:01 2016 boris saint-bonnet
-** Last update Wed May 25 11:44:31 2016 boris saint-bonnet
+** Last update Thu May 26 13:18:48 2016 boris saint-bonnet
 */
 
 # include "42.h"
@@ -40,7 +40,7 @@ t_list		*push_env(t_list *list, char *data, char *name)
   if (list != NULL)
     {
       if (node != NULL)
-	{
+  	{
 	  if ((node->data = strdup(data)) == NULL)
 	    return (list);
 	  if ((node->name = strdup(name)) == NULL)

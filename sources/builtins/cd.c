@@ -5,10 +5,10 @@
 ** Login   <hubert_i@epitech.net>
 **
 ** Started on  Sun Jan 24 14:35:00 2016 Léo Hubert
-** Last update Thu Apr 14 13:30:51 2016 Léo Hubert
+** Last update Thu May 26 14:35:29 2016 boris saint-bonnet
 */
 
-#include "my.h"
+#include "42.h"
 
 int	refresh_pwd(t_env *env, char **command)
 {
@@ -20,7 +20,7 @@ int	refresh_pwd(t_env *env, char **command)
 
   i = -1;
   while (getcwd(buffer, ++i) == NULL);
-  pwd = get_fusion("cd PWD ", getcwd(buffer, i));
+  pwd = strcat("cd PWD ", getcwd(buffer, i));
   str = my_str_to_wordtab(pwd, ' ');
   my_set(env, str);
   return (0);
@@ -81,7 +81,7 @@ char	*my_cd_bis(t_env *env, char **command, char *pwd)
   return (pwd);
 }
 
-int	my_cd_moin(t_env *env)
+int	my_cd_moins(t_env *env)
 {
   char	*pwd;
   char	*old_pwd;

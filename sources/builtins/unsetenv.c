@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 25 22:51:35 2016 boris saint-bonnet
-** Last update Thu May 26 11:33:03 2016 Gambini Lucas
+** Last update Thu May 26 15:09:23 2016 boris saint-bonnet
 */
 
 #include "42.h"
@@ -33,11 +33,14 @@ int		builtin_unsetenv(t_list *list, char **cmd)
   while (cmd[++i])
     {
       tmp = list->myEnv->head;
-      if (tmp == list->myEnv->tail)
+      if (tmp == list->myEnv->tail && tmp == list->myEnv->tail)
 	{
 	  if ((strcmp(tmp->name, cmd[1])) == 0)
 	    {
+	      free_node(tmp);
+	      tmp = list->myEnv->tail;
 	      list->myEnv->head = NULL;
+	      free_node(tmp);
 	      list->myEnv->tail = NULL;
 	      return (SUCCESS);
 	    }

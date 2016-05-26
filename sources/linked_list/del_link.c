@@ -5,10 +5,17 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 25 22:59:19 2016 boris saint-bonnet
-** Last update Thu May 26 11:18:05 2016 Gambini Lucas
+** Last update Thu May 26 15:10:27 2016 boris saint-bonnet
 */
 
 #include "42.h"
+
+void		free_node(t_node *tmp)
+{
+  free(tmp->data);
+  free(tmp->name);
+  free(tmp);
+}
 
 t_list		*del_first_link(t_list *list)
 {
@@ -20,7 +27,6 @@ t_list		*del_first_link(t_list *list)
       list->myEnv->head = tmp->next;
       tmp->next->prev = NULL;
     }
-  free(tmp);
   return (list);
 }
 
@@ -34,7 +40,6 @@ t_list		*del_last_link(t_list *list)
       list->myEnv->tail = tmp->prev;
       tmp->prev->next = NULL;
     }
-  free(tmp);
   return (list);
 }
 
@@ -59,6 +64,5 @@ t_list          *del_link(t_list *list, char *name)
 	}
       tmp = tmp->next;
     }
-  free(tmp);
   return (list);
 }
