@@ -5,7 +5,7 @@
 ** Login   <gambin_l@epitech.net>
 **
 ** Started on  Fri May 20 04:39:28 2016 Lucas Gambini
-** Last update Thu May 26 14:28:07 2016 Gambini Lucas
+** Last update Thu May 26 15:07:54 2016 Gambini Lucas
 */
 
 #include "42.h"
@@ -31,7 +31,10 @@ void		free_path(t_list *list)
 {
   t_node	*tmp;
 
-  tmp = list->path->head;
+  if (list->path->head)
+    tmp = list->path->head;
+  else
+    return;
   while (tmp != NULL)
     {
       free(tmp->data);

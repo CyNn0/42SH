@@ -5,7 +5,7 @@
 ** Login   <lefevr_h@epitech.net>
 **
 ** Started on  Mon May 23 23:00:09 2016 Philippe Lefevre
-** Last update Thu May 26 11:45:20 2016 Gambini Lucas
+** Last update Thu May 26 14:54:18 2016 Gambini Lucas
 */
 
 #include		"42.h"
@@ -100,7 +100,7 @@ int			simple_exec(t_cmd *cmd, t_list *list,
 
   if (builtin >= 0)
     return (simple_exec_builtin(list, cmd, builtin));
-  if (list->path->head->data != NULL)
+  if (list->path->head && list->path->head->data != NULL)
     {
       if ((cmd->cmd[0] = exec_find_path(list->path, cmd->cmd[0])) == NULL)
 	return (FAILURE);
