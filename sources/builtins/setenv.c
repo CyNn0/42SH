@@ -1,18 +1,18 @@
 /*
 ** setenv.c for  in /home/xx/Rendu/PSU/42SH
-** 
+**
 ** Made by boris saint-bonnet
 ** Login   <saint-_o@epitech.net>
-** 
+**
 ** Started on  Wed May 25 04:06:44 2016 boris saint-bonnet
-** Last update Wed May 25 23:18:09 2016 boris saint-bonnet
+** Last update Thu May 26 08:51:53 2016 Gambini Lucas
 */
 
 #include "42.h"
 
 int	        setenv_checking(t_list *list, char **cmd)
 {
-  if (cmd[2])
+  if (!cmd[2])
     {
       fprintf(stderr, "%s: Too many arguments.\n", cmd[0]);
       return (FAILURE);
@@ -25,7 +25,7 @@ int	        setenv_checking(t_list *list, char **cmd)
   return (SUCCESS);
 }
 
-t_list		*my_setenv(t_list *list, char **cmd)
+t_list		*builtin_setenv(t_list *list, char **cmd)
 {
   t_node        *tmp;
 
@@ -46,5 +46,5 @@ t_list		*my_setenv(t_list *list, char **cmd)
 	}
       tmp = tmp->next;
     }
-  return (list = push_variable(list, cmd[0], cmd[1]));
+  return (list = push_variable(list, cmd[1], cmd[2]));
 }

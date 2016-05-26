@@ -1,11 +1,11 @@
 /*
 ** push_variable.c for  in /home/xx/Rendu/PSU/42SH
-** 
+**
 ** Made by boris saint-bonnet
 ** Login   <saint-_o@epitech.net>
-** 
+**
 ** Started on  Wed May 25 10:13:39 2016 boris saint-bonnet
-** Last update Wed May 25 11:44:06 2016 boris saint-bonnet
+** Last update Thu May 26 08:36:21 2016 Gambini Lucas
 */
 
 #include "42.h"
@@ -23,9 +23,9 @@ t_list          *push_variable(t_list *list, char *name, char *data)
     {
       if (node != NULL)
 	{
-	  if ((node->data = strdup(data)) == NULL)
+	  if (data && (node->data = strdup(data)) == NULL)
 	    return (list);
-	  if ((node->name = strdup(name)) == NULL)
+	  if (name && (node->name = strdup(name)) == NULL)
 	    return (list);
 	  node->next = NULL;
 	  node->p = true;

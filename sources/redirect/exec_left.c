@@ -5,20 +5,20 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Mon May 23 20:22:56 2016 boris saint-bonnet
-** Last update Thu May 26 01:37:54 2016 Hubert Leo
+** Last update Thu May 26 08:40:23 2016 Gambini Lucas
 */
 
 #include 		"42.h"
 
 int			exec_left_builtin(int fd, t_left var, t_list *list)
 {
-  int			(*p[5])(t_list*, char**);
+  t_list		*(*p[5])(t_list*, char**);
   pid_t			pid;
 
-  /*p[0] = &exec_cd;
-  p[1] = &exec_setenv;
-  p[2] = &exec_unsetenv;*/
-  p[3] = &exec_echo;
+  /*p[0] = &exec_cd;*/
+  p[1] = &builtin_setenv;
+  p[2] = &builtin_unsetenv;
+  p[3] = &builtin_echo;
   if ((pid = fork()) == -1)
     fprintf(stderr, "Error: Fork Failed\n");
   else if (pid == 0)

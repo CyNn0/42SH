@@ -5,7 +5,7 @@
 ** Login   <lefevr_h@epitech.net>
 **
 ** Started on  Mon May 23 23:00:09 2016 Philippe Lefevre
-** Last update Wed May 25 15:40:52 2016 Gambini Lucas
+** Last update Thu May 26 08:40:16 2016 Gambini Lucas
 */
 
 #include		"42.h"
@@ -91,12 +91,12 @@ int			check_go_on(t_cmd *cmd)
 int			simple_exec_builtin(t_list *list, char **cmd,
 					    int	builtin)
 {
-    int			(*p[5])(t_list*, char**);
+    t_list		*(*p[5])(t_list*, char**);
 
-    /*p[0] = &exec_cd;
-    p[1] = &exec_setenv;
-    p[2] = &exec_unsetenv;*/
-    p[3] = &exec_echo;
+    /*p[0] = &exec_cd;*/
+    p[1] = &builtin_setenv;
+    p[2] = &builtin_unsetenv;
+    p[3] = &builtin_echo;
     p[builtin](list, cmd);
     return (SUCCESS);
 }
