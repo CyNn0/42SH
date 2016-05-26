@@ -5,14 +5,14 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 25 04:06:44 2016 boris saint-bonnet
-** Last update Thu May 26 08:51:53 2016 Gambini Lucas
+** Last update Thu May 26 11:03:15 2016 boris saint-bonnet
 */
 
 #include "42.h"
 
 int	        setenv_checking(t_list *list, char **cmd)
 {
-  if (!cmd[2])
+  if (tab_lenght(cmd) > 3)
     {
       fprintf(stderr, "%s: Too many arguments.\n", cmd[0]);
       return (FAILURE);
@@ -20,7 +20,7 @@ int	        setenv_checking(t_list *list, char **cmd)
   else if (!cmd[1])
     {
       print_env(list->myEnv);
-      return (SUCCESS);
+      return (FAILURE);
     }
   return (SUCCESS);
 }
@@ -32,16 +32,11 @@ t_list		*builtin_setenv(t_list *list, char **cmd)
   if ((setenv_checking(list, cmd)) == FAILURE)
     return (list);
   tmp = list->myEnv->head;
-  if (strlen(cmd[0]) == 0)
-    {
-      list = push_variable(list, "", cmd[1]);
-      return (list);
-    }
   while (tmp != NULL)
     {
-      if ((strncmp(cmd[0], tmp->name, strlen(cmd[0])) == 0))
+      if ((strcmp(cmd[1], tmp->name)) == 0)
 	{
-	  tmp->data = (cmd[1] == NULL) ? (strdup("")) : (strdup(cmd[1]));
+	  tmp->data = (cmd[1] == NULL) ? (strdup("")) : (strdup(cmd[2]));
 	  return (list);
 	}
       tmp = tmp->next;
