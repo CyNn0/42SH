@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 25 04:06:44 2016 boris saint-bonnet
-** Last update Thu May 26 11:34:41 2016 Gambini Lucas
+** Last update Thu May 26 18:41:09 2016 Gambini Lucas
 */
 
 #include "42.h"
@@ -36,7 +36,7 @@ int		builtin_setenv(t_list *list, char **cmd)
     {
       if ((strcmp(cmd[1], tmp->name)) == 0)
 	{
-	  tmp->data = (cmd[1] == NULL) ? (strdup("")) : (strdup(cmd[2]));
+	  tmp->data = (!cmd[2]) ? (strdup("")) : (strdup(cmd[2]));
 	  return (SUCCESS);
 	}
       tmp = tmp->next;

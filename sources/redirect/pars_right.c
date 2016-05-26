@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Tue May 24 21:31:11 2016 boris saint-bonnet
-** Last update Thu May 26 13:03:01 2016 Gambini Lucas
+** Last update Thu May 26 18:16:06 2016 Gambini Lucas
 */
 
 #include	"42.h"
@@ -33,7 +33,8 @@ void            init_var(char **cmd, t_red *var)
 	  var->name = strdup(cmd[++i]);
 	  if (i == 1)
 	    {
-	      var->cmd[0] = strdup(cmd[++i]);
+	      if (cmd[i + 1] != NULL)
+		var->cmd[0] = strdup(cmd[++i]);
 	      while (cmd[++i] && strcmp(cmd[i], ">") != 0)
 		var->cmd[j++] = strdup(cmd[i]);
 	      var->cmd[j] = NULL;

@@ -5,7 +5,7 @@
 ** Login   <lefevr_h@epitech.net>
 **
 ** Started on  Mon May 23 23:00:09 2016 Philippe Lefevre
-** Last update Thu May 26 14:54:18 2016 Gambini Lucas
+** Last update Thu May 26 18:17:59 2016 Gambini Lucas
 */
 
 #include		"42.h"
@@ -58,7 +58,7 @@ char			*exec_find_path(t_path *path, char *bin)
   char			*cmd;
 
   tmp = path->head;
-  while (tmp != NULL)
+  while (tmp != NULL && bin)
     {
       if ((cmd = malloc(strlen(tmp->data) + strlen(bin) + 2)) == NULL)
 	 return (NULL);

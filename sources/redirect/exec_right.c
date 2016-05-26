@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Mon May 23 20:22:56 2016 boris saint-bonnet
-** Last update Thu May 26 13:02:11 2016 Gambini Lucas
+** Last update Thu May 26 18:19:38 2016 Gambini Lucas
 */
 
 #include 		"42.h"
@@ -38,7 +38,8 @@ int                     exec_right(int fd, t_list *list,
     {
       if (list->path->head->data != NULL)
 	{
-	  var.cmd[0] = exec_find_path(list->path, var.cmd[0]);
+	  if ((var.cmd[0] = exec_find_path(list->path, var.cmd[0])) == NULL)
+	    return (FAILURE);
 	  if ((pid = fork()) == -1)
 	    fprintf(stderr, "Error: Fork Failed\n");
 	  else if (pid == 0)
