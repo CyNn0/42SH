@@ -5,7 +5,7 @@
 ** Login   <gambin_l@epitech.net>
 **
 ** Started on  Fri May 20 04:39:28 2016 Lucas Gambini
-** Last update Fri May 20 05:51:26 2016 Lucas Gambini
+** Last update Thu May 26 14:28:07 2016 Gambini Lucas
 */
 
 #include "42.h"
@@ -40,6 +40,8 @@ void		free_path(t_list *list)
     }
   if (list->path->tail != NULL)
     free(list->path->tail);
+  list->path->head = NULL;
+  list->path->tail = NULL;
   free(list->path);
   free(tmp);
 }

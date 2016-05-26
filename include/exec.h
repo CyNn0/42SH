@@ -5,7 +5,7 @@
 ** Login   <Lucas Gambini@epitech.net>
 **
 ** Started on  Mon May 23 19:17:09 2016 Gambini Lucas
-** Last update Thu May 26 13:02:06 2016 Gambini Lucas
+** Last update Thu May 26 14:07:19 2016 Gambini Lucas
 */
 
 #ifndef                 _EXEC_H_
@@ -22,5 +22,6 @@ int                     exec_right(int fd, t_list *list,
 int                     exec_left(int fd, t_list *list,
 				  char **env, t_red var);
 int			check_go_on(t_cmd *cmd);
+
 
 #endif                  /* !_EXEC_H_ */

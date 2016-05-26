@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Thu May 19 23:48:19 2016 boris saint-bonnet
-** Last update Mon May 23 12:56:20 2016 cyril puccio
+** Last update Thu May 26 14:02:53 2016 Gambini Lucas
 */
 
 # include "42.h"
@@ -25,7 +25,7 @@ int     path_nb(char *path)
   return (nb + 1);
 }
 
-t_list  *path_to_list(t_list *list)
+t_list  	*path_to_list(t_list *list)
 {
   char          *var;
   char		*path_line;
