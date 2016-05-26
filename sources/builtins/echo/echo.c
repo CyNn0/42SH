@@ -5,7 +5,7 @@
 ** Login   <hubert_i@epitech.net>
 **
 ** Started on  Mon May 23 17:29:37 2016 Hubert Leo
-** Last update Thu May 26 08:32:16 2016 Gambini Lucas
+** Last update Thu May 26 11:34:00 2016 Gambini Lucas
 */
 
 #include "42.h"
@@ -19,14 +19,14 @@ char		is_in_quotes(char *cmd)
   return (1);
 }
 
-t_list		*builtin_echo(t_list *list, char **cmd)
+int		builtin_echo(t_list *list, char **cmd)
 {
   t_echo	*echo;
   int		i;
   int		j;
 
   if ((echo = init_echo()) == NULL)
-    return (list);
+    return (FAILURE);
   j = (i = 1) - 1;
   while (cmd[i])
     {
@@ -44,5 +44,5 @@ t_list		*builtin_echo(t_list *list, char **cmd)
     }
   if (echo->flag_n == 0)
     write(1, "\n", 1);
-  return (list);
+  return (SUCCESS);
 }

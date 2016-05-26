@@ -5,21 +5,22 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Mon May 23 17:57:28 2016 boris saint-bonnet
-** Last update Wed May 25 15:03:45 2016 Gambini Lucas
+** Last update Thu May 26 12:57:44 2016 Gambini Lucas
 */
 
 # include 	"42.h"
 
 int		simple_right(t_cmd *cmd, t_list *list, char **env, int builtin)
 {
-  t_right	var;
+  t_red		var;
   int		fd;
 
   init_var(cmd->cmd, &var);
   var.is_builtin = builtin;
   if ((fd = open(var.name, __SIMPLE)) == -1)
     return (FAILURE);
-  exec_right(fd, list, env, var);
+  if (exec_right(fd, list, env, var) == FAILURE)
+    check_go_on(cmd);
   close(fd);
   free(var.name);
   free_tab(var.cmd);

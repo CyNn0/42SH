@@ -5,12 +5,12 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Tue May 24 21:31:11 2016 boris saint-bonnet
-** Last update Wed May 25 16:47:27 2016 Philippe Lefevre
+** Last update Thu May 26 13:03:01 2016 Gambini Lucas
 */
 
 #include	"42.h"
 
-void            init_var(char **cmd, t_right *var)
+void            init_var(char **cmd, t_red *var)
 {
   int           i;
   int           j;
@@ -52,7 +52,7 @@ void            init_var(char **cmd, t_right *var)
     }
 }
 
-void            init_double(char **cmd, t_right *var)
+void            init_double(char **cmd, t_red *var)
 {
   int           i;
   int           j;

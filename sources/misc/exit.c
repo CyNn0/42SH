@@ -5,17 +5,15 @@
 ** Login   <lefevr_h@epitech.net>
 **
 ** Started on  Mon May 23 19:57:19 2016 Philippe Lefevre
-** Last update Mon May 23 21:11:34 2016 Philippe Lefevre
+** Last update Thu May 26 12:02:04 2016 Gambini Lucas
 */
 
 #define			_POSIX_SOURCE
-#include		<sys/types.h>
-#include		<signal.h>
-#include		<unistd.h>
-#include		<sys/wait.h>
+#include		"42.h"
 
-void			my_exit(int status)
+int			my_exit(int status)
 {
   (void)status;
   kill(getpid(), SIGKILL);
+  return (FAILURE);
 }

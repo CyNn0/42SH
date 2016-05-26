@@ -5,12 +5,12 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 25 05:11:17 2016 boris saint-bonnet
-** Last update Thu May 26 01:39:34 2016 Hubert Leo
+** Last update Thu May 26 13:00:04 2016 Gambini Lucas
 */
 
 # include "42.h"
 
-void            init_simpleleft(char **cmd, t_right *var)
+void            init_simpleleft(char **cmd, t_red *var)
 {
   int           i;
   int           j;

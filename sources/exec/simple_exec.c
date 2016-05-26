@@ -5,7 +5,7 @@
 ** Login   <lefevr_h@epitech.net>
 **
 ** Started on  Mon May 23 23:00:09 2016 Philippe Lefevre
-** Last update Thu May 26 08:40:16 2016 Gambini Lucas
+** Last update Thu May 26 11:45:20 2016 Gambini Lucas
 */
 
 #include		"42.h"
@@ -76,28 +76,20 @@ char			*exec_find_path(t_path *path, char *bin)
   return (bin);
 }
 
-int			check_go_on(t_cmd *cmd)
-{
-  if (cmd->next)
-    {
-      (cmd->token == DOUBLE_PIPE) ? (cmd->next->go_on = 1)
-	: (cmd->next->go_on = 0);
-      (cmd->token == DOUBLE_AND) ? (cmd->next->go_on = 0)
-	: (cmd->next->go_on = 1);
-    }
-  return (SUCCESS);
-}
-
-int			simple_exec_builtin(t_list *list, char **cmd,
+int			simple_exec_builtin(t_list *list, t_cmd *cmd,
 					    int	builtin)
 {
-    t_list		*(*p[5])(t_list*, char**);
+    int			(*p[5])(t_list*, char**);
 
     /*p[0] = &exec_cd;*/
     p[1] = &builtin_setenv;
     p[2] = &builtin_unsetenv;
     p[3] = &builtin_echo;
-    p[builtin](list, cmd);
+    if (p[builtin](list, cmd->cmd) == FAILURE)
+      {
+	check_go_on(cmd);
+	return (FAILURE);
+      }
     return (SUCCESS);
 }
 
@@ -107,7 +99,7 @@ int			simple_exec(t_cmd *cmd, t_list *list,
   pid_t			pid;
 
   if (builtin >= 0)
-    return (simple_exec_builtin(list, cmd->cmd, builtin));
+    return (simple_exec_builtin(list, cmd, builtin));
   if (list->path->head->data != NULL)
     {
       if ((cmd->cmd[0] = exec_find_path(list->path, cmd->cmd[0])) == NULL)

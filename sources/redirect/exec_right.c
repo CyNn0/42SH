@@ -5,42 +5,36 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Mon May 23 20:22:56 2016 boris saint-bonnet
-** Last update Thu May 26 08:40:28 2016 Gambini Lucas
+** Last update Thu May 26 13:02:11 2016 Gambini Lucas
 */
 
 #include 		"42.h"
 
-int			exec_right_builtin(int fd, t_right var, t_list *list)
+int			exec_right_builtin(int fd, t_red var, t_list *list)
 {
-  t_list		*(*p[5])(t_list*, char**);
-  pid_t			pid;
+  int			(*p[5])(t_list*, char**);
+  int			ret;
+  int			reset;
 
   /*p[0] = &exec_cd;*/
   p[1] = &builtin_setenv;
   p[2] = &builtin_unsetenv;
   p[3] = &builtin_echo;
-  if ((pid = fork()) == -1)
-    fprintf(stderr, "Error: Fork Failed\n");
-  else if (pid == 0)
-    {
-      dup2(fd, 1);
-      p[var.is_builtin](list, var.cmd);
-      my_exit(-1);
-    }
-  else
-    xwaitpid(pid, 0, 0);
-  return (SUCCESS);
+  reset = dup(1);
+  dup2(fd, 1);
+  ret = p[var.is_builtin](list, var.cmd);
+  dup2(reset, 1);
+  return (ret);
 }
 
 int                     exec_right(int fd, t_list *list,
-				   char **env, t_right var)
+				   char **env, t_red var)
 {
   int                   status;
   pid_t                 pid;
 
   if (var.is_builtin >= 0)
     return (exec_right_builtin(fd, var, list));
-  else
     {
       if (list->path->head->data != NULL)
 	{

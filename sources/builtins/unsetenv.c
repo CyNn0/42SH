@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 25 22:51:35 2016 boris saint-bonnet
-** Last update Thu May 26 11:08:54 2016 boris saint-bonnet
+** Last update Thu May 26 11:33:03 2016 Gambini Lucas
 */
 
 #include "42.h"
@@ -22,14 +22,14 @@ int		unsetenv_checking(t_list *list, char **cmd)
   return (SUCCESS);
 }
 
-t_list		*builtin_unsetenv(t_list *list, char **cmd)
+int		builtin_unsetenv(t_list *list, char **cmd)
 {
   int		i;
   t_node	*tmp;
 
   i = 0;
   if (unsetenv_checking(list, cmd) == FAILURE)
-    return (list);
+    return (FAILURE);
   while (cmd[++i])
     {
       tmp = list->myEnv->head;
@@ -39,7 +39,7 @@ t_list		*builtin_unsetenv(t_list *list, char **cmd)
 	    {
 	      list->myEnv->head = NULL;
 	      list->myEnv->tail = NULL;
-	      return (list);
+	      return (SUCCESS);
 	    }
 	}
       while (tmp != NULL)
@@ -49,5 +49,5 @@ t_list		*builtin_unsetenv(t_list *list, char **cmd)
 	  tmp = tmp->next;
 	}
     }
-  return (list);
+  return (SUCCESS);
 }

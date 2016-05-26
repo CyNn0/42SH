@@ -1,11 +1,11 @@
 /*
 ** del_link.c for  in /home/xx/Rendu/PSU/42SH
-** 
+**
 ** Made by boris saint-bonnet
 ** Login   <saint-_o@epitech.net>
-** 
+**
 ** Started on  Wed May 25 22:59:19 2016 boris saint-bonnet
-** Last update Wed May 25 23:14:23 2016 boris saint-bonnet
+** Last update Thu May 26 11:18:05 2016 Gambini Lucas
 */
 
 #include "42.h"

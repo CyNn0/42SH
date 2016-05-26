@@ -5,7 +5,7 @@
 ** Login   <gambin_l@epitech.net>
 **
 ** Started on  Mon May 23 16:43:07 2016 Gambini Lucas
-** Last update Wed May 25 17:07:22 2016 Philippe Lefevre
+** Last update Thu May 26 13:09:16 2016 Gambini Lucas
 */
 
 #include	"42.h"
@@ -14,7 +14,7 @@ int		normal_scatter(t_cmd *cmd, char **env,
 			       t_list *list, int builtin)
 {
   (cmd->flag == SIMPLE_R) ? (simple_right(cmd, list, env, builtin))
-    : ((cmd->flag == SIMPLE_L) ? (printf("SIMPLE_L\n"))
+    : ((cmd->flag == SIMPLE_L) ? (/*simple_left(cmd, list, env, builtin)*/printf("simple_l.\n"))
        : ((cmd->flag == DOUBLE_R) ? (double_right(cmd, list, env, builtin))
 	  : ((cmd->flag == DOUBLE_L) ? (printf("DOUBLE_L\n"))
 	     : ((simple_exec(cmd, list, env, builtin))))));
@@ -28,9 +28,9 @@ int		exec_scatter(t_list *list)
   int		builtin;
 
   tmp = list->head;
-  env = extract_env(list->myEnv);
   while (!(list->do_exit) && tmp && tmp->cmd[0])
     {
+      env = extract_env(list->myEnv);
       if ((builtin = check_built(list, tmp)) == SUCCESS)
 	return (SUCCESS);
       if (tmp->go_on == 1)
