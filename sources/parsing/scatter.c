@@ -5,7 +5,7 @@
 ** Login   <gambin_l@epitech.net>
 **
 ** Started on  Mon May 23 16:43:07 2016 Gambini Lucas
-** Last update Thu May 26 13:09:16 2016 Gambini Lucas
+** Last update Thu May 26 13:52:23 2016 Lucas Gambini
 */
 
 #include	"42.h"
@@ -36,7 +36,7 @@ int		exec_scatter(t_list *list)
       if (tmp->go_on == 1)
 	normal_scatter(tmp, env, list, builtin - 20);
       tmp = tmp->next;
+      free_tab(env);
     }
-  free_tab(env);
   return (SUCCESS);
 }
