@@ -5,7 +5,7 @@
 ** Login   <gambin_l@epitech.net>
 **
 ** Started on  Mon May 23 16:43:07 2016 Gambini Lucas
-** Last update Fri May 27 11:29:10 2016 Gambini Lucas
+** Last update Fri May 27 13:54:33 2016 Gambini Lucas
 */
 
 #include		"42.h"
@@ -14,24 +14,19 @@ int			normal_scatter(t_cmd *cmd, char **env,
 			       t_list *list, int builtin)
 {
   (cmd->flag == SIMPLE_R) ? (simple_right(cmd, list, env, builtin))
-      : ((cmd->flag == SIMPLE_L) ? (/*simple_left(cmd, list, env, builtin)*/printf("simple_l.\n"))
+      : ((cmd->flag == SIMPLE_L) ? (printf("simple_l.\n"))
        : ((cmd->flag == DOUBLE_R) ? (double_right(cmd, list, env, builtin))
 	  : ((cmd->flag == DOUBLE_L) ? (printf("DOUBLE_L\n"))
 	     : ((simple_exec(cmd, list, env, builtin))))));
   return (SUCCESS);
 }
 
-int			exec_scatter(t_list *list)
+int			prepare_pipe(t_cmd *tmp)
 {
-  char		**env;
-  t_cmd		*tmp;
-  t_cmd		*tmp2;
-  t_pipe	*tab_pipe;
-  int		builtin;
-  int		i;
+  int			i;
+  t_cmd			*tmp2;
+  t_pipe		*tab_pipe;
 
-  tmp = list->head;
-  env = extract_env(list->myEnv);
   if ((tab_pipe = create_tab_linked_cmd(tmp)) == NULL)
     return (FAILURE);
   i  = -1;
@@ -45,6 +40,19 @@ int			exec_scatter(t_list *list)
 	  tmp2 = tmp2->next;
 	}
     }
+  return (SUCCESS);
+}
+
+int			exec_scatter(t_list *list)
+{
+  char		**env;
+  t_cmd		*tmp;
+  int		builtin;
+
+  tmp = list->head;
+  env = extract_env(list->myEnv);
+  if (prepare_pipe(tmp) == FAILURE)
+    return (FAILURE);
   while (!(list->do_exit) && tmp && tmp->cmd[0])
     {
       if ((builtin = check_built(list, tmp)) == SUCCESS)

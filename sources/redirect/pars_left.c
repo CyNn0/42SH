@@ -5,21 +5,41 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 25 05:11:17 2016 boris saint-bonnet
-** Last update Thu May 26 13:00:04 2016 Gambini Lucas
+** Last update Fri May 27 13:30:47 2016 Gambini Lucas
 */
 
-# include "42.h"
+# include 		"42.h"
 
-void            init_simpleleft(char **cmd, t_red *var)
+int			dep_init_left(char **cmd, t_red *var, int *i, int *j)
 {
-  int           i;
-  int           j;
+  if (*i == 1)
+    {
+      var->cmd[0] = strdup(cmd[++(*i)]);
+      while (cmd[++(*i)] && strcmp(cmd[*i], "<") != 0)
+	var->cmd[(*j)++] = strdup(cmd[*i]);
+      return (FAILURE);
+    }
+  else
+    {
+      *i = 1;
+      var->cmd[0] = strdup(cmd[0]);
+      while (cmd[*i] && strcmp(cmd[*i], "<") != 0)
+	var->cmd[(*j)++] = strdup(cmd[(*i)++]);
+      return (FAILURE);
+    }
+  return (SUCCESS);
+}
+
+void            	init_simpleleft(char **cmd, t_red *var)
+{
+  int           	i;
+  int           	j;
 
   i = -1;
   j = 1;
   if ((var->cmd = malloc((tab_lenght(cmd)) * sizeof(char*))) == NULL)
     my_exit(42);
-  var->cmd[tab_lenght(cmd) - 1] = NULL;;
+  var->cmd[tab_lenght(cmd) - 1] = NULL;
   while (cmd[++i])
     {
       if ((strcmp(cmd[i], "<")) == 0)
@@ -31,22 +51,8 @@ void            init_simpleleft(char **cmd, t_red *var)
 	      return;
 	    }
 	  var->name = strdup(cmd[++i]);
-
-	  if (i == 1)
-	    {
-	      var->cmd[0] = strdup(cmd[++i]);
-	      while (cmd[++i] && strcmp(cmd[i], "<") != 0)
-		var->cmd[j++] = strdup(cmd[i]);
-	      break;
-	    }
-	  else
-	    {
-	      i = 1;
-	      var->cmd[0] = strdup(cmd[0]);
-	      while (cmd[i] && strcmp(cmd[i], "<") != 0)
-		var->cmd[j++] = strdup(cmd[i++]);
-	      break;
-	    }
+	  if (dep_init_left(cmd, var, &i, &j) == FAILURE)
+	    break;
 	}
     }
 }

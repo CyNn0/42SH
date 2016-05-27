@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 18 04:54:23 2016 boris saint-bonnet
-** Last update Tue May 24 09:20:49 2016 Gambini Lucas
+** Last update Fri May 27 13:55:51 2016 Gambini Lucas
 */
 
 # include "42.h"
@@ -17,8 +17,8 @@ char    *my_strcatc(char *path, char *command, int cond, int bool)
   int   j;
 
   if (path == NULL || command == NULL
-      || (ret = malloc(sizeof(char) * (strlen(path) +
-				       strlen(command) + 2))) == NULL)
+      || (ret = malloc(sizeof(char) *
+		       (strlen(path) + strlen(command) + 2))) == NULL)
     return (NULL);
   i = -1;
   while (path[++i] != '\0')

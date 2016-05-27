@@ -5,7 +5,7 @@
 ** Login   <hubert_i@epitech.net>
 **
 ** Started on  Mon May 23 18:01:20 2016 Hubert Leo
-** Last update Fri May 27 12:02:07 2016 Gambini Lucas
+** Last update Fri May 27 14:42:10 2016 Gambini Lucas
 */
 
 #ifndef			_BUILTIN_H_
@@ -56,5 +56,11 @@ int			my_cd_moins(t_list *list);
 int			builtin_cd(t_list *list, char **command);
 int			refresh_pwd(t_list *list, char **command);
 char			*search_env(t_node *env, char *search);
+int			countword(char *str, char caract);
+int			current(char *str, char caract);
+char			**my_str_to_wordtab(char *str, char caract);
+char			*get_fusion(char *str, char *str2);
+int			my_error(char *com, char *str);
+
 
 #endif /* !__BUILTIN__ */

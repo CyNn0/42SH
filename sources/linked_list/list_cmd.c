@@ -5,7 +5,7 @@
 ** Login   <gambin_l@epitech.net>
 **
 ** Started on  Fri May 20 06:45:22 2016 Lucas Gambini
-** Last update Wed May 25 17:32:03 2016 Philippe Lefevre
+** Last update Fri May 27 14:40:52 2016 Gambini Lucas
 */
 
 #include		"42.h"
@@ -38,7 +38,8 @@ void			show_cmd_list(t_list *list)
   i = -1;
   while (tmp)
     {
-      printf("---------\nMaillon: %d\nToken: %d\nFlag: %d\n", ++i, tmp->token, tmp->flag);
+      printf("---------\nMaillon: %d\nToken: %d\nFlag: %d\n",
+	     ++i, tmp->token, tmp->flag);
       show_tab(tmp->cmd);
       tmp = tmp->next;
     }

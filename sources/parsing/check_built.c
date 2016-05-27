@@ -5,19 +5,10 @@
 ** Login   <puccio_c@epitech.net>
 **
 ** Started on  Mon May 23 17:29:52 2016 cyril puccio
-** Last update Wed May 25 15:45:32 2016 Gambini Lucas
+** Last update Fri May 27 13:52:34 2016 Gambini Lucas
 */
 
 #include		"42.h"
-
-void			free_built(char *tab[])
-{
-  int			i;
-
-  i = -1;
-  while (tab[++i] != NULL)
-    free(tab[i]);
-}
 
 int			check_built(t_list *list, t_cmd *cmd)
 {
@@ -26,11 +17,11 @@ int			check_built(t_list *list, t_cmd *cmd)
   int			j;
 
   i = -1;
-  builtin[0] = strdup("cd");
-  builtin[1] = strdup("setenv");
-  builtin[2] = strdup("unsetenv");
-  builtin[3] = strdup("echo");
-  builtin[4] = strdup("exit");
+  builtin[0] = "cd";
+  builtin[1] = "setenv";
+  builtin[2] = "unsetenv";
+  builtin[3] = "echo";
+  builtin[4] = "exit";
   builtin[5] = NULL;
   while (!(list->do_exit) && cmd->cmd[++i] != NULL)
     {
@@ -38,13 +29,11 @@ int			check_built(t_list *list, t_cmd *cmd)
       while (builtin[++j] != NULL)
 	if (strcmp(cmd->cmd[i], builtin[j]) == 0)
 	  {
-	    free_built(builtin);
 	    if (j == 4)
 	      return (builtin_exit(list, cmd->cmd));
 	    cmd->is_builtin = j;
 	    return (j + 20);
 	  }
     }
-  free_built(builtin);
   return (FAILURE);
 }

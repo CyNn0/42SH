@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Thu May 19 18:53:01 2016 boris saint-bonnet
-** Last update Thu May 26 13:18:48 2016 boris saint-bonnet
+** Last update Fri May 27 14:43:15 2016 Gambini Lucas
 */
 
 # include "42.h"
@@ -31,6 +31,17 @@ t_list		*create_list(t_list *list)
   return (list);
 }
 
+t_node		*init_push_env(t_node *node, char *data, char *name)
+{
+  if ((node->data = strdup(data)) == NULL)
+    return (NULL);
+  if ((node->name = strdup(name)) == NULL)
+    return (NULL);
+  node->next = NULL;
+  node->p = true;
+  return (node);
+}
+
 t_list		*push_env(t_list *list, char *data, char *name)
 {
   t_node        *node;
@@ -41,12 +52,8 @@ t_list		*push_env(t_list *list, char *data, char *name)
     {
       if (node != NULL)
   	{
-	  if ((node->data = strdup(data)) == NULL)
+	  if (init_push_env(node, data, name) == NULL)
 	    return (list);
-	  if ((node->name = strdup(name)) == NULL)
-	    return (list);
-	  node->next = NULL;
-	  node->p = true;
 	  if (list->myEnv->tail == NULL)
 	    {
 	      node->prev = NULL;
@@ -89,32 +96,4 @@ t_list		*push_path(t_list *list, char *data)
       list->path->tail = node;
     }
   return (list);
-}
-
-char		*find_user(t_list *list, char *str)
-{
-  t_node        *tmp;
-
-  tmp = list->myEnv->head;
-  while (tmp != NULL)
-    {
-      if ((strcmp(tmp->name, str) == 0))
-	return (tmp->data);
-      tmp = tmp->next;
-    }
-  return (NULL);
-}
-
-char    *find_path(t_list *list)
-{
-  t_node        *tmp;
-
-  tmp = list->myEnv->head;
-  while (tmp != NULL)
-    {
-      if ((strcmp(tmp->name, "PATH") == 0))
-	return (tmp->data);
-      tmp = tmp->next;
-    }
-  return (NULL);
 }

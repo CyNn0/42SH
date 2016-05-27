@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 25 22:51:35 2016 boris saint-bonnet
-** Last update Thu May 26 15:09:23 2016 boris saint-bonnet
+** Last update Fri May 27 14:18:44 2016 Gambini Lucas
 */
 
 #include "42.h"
@@ -19,6 +19,15 @@ int		unsetenv_checking(t_list *list, char **cmd)
       fprintf(stderr, "%s: Too few arguments\n", cmd[0]);
       return (FAILURE);
     }
+  return (SUCCESS);
+}
+
+int			is_last_node(t_node *tmp, t_list *list)
+{
+  free_node(tmp);
+  tmp = list->myEnv->tail;
+  list->myEnv->head = NULL;
+  list->myEnv->tail = NULL;
   return (SUCCESS);
 }
 
@@ -36,14 +45,7 @@ int		builtin_unsetenv(t_list *list, char **cmd)
       if (tmp == list->myEnv->tail && tmp == list->myEnv->tail)
 	{
 	  if ((strcmp(tmp->name, cmd[1])) == 0)
-	    {
-	      free_node(tmp);
-	      tmp = list->myEnv->tail;
-	      list->myEnv->head = NULL;
-	      free_node(tmp);
-	      list->myEnv->tail = NULL;
-	      return (SUCCESS);
-	    }
+	    return (is_last_node(tmp, list));
 	}
       while (tmp != NULL)
 	{

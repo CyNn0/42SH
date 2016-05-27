@@ -5,10 +5,33 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Tue May 24 21:31:11 2016 boris saint-bonnet
-** Last update Thu May 26 18:16:06 2016 Gambini Lucas
+** Last update Fri May 27 13:29:48 2016 Gambini Lucas
 */
 
 #include	"42.h"
+
+int	dep_init_var(char **cmd, t_red *var, int *i, int *j)
+{
+  if (*i == 1)
+    {
+      if (cmd[*i + 1] != NULL)
+	var->cmd[0] = strdup(cmd[++(*i)]);
+      while (cmd[++(*i)] && strcmp(cmd[*i], ">") != 0)
+	var->cmd[(*j)++] = strdup(cmd[*i]);
+      var->cmd[*j] = NULL;
+      return (FAILURE);
+    }
+  else
+    {
+      *i = 1;
+      var->cmd[0] = strdup(cmd[0]);
+      while (cmd[*i] && strcmp(cmd[*i], ">") != 0)
+	var->cmd[(*j)++] = strdup(cmd[(*i)++]);
+      var->cmd[*j] = NULL;
+      return (FAILURE);
+    }
+  return (SUCCESS);
+}
 
 void            init_var(char **cmd, t_red *var)
 {
@@ -19,7 +42,7 @@ void            init_var(char **cmd, t_red *var)
   j = 1;
   if ((var->cmd = malloc((tab_lenght(cmd)) * sizeof(char*))) == NULL)
     my_exit(42);
-  var->cmd[tab_lenght(cmd) - 1] = NULL;;
+  var->cmd[tab_lenght(cmd) - 1] = NULL;
   while (cmd[++i])
     {
       if ((strcmp(cmd[i], ">")) == 0)
@@ -31,32 +54,38 @@ void            init_var(char **cmd, t_red *var)
 	      return;
 	    }
 	  var->name = strdup(cmd[++i]);
-	  if (i == 1)
-	    {
-	      if (cmd[i + 1] != NULL)
-		var->cmd[0] = strdup(cmd[++i]);
-	      while (cmd[++i] && strcmp(cmd[i], ">") != 0)
-		var->cmd[j++] = strdup(cmd[i]);
-	      var->cmd[j] = NULL;
-	      break;
-	    }
-	  else
-	    {
-	      i = 1;
-	      var->cmd[0] = strdup(cmd[0]);
-	      while (cmd[i] && strcmp(cmd[i], ">") != 0)
-		var->cmd[j++] = strdup(cmd[i++]);
-	      var->cmd[j] = NULL;
-	      break;
-	    }
+	  if (dep_init_var(cmd, var, &i, &j) == FAILURE)
+	    break;
 	}
     }
 }
 
-void            init_double(char **cmd, t_red *var)
+int			dep_init_db_var(char **cmd, t_red *var, int *i, int *j)
 {
-  int           i;
-  int           j;
+  if (*i == 1)
+    {
+      var->cmd[0] = strdup(cmd[++(*i)]);
+      while (cmd[++(*i)] && strcmp(cmd[*i], ">>") != 0)
+	var->cmd[(*j)++] = strdup(cmd[*i]);
+      var->cmd[(*j)] = NULL;
+      return (FAILURE);
+    }
+  else
+    {
+      *i = 1;
+      var->cmd[0] = strdup(cmd[0]);
+      while (cmd[*i] && strcmp(cmd[*i], ">>") != 0)
+	var->cmd[(*j)++] = strdup(cmd[(*i)++]);
+      var->cmd[*j] = NULL;
+      return (FAILURE);
+    }
+  return (SUCCESS);
+}
+
+void            	init_double(char **cmd, t_red *var)
+{
+  int           	i;
+  int           	j;
 
   i = -1;
   j = 1;
@@ -74,23 +103,8 @@ void            init_double(char **cmd, t_red *var)
 	      return;
 	    }
 	  var->name = strdup(cmd[++i]);
-	  if (i == 1)
-	    {
-	      var->cmd[0] = strdup(cmd[++i]);
-	      while (cmd[++i] && strcmp(cmd[i], ">>") != 0)
-		var->cmd[j++] = strdup(cmd[i]);
-	      var->cmd[j] = NULL;
-	      break;
-	    }
-	  else
-	    {
-	      i = 1;
-	      var->cmd[0] = strdup(cmd[0]);
-	      while (cmd[i] && strcmp(cmd[i], ">>") != 0)
-		var->cmd[j++] = strdup(cmd[i++]);
-	      var->cmd[j] = NULL;
-	      break;
-	    }
+	  if (dep_init_db_var(cmd, var, &i, &j) == FAILURE)
+	    break;
 	}
     }
 }

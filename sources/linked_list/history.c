@@ -1,11 +1,11 @@
 /*
-** history.c for 42sh in C:\Users\gambin_l\Shared\42SH\sources\linked_list
+** history.c for hist in /home/gambin_l/Shared/42SH/sources/linked_list
 **
-** Made by Gambini Lucas
-** Login   <Lucas Gambini@epitech.net>
+** Made by Lucas Gambini
+** Login   <gambin_l@epitech.net>
 **
-** Started on  Wed May 25 10:14:09 2016 Gambini Lucas
-** Last update Wed May 25 11:37:51 2016 Gambini Lucas
+** Started on  Fri May 27 14:35:49 2016 Gambini Lucas
+** Last update Fri May 27 14:36:02 2016 Gambini Lucas
 */
 
 # include	"42.h"

@@ -5,7 +5,7 @@
 ## Login   <saint-_o@epitech.net>
 ##
 ## Started on  Wed May 18 04:15:48 2016 boris saint-bonnet
-## Last update Fri May 27 11:26:21 2016 Hubert Leo
+## Last update Fri May 27 14:44:30 2016 Lucas Gambini
 ##
 
 CC		=	gcc -g -g3
@@ -51,6 +51,7 @@ SRC		=	sources/main.c				\
 			sources/linked_list/history.c		\
 			sources/linked_list/push_variable.c	\
 			sources/linked_list/del_link.c		\
+			sources/linked_list/for_prompt.c	\
 			sources/env/my_env_in_list.c		\
 			sources/env/print_env.c			\
 			sources/path/path_to_list.c		\
@@ -71,8 +72,9 @@ SRC		=	sources/main.c				\
 			sources/builtins/exit.c			\
 			sources/builtins/setenv.c		\
 			sources/builtins/unsetenv.c		\
+			sources/builtins/cd/cd.c		\
+			sources/builtins/cd/dep_cd.c		\
 			sources/pipe/pipe.c			\
-			sources/builtins/cd.c
 
 OBJ		=	$(SRC:.c=.o)
 

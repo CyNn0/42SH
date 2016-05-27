@@ -5,120 +5,17 @@
 ** Login   <hubert_i@epitech.net>
 **
 ** Started on  Sun Jan 24 14:35:00 2016 Hubert Leo
-** Last update Fri May 27 12:07:32 2016 Gambini Lucas
+** Last update Fri May 27 14:33:28 2016 Gambini Lucas
 */
 
-#include "42.h"
-
-int			countword(char *str, char caract)
-{
-  int			i;
-  int			c;
-
-  i = 0;
-  c = 0;
-  while (str[i])
-    {
-      while (str[i] == caract)
-	i++;
-      if (str[i])
-	c++;
-      while (str[i] != caract && str[i] != 0)
-	i++;
-    }
-  return (c);
-}
-
-int			current(char *str, char caract)
-{
-  int			i;
-
-  i = 0;
-  while (str[i] != caract && str[i] != '\0')
-    i++;
-  return (i);
-}
-
-char			**my_str_to_wordtab(char *str, char caract)
-{
-  int			i;
-  int			l;
-  int			t;
-  char			**tab;
-
-  i = 0;
-  l = 0;
-  tab = malloc((countword(str, caract) + 1) * sizeof(char*));
-  while (str[i] == caract)
-    i++;
-  while (str[i] != 0)
-    {
-      tab[l] = malloc((current(&str[i], caract) + 1) * sizeof(char));
-      t = 0;
-      while (str[i] != caract && str[i] != '\0')
-	tab[l][t++] = str[i++];
-      tab[l++][t] = '\0';
-      while (str[i] == caract)
-	i++;
-    }
-  tab[l] = NULL;
-  return (tab);
-}
-
-char			*get_fusion(char *str, char *str2)
-{
-  char			*result;
-  int			counter;
-  int			counter2;
-
-  counter = 0;
-  counter2 = 0;
-  if ((result = malloc(strlen(str) + strlen(str2) + 1)) == NULL)
-    return (NULL);
-  while (str[counter] != 0)
-    {
-      result[counter] = str[counter];
-      counter++;
-    }
-  while (str2[counter2] != 0)
-    {
-      result[counter] = str2[counter2];
-      counter2++;
-      counter++;
-    }
-  result[counter] = '\0';
-  return (result);
-}
-
-void	my_puterror(char c)
-{
-  write(2, &c, 1);
-}
-
-int			my_error(char *com, char *str)
-{
-  int			i;
-
-  i = 0;
-  while (str[i])
-    {
-      if (str[i] == '%' && str[i + 1] == 's')
-	{
-	  my_error(str, com);
-	  i += 2;
-	}
-      my_puterror(str[i]);
-      i++;
-    }
-  return (0);
-}
+#include 		"42.h"
 
 char			*search_env(t_node *env, char *search)
 {
   while (env)
     {
       if (strncmp(env->name, search, strlen(env->name)) == 0)
-	return(env->data);
+	return (env->data);
       env = env->next;
     }
   return (NULL);
@@ -179,21 +76,19 @@ int			builtin_cd(t_list *list, char **command)
       if (command[1][0] == '-')
 	return (my_cd_moins(list));
       if ((pwd = my_cd_bis(list, command, pwd)) == 0)
-	return (-1);
+	return (FAILURE);
       str = my_str_to_wordtab(get_fusion("s OLDPWD ",
 					 search_env(env, "PWD")), ' ');
       builtin_setenv(list, str);
-      if (refresh_pwd(list, command) == -1)
-	return (-1);
+      return ((refresh_pwd(list, command) == -1) ? (FAILURE) : (SUCCESS));
     }
   else
     {
       if ((home = search_env(env, "HOME")) == NULL || home[0] == '\0')
 	return (my_error(NULL, "HOME not found.\n"));
-      str = my_str_to_wordtab(get_fusion("cd ", home), ' ');
-      builtin_cd(list, str);
+      builtin_cd(list, my_str_to_wordtab(get_fusion("cd ", home), ' '));
     }
-  return (0);
+  return (SUCCESS);
 }
 
 char			*my_cd_bis(t_list *list, char **command, char *pwd)
