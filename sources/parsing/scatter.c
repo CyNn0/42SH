@@ -5,7 +5,7 @@
 ** Login   <gambin_l@epitech.net>
 **
 ** Started on  Mon May 23 16:43:07 2016 Gambini Lucas
-** Last update Fri May 27 08:03:33 2016 Philippe Lefevre
+** Last update Fri May 27 11:29:10 2016 Gambini Lucas
 */
 
 #include		"42.h"
@@ -37,18 +37,16 @@ int			exec_scatter(t_list *list)
   i  = -1;
   while (++i < tab_pipe[0].nb_pipe)
     {
-      printf("Pipe numero %d\n", (i + 1));
+      printf("lefevr == [here]\n");
       tmp2 = tab_pipe[i].beg;
       while (tmp2 != tab_pipe[i].end)
 	{
-	  printf("Pipe: Premiere command == [%s]\n", tmp->cmd[0]);
+	  printf("lefevr == [%s]\n", tmp->cmd[0]);
 	  tmp2 = tmp2->next;
 	}
     }
   while (!(list->do_exit) && tmp && tmp->cmd[0])
     {
-      free_tab(env);
-      env = extract_env(list->myEnv);
       if ((builtin = check_built(list, tmp)) == SUCCESS)
 	return (SUCCESS);
       if (tmp->go_on == 1)

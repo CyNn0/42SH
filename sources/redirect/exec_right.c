@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Mon May 23 20:22:56 2016 boris saint-bonnet
-** Last update Thu May 26 18:19:38 2016 Gambini Lucas
+** Last update Fri May 27 12:01:13 2016 Gambini Lucas
 */
 
 #include 		"42.h"
@@ -16,7 +16,7 @@ int			exec_right_builtin(int fd, t_red var, t_list *list)
   int			ret;
   int			reset;
 
-  /*p[0] = &exec_cd;*/
+  p[0] = &builtin_cd;
   p[1] = &builtin_setenv;
   p[2] = &builtin_unsetenv;
   p[3] = &builtin_echo;

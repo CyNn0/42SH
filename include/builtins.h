@@ -5,7 +5,7 @@
 ** Login   <hubert_i@epitech.net>
 **
 ** Started on  Mon May 23 18:01:20 2016 Hubert Leo
-** Last update Fri May 27 11:33:34 2016 Hubert Leo
+** Last update Fri May 27 12:02:07 2016 Gambini Lucas
 */
 
 #ifndef			_BUILTIN_H_
@@ -53,7 +53,7 @@ int			count_to_space(char *cmd, int i);
 
 char			*my_cd_bis(t_list *list, char **command, char *pwd);
 int			my_cd_moins(t_list *list);
-int			exec_cd(t_list *list, char **command);
+int			builtin_cd(t_list *list, char **command);
 int			refresh_pwd(t_list *list, char **command);
 char			*search_env(t_node *env, char *search);
 

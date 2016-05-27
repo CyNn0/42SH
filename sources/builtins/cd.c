@@ -5,15 +5,15 @@
 ** Login   <hubert_i@epitech.net>
 **
 ** Started on  Sun Jan 24 14:35:00 2016 Hubert Leo
-** Last update Fri May 27 11:49:08 2016 Hubert Leo
+** Last update Fri May 27 12:07:32 2016 Gambini Lucas
 */
 
 #include "42.h"
 
-int	countword(char *str, char caract)
+int			countword(char *str, char caract)
 {
-  int	i;
-  int	c;
+  int			i;
+  int			c;
 
   i = 0;
   c = 0;
@@ -29,9 +29,9 @@ int	countword(char *str, char caract)
   return (c);
 }
 
-int	current(char *str, char caract)
+int			current(char *str, char caract)
 {
-  int	i;
+  int			i;
 
   i = 0;
   while (str[i] != caract && str[i] != '\0')
@@ -39,12 +39,12 @@ int	current(char *str, char caract)
   return (i);
 }
 
-char	**my_str_to_wordtab(char *str, char caract)
+char			**my_str_to_wordtab(char *str, char caract)
 {
-  int	i;
-  int	l;
-  int	t;
-  char	**tab;
+  int			i;
+  int			l;
+  int			t;
+  char			**tab;
 
   i = 0;
   l = 0;
@@ -65,11 +65,11 @@ char	**my_str_to_wordtab(char *str, char caract)
   return (tab);
 }
 
-char	*get_fusion(char *str, char *str2)
+char			*get_fusion(char *str, char *str2)
 {
-  char	*result;
-  int	counter;
-  int	counter2;
+  char			*result;
+  int			counter;
+  int			counter2;
 
   counter = 0;
   counter2 = 0;
@@ -95,9 +95,9 @@ void	my_puterror(char c)
   write(2, &c, 1);
 }
 
-int	my_error(char *com, char *str)
+int			my_error(char *com, char *str)
 {
-  int	i;
+  int			i;
 
   i = 0;
   while (str[i])
@@ -113,7 +113,7 @@ int	my_error(char *com, char *str)
   return (0);
 }
 
-char		*search_env(t_node *env, char *search)
+char			*search_env(t_node *env, char *search)
 {
   while (env)
     {
@@ -124,16 +124,14 @@ char		*search_env(t_node *env, char *search)
   return (NULL);
 }
 
-int	refresh_pwd(t_list *list, char **command)
+int			refresh_pwd(t_list *list, char **command)
 {
-  char	buffer[4048];
-  char	*pwd;
-  char	**str;
-  int	i;
-  t_node *env;
-  (void)command;
+  char			buffer[4048];
+  char			*pwd;
+  char			**str;
+  int			i;
 
-  env = list->myEnv->head;
+  (void)command;
   i = -1;
   while (getcwd(buffer, ++i) == NULL);
   pwd = get_fusion("cd PWD ", getcwd(buffer, i));
@@ -142,20 +140,44 @@ int	refresh_pwd(t_list *list, char **command)
   return (0);
 }
 
-int	exec_cd(t_list *list, char **command)
+int			my_cd_moins(t_list *list)
 {
-  char	*pwd;
-  char	**str;
-  char	*home;
-  t_node *env;
+  char			*pwd;
+  char			*old_pwd;
+  char			**command;
+  t_node 		*env;
 
   env = list->myEnv->head;
-  puts("eco");
+  if ((search_env(env, "OLDPWD")) != NULL
+      && (search_env(env, "PWD")) != NULL)
+    {
+      old_pwd = search_env(env, "OLDPWD");
+      pwd = search_env(env, "PWD");
+      if (chdir(old_pwd) == -1)
+	my_error(old_pwd, "%s: No such file or directory.\n");
+      command = my_str_to_wordtab(get_fusion("s PWD ", old_pwd), ' ');
+      builtin_setenv(list, command);
+      command = my_str_to_wordtab(get_fusion("s OLDPWD ", pwd), ' ');
+      builtin_setenv(list, command);
+    }
+  else
+    my_error(NULL, "No PWD or OLDPWD found.\n");
+  return (0);
+}
+
+int			builtin_cd(t_list *list, char **command)
+{
+  char			*pwd;
+  char			**str;
+  char			*home;
+  t_node 		*env;
+
+  env = list->myEnv->head;
   pwd = "\0";
   if (command[1] != NULL)
     {
       if (command[1][0] == '-')
-	return (my_cd_moin(list));
+	return (my_cd_moins(list));
       if ((pwd = my_cd_bis(list, command, pwd)) == 0)
 	return (-1);
       str = my_str_to_wordtab(get_fusion("s OLDPWD ",
@@ -169,14 +191,14 @@ int	exec_cd(t_list *list, char **command)
       if ((home = search_env(env, "HOME")) == NULL || home[0] == '\0')
 	return (my_error(NULL, "HOME not found.\n"));
       str = my_str_to_wordtab(get_fusion("cd ", home), ' ');
-      exec_cd(list, str);
+      builtin_cd(list, str);
     }
   return (0);
 }
 
-char	*my_cd_bis(t_list *list, char **command, char *pwd)
+char			*my_cd_bis(t_list *list, char **command, char *pwd)
 {
-  t_node *env;
+  t_node 		*env;
 
   env = list->myEnv->head;
   if (command[1][0] == '/')
@@ -201,29 +223,4 @@ char	*my_cd_bis(t_list *list, char **command, char *pwd)
 	}
     }
   return (pwd);
-}
-
-int	my_cd_moin(t_list *list)
-{
-  char	*pwd;
-  char	*old_pwd;
-  char	**command;
-  t_node *env;
-
-  env = list->myEnv->head;
-  if ((search_env(env, "OLDPWD")) != NULL
-      && (search_env(env, "PWD")) != NULL)
-    {
-      old_pwd = search_env(env, "OLDPWD");
-      pwd = search_env(env, "PWD");
-      if (chdir(old_pwd) == -1)
-	my_error(old_pwd, "%s: No such file or directory.\n");
-      command = my_str_to_wordtab(get_fusion("s PWD ", old_pwd), ' ');
-      builtin_setenv(list, command);
-      command = my_str_to_wordtab(get_fusion("s OLDPWD ", pwd), ' ');
-      builtin_setenv(list, command);
-    }
-  else
-    my_error(NULL, "No PWD or OLDPWD found.\n");
-  return (0);
 }
