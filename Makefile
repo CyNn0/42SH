@@ -5,7 +5,7 @@
 ## Login   <saint-_o@epitech.net>
 ##
 ## Started on  Wed May 18 04:15:48 2016 boris saint-bonnet
-## Last update Thu May 26 12:50:00 2016 Lucas Gambini
+## Last update Fri May 27 11:26:21 2016 Hubert Leo
 ##
 
 CC		=	gcc -g -g3
@@ -71,7 +71,8 @@ SRC		=	sources/main.c				\
 			sources/builtins/exit.c			\
 			sources/builtins/setenv.c		\
 			sources/builtins/unsetenv.c		\
-			sources/pipe/pipe.c
+			sources/pipe/pipe.c			\
+			sources/builtins/cd.c
 
 OBJ		=	$(SRC:.c=.o)
 

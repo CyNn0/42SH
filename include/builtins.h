@@ -5,7 +5,7 @@
 ** Login   <hubert_i@epitech.net>
 **
 ** Started on  Mon May 23 18:01:20 2016 Hubert Leo
-** Last update Thu May 26 11:34:17 2016 Gambini Lucas
+** Last update Fri May 27 11:33:34 2016 Hubert Leo
 */
 
 #ifndef			_BUILTIN_H_
@@ -34,6 +34,8 @@ typedef struct		s_echo
 ** FONCTIONS
 */
 
+/* ECHO */
+
 t_echo			*init_echo();
 int			check_options(t_echo *flags, char *cmd);
 void			free_echo(t_echo *flags);
@@ -46,5 +48,13 @@ int			builtin_setenv(t_list *list, char **cmd);
 int			builtin_unsetenv(t_list *list, char **cmd);
 char			*get_varenv(char *cmd, int i, int to_space);
 int			count_to_space(char *cmd, int i);
+
+/* CD */
+
+char			*my_cd_bis(t_list *list, char **command, char *pwd);
+int			my_cd_moins(t_list *list);
+int			exec_cd(t_list *list, char **command);
+int			refresh_pwd(t_list *list, char **command);
+char			*search_env(t_node *env, char *search);
 
 #endif /* !__BUILTIN__ */

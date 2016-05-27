@@ -5,7 +5,7 @@
 ** Login   <lefevr_h@epitech.net>
 **
 ** Started on  Mon May 23 23:00:09 2016 Philippe Lefevre
-** Last update Thu May 26 18:17:59 2016 Gambini Lucas
+** Last update Fri May 27 11:43:52 2016 Hubert Leo
 */
 
 #include		"42.h"
@@ -81,7 +81,7 @@ int			simple_exec_builtin(t_list *list, t_cmd *cmd,
 {
     int			(*p[5])(t_list*, char**);
 
-    /*p[0] = &exec_cd;*/
+    p[0] = &exec_cd;
     p[1] = &builtin_setenv;
     p[2] = &builtin_unsetenv;
     p[3] = &builtin_echo;
