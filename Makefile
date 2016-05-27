@@ -71,6 +71,7 @@ SRC		=	sources/main.c				\
 			sources/builtins/exit.c			\
 			sources/builtins/setenv.c		\
 			sources/builtins/unsetenv.c		\
+			sources/pipe/pipe.c
 
 OBJ		=	$(SRC:.c=.o)
 

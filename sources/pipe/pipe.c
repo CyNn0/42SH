@@ -5,15 +5,50 @@
 ** Login   <lefevr_h@epitech.net>
 **
 ** Started on  Mon May 23 19:04:26 2016 Philippe Lefevre
-** Last update Mon May 23 19:30:51 2016 Philippe Lefevre
+** Last update Fri May 27 07:26:46 2016 Philippe Lefevre
 */
 
 #include		"42.h"
 
-int			parsing_pipe(t_cmd *cmd, t_path *path, char **env)
+#include		<sys/wait.h>
+#include		<stdio.h>
+#include		<stdlib.h>
+#include		<unistd.h>
+#include		<string.h>
+
+t_pipe			*create_tab_linked_cmd(t_cmd *cmd)
 {
+  t_pipe		*tab;
+  t_cmd			*tmp;
+  int			nb_pipe;
   int			i;
 
+  nb_pipe = 0;
+  tmp = cmd;
+  while (tmp != NULL)
+    {
+      if (tmp->flag == PIPE)
+	nb_pipe += 1;
+      tmp = tmp->next;
+    }
+  if ((tab = malloc(sizeof(t_pipe) * (nb_pipe + 1))) == NULL)
+    return (NULL);
+  tab[0].nb_pipe = nb_pipe;
+  printf("%d\n", tab[0].nb_pipe);
   i = -1;
+  tmp = cmd;
+  while (++i < nb_pipe)
+    {
+      tab[i].beg = tmp;
+      while (tmp != NULL && tmp->flag != 2)
+	tmp = tmp->next;
+      tab[i].end = tmp;
+      tmp = tmp->next;
+    }
+  return (tab);
+}
+
+int			parsing_pipe(t_cmd *cmd, t_path *path, char **env)
+{
   return (SUCCESS);
 }
