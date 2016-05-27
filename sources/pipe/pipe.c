@@ -5,7 +5,7 @@
 ** Login   <lefevr_h@epitech.net>
 **
 ** Started on  Mon May 23 19:04:26 2016 Philippe Lefevre
-** Last update Fri May 27 07:26:46 2016 Philippe Lefevre
+** Last update Fri May 27 08:01:29 2016 Philippe Lefevre
 */
 
 #include		"42.h"
@@ -27,7 +27,7 @@ t_pipe			*create_tab_linked_cmd(t_cmd *cmd)
   tmp = cmd;
   while (tmp != NULL)
     {
-      if (tmp->flag == PIPE)
+      if (tmp->token == PIPE)
 	nb_pipe += 1;
       tmp = tmp->next;
     }
@@ -40,10 +40,12 @@ t_pipe			*create_tab_linked_cmd(t_cmd *cmd)
   while (++i < nb_pipe)
     {
       tab[i].beg = tmp;
-      while (tmp != NULL && tmp->flag != 2)
+      while (tmp->token != 2)
 	tmp = tmp->next;
       tab[i].end = tmp;
-      tmp = tmp->next;
+      if (tmp->next && tmp->token == 2)
+	tmp = tmp->next;
+      printf("=========\n");
     }
   return (tab);
 }
