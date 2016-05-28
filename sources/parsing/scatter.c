@@ -5,7 +5,7 @@
 ** Login   <gambin_l@epitech.net>
 **
 ** Started on  Mon May 23 16:43:07 2016 Gambini Lucas
-** Last update Fri May 27 13:54:33 2016 Gambini Lucas
+** Last update Sat May 28 10:26:17 2016 Gambini Lucas
 */
 
 #include		"42.h"
@@ -14,7 +14,7 @@ int			normal_scatter(t_cmd *cmd, char **env,
 			       t_list *list, int builtin)
 {
   (cmd->flag == SIMPLE_R) ? (simple_right(cmd, list, env, builtin))
-      : ((cmd->flag == SIMPLE_L) ? (printf("simple_l.\n"))
+      : ((cmd->flag == SIMPLE_L) ? (simple_left(cmd, list, env, builtin))
        : ((cmd->flag == DOUBLE_R) ? (double_right(cmd, list, env, builtin))
 	  : ((cmd->flag == DOUBLE_L) ? (printf("DOUBLE_L\n"))
 	     : ((simple_exec(cmd, list, env, builtin))))));
