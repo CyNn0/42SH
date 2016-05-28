@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 25 05:11:17 2016 boris saint-bonnet
-** Last update Sat May 28 10:33:09 2016 Gambini Lucas
+** Last update Sat May 28 14:26:24 2016 Gambini Lucas
 */
 
 # include 		"42.h"
@@ -39,7 +39,7 @@ void            	init_simpleleft(char **cmd, t_red *var)
 
   i = -1;
   j = 1;
-  if ((var->cmd = malloc((tab_lenght(cmd)) * sizeof(char*))) == NULL)
+  if ((var->cmd = malloc((tab_lenght(cmd) + 1) * sizeof(char*))) == NULL)
     my_exit(42);
   var->cmd[tab_lenght(cmd) - 1] = NULL;
   while (cmd[++i])
