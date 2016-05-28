@@ -5,7 +5,7 @@
 ** Login   <gambin_l@epitech.net>
 **
 ** Started on  Mon May 23 16:43:07 2016 Gambini Lucas
-** Last update Sat May 28 10:26:17 2016 Gambini Lucas
+** Last update Sat May 28 14:50:30 2016 Philippe Lefevre
 */
 
 #include		"42.h"
@@ -21,28 +21,6 @@ int			normal_scatter(t_cmd *cmd, char **env,
   return (SUCCESS);
 }
 
-int			prepare_pipe(t_cmd *tmp)
-{
-  int			i;
-  t_cmd			*tmp2;
-  t_pipe		*tab_pipe;
-
-  if ((tab_pipe = create_tab_linked_cmd(tmp)) == NULL)
-    return (FAILURE);
-  i  = -1;
-  while (++i < tab_pipe[0].nb_pipe)
-    {
-      printf("lefevr == [here]\n");
-      tmp2 = tab_pipe[i].beg;
-      while (tmp2 != tab_pipe[i].end)
-	{
-	  printf("lefevr == [%s]\n", tmp->cmd[0]);
-	  tmp2 = tmp2->next;
-	}
-    }
-  return (SUCCESS);
-}
-
 int			exec_scatter(t_list *list)
 {
   char		**env;
@@ -51,8 +29,8 @@ int			exec_scatter(t_list *list)
 
   tmp = list->head;
   env = extract_env(list->myEnv);
-  if (prepare_pipe(tmp) == FAILURE)
-    return (FAILURE);
+  if (exec_pipe(list) == SUCCESS)
+    return (SUCCESS);
   while (!(list->do_exit) && tmp && tmp->cmd[0])
     {
       if ((builtin = check_built(list, tmp)) == SUCCESS)

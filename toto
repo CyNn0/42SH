@@ -1,0 +1,7 @@
+total 276
+-rwxr-xr-x  1 lefevr_h users 266032 May 28 14:50 42sh
+-rw-r--r--  1 lefevr_h users     45 May 27 05:07 auteur
+drwxr-xr-x  2 lefevr_h users   4096 May 28 14:49 include
+-rw-r--r--  1 lefevr_h users   2807 May 28 14:49 Makefile
+drwxr-xr-x 11 lefevr_h users   4096 May 28 14:50 sources
+-rw-r--r--  1 lefevr_h users      0 May 28 14:50 toto

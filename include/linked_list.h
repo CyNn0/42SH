@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 18 04:22:31 2016 boris saint-bonnet
-** Last update Sat May 28 13:48:04 2016 Gambini Lucas
+** Last update Sat May 28 14:51:56 2016 Philippe Lefevre
 */
 
 #ifndef			_LINKED_LIST_H__
@@ -153,5 +153,6 @@ int			exec_scatter(t_list *list);
 int			my_exit(int status);
 int			builtin_exit(t_list *list, char **cmd);
 t_pipe			*create_tab_linked_cmd(t_cmd *cmd);
+int			exec_pipe(t_list *list);
 
 #endif			/* !__LINKED_LIST_H__ */
