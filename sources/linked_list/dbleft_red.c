@@ -5,7 +5,7 @@
 ** Login   <Lucas Gambini@epitech.net>
 **
 ** Started on  Mon May 30 11:55:20 2016 Gambini Lucas
-** Last update Mon May 30 12:18:23 2016 Gambini Lucas
+** Last update Mon May 30 12:26:32 2016 Philippe Lefevre
 */
 
 # include		"42.h"
@@ -25,8 +25,8 @@ void			free_list_dbleft(t_list *list)
     }
   if (list->dbleftptr->tail != NULL)
     free(list->dbleftptr->tail);
-    list->dbleftptr->head = NULL;
-    list->dbleftptr->tail = NULL;
+  list->dbleftptr->head = NULL;
+  list->dbleftptr->tail = NULL;
 }
 
 t_list			*dbleft_buffer(t_list *list, char *line)
