@@ -5,7 +5,7 @@
 ** Login   <gambin_l@epitech.net>
 **
 ** Started on  Mon May 23 15:55:00 2016 Lucas Gambini
-** Last update Tue May 24 09:34:50 2016 Gambini Lucas
+** Last update Mon May 30 15:46:04 2016 Gambini Lucas
 */
 
 #include "42.h"
@@ -43,8 +43,7 @@ t_list          *post_parser(t_list *list)
   tmp = list->head;
   while (tmp != NULL)
     {
-      if (tmp->token != PIPE)
-        check_flag(tmp);
+      check_flag(tmp);
       tmp = tmp->next;
     }
   return (list);
