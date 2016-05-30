@@ -5,7 +5,7 @@
 ** Login   <lefevr_h@epitech.net>
 **
 ** Started on  Mon May 23 19:04:26 2016 Philippe Lefevre
-** Last update Mon May 30 12:24:42 2016 Philippe Lefevre
+** Last update Mon May 30 14:28:45 2016 Philippe Lefevre
 */
 
 #include		"42.h"
@@ -20,9 +20,11 @@ int			exec_pipe(t_cmd *cmd, t_list *list, char **env,
 				  int builtin)
 {
   int			pipefd[2];
+  int			back_stdin;
   pid_t			pid;
   t_cmd			*next_cmd;
 
+  back_stdin = dup(0);
   if (pipe(pipefd) == -1)
     fprintf(stderr, "Error: pipe failure\n");
   if ((pid = fork()) == -1)
@@ -32,13 +34,10 @@ int			exec_pipe(t_cmd *cmd, t_list *list, char **env,
       close(pipefd[0]);
       dup2(pipefd[1], 1);
       close(pipefd[1]);
-      if (builtin >= 0)
-	simple_exec_builtin(list, cmd, builtin);
-      else
-	simple_exec(cmd, list, env, -1);
+      simple_exec(cmd, list, env, builtin);
       list->do_exit = 1;
       list->value_exit = 0;
-      return (SUCCESS);
+      exit(0);
     }
   else
     {
@@ -47,10 +46,9 @@ int			exec_pipe(t_cmd *cmd, t_list *list, char **env,
       close(pipefd[1]);
       dup2(pipefd[0], 0);
       close(pipefd[0]);
-      if (builtin >= 0)
-	simple_exec_builtin(list, next_cmd, builtin);
-      else
-	simple_exec(next_cmd, list, env, -1);
+      normal_scatter(next_cmd, env, list, -1);
     }
+  dup2(back_stdin, 0);
+  next_cmd->go_on = 0;
   return (SUCCESS);
 }

@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 18 04:22:31 2016 boris saint-bonnet
-** Last update Mon May 30 12:18:31 2016 Gambini Lucas
+** Last update Mon May 30 14:22:27 2016 Philippe Lefevre
 */
 
 #ifndef			_LINKED_LIST_H__
@@ -61,8 +61,7 @@ typedef struct		s_env
 
 typedef struct          s_cmd
 {
-  int			fdin;
-  int			fdout;
+  int			pipefd[2];
   char			**cmd;
   char			token;
   char			flag;
@@ -168,5 +167,7 @@ int			exec_pipe(t_cmd *cmd, t_list *list,
 int			simple_exec_builtin(t_list *list, t_cmd *cmd,
 					    int	builtin);
 void			free_list_dbleft(t_list *list);
+int			normal_scatter(t_cmd *cmd, char **env,
+				       t_list *list, int builtin);
 
 #endif			/* !__LINKED_LIST_H__ */
