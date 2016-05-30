@@ -5,16 +5,10 @@
 ** Login   <lefevr_h@epitech.net>
 **
 ** Started on  Mon May 23 19:04:26 2016 Philippe Lefevre
-** Last update Mon May 30 14:28:45 2016 Philippe Lefevre
+** Last update Mon May 30 14:36:19 2016 Philippe Lefevre
 */
 
 #include		"42.h"
-
-#include		<sys/wait.h>
-#include		<stdio.h>
-#include		<stdlib.h>
-#include		<unistd.h>
-#include		<string.h>
 
 int			exec_pipe(t_cmd *cmd, t_list *list, char **env,
 				  int builtin)
