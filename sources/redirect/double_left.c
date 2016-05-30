@@ -5,7 +5,7 @@
 ** Login   <Lucas Gambini@epitech.net>
 **
 ** Started on  Mon May 30 10:56:47 2016 Gambini Lucas
-** Last update Mon May 30 16:59:06 2016 Philippe Lefevre
+** Last update Mon May 30 17:03:22 2016 Philippe Lefevre
 */
 
 #include 		"42.h"
@@ -15,6 +15,9 @@ int			double_left_exec(t_cmd *cmd, t_list *list,
 {
   t_dbleft		*tmp;
 
+  (void)cmd;
+  (void)env;
+  (void)builtin;
   tmp = list->dbleftptr->head;
   while (tmp != NULL)
     {
@@ -29,7 +32,6 @@ int             	double_left(t_cmd *cmd, t_list *list,
 {
   t_red       		var;
   char			*buff;
-  int			reset;
 
   init_double_left(cmd->cmd, &var);
   var.is_builtin = builtin;
