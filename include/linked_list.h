@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 18 04:22:31 2016 boris saint-bonnet
-** Last update Mon May 30 14:22:27 2016 Philippe Lefevre
+** Last update Mon May 30 14:48:08 2016 Philippe Lefevre
 */
 
 #ifndef			_LINKED_LIST_H__
@@ -61,7 +61,7 @@ typedef struct		s_env
 
 typedef struct          s_cmd
 {
-  int			pipefd[2];
+  int			pipefd;
   char			**cmd;
   char			token;
   char			flag;

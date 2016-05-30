@@ -5,7 +5,7 @@
 ** Login   <gambin_l@epitech.net>
 **
 ** Started on  Fri May 20 06:45:22 2016 Lucas Gambini
-** Last update Fri May 27 14:40:52 2016 Gambini Lucas
+** Last update Mon May 30 14:48:30 2016 Philippe Lefevre
 */
 
 #include		"42.h"
@@ -20,6 +20,8 @@ t_list			*free_cmd(t_list *list)
   while (tmp != NULL)
     {
       free_tab(tmp->cmd);
+      if (tmp->pipefd != -1)
+	close(tmp->pipefd);
       free(tmp->prev);
       tmp = tmp->next;
     }
@@ -54,6 +56,7 @@ t_list			*push_cmd(t_list *list, char **cmd)
     return (NULL);
   new->cmd = cmd;
   new->next = NULL;
+  new->pipefd = -1;
   if (list->tail == NULL)
     {
       new->prev = NULL;
