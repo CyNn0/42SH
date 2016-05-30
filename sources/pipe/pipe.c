@@ -5,7 +5,7 @@
 ** Login   <lefevr_h@epitech.net>
 **
 ** Started on  Mon May 23 19:04:26 2016 Philippe Lefevre
-** Last update Mon May 30 15:50:37 2016 Philippe Lefevre
+** Last update Mon May 30 23:16:59 2016 Philippe Lefevre
 */
 
 #include		"42.h"
@@ -27,10 +27,15 @@ int			exec_pipe(t_cmd *cmd, t_list *list, char **env,
     {
       close(pipefd[0]);
       dup2(pipefd[1], 1);
+      if (cmd->prev && cmd->prev->token != PIPE)
+	dup2(0, cmd->prev->pipefd);
+      else
+	{
+	  normal_scatter(cmd, env, list, builtin - 20);
+	  list->do_exit = 1;
+	  list->value_exit = 0;
+	}
       close(pipefd[1]);
-      normal_scatter(cmd, env, list, builtin - 20);
-      list->do_exit = 1;
-      list->value_exit = 0;
       exit(0);
     }
   else
@@ -41,6 +46,7 @@ int			exec_pipe(t_cmd *cmd, t_list *list, char **env,
       dup2(pipefd[0], 0);
       close(pipefd[0]);
       normal_scatter(next_cmd, env, list, builtin - 20);
+      next_cmd->pipefd = dup(0);
     }
   dup2(back_stdin, 0);
   next_cmd->go_on = 0;
