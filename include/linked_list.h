@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 18 04:22:31 2016 boris saint-bonnet
-** Last update Sat May 28 14:51:56 2016 Philippe Lefevre
+** Last update Mon May 30 11:39:55 2016 Philippe Lefevre
 */
 
 #ifndef			_LINKED_LIST_H__
@@ -71,13 +71,6 @@ typedef struct          s_cmd
   struct s_cmd		*prev;
   struct s_cmd		*next;
 }                       t_cmd;
-
-typedef struct		s_pipe
-{
-  struct s_cmd		*beg;
-  struct s_cmd		*end;
-  int			nb_pipe;
-}			t_pipe;
 
 typedef struct		s_hist
 {
@@ -152,7 +145,9 @@ char			**extract_env(t_env *myEnv);
 int			exec_scatter(t_list *list);
 int			my_exit(int status);
 int			builtin_exit(t_list *list, char **cmd);
-t_pipe			*create_tab_linked_cmd(t_cmd *cmd);
-int			exec_pipe(t_list *list);
+int			exec_pipe(t_cmd *cmd, t_list *list,
+				  char **env, int builtin);
+int			simple_exec_builtin(t_list *list, t_cmd *cmd,
+					    int	builtin);
 
 #endif			/* !__LINKED_LIST_H__ */

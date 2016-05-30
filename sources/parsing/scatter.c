@@ -5,19 +5,21 @@
 ** Login   <gambin_l@epitech.net>
 **
 ** Started on  Mon May 23 16:43:07 2016 Gambini Lucas
-** Last update Sat May 28 14:50:30 2016 Philippe Lefevre
+** Last update Mon May 30 11:51:55 2016 Philippe Lefevre
 */
 
 #include		"42.h"
 
 int			normal_scatter(t_cmd *cmd, char **env,
-			       t_list *list, int builtin)
+				       t_list *list, int builtin)
 {
-  (cmd->flag == SIMPLE_R) ? (simple_right(cmd, list, env, builtin))
-      : ((cmd->flag == SIMPLE_L) ? (simple_left(cmd, list, env, builtin))
-       : ((cmd->flag == DOUBLE_R) ? (double_right(cmd, list, env, builtin))
-	  : ((cmd->flag == DOUBLE_L) ? (printf("DOUBLE_L\n"))
-	     : ((simple_exec(cmd, list, env, builtin))))));
+  printf("[%d] [%s]\n", cmd->token,  cmd->cmd[0]);
+  ((cmd->flag == SIMPLE_R) ? (simple_right(cmd, list, env, builtin))
+   : ((cmd->flag == SIMPLE_L) ? (simple_left(cmd, list, env, builtin))
+      : ((cmd->flag == DOUBLE_R) ? (double_right(cmd, list, env, builtin))
+	 : ((cmd->flag == DOUBLE_L) ? (printf("DOUBLE_L\n"))
+	    : ((cmd->token == PIPE) ? (exec_pipe(cmd, list, env, builtin))
+	       : ((simple_exec(cmd, list, env, builtin))))))));
   return (SUCCESS);
 }
 
@@ -29,8 +31,6 @@ int			exec_scatter(t_list *list)
 
   tmp = list->head;
   env = extract_env(list->myEnv);
-  if (exec_pipe(list) == SUCCESS)
-    return (SUCCESS);
   while (!(list->do_exit) && tmp && tmp->cmd[0])
     {
       if ((builtin = check_built(list, tmp)) == SUCCESS)
