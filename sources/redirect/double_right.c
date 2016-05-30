@@ -5,14 +5,14 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Mon May 23 18:34:11 2016 boris saint-bonnet
-** Last update Thu May 26 13:05:28 2016 Gambini Lucas
+** Last update Mon May 30 10:58:19 2016 Gambini Lucas
 */
 
 # include 	"42.h"
 
 int             double_right(t_cmd *cmd, t_list *list, char **env, int builtin)
 {
-  t_red       var;
+  t_red       	var;
   int           fd;
 
   init_double(cmd->cmd, &var);

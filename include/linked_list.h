@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 18 04:22:31 2016 boris saint-bonnet
-** Last update Mon May 30 11:39:55 2016 Philippe Lefevre
+** Last update Mon May 30 12:18:31 2016 Gambini Lucas
 */
 
 #ifndef			_LINKED_LIST_H__
@@ -85,11 +85,25 @@ typedef struct		s_history
   struct s_hist		*tail;
 }			t_history;
 
+typedef struct		s_dbleft
+{
+  char			*line;
+  struct s_dbleft	*prev;
+  struct s_dbleft	*next;
+}			t_dbleft;
+
+typedef struct		s_dbleftptr
+{
+  struct s_dbleft	*head;
+  struct s_dbleft	*tail;
+}			t_dbleftptr;
+
 typedef struct          s_list
 {
   struct s_path		*path;
   struct s_env		*myEnv;
   struct s_history	*myHist;
+  struct s_dbleftptr	*dbleftptr;
   struct s_cmd		*head;
   struct s_cmd		*tail;
   int			do_exit;
@@ -120,6 +134,7 @@ t_list			*post_parser(t_list *list);
 t_list			*get_cmd(t_list *cmd, char *line);
 t_list			*push_cmd(t_list *list, char **cmd);
 t_list			*add_history(t_list *list, char *line);
+t_list			*dbleft_buffer(t_list *list, char *buff);
 void			free_path(t_list *list);
 void			free_node(t_node *tmp);
 int			setenv_checking(t_list *list, char **cmd);
@@ -127,6 +142,8 @@ int			simple_right(t_cmd *cmd, t_list *list,
 				     char **env, int builtin);
 int			double_right(t_cmd *cmd, t_list *list,
 				     char **env, int builtin);
+int             	double_left(t_cmd *cmd, t_list *list,
+				    char **env, int builtin);
 int			simple_left(t_cmd *cmd, t_list *list,
 				    char **env, int builtin);
 int			print_env(t_env *list);
@@ -138,6 +155,7 @@ char			*find_path(t_list *list);
 void			simple_first(t_pars *var, char c);
 void			double_first(t_pars *var, char c);
 void			init_double(char **cmd, t_red *var);
+void			init_double_left(char **cmd, t_red *var);
 void			init_var(char **cmd, t_red *var);
 void			free_fighter(t_list *list);
 void			show_cmd_list(t_list *list);
@@ -149,5 +167,6 @@ int			exec_pipe(t_cmd *cmd, t_list *list,
 				  char **env, int builtin);
 int			simple_exec_builtin(t_list *list, t_cmd *cmd,
 					    int	builtin);
+void			free_list_dbleft(t_list *list);
 
 #endif			/* !__LINKED_LIST_H__ */

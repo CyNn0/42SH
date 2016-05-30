@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Thu May 19 18:53:01 2016 boris saint-bonnet
-** Last update Fri May 27 14:43:15 2016 Gambini Lucas
+** Last update Mon May 30 12:15:04 2016 Gambini Lucas
 */
 
 # include "42.h"
@@ -20,10 +20,14 @@ t_list		*create_list(t_list *list)
     return (NULL);
   if ((list->myHist = malloc(sizeof(struct s_history))) == NULL)
     return (NULL);
+  if ((list->dbleftptr = malloc(sizeof(struct s_history))) == NULL)
+    return (NULL);
   list->myEnv->head = NULL;
   list->myEnv->tail = NULL;
   list->myHist->head = NULL;
   list->myHist->tail = NULL;
+  list->dbleftptr->head = NULL;
+  list->dbleftptr->tail = NULL;
   list->head = NULL;
   list->tail = NULL;
   list->path->head = NULL;
