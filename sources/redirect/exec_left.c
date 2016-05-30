@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Mon May 23 20:22:56 2016 boris saint-bonnet
-** Last update Sat May 28 14:26:54 2016 Gambini Lucas
+** Last update Mon May 30 14:52:47 2016 Gambini Lucas
 */
 
 #include 		"42.h"
@@ -21,18 +21,6 @@ int			exec_left_builtin(t_red var, t_list *list)
   p[3] = &builtin_echo;
   ret = p[var.is_builtin](list, var.cmd);
   return (ret);
-}
-
-int			prepare_exec(t_red *var)
-{
-  int			i;
-
-  i = -1;
-  while (var->cmd[++i]);
-  var->cmd[i] = strdup(var->name);
-  var->cmd[++i] = NULL;
-  show_tab(var->cmd);
-  return (SUCCESS);
 }
 
 int                     exec_left(t_list *list,
@@ -52,7 +40,6 @@ int                     exec_left(t_list *list,
 	    fprintf(stderr, "Error: Fork Failed\n");
 	  else if (pid == 0)
 	    {
-	      prepare_exec(&var);
 	      status = execve(var.cmd[0], var.cmd, env);
 	      my_exit(status);
 	    }
