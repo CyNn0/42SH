@@ -5,7 +5,7 @@
 ** Login   <puccio_c@epitech.net>
 ** 
 ** Started on  Wed May 25 13:14:15 2016 cyril puccio
-** Last update Tue May 31 15:10:37 2016 cyril puccio
+** Last update Tue May 31 17:13:36 2016 cyril puccio
 */
 
 # include	"42.h"
@@ -113,24 +113,71 @@ char		*check_loop(t_bash *bash, char *cmd)
 	}
       exe = exe->next;
     }
-  return (data);
+  return (data == NULL ? cmd : data);
+}
+
+char    *my_strcat(char *dest, char *src)
+{
+  char  *result;
+  int   len;
+  int   i;
+
+  i = 0;
+  len = 0;
+  if ((result = malloc(strlen(dest) + strlen(src) + 1)) == NULL)
+    my_exit(FAILURE);
+  while (dest[i])
+    {
+      result[i] = dest[i];
+      i++;
+    }
+  while (src[len])
+    {
+      result[len + i] = src[len];
+      len++;
+    }
+  result[len + i] = '\0';
+  return (result);
+}
+
+char		*tab_to_cmd(char **tab)
+{
+  int		i;
+  char		*str;
+
+  i = 0;
+  if ((str = malloc(sizeof(char))) == NULL)
+    return (NULL);
+  str[0] = '\0';
+  while (tab[i])
+    {
+      str = my_strcat(str, tab[i]);
+      str = my_strcat(str, " ");
+      i++;
+    }
+  return (str);
 }
 
 char		*open_bash(char *arg, char *cmd)
 {
   t_bash	bash;
   int           fd;
+  int		i;
   char          *s;
-  char		*ret;
+  char		**tab;
 
+  tab = NULL;
   bash.head = NULL;
-  ret = NULL;
   bash.tail = NULL;
+  i = 0;
   if ((fd = open(arg, O_RDONLY)) == -1)
     return (cmd);
+  tab = my_str_to_wordtab(cmd, ' ');
   while ((s = get_next_line(fd)))
     pars_bash(s, &bash);
-  if ((ret = check_loop(&bash, cmd)) != NULL)
-    return (ret);
+  while (tab[i] && (tab[i] = check_loop(&bash, tab[i])) != NULL)
+    i++;
+  if (tab != NULL)
+    return (tab_to_cmd(tab));
   return (cmd);
 }
