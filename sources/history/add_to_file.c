@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 ** 
 ** Started on  Tue May 31 18:46:34 2016 boris saint-bonnet
-** Last update Tue May 31 19:40:23 2016 boris saint-bonnet
+** Last update Tue May 31 21:02:46 2016 boris saint-bonnet
 */
 
 #include		"42.h"
@@ -16,8 +16,10 @@ int		open_history(char *s)
 
   if ((fd = open(".42history", __DOUBLE)) == -1)
     {
-      fprintf("Error: loading history\n");
+      fprintf(stderr, "Error: loading history\n");
       return (FAILURE);
     }
   write(fd, s, strlen(s));
+  write(fd, "\n", 1);
+  return (SUCCESS);
 }

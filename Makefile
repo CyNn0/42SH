@@ -5,7 +5,7 @@
 ## Login   <saint-_o@epitech.net>
 ##
 ## Started on  Wed May 18 04:15:48 2016 boris saint-bonnet
-## Last update Tue May 31 20:34:30 2016 boris saint-bonnet
+## Last update Tue May 31 20:57:55 2016 boris saint-bonnet
 ##
 
 CC		=	gcc -g -g3
@@ -81,6 +81,7 @@ SRC		=	sources/main.c				\
 			sources/builtins/cd/cd.c		\
 			sources/builtins/cd/dep_cd.c		\
 			sources/pipe/pipe.c			\
+			sources/history/add_to_file.c		\
 
 OBJ		=	$(SRC:.c=.o)
 
