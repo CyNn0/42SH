@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 18 04:22:31 2016 boris saint-bonnet
-** Last update Mon May 30 14:48:08 2016 Philippe Lefevre
+** Last update Tue May 31 09:45:10 2016 Gambini Lucas
 */
 
 #ifndef			_LINKED_LIST_H__
@@ -84,25 +84,11 @@ typedef struct		s_history
   struct s_hist		*tail;
 }			t_history;
 
-typedef struct		s_dbleft
-{
-  char			*line;
-  struct s_dbleft	*prev;
-  struct s_dbleft	*next;
-}			t_dbleft;
-
-typedef struct		s_dbleftptr
-{
-  struct s_dbleft	*head;
-  struct s_dbleft	*tail;
-}			t_dbleftptr;
-
 typedef struct          s_list
 {
   struct s_path		*path;
   struct s_env		*myEnv;
   struct s_history	*myHist;
-  struct s_dbleftptr	*dbleftptr;
   struct s_cmd		*head;
   struct s_cmd		*tail;
   int			do_exit;
