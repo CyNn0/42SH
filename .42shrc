@@ -1,5 +1,6 @@
+alias ls='ls --color'
 alias ll='ls -l'
-alias l='ls -la'
+alias l='ls -la --color'
 alias j='jobs'
 alias emacs='emacs -nw'
 alias ne='emacs -nw'

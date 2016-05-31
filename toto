@@ -1,0 +1,13 @@
+total 328
+drwxr-xr-x  5 lefevr_h users   4096 May 31 21:13 [0m[01;34m.[0m
+drwxr-xr-x  6 lefevr_h users   4096 May 31 15:26 [01;34m..[0m
+-rwxr-xr-x  1 lefevr_h users 293744 May 31 21:07 [01;32m42sh[0m
+-rw-r--r--  1 lefevr_h users    336 May 31 21:13 .42shrc
+-rw-r--r--  1 lefevr_h users     45 May 31 15:26 auteur
+drwxr-xr-x  8 lefevr_h users   4096 May 31 21:13 [01;34m.git[0m
+drwxr-xr-x  2 lefevr_h users   4096 May 31 20:43 [01;34minclude[0m
+-rw-r--r--  1 lefevr_h users   3021 May 31 20:43 Makefile
+-rw-r--r--  1 lefevr_h users     63 May 31 15:26 note
+drwxr-xr-x 12 lefevr_h users   4096 May 31 20:59 [01;34msources[0m
+-rw-r--r--  1 lefevr_h users    419 May 31 20:43 test.c
+-rw-r--r--  1 lefevr_h users      0 May 31 21:13 toto
