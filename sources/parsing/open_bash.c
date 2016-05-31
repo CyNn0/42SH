@@ -5,7 +5,7 @@
 ** Login   <puccio_c@epitech.net>
 ** 
 ** Started on  Wed May 25 13:14:15 2016 cyril puccio
-** Last update Tue May 31 15:00:15 2016 cyril puccio
+** Last update Tue May 31 15:05:52 2016 cyril puccio
 */
 
 # include	"42.h"
@@ -131,7 +131,6 @@ char		*open_bash(char *arg, char *cmd)
     return (cmd);
   while ((s = get_next_line(fd)))
     pars_bash(s, &bash);
-  printf("%s\n", cmd);
   if ((ret = check_loop(&bash, cmd)) != NULL)
     return (ret);
   return (cmd);
