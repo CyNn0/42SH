@@ -5,7 +5,7 @@
 ## Login   <saint-_o@epitech.net>
 ##
 ## Started on  Wed May 18 04:15:48 2016 boris saint-bonnet
-## Last update Tue May 31 09:46:42 2016 Lucas Gambini
+## Last update Tue May 31 13:32:46 2016 boris saint-bonnet
 ##
 
 CC		=	gcc -g -g3
@@ -43,6 +43,7 @@ SRC		=	sources/main.c				\
 			sources/parsing/scatter.c		\
 			sources/parsing/check_built.c		\
 			sources/parsing/string.c		\
+			sources/parsing/inihb.c			\
 			sources/misc/get_next_line.c		\
 			sources/misc/exit.c			\
 			sources/linked_list/linked_list.c	\
