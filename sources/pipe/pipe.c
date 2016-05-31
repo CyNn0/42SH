@@ -5,7 +5,7 @@
 ** Login   <lefevr_h@epitech.net>
 **
 ** Started on  Mon May 23 19:04:26 2016 Philippe Lefevre
-** Last update Tue May 31 11:35:10 2016 Philippe Lefevre
+** Last update Tue May 31 11:38:43 2016 Philippe Lefevre
 */
 
 #include		"42.h"
@@ -25,7 +25,6 @@ int			exec_pipe(t_cmd *cmd, t_list *list, char **env,
     fprintf(stderr, "Error: fork failure\n");
   else if (pid == 0)
     {
-      if (cmd->prev && cmd->prev->token == PIPE)
 	fprintf(stderr, "%s\n", "je suis la");
       close(pipefd[0]);
       dup2(pipefd[1], 1);
