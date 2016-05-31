@@ -9,4 +9,3 @@ alias b='upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep percentag
 alias clean='~/mr_clean'
 alias lol='lal'
 alias lal='lol'
-alias emacs='echo bonjour'

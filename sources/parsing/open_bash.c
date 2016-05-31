@@ -5,7 +5,7 @@
 ** Login   <puccio_c@epitech.net>
 ** 
 ** Started on  Wed May 25 13:14:15 2016 cyril puccio
-** Last update Tue May 31 15:05:52 2016 cyril puccio
+** Last update Tue May 31 15:10:37 2016 cyril puccio
 */
 
 # include	"42.h"
@@ -113,8 +113,7 @@ char		*check_loop(t_bash *bash, char *cmd)
 	}
       exe = exe->next;
     }
-  
-  return (NULL);
+  return (data);
 }
 
 char		*open_bash(char *arg, char *cmd)
