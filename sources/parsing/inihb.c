@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 ** 
 ** Started on  Tue May 31 13:35:13 2016 boris saint-bonnet
-** Last update Tue May 31 13:35:15 2016 boris saint-bonnet
+** Last update Tue May 31 13:35:38 2016 boris saint-bonnet
 */
 
 #include "42.h"
@@ -18,7 +18,7 @@ int	check_inihb(char *str)
   while (*str)
     {
       if (*str == '"')
-	nb+;
+	nb++;
       str++;
     }
   return (nb == 2 ? SUCCESS : FAILURE);
