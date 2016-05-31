@@ -5,7 +5,7 @@
 ** Login   <Lucas Gambini@epitech.net>
 **
 ** Started on  Mon May 30 10:56:47 2016 Gambini Lucas
-** Last update Tue May 31 10:21:16 2016 Gambini Lucas
+** Last update Tue May 31 10:45:57 2016 Gambini Lucas
 */
 
 #include 		"42.h"
@@ -40,13 +40,13 @@ char			*get_buffer(t_red var)
   res = NULL;
   while (write(1, "? ", 2) && (buff = get_next_line(0)))
     {
-      if (!res)
-	res = strdup(buff);
       if (strcmp(buff, var.name) == 0)
 	break;
+      if (!res)
+	res = strdup(buff);
       else
 	res = my_concate(res, buff);
-	free(buff);
+      free(buff);
     }
   return (res);
 }
@@ -62,11 +62,12 @@ int             	double_left(t_cmd *cmd, t_list *list,
   var.is_builtin = builtin;
   buff = get_buffer(var);
   reset = dup(0);
-  /* CA MARCHE PAS ! Go écrire dans un tmp ?? */ dup2(1, 0);
-  printf("%s\n", buff);
+  dup2(1, 0);
+  if (buff)
+    printf("%s\n", buff);
+  dup2(reset, 0);
   if (exec_left(list, env, var) == FAILURE)
     check_go_on(cmd);
-  dup2(reset, 0);
   free(var.name);
   free_tab(var.cmd);
   return (SUCCESS);
