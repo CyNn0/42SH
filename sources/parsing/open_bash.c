@@ -5,39 +5,10 @@
 ** Login   <puccio_c@epitech.net>
 ** 
 ** Started on  Wed May 25 13:14:15 2016 cyril puccio
-** Last update Tue May 31 17:13:36 2016 cyril puccio
+** Last update Tue May 31 17:34:00 2016 boris saint-bonnet
 */
 
 # include	"42.h"
-
-t_bash          *push_bash(t_bash *list, char *data, char *name)
-{
-  t_node        *node;
-
-  node = malloc(sizeof(*node));
-  if (list != NULL && node != NULL)
-    {
-      if ((node->data = strdup(data)) == NULL)
-	return (list);
-      if ((node->name = strdup(name)) == NULL)
-	return (list);
-      node->next = NULL;
-      node->p = false;
-      if (list->tail == NULL)
-	{
-	  node->prev = NULL;
-	  list->head = node;
-	  list->tail = node;
-	}
-      else
-	{
-	  list->tail->next = node;
-	  node->prev = list->tail;
-	  list->tail = node;
-	}
-    }
-  return (list);
-}
 
 int             check_quotes(char *str)
 {
@@ -114,48 +85,6 @@ char		*check_loop(t_bash *bash, char *cmd)
       exe = exe->next;
     }
   return (data == NULL ? cmd : data);
-}
-
-char    *my_strcat(char *dest, char *src)
-{
-  char  *result;
-  int   len;
-  int   i;
-
-  i = 0;
-  len = 0;
-  if ((result = malloc(strlen(dest) + strlen(src) + 1)) == NULL)
-    my_exit(FAILURE);
-  while (dest[i])
-    {
-      result[i] = dest[i];
-      i++;
-    }
-  while (src[len])
-    {
-      result[len + i] = src[len];
-      len++;
-    }
-  result[len + i] = '\0';
-  return (result);
-}
-
-char		*tab_to_cmd(char **tab)
-{
-  int		i;
-  char		*str;
-
-  i = 0;
-  if ((str = malloc(sizeof(char))) == NULL)
-    return (NULL);
-  str[0] = '\0';
-  while (tab[i])
-    {
-      str = my_strcat(str, tab[i]);
-      str = my_strcat(str, " ");
-      i++;
-    }
-  return (str);
 }
 
 char		*open_bash(char *arg, char *cmd)

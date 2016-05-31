@@ -5,7 +5,7 @@
 ** Login   <gambin_l@epitech.net>
 **
 ** Started on  Sat May 21 08:49:15 2016 Lucas Gambini
-** Last update Wed May 25 17:24:43 2016 Philippe Lefevre
+** Last update Tue May 31 17:35:33 2016 boris saint-bonnet
 */
 
 #include		"42.h"
@@ -69,4 +69,22 @@ char			**cmd_to_tab(char *line, char sp1, char sp2, char sp3)
     }
   tab[++y] = NULL;
   return (tab);
+}
+
+char			*tab_to_cmd(char **tab)
+{
+  int			i;
+  char			*str;
+
+  i = 0;
+  if ((str = malloc(sizeof(char))) == NULL)
+    return (NULL);
+  str[0] = '\0';
+  while (tab[i])
+    {
+      str = my_strcat(str, tab[i]);
+      str = my_strcat(str, " ");
+      i++;
+    }
+  return (str);
 }
