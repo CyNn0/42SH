@@ -1,0 +1,48 @@
+ls -l 
+ls -l | grep include
+
+ls -l | grep o
+
+ls -l | grep o | grep es
+exit
+ls -l | grep o
+ls -l | grep o 
+ls -l | grep o
+ls -l | grep o
+l | > toto
+cat toto
+> toto
+l
+cat toto
+ls -lRa
+ls -lRa > toto
+cat toto
+ls -lRa | grep toto
+ls -lRa | grep toto
+exit
+ls -lRa | grep toto
+exit
+ls -lRa | grep toto
+exit
+ls -lRa
+ls -lRa | grep toto
+ls -lRa | grep toto
+ls -lRa | grep toto
+ls -l | grep toto
+ls -l | grep toto
+l | grep toto
+l | grep toto
+ls -l | grep a
+
+ls -l | grep toto
+
+ls -lRa
+l -Ra
+l -Ra | grep toto
+
+exit
+ls -l
+l
+l -Ra| grep include
+
+exit
