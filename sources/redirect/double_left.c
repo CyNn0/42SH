@@ -5,7 +5,7 @@
 ** Login   <Lucas Gambini@epitech.net>
 **
 ** Started on  Mon May 30 10:56:47 2016 Gambini Lucas
-** Last update Tue May 31 09:56:09 2016 Gambini Lucas
+** Last update Tue May 31 10:06:53 2016 Gambini Lucas
 */
 
 #include 		"42.h"
@@ -38,8 +38,10 @@ int             	double_left(t_cmd *cmd, t_list *list,
   t_red       		var;
   char			*buff;
   char			*res;
+  int			reset;
 
   res = NULL;
+  reset = dup(0);
   init_double_left(cmd->cmd, &var);
   var.is_builtin = builtin;
   while (write(1, "? ", 2) && (buff = get_next_line(0)))
@@ -53,9 +55,11 @@ int             	double_left(t_cmd *cmd, t_list *list,
 	  res = my_concate(res, buff);
       free(buff);
     }
+    /* CA MARCHE PAS ! Go écrire dans un tmp ?? */ dup2(1, 0);
   printf("%s\n", res);
-  (void)list;
-  (void)env;
+    if (exec_left(list, env, var) == FAILURE)
+      check_go_on(cmd);
+    dup2(reset, 0);
   free(var.name);
   free_tab(var.cmd);
   return (SUCCESS);

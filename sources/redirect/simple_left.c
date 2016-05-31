@@ -5,7 +5,7 @@
 ** Login   <hubert_i@epitech.net>
 **
 ** Started on  Thu May 26 01:33:04 2016 Hubert Leo
-** Last update Mon May 30 15:36:04 2016 Gambini Lucas
+** Last update Tue May 31 10:01:55 2016 Gambini Lucas
 */
 
 # include 	"42.h"
@@ -18,8 +18,6 @@ int		simple_left(t_cmd *cmd, t_list *list, char **env, int builtin)
 
   reset = dup(0);
   init_simpleleft(cmd->cmd, &var);
-  show_tab(var.cmd);
-  printf("name: %s\n", var.name);
   var.is_builtin = builtin;
   if ((fd = open(var.name, O_RDONLY)) == -1)
     return (fprintf(stderr, "Error: %s: %s\n", strerror(errno),
