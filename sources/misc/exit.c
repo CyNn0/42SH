@@ -5,7 +5,7 @@
 ** Login   <lefevr_h@epitech.net>
 **
 ** Started on  Mon May 23 19:57:19 2016 Philippe Lefevre
-** Last update Thu May 26 12:02:04 2016 Gambini Lucas
+** Last update Tue May 31 19:43:00 2016 Philippe Lefevre
 */
 
 #define			_POSIX_SOURCE
@@ -13,7 +13,6 @@
 
 int			my_exit(int status)
 {
-  (void)status;
-  kill(getpid(), SIGKILL);
+  exit(status);
   return (FAILURE);
 }
