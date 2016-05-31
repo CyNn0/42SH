@@ -5,7 +5,7 @@
 ## Login   <saint-_o@epitech.net>
 ##
 ## Started on  Wed May 18 04:15:48 2016 boris saint-bonnet
-## Last update Tue May 31 17:32:06 2016 boris saint-bonnet
+## Last update Tue May 31 20:34:30 2016 boris saint-bonnet
 ##
 
 CC		=	gcc -g -g3
@@ -31,6 +31,7 @@ CFLAGS		+=	-g -g3
 SRC		=	sources/main.c				\
 			sources/parsing/check_error.c		\
 			sources/parsing/double.c		\
+			sources/parsing/check_variable.c	\
 			sources/parsing/pre_check.c		\
 			sources/parsing/my_strcut.c		\
 			sources/parsing/get_cmd.c		\

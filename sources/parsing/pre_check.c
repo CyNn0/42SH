@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 18 04:54:23 2016 boris saint-bonnet
-** Last update Tue May 31 16:15:25 2016 cyril puccio
+** Last update Tue May 31 20:37:09 2016 boris saint-bonnet
 */
 
 # include "42.h"
@@ -63,7 +63,7 @@ char    *clean_str(char *str)
   return (ret);
 }
 
-char	*pre_check(char *s)
+char	*pre_check(char *s, t_list *list)
 {
   char  *ret;
 
@@ -85,5 +85,6 @@ char	*pre_check(char *s)
   ret = doubles(ret, '&');
   ret = doubles(ret, ';');
   ret = doubles(ret, '|');
+  ret = replace_variable(ret, list);
   return (clean_str(ret));
 }

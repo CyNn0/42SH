@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 18 05:04:14 2016 boris saint-bonnet
-** Last update Tue May 31 17:34:58 2016 boris saint-bonnet
+** Last update Tue May 31 20:30:22 2016 boris saint-bonnet
 */
 
 #ifndef 		_PROTOTYPE_H_H_
@@ -15,7 +15,6 @@
 ** PARSING
 */
 
-char			*pre_check(char *s);
 char    		*my_strcut(char *s, int beg, int nb, int end);
 char    		*check_sep(char *s, char sep);
 char    		*check_separator(char *s);
