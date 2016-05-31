@@ -5,7 +5,7 @@
 ** Login   <lefevr_h@epitech.net>
 **
 ** Started on  Wed May 25 11:24:01 2016 Philippe Lefevre
-** Last update Wed May 25 17:14:36 2016 Philippe Lefevre
+** Last update Tue May 31 19:59:17 2016 Philippe Lefevre
 */
 
 #include		"42.h"
@@ -23,7 +23,7 @@ int			builtin_exit(t_list *list, char **cmd)
     }
   if (i > 2)
     list->do_exit =
-  fprintf(stderr, "exit: too many argumentsexit: too many arguments\n");
+  fprintf(stderr, "exit: too many arguments\n");
   else
     return (SUCCESS + 0 * printf("exit\n"));
   list->do_exit = 0;

@@ -5,7 +5,7 @@
 ** Login   <lefevr_h@epitech.net>
 **
 ** Started on  Mon May 23 19:04:26 2016 Philippe Lefevre
-** Last update Tue May 31 19:44:52 2016 Philippe Lefevre
+** Last update Tue May 31 20:34:18 2016 Philippe Lefevre
 */
 
 #include		"42.h"
@@ -13,12 +13,19 @@
 int			prepare_pipe(t_cmd *cmd)
 {
   t_cmd			*tmp;
+  int			count_pipe;
 
-  tmp = cmd->next;
-  while (tmp->prev && tmp->prev->token == PIPE)
+  tmp = cmd;
+  count_pipe = 1;
+  while (tmp)
     {
-      if (pipe(tmp->fd) == -1)
-	fprintf(stderr, "Error: %s\n", strerror(errno));
+      if (tmp->token == PIPE)
+	count_pipe += 1;
+      tmp = tmp->next;
+    }
+  tmp = cmd;
+  while (count_pipe--)
+    {
       tmp->go_on = 0;
       tmp = tmp->next;
     }
@@ -30,8 +37,16 @@ int			exec_pipe(t_cmd *cmd, t_list *list, char **env,
 {
   pid_t			pid;
   t_cmd			*next_cmd;
+  t_cmd			*tmp;
 
   prepare_pipe(cmd);
+  tmp = cmd;
+  while (tmp && tmp->token == PIPE)
+    {
+      fprintf(stderr, "Pipe [%s]\n", tmp->cmd[0]);
+      tmp = tmp->next;
+    }
+  /*
   if ((pid = fork()) == -1)
     fprintf(stderr, "Error: fork failure\n");
   else if (pid == 0)
@@ -51,5 +66,6 @@ int			exec_pipe(t_cmd *cmd, t_list *list, char **env,
       dup2(next_cmd->fd[0], 0);
       normal_scatter(next_cmd, env, list, builtin - 20);
     }
+  */
   return (SUCCESS);
 }
