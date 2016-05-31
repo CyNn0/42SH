@@ -5,7 +5,7 @@
 ** Login   <gambin_l@epitech.net>
 **
 ** Started on  Mon May 23 16:43:07 2016 Gambini Lucas
-** Last update Tue May 31 19:57:19 2016 Philippe Lefevre
+** Last update Tue May 31 22:02:47 2016 Philippe Lefevre
 */
 
 #include		"42.h"
@@ -26,7 +26,6 @@ int			exec_scatter(t_list *list)
   char		**env;
   t_cmd		*tmp;
   int		builtin;
-  int		back_stdin;
 
 
   tmp = list->head;
@@ -38,11 +37,7 @@ int			exec_scatter(t_list *list)
       if (tmp->go_on == 1)
 	{
 	  if (tmp->token == PIPE)
-	    {
-	      back_stdin = dup(0);
-	      exec_pipe(tmp, list, env, builtin);
-	      dup2(back_stdin, 0);
-	    }
+	    exec_pipe(tmp, list, env, builtin);
 	  else
 	    normal_scatter(tmp, env, list, builtin - 20);
 	}
