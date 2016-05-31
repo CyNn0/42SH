@@ -1,12 +1,14 @@
 /*
-** inihb.c for H:\home\xx\Rendu\PSU\42SH in H:\home\xx\Rendu\PSU\42SH
-**
-** Made by
-** Login   <Boris@epitech.net>
-**
-** Started on  Tue May 31 10:10:36 2016
-** Last update Tue May 31 10:29:22 2016 Boris
+** inihb.c for  in /home/xx/Rendu/PSU/42SH
+** 
+** Made by boris saint-bonnet
+** Login   <saint-_o@epitech.net>
+** 
+** Started on  Tue May 31 13:35:13 2016 boris saint-bonnet
+** Last update Tue May 31 13:35:15 2016 boris saint-bonnet
 */
+
+#include "42.h"
 
 int	check_inihb(char *str)
 {
