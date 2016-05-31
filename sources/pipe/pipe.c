@@ -5,7 +5,7 @@
 ** Login   <lefevr_h@epitech.net>
 **
 ** Started on  Mon May 23 19:04:26 2016 Philippe Lefevre
-** Last update Wed Jun 01 01:45:33 2016 Philippe Lefevre
+** Last update Wed Jun 01 01:46:07 2016 Philippe Lefevre
 */
 
 #include		"42.h"
@@ -58,6 +58,7 @@ int			exec_child(t_cmd *cmd, t_list *list, char **env,
 	dup2(cmd->prev->fd[0], 0);
       if (count[0] < (count[1] - 1))
 	dup2(cmd->fd[1], 1);
+      (void)list;
       /*if ((builtin = check_built(list, cmd)) >= 0)
 	exit(simple_exec_builtin(list, cmd, builtin));*/
       execve(cmd->cmd[0], cmd->cmd, env);
