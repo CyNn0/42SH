@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 18 04:19:45 2016 boris saint-bonnet
-** Last update Mon May 30 12:44:37 2016 Philippe Lefevre
+** Last update Tue May 31 14:12:51 2016 cyril puccio
 */
 
 #include		"42.h"
@@ -29,6 +29,7 @@ int			shell(char *env[])
       if ((list = get_cmd(list, pre_check(buffer))) == NULL)
 	continue;
       exec_scatter(list);
+      open_bash(".42shrc", list->head->cmd);
       list = free_cmd(list);
     }
   value_exit = list->value_exit;

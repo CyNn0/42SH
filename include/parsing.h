@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Fri May 20 07:33:52 2016 boris saint-bonnet
-** Last update Wed May 25 16:58:36 2016 Philippe Lefevre
+** Last update Tue May 31 14:09:18 2016 cyril puccio
 */
 
 #ifndef			_PARSING_H_
@@ -27,5 +27,6 @@ char			**cmd_to_tab(char *line, char sp1, char sp2, char sp3);
 char			**clean_tab(char **tab);
 void			show_tab(char **tab);
 void			free_tab(char **tab);
+char			*open_bash(char *arg, char **cmd);
 
 #endif			/* _PARSING_H_ */

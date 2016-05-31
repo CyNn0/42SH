@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 18 04:22:31 2016 boris saint-bonnet
-** Last update Tue May 31 09:45:10 2016 Gambini Lucas
+** Last update Tue May 31 14:10:10 2016 cyril puccio
 */
 
 #ifndef			_LINKED_LIST_H__
@@ -83,6 +83,12 @@ typedef struct		s_history
   struct s_hist		*head;
   struct s_hist		*tail;
 }			t_history;
+
+typedef struct          s_bash
+{
+  struct s_node         *head;
+  struct s_node         *tail;
+}                       t_bash;
 
 typedef struct          s_list
 {
