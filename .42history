@@ -46,3 +46,267 @@ l
 l -Ra| grep include
 
 exit
+l | grep toto
+make
+l -Ra | grep toto
+exit
+ls -lRa | grep toto
+ls -lRa | grep toto | grep toto
+exit
+l -Ra 
+ls -Ra | grep toto
+exit
+l -Ra | grep toto
+exit
+ls
+ls | grep toto
+ls | grep toto
+l
+l | grep toto
+exit
+l
+l | grep toto
+l -Ra | grep titi
+l | grep Makefile
+
+l -Ra | grep Makefile
+
+exit
+l | grep toto
+l | grep Makfile
+l > a
+l | grep a
+
+exit
+l | grep a
+
+exit
+l | grep a
+l | grep a
+exit
+l | grep a
+
+exit
+cat toto | wc
+cat toto | wc | wc
+ls -lRa
+ls -lRa | grep note
+
+exit
+ls -lRa
+ls -lRa | grep note
+
+ls -lRa | Makefile
+ls -lRa | grep Makefile
+
+cat tot
+cat toto
+cat toto | wc 
+exit
+cat toto | wc
+cat toto | wc
+cat toto | wc
+cat toto | wc
+ls -lRa | wc
+ls -lRa | grep note
+
+cat toto | wc 
+exit
+cat toto | wc | grep 9
+exit
+cat toto | wc
+exit
+cat toto | wc
+exit
+l | wc
+l | wc
+l | grep wc
+l | wc
+exit
+ls -l | grep include
+ls -l | grep toto
+ls -l | grep include
+ls -l | grep include | grep bite
+make
+exit
+ls -l | grep a
+exit
+ls -l | grep a
+exit
+ls -l | grep a
+ls -l
+ls -l | grep a
+ls -lRa | grep include
+exit
+l
+l | grep a
+exit
+l | grep a
+exit
+l | grep a
+l | grep note
+l | grep toto | grep toto
+exit
+l
+ls
+ls | grep ni
+exit
+l
+l | grep a
+exit
+l | grep a
+l | grep a | grep b
+l | grep a
+exit
+l | grep a
+l | grep a | grep b
+exit
+l | grep a
+l | grep a | grep b
+exit
+l | grep a
+l | grep a | grep b
+l | grep a | grep auteur
+exit
+l | grep a
+exit
+l | grep a
+exit
+l | grep a
+l | grep not
+exit
+cat toto | wc
+cat toto | wc
+ls -lRa
+l -Ra
+l -Ra | wc
+exit
+ls -l
+l
+l | grep Makefile
+l | toto
+l | grep toto
+cat toto
+cat toto | wc -l
+exit
+cat toto | wc 
+
+ls -lRa | wc
+
+cat toto | wc 
+
+exit
+ls -l | grep a
+make
+exit
+l -l | grep a
+make re
+make
+exit
+l
+l | grep a
+exit
+l | grep a
+
+l
+l | grep toto
+
+exit
+l
+l | grep a
+
+exit
+l | grep a
+
+exit
+l
+l | grep a
+
+exit
+l
+l | grep a
+
+exit
+l | grep a
+l | grep toto
+ls
+exit
+l | grep a
+ls | grep toto | grep toto
+ls | grep toto
+exit
+l
+l | grep a
+l | grep toto
+l | grep toto | grep toto
+l | grep toto | grep toto |grep toto
+exit
+l | grep a
+exit
+l | grep a
+l | grep note
+l | grep test
+make
+exit
+l | grep t
+
+exit
+l | grep a
+
+l | grep toto|grep toto
+
+exit
+l
+l | grep a
+
+l | grep a
+
+exit
+l
+l | grep toto
+
+exit
+l | grep a
+
+make
+exit
+l
+l | grep a
+
+l | grep toto
+
+l
+cat toto|wc
+
+exit
+ls -l | grep a
+l
+l | grep a
+l | grep toto
+cat toto | wc
+l | grep toto
+
+cat toto | wc
+
+exit
+cat toto | wc
+
+exit
+l | grep toto
+
+exit
+l | wc
+exit
+l | wc
+exot
+exit
+l | wc
+
+exit
+l | wc
+
+exit
+l | wc
+cat toto | wc
+
+exit
