@@ -5,7 +5,7 @@
 ** Login   <puccio_c@epitech.net>
 ** 
 ** Started on  Wed May 25 13:14:15 2016 cyril puccio
-** Last update Tue May 31 14:54:20 2016 cyril puccio
+** Last update Tue May 31 15:00:15 2016 cyril puccio
 */
 
 # include	"42.h"
@@ -113,6 +113,7 @@ char		*check_loop(t_bash *bash, char *cmd)
 	}
       exe = exe->next;
     }
+  
   return (NULL);
 }
 
@@ -127,12 +128,10 @@ char		*open_bash(char *arg, char *cmd)
   ret = NULL;
   bash.tail = NULL;
   if ((fd = open(arg, O_RDONLY)) == -1)
-    {
-      fprintf(stderr, "Can't open file");
-      my_exit(FAILURE);
-    }
+    return (cmd);
   while ((s = get_next_line(fd)))
     pars_bash(s, &bash);
+  printf("%s\n", cmd);
   if ((ret = check_loop(&bash, cmd)) != NULL)
     return (ret);
   return (cmd);
