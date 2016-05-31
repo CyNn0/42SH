@@ -5,7 +5,7 @@
 ** Login   <Lucas Gambini@epitech.net>
 **
 ** Started on  Mon May 30 10:56:47 2016 Gambini Lucas
-** Last update Tue May 31 10:45:57 2016 Gambini Lucas
+** Last update Tue May 31 12:04:37 2016 Gambini Lucas
 */
 
 #include 		"42.h"
@@ -55,17 +55,13 @@ int             	double_left(t_cmd *cmd, t_list *list,
 				    char **env, int builtin)
 {
   t_red       		var;
-  int			reset;
   char			*buff;
 
   init_double_left(cmd->cmd, &var);
   var.is_builtin = builtin;
   buff = get_buffer(var);
-  reset = dup(0);
-  dup2(1, 0);
   if (buff)
     printf("%s\n", buff);
-  dup2(reset, 0);
   if (exec_left(list, env, var) == FAILURE)
     check_go_on(cmd);
   free(var.name);
