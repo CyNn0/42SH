@@ -5,7 +5,7 @@
 ** Login   <Lucas Gambini@epitech.net>
 **
 ** Started on  Mon May 30 10:56:47 2016 Gambini Lucas
-** Last update Tue May 31 10:11:52 2016 Gambini Lucas
+** Last update Tue May 31 10:21:16 2016 Gambini Lucas
 */
 
 #include 		"42.h"
@@ -40,16 +40,13 @@ char			*get_buffer(t_red var)
   res = NULL;
   while (write(1, "? ", 2) && (buff = get_next_line(0)))
     {
+      if (!res)
+	res = strdup(buff);
       if (strcmp(buff, var.name) == 0)
 	break;
       else
-	{
-	  if (!res)
-	    res = strdup(buff);
-	  else
-	    res = my_concate(res, buff);
-	}
-      free(buff);
+	res = my_concate(res, buff);
+	free(buff);
     }
   return (res);
 }
