@@ -310,3 +310,10 @@ l | wc
 cat toto | wc
 
 exit
+ls
+cat toto | wc
+ls
+ms
+ls
+exot
+exit
