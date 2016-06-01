@@ -5,7 +5,7 @@
 ** Login   <Lucas Gambini@epitech.net>
 **
 ** Started on  Mon May 30 10:56:47 2016 Gambini Lucas
-** Last update Wed Jun 01 15:50:28 2016 Gambini Lucas
+** Last update Wed Jun 01 16:30:27 2016 Gambini Lucas
 */
 
 #include 		"42.h"
@@ -38,7 +38,8 @@ char			*get_buffer(t_red var)
   char			*res;
 
   res = NULL;
-  printf("%s\n", var.name);
+  if (!var.name)
+    return (NULL);
   while (write(1, "? ", 2) && (buff = get_next_line(0)))
     {
       if (strcmp(buff, var.name) == 0)
@@ -100,7 +101,8 @@ int             	double_left(t_cmd *cmd, t_list *list,
 
   init_double_left(cmd->cmd, &var);
   var.is_builtin = builtin;
-  buff = get_buffer(var);
+  if ((buff = get_buffer(var)) == NULL)
+      return (FAILURE);
     if ((fd = open_file(buff)) == -1)
       return (FAILURE);
   reset = dup(0);
