@@ -310,3 +310,157 @@ l | wc
 cat toto | wc
 
 exit
+l | grep toto
+exit
+ls
+l | grep a
+
+env | grep USER
+
+make
+exit
+l
+l | grep toto
+
+exit
+l | grep toto
+env | grep USER
+
+exit
+ls
+ls -l | grep toto
+env | grep USER
+exit
+env | grep USER
+
+l
+l | grep note
+
+exit
+ls | grep note
+
+l | grep note
+ 
+make
+exit
+l | grep note
+env | grep USER
+l | grep toto
+l | grep note
+env | grep USER
+env
+setenv LESS bite
+setenv
+env
+env
+env | grep bite
+env | grep LESS
+exit
+setenv bite test
+env
+env | grep bite
+
+enb 
+env | grep test
+
+make
+exit
+env
+setenv test test
+setenv
+setenv | grep test
+
+exit
+l | grep note
+
+exit
+l | grep note
+
+make
+exit
+toto | grep bite
+
+exit
+ls | toto | grep bite
+
+toto | grep bite
+
+exit
+ls | grep note | toto
+
+exit
+l | grep toto
+
+l
+cat /dev/urandom > toto ; cat toto | wc
+echo $.
+echo $HOME
+echo $?
+exit
+timeout 1 cat /dev/urandom > toto
+timeout 1 cat /dev/urandom > toto ; cat toto | wc
+
+exit
+timeout 10 cat /dev/urandom > toto ; cat toto | wc
+
+ls -lRa > titi && timeout [nb seconde] cat /dev/urandom > toto ; cat toto |  wc
+
+ls -lRa > titi && timeout 3 cat /dev/urandom > toto ; cat toto |  wc
+cat titi
+ls bite || cat titi
+ls || cat titi
+cat titi
+ls & cat titi
+ls -l > titi
+cat titi
+cat titi & ls
+ls bit
+ls bite & cat titi
+exit
+ls -l | grep include
+
+cat titi | wc
+ls
+cat toto
+cat toto > wc
+cat toto | wc 
+
+cat toto | wc
+ls
+
+man waitpid
+exit
+cat toto | wc
+
+make
+exit
+cat toto | wc
+
+cat toto | wc
+ls
+cat toto | wc
+
+cat toto | wc
+ls
+
+exit
+cat toto | wc
+
+exit
+cat toto | wc
+
+exit
+cat toto | wc
+ls -l | wc
+
+exit
+ls -l | wc
+exit
+cat toto | wc
+exit
+ls -l |grep include
+exit
+ls -l | grep include
+cat toto | wc
+ls
+exit

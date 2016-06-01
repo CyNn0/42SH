@@ -5,37 +5,27 @@
 ** Login   <lefevr_h@epitech.net>
 **
 ** Started on  Mon May 23 19:04:26 2016 Philippe Lefevre
-** Last update Wed Jun 01 01:46:07 2016 Philippe Lefevre
+** Last update Wed Jun 01 03:28:02 2016 Philippe Lefevre
 */
 
 #include		"42.h"
 
-int			prepare_pipe(t_cmd *cmd, t_list *list)
+int			prepare_pipe(t_cmd *cmd)
 {
   t_cmd			*tmp;
   int			count_pipe;
-  int			out;
 
-  tmp = cmd;
   count_pipe = 0;
-  out = 0;
+  tmp = cmd;
   while (tmp)
     {
       if (tmp->token == PIPE || (tmp->prev && tmp->prev->token == PIPE))
 	{
-	  if ((out == 0) && (tmp->cmd[0] =
-			     exec_find_path(list->path, tmp->cmd[0])) == NULL)
-	    {
-	      fprintf(stderr, "%s: Command not found.\n", tmp->cmd[0]);
-	      out = -1;
-	    }
 	  tmp->go_on = 0;
 	  count_pipe += 1;
 	}
       tmp = tmp->next;
     }
-  if (out)
-    return (out);
   return (count_pipe);
 }
 
@@ -43,6 +33,7 @@ int			exec_child(t_cmd *cmd, t_list *list, char **env,
 				   int count[2])
 {
   pid_t			pid;
+  int			builtin;
 
   if ((cmd->fd = malloc(sizeof(int) * 2)) == NULL)
     return (FAILURE);
@@ -58,11 +49,9 @@ int			exec_child(t_cmd *cmd, t_list *list, char **env,
 	dup2(cmd->prev->fd[0], 0);
       if (count[0] < (count[1] - 1))
 	dup2(cmd->fd[1], 1);
-      (void)list;
-      /*if ((builtin = check_built(list, cmd)) >= 0)
-	exit(simple_exec_builtin(list, cmd, builtin));*/
-      execve(cmd->cmd[0], cmd->cmd, env);
-      exit(-1);
+      if ((builtin = check_built(list, cmd)) == SUCCESS)
+	return (SUCCESS);
+      exit(normal_scatter(cmd, env, list, builtin - 20));
     }
   else
     {
@@ -82,7 +71,7 @@ int			exec_pipe(t_cmd *cmd, t_list *list, char **env,
   int			cur;
 
   (void)builtin;
-  if ((count[1] = prepare_pipe(cmd, list)) == -1)
+  if ((count[1] = prepare_pipe(cmd)) == -1)
     return (FAILURE);
   cur = 0;
   tmp = cmd;
@@ -93,5 +82,6 @@ int			exec_pipe(t_cmd *cmd, t_list *list, char **env,
       tmp = tmp->next;
       cur++;
     }
+  while (waitpid(-1, 0, 0) != -1);
   return (SUCCESS);
 }
