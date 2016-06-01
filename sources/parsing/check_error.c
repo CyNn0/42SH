@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Fri May 20 07:31:51 2016 boris saint-bonnet
-** Last update Wed May 25 06:41:58 2016 boris saint-bonnet
+** Last update Wed Jun  1 16:33:44 2016 boris saint-bonnet
 */
 
 # include "42.h"
@@ -52,7 +52,7 @@ int     triple(char *s)
 	{
 	  if (s[i] == sep[j] && s[i + 1] == sep[j] && s[i + 2] == sep[j])
 	    {
-	      fprintf(stderr, "Error parsing nears '%c'\n", s[i + 2]);
+	      fprintf(stderr, "Error: parsing nears '%c'\n", s[i + 2]);
 	      free(sep);
 	      return (-1);
 	    }
