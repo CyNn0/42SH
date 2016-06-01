@@ -5,21 +5,21 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 18 04:31:16 2016 boris saint-bonnet
-** Last update Mon May 23 18:00:12 2016 Gambini Lucas
+** Last update Wed Jun 01 03:56:31 2016 Philippe Lefevre
 */
 
-# include "42.h"
+#include		"42.h"
 
-char    *my_strcatenv(char *path, char *command)
+char			*my_strcatenv(char *path, char *command)
 {
-  char  *ret;
-  int   i;
-  int   j;
+  char			*ret;
+  int			i;
+  int			j;
 
   if (path == NULL || command == NULL)
     return (NULL);
-  if ((ret = malloc(sizeof(char) * (strlen(path) +
-				    strlen(command) + 2))) == NULL)
+  if ((ret = malloc(sizeof(char)
+		    * (strlen(path) + strlen(command) + 2))) == NULL)
     return (NULL);
   i = -1;
   while (path[++i] != '\0')
@@ -32,11 +32,11 @@ char    *my_strcatenv(char *path, char *command)
   return (ret);
 }
 
-char            *my_epurstr(char *str)
+char			*my_epurstr(char *str)
 {
-  int           i;
-  int           j;
-  char          *epured;
+  int			i;
+  int			j;
+  char			*epured;
 
   i = 0;
   j = 0;

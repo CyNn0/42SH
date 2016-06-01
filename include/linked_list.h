@@ -5,11 +5,11 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 18 04:22:31 2016 boris saint-bonnet
-** Last update Wed Jun 01 02:43:09 2016 Philippe Lefevre
+** Last update Wed Jun 01 03:58:20 2016 Philippe Lefevre
 */
 
-#ifndef			_LINKED_LIST_H__
-# define		_LINKED_LIST_H__
+#ifndef			_LINKED_LIST_H_
+# define		_LINKED_LIST_H_
 
 /*
 ** DEFINE

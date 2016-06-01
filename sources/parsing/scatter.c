@@ -5,7 +5,7 @@
 ** Login   <gambin_l@epitech.net>
 **
 ** Started on  Mon May 23 16:43:07 2016 Gambini Lucas
-** Last update Tue May 31 22:02:47 2016 Philippe Lefevre
+** Last update Wed Jun 01 03:55:01 2016 Philippe Lefevre
 */
 
 #include		"42.h"
@@ -26,7 +26,6 @@ int			exec_scatter(t_list *list)
   char		**env;
   t_cmd		*tmp;
   int		builtin;
-
 
   tmp = list->head;
   env = extract_env(list->myEnv);

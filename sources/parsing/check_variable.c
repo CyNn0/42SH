@@ -1,11 +1,11 @@
 /*
 ** check_variable.c for  in /home/xx/Rendu/PSU/42SH
-** 
+**
 ** Made by boris saint-bonnet
 ** Login   <saint-_o@epitech.net>
-** 
+**
 ** Started on  Tue May 31 19:56:35 2016 boris saint-bonnet
-** Last update Tue May 31 20:41:15 2016 boris saint-bonnet
+** Last update Wed Jun 01 03:57:03 2016 Philippe Lefevre
 */
 
 #include		"42.h"
@@ -36,7 +36,7 @@ char			*set_variable(char *str, t_list *list)
   else
     return (str);
   fprintf(stderr, "%s: Undefined variable.\n", str + 1);
-  return (str);  
+  return (str);
 }
 
 char			*replace_variable(char *str, t_list *list)

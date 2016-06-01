@@ -5,7 +5,7 @@
 ** Login   <hubert_i@epitech.net>
 **
 ** Started on  Mon May 23 18:01:20 2016 Hubert Leo
-** Last update Fri May 27 14:42:10 2016 Gambini Lucas
+** Last update Wed Jun 01 04:00:09 2016 Philippe Lefevre
 */
 
 #ifndef			_BUILTIN_H_
@@ -28,7 +28,6 @@ typedef struct		s_echo
   char			flag_version;
   char			check_flags;
 }			t_echo;
-
 
 /*
 ** FONCTIONS
@@ -62,5 +61,4 @@ char			**my_str_to_wordtab(char *str, char caract);
 char			*get_fusion(char *str, char *str2);
 int			my_error(char *com, char *str);
 
-
-#endif /* !__BUILTIN__ */
+#endif			/* !__BUILTIN_H_ */

@@ -5,21 +5,21 @@
 ** Login   <Lucas Gambini@epitech.net>
 **
 ** Started on  Mon May 30 10:56:47 2016 Gambini Lucas
-** Last update Tue May 31 14:17:29 2016 Gambini Lucas
+** Last update Wed Jun 01 03:43:22 2016 Philippe Lefevre
 */
 
 #include 		"42.h"
 
-char    *my_concate(char *base, char *add)
+char			*my_concate(char *base, char *add)
 {
-  char  *ret;
-  int   i;
-  int   j;
+  char			*ret;
+  int			i;
+  int			j;
 
   if (base == NULL || add == NULL)
     return (NULL);
-  if ((ret = malloc(sizeof(char) * (strlen(base) +
-                                    strlen(add) + 2))) == NULL)
+  if ((ret = malloc(sizeof(char)
+		    * (strlen(base) + strlen(add) + 2))) == NULL)
     return (NULL);
   i = -1;
   while (base[++i] != '\0')

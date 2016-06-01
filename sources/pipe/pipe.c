@@ -5,7 +5,7 @@
 ** Login   <lefevr_h@epitech.net>
 **
 ** Started on  Mon May 23 19:04:26 2016 Philippe Lefevre
-** Last update Wed Jun 01 03:28:02 2016 Philippe Lefevre
+** Last update Wed Jun 01 03:38:51 2016 Philippe Lefevre
 */
 
 #include		"42.h"
@@ -29,7 +29,7 @@ int			prepare_pipe(t_cmd *cmd)
   return (count_pipe);
 }
 
-int			exec_child(t_cmd *cmd, t_list *list, char **env,
+int			do_pipe(t_cmd *cmd, t_list *list, char **env,
 				   int count[2])
 {
   pid_t			pid;
@@ -37,12 +37,8 @@ int			exec_child(t_cmd *cmd, t_list *list, char **env,
 
   if ((cmd->fd = malloc(sizeof(int) * 2)) == NULL)
     return (FAILURE);
-  if ((pipe(cmd->fd) == -1)
-      || ((pid = fork()) == -1))
-    {
-      fprintf(stderr, "Error: %s\n", strerror(errno));
-      exit(FAILURE);
-    }
+  if ((pipe(cmd->fd) == -1) || ((pid = fork()) == -1))
+      exit(fprintf(stderr, "Error: %s\n", strerror(errno)) * 0 + FAILURE);
   else if (pid == 0)
     {
       if (count[0] != 0)
@@ -50,7 +46,7 @@ int			exec_child(t_cmd *cmd, t_list *list, char **env,
       if (count[0] < (count[1] - 1))
 	dup2(cmd->fd[1], 1);
       if ((builtin = check_built(list, cmd)) == SUCCESS)
-	return (SUCCESS);
+	exit(SUCCESS);
       exit(normal_scatter(cmd, env, list, builtin - 20));
     }
   else
@@ -78,7 +74,7 @@ int			exec_pipe(t_cmd *cmd, t_list *list, char **env,
   while (cur < count[1])
     {
       count[0] = cur;
-      exec_child(tmp, list, env, count);
+      do_pipe(tmp, list, env, count);
       tmp = tmp->next;
       cur++;
     }
