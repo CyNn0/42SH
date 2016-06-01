@@ -5,7 +5,7 @@
 ** Login   <hubert_i@epitech.net>
 **
 ** Started on  Mon May 23 18:01:20 2016 Hubert Leo
-** Last update Wed Jun 01 04:00:09 2016 Philippe Lefevre
+** Last update	Wed Jun 01 16:05:31 2016 Hubert Leo
 */
 
 #ifndef			_BUILTIN_H_
@@ -23,10 +23,11 @@ typedef struct		s_echo
 {
   char			flag_n;
   char 			flag_e;
-  char			flag_E;
   char			flag_help;
   char			flag_version;
   char			check_flags;
+  int			i;
+  char			space;
 }			t_echo;
 
 /*
@@ -39,8 +40,7 @@ t_echo			*init_echo();
 int			check_options(t_echo *flags, char *cmd);
 void			free_echo(t_echo *flags);
 void			put_echo(char *str);
-int			print_varenv(char *cmd, int i, t_env *env);
-int			echo_print(t_echo *flags, char *cmd, t_env *env);
+int			echo_print(t_echo *flags, char *cmd);
 char			is_in_quotes(char *cmd);
 int			builtin_echo(t_list *list, char **cmd);
 int			builtin_setenv(t_list *list, char **cmd);

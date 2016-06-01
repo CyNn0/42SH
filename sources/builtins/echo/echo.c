@@ -5,40 +5,59 @@
 ** Login   <hubert_i@epitech.net>
 **
 ** Started on  Mon May 23 17:29:37 2016 Hubert Leo
-** Last update Thu May 26 11:34:00 2016 Gambini Lucas
+** Last update	Wed Jun 01 16:11:00 2016 Hubert Leo
 */
 
 #include "42.h"
 
-char		is_in_quotes(char *cmd)
+char		*preparsing_echo(t_echo *echo, char **cmd)
 {
-  if (cmd == NULL || strlen(cmd) <= 2)
-    return (0);
-  if (cmd[0] == '"' && cmd[strlen(cmd) - 1] == '"')
-    puts("ok");
-  return (1);
+  char		*result;
+  int		i;
+
+  result = "\0";
+  i = 0;
+  if (cmd[echo->i + 1] != NULL)
+    echo->i++;
+  else
+    return (NULL);
+  while (cmd[echo->i])
+    {
+      if (i != 0)
+	result = get_fusion(result, " ");
+      result = get_fusion(result, cmd[echo->i]);
+      echo->i++;
+      i++;
+    }
+  return (result);
 }
 
 int		builtin_echo(t_list *list, char **cmd)
 {
   t_echo	*echo;
+  char		*printable;
   int		i;
-  int		j;
 
+  (void)list;
   if ((echo = init_echo()) == NULL)
     return (FAILURE);
-  j = (i = 1) - 1;
+  i = 1;
   while (cmd[i])
     {
       if (echo->check_flags == 1 && strlen(cmd[i]) >= 1 && cmd[i][0] == '-')
-	check_options(echo, cmd[i]);
+        {
+	  check_options(echo, cmd[i]);
+	  echo->i = i;
+        }
       else
 	{
-	  if (j > 0)
-	    write(1, " ", 1);
 	  echo->check_flags = 0;
-      	  echo_print(echo, cmd[i], list->myEnv);
-	  j++;
+	  if ((printable = preparsing_echo(echo, cmd)) != NULL)
+	    {
+	      echo_print(echo, printable);
+	      free(printable);
+	    }
+	  break;
       	}
       i++;
     }

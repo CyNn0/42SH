@@ -5,7 +5,7 @@
 ** Login   <hubert_i@epitech.net>
 **
 ** Started on  Wed May 25 02:51:51 2016 Hubert Leo
-** Last update Fri May 27 11:24:54 2016 Hubert Leo
+** Last update	Wed Jun 01 15:00:24 2016 Hubert Leo
 */
 
 #include "42.h"
@@ -19,40 +19,49 @@ void		put_echo(char *str)
     write(1, &str[i], 1);
 }
 
-int		print_varenv(char *cmd, int i, t_env *env)
+void		print_e(char flag)
 {
-  t_node	*tmp;
-  char		*search;
-  int		to_space;
-
-  to_space = count_to_space(cmd, i);
-  if ((search = get_varenv(cmd, i, to_space)) == NULL)
-    return (FAILURE);
-  tmp = env->head;
-   while (tmp)
-    {
-      if (strncmp(tmp->name, search, strlen(tmp->name)) == 0)
-	put_echo(tmp->data);
-      tmp = tmp->next;
-    }
-   free(search);
-   return (to_space - 1);
+  flag == 'a' ? write(1, "\a", 1) :
+    flag == 'b' ? write(1, "\b", 1) :
+    flag == 't' ? write(1, "\t", 1) :
+    flag == 'n' ? write(1, "\n", 1) :
+    flag == 'v' ? write(1, "\v", 1) :
+    flag == 'f' ? write(1, "\f", 1) :
+    flag == 'r' ? write(1, "\r", 1) :
+    (1);
 }
 
-int		echo_print(t_echo *flags, char *cmd, t_env *env)
+int		echo_print(t_echo *flags, char *cmd)
 {
   int		i;
-  /* char		in_double; */
+  char		indooble;
 
-  /* in_double = is_in_quotes(cmd); */
   (void)flags;
-  i = 0;
+  indooble = (i = 0);
+  if (flags->space == 1)
+    write(1, " ", 1);
   while (cmd[i])
     {
-      if (cmd[i] == '$')
-      	i = print_varenv(cmd, i + 1, env);
+      if (cmd[i] == '"' && indooble == 0)
+	indooble = 1;
+      else if (cmd[i] == '"' && indooble == 1)
+	indooble = 0;
       else
-      	write(1, &cmd[i], 1);
+	{
+	  if (flags->flag_e == 1 && cmd[i] && cmd[i + 1]
+	      && cmd[i] == '\\')
+	    {
+	      print_e(cmd[i + 1]);
+	      i++;
+	    }
+	  else
+	    {
+	      if (indooble == 1)
+		write(1, &cmd[i], 1);
+	      else if (indooble == 0 && cmd[i] != '\\')
+		write(1, &cmd[i], 1);
+	    }
+	}
       i++;
     }
   return (0);
