@@ -310,6 +310,7 @@ l | wc
 cat toto | wc
 
 exit
+<<<<<<< HEAD
 l | grep toto
 exit
 ls
@@ -463,4 +464,12 @@ exit
 ls -l | grep include
 cat toto | wc
 ls
+=======
+ls
+cat toto | wc
+ls
+ms
+ls
+exot
+>>>>>>> cb7a87f342ca198ff9a5835e943b336744d23602
 exit
