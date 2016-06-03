@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Tue May 31 19:56:35 2016 boris saint-bonnet
-** Last update Wed Jun 01 03:57:03 2016 Philippe Lefevre
+** Last update Fri Jun 03 13:21:28 2016 Philippe Lefevre
 */
 
 #include		"42.h"
@@ -48,6 +48,7 @@ char			*replace_variable(char *str, t_list *list)
   if (check_variable(str) == FAILURE)
     return (str);
   tab = my_str_to_wordtab(str, ' ');
+  free(str);
   while (tab[++i])
     if ((strncmp(tab[i], "$", 1)) == 0)
       tab[i] = strdup(set_variable(tab[i], list));

@@ -5,16 +5,16 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 18 04:54:23 2016 boris saint-bonnet
-** Last update Tue May 31 20:37:09 2016 boris saint-bonnet
+** Last update Fri Jun 03 13:21:25 2016 Philippe Lefevre
 */
 
-# include "42.h"
+#include	"42.h"
 
-char    *my_strcatc(char *path, char *command, int cond, int bool)
+char		*my_strcatc(char *path, char *command, int cond, int bool)
 {
-  char  *ret;
-  int   i;
-  int   j;
+  char		*ret;
+  int		i;
+  int		j;
 
   if (path == NULL || command == NULL
       || (ret = malloc(sizeof(char) *
@@ -38,16 +38,19 @@ char    *my_strcatc(char *path, char *command, int cond, int bool)
   return (ret);
 }
 
-char    *clean_str(char *str)
+char		*clean_str(char *str)
 {
-  int   i;
-  int   j;
-  char  *ret;
+  int		i;
+  int		j;
+  char		*ret;
 
   i = 0;
   j = -1;
   if ((ret = malloc(sizeof(char) * ((int)strlen(str) + 1))) == NULL)
-    return (NULL);
+    {
+      free(str);
+      return (NULL);
+    }
   while (i < (int)strlen(str) && (str[i] == ' ' || str[i] == '\t'))
     i++;
   i--;
@@ -60,12 +63,13 @@ char    *clean_str(char *str)
         ret[++j] = ' ';
     }
   ret[++j] = '\0';
+  free(str);
   return (ret);
 }
 
-char	*pre_check(char *s, t_list *list)
+char		*pre_check(char *s, t_list *list)
 {
-  char  *ret;
+  char		*ret;
 
   ret = strdup(s);
   free(s);
