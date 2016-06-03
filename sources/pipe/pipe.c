@@ -5,7 +5,7 @@
 ** Login   <lefevr_h@epitech.net>
 **
 ** Started on  Mon May 23 19:04:26 2016 Philippe Lefevre
-** Last update Fri Jun 03 12:56:25 2016 Philippe Lefevre
+** Last update Fri Jun 03 13:07:59 2016 Philippe Lefevre
 */
 
 #include		"42.h"
@@ -59,18 +59,22 @@ int			scatter_pipe(t_cmd *cmd, t_list *list, char **env)
 {
   t_cmd			*tmp;
   int			count[2];
-  int			cur;
 
-  if ((count[1] = prepare_pipe(cmd)) == -1)
+  if ((count[1] = prepare_pipe(cmd)) == 0)
     return (FAILURE);
-  cur = 0;
   tmp = cmd;
-  while (cur < count[1])
+  count[0] = -1;
+  while (++count[0] < count[1])
     {
-      count[0] = cur;
       exec_pipe(tmp, list, env, count);
       tmp = tmp->next;
-      cur++;
+    }
+  tmp = cmd;
+  count[0] = -1;
+  while (++count[0] < count[1])
+    {
+      free(tmp->fd);
+      tmp = tmp->next;
     }
   while (waitpid(-1, 0, 0) != -1);
   return (SUCCESS);
