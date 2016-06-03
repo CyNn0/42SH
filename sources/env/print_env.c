@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Thu May 19 18:58:06 2016 boris saint-bonnet
-** Last update Fri Jun 03 21:51:18 2016 Philippe Lefevre
+** Last update Fri Jun 03 21:54:01 2016 Philippe Lefevre
 */
 
 #include		"42.h"
@@ -29,10 +29,7 @@ int			print_env(t_env *list)
 int			print_prompt(t_list *list)
 {
   char			*dirname;
-<<<<<<< HEAD
   char			*ptr_user;
-=======
->>>>>>> 015b0394476dcc59e98a1f47f418abae650a0e52
 
   if (isatty(1) != 1)
     return (FAILURE);
@@ -49,9 +46,5 @@ int			print_prompt(t_list *list)
   write(1, " ", 1);
   write(1, DEFAULT, strlen(DEFAULT));
   free(dirname);
-<<<<<<< HEAD
-=======
-  return (0);
->>>>>>> 015b0394476dcc59e98a1f47f418abae650a0e52
   return (SUCCESS);
 }
