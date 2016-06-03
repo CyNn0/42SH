@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Thu May 19 23:48:19 2016 boris saint-bonnet
-** Last update Wed Jun  1 12:09:16 2016 boris saint-bonnet
+** Last update Fri Jun 03 17:27:19 2016 Gambini Lucas
 */
 
 # include "42.h"
@@ -31,10 +31,10 @@ t_list  	*path_to_list(t_list *list)
   char		*path_line;
   int           i;
 
-  if ((path_line = find_path(list)) != NULL)
+  if ((path_line = find_path(list)) != NULL && path_line)
     var = strdup(path_line);
   else
-    var = strdup("/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/usr/local/sbin:/bin:/usr/games:/usr/local/games:/home/xx/bin");
+    var = NULL;
   i = path_nb(var);
   if ((list = push_path(list, my_strtok(var, ":"))) == NULL)
     return (NULL);
