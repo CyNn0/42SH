@@ -5,7 +5,7 @@
 ** Login   <gambin_l@epitech.net>
 **
 ** Started on  Mon May 23 16:43:07 2016 Gambini Lucas
-** Last update Fri Jun 03 17:24:04 2016 Gambini Lucas
+** Last update Fri Jun 03 17:28:42 2016 Gambini Lucas
 */
 
 #include		"42.h"
@@ -28,10 +28,9 @@ int			exec_scatter(t_list *list)
   int		builtin;
 
   tmp = list->head;
-	      free_path(list);
-	      env = extract_env(list->myEnv);
-	      show_tab(env);
-	      path_to_list(list);
+  free_path(list);
+  env = extract_env(list->myEnv);
+  path_to_list(list);
   while (!(list->do_exit) && tmp && tmp->cmd[0])
     {
       if ((builtin = check_built(list, tmp)) == SUCCESS)
@@ -45,7 +44,7 @@ int			exec_scatter(t_list *list)
 	}
       tmp = tmp->next;
     }
-	      if (env)
-		free_tab(env);
-	      return (SUCCESS);
+  if (env)
+    free_tab(env);
+  return (SUCCESS);
 }
