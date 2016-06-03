@@ -29,7 +29,10 @@ int			print_env(t_env *list)
 int			print_prompt(t_list *list)
 {
   char			*dirname;
+<<<<<<< HEAD
   char			*ptr_user;
+=======
+>>>>>>> 015b0394476dcc59e98a1f47f418abae650a0e52
 
   if (isatty(1) != 1)
     return (FAILURE);
@@ -46,5 +49,9 @@ int			print_prompt(t_list *list)
   write(1, " ", 1);
   write(1, DEFAULT, strlen(DEFAULT));
   free(dirname);
+<<<<<<< HEAD
+=======
+  return (0);
+>>>>>>> 015b0394476dcc59e98a1f47f418abae650a0e52
   return (SUCCESS);
 }
