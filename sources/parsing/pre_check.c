@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 18 04:54:23 2016 boris saint-bonnet
-** Last update Fri Jun 03 13:21:25 2016 Philippe Lefevre
+** Last update Fri Jun 03 14:28:12 2016 Philippe Lefevre
 */
 
 #include	"42.h"
@@ -78,7 +78,7 @@ char		*pre_check(char *s, t_list *list)
       free(ret);
       return (NULL);
     }
-  ret = open_bash(".42shrc", ret);
+  /*ret = open_bash(".42shrc", ret);*/
   ret = simples(ret, '&');
   ret = simples(ret, ';');
   ret = simples(ret, '<');
