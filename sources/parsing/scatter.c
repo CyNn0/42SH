@@ -5,7 +5,7 @@
 ** Login   <gambin_l@epitech.net>
 **
 ** Started on  Mon May 23 16:43:07 2016 Gambini Lucas
-** Last update Wed Jun 01 03:55:01 2016 Philippe Lefevre
+** Last update Fri Jun 03 12:55:34 2016 Philippe Lefevre
 */
 
 #include		"42.h"
@@ -36,7 +36,7 @@ int			exec_scatter(t_list *list)
       if (tmp->go_on == 1)
 	{
 	  if (tmp->token == PIPE)
-	    exec_pipe(tmp, list, env, builtin);
+	    scatter_pipe(tmp, list, env);
 	  else
 	    normal_scatter(tmp, env, list, builtin - 20);
 	}
