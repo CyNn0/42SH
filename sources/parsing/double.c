@@ -1,16 +1,16 @@
 /*
 ** double.c for  in /home/xx/Rendu/PSU/42SH
-** 
+**
 ** Made by boris saint-bonnet
 ** Login   <saint-_o@epitech.net>
-** 
+**
 ** Started on  Fri May 20 07:30:47 2016 boris saint-bonnet
-** Last update Wed May 25 01:48:58 2016 boris saint-bonnet
+** Last update Fri Jun 03 13:11:21 2016 Philippe Lefevre
 */
 
-# include "42.h"
+#include	"42.h"
 
-void	double_first(t_pars *var, char c)
+void		double_first(t_pars *var, char c)
 {
   if (var->ret[0] == c && var->ret[1] && var->ret[1] == c &&
       var->ret[2] && var->ret[2] != ' ')
@@ -23,7 +23,7 @@ void	double_first(t_pars *var, char c)
     }
 }
 
-void    double_space_after(t_pars *var)
+void		double_space_after(t_pars *var)
 {
   if (var == NULL)
     return;
@@ -34,9 +34,9 @@ void    double_space_after(t_pars *var)
   free(var->aft);
 }
 
-char    *doubles(char *s, char c)
+char		*doubles(char *s, char c)
 {
-  t_pars        var;
+  t_pars	var;
 
   var.ret = strdup(s);
   free(s);
