@@ -5,14 +5,14 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Thu May 19 19:23:14 2016 boris saint-bonnet
-** Last update Mon May 23 18:21:50 2016 Gambini Lucas
+** Last update Fri Jun 03 13:29:57 2016 Philippe Lefevre
 */
 
-# include "42.h"
+#include	"42.h"
 
-int	get_name(char *name)
+int		get_name(char *name)
 {
-  int	i;
+  int		i;
 
   i = -1;
   while (name[++i])
@@ -59,12 +59,12 @@ char		**extract_env(t_env *myEnv)
     return (env);
 }
 
-t_list  *my_env_in_list(t_list *list, char **env)
+t_list		*my_env_in_list(t_list *list, char **env)
 {
-  int   i;
-  int   j;
-  char  *name;
-  char  *data;
+  int		i;
+  int		j;
+  char		*name;
+  char		*data;
 
   i = 0;
   if ((list = create_list(list)) == NULL)
