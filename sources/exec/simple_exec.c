@@ -5,7 +5,7 @@
 ** Login   <lefevr_h@epitech.net>
 **
 ** Started on  Mon May 23 23:00:09 2016 Philippe Lefevre
-** Last update Fri Jun 03 16:50:41 2016 Philippe Lefevre
+** Last update Fri Jun 03 17:25:13 2016 Philippe Lefevre
 */
 
 #include		"42.h"
@@ -51,12 +51,20 @@ int			xwaitpid(int pid, int status, int opt)
 
   ret = waitpid(pid, &status, opt);
   if (ret == -1)
-    fprintf(stderr, "Error: %s\n", strerror(errno));
+    fprintf(stderr, "%s\n", strerror(errno));
   if (WIFEXITED(status))
     status = WEXITSTATUS(status);
   else
     print_signal_message(status);
   return (ret);
+}
+
+char			*print_type_message(char *bin, int type)
+{
+  if (S_ISREG(type))
+    return (bin);
+  fprintf(stderr, "%s: Command not found.\n", bin);
+  return (NULL);
 }
 
 char			*exec_find_path(t_path *path, char *bin)
@@ -65,12 +73,6 @@ char			*exec_find_path(t_path *path, char *bin)
   char			*cmd;
   struct stat		sb;
 
-  /*if (stat(bin, &sb) == -1)
-    fprintf(stderr, "%s: %s\n", bin, strerror(errno));
-
-  if (sb.st_mode & 0)
-    printf("directory\n");
-*/
   tmp = path->head;
   while (tmp != NULL && bin)
     {
@@ -79,7 +81,9 @@ char			*exec_find_path(t_path *path, char *bin)
       cmd = strcpy(cmd, tmp->data);
       cmd = strcat(cmd, "/");
       cmd = strcat(cmd, bin);
-      if (!(access(cmd, F_OK)) && !((access(cmd, X_OK))))
+      stat(cmd, &sb);
+      if (!(access(cmd, F_OK)) && !((access(cmd, X_OK)))
+	  && (S_ISREG(sb.st_mode)))
 	{
 	  free(bin);
 	  return (cmd);
@@ -87,7 +91,7 @@ char			*exec_find_path(t_path *path, char *bin)
       free(cmd);
       tmp = tmp->next;
     }
-  return (bin);
+  return (print_type_message(bin, sb.st_mode));
 }
 
 int			simple_exec_builtin(t_list *list, t_cmd *cmd,
@@ -121,7 +125,7 @@ int			simple_exec(t_cmd *cmd, t_list *list,
       if (!(access(cmd->cmd[0], X_OK)))
 	{
 	  if ((pid = fork()) == -1)
-	    fprintf(stderr, "Error: %s\n", strerror(errno));
+	    fprintf(stderr, "%s\n", strerror(errno));
 	  else if (pid == 0)
 	    {
 	      execve(cmd->cmd[0], cmd->cmd, env);
