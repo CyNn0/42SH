@@ -5,7 +5,7 @@
 ** Login   <hubert_i@epitech.net>
 **
 ** Started on  Thu May 26 01:33:04 2016 Hubert Leo
-** Last update Wed Jun 01 15:27:58 2016 Gambini Lucas
+** Last update Fri Jun 03 14:37:21 2016 Philippe Lefevre
 */
 
 # include 	"42.h"
@@ -19,8 +19,8 @@ int		simple_left(t_cmd *cmd, t_list *list, char **env, int builtin)
   init_simpleleft(cmd->cmd, &var);
   var.is_builtin = builtin;
   if ((fd = open(var.name, O_RDONLY)) == -1)
-    return (fprintf(stderr, "Error: %s: %s\n", strerror(errno),
-		    var.name) * 0 + FAILURE);
+    return (fprintf(stderr, "%s: %s\n",
+		    var.name, strerror(errno)) * 0 + FAILURE);
   reset = dup(0);
   dup2(fd, 0);
   if (exec_left(list, env, var) == FAILURE)
