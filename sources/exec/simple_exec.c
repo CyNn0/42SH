@@ -5,15 +5,10 @@
 ** Login   <lefevr_h@epitech.net>
 **
 ** Started on  Mon May 23 23:00:09 2016 Philippe Lefevre
-** Last update Fri Jun 03 18:45:47 2016 Philippe Lefevre
+** Last update Fri Jun 03 22:00:04 2016 Philippe Lefevre
 */
 
 #include		"42.h"
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <time.h>
-#include <stdio.h>
-#include <stdlib.h>
 
 void			print_signal_message(int status)
 {
@@ -63,7 +58,8 @@ char			*print_type_message(char *bin, int type)
 {
   if (S_ISREG(type))
     return (bin);
-  fprintf(stderr, "%s: Command not found.\n", bin);
+  if (bin)
+    fprintf(stderr, "%s: Command not found.\n", bin);
   return (NULL);
 }
 
