@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Thu May 19 18:58:06 2016 boris saint-bonnet
-** Last update Wed May 25 17:02:16 2016 Philippe Lefevre
+** Last update Fri Jun 03 13:45:15 2016 Gambini Lucas
 */
 
 #include		"42.h"
@@ -31,6 +31,8 @@ int			print_prompt(t_list *list)
   char			*dirname;
 
   dirname = get_current_dir_name();
+  if (isatty(1) != 1)
+    return (FAILURE);
   write(1, GREEN, strlen(CYAN));
   if (find_user(list, "USER") == NULL)
     write(1, "user", strlen("user"));
