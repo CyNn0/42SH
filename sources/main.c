@@ -5,11 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 18 04:19:45 2016 boris saint-bonnet
-<<<<<<< HEAD
 ** Last update Fri Jun 03 15:04:21 2016 Gambini Lucas
-=======
-** Last update Fri Jun 03 14:11:10 2016 Philippe Lefevre
->>>>>>> a9e193cb7e0317775e0c908b8a38bcffad9702ef
 */
 
 #include		"42.h"

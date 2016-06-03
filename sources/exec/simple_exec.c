@@ -5,7 +5,7 @@
 ** Login   <lefevr_h@epitech.net>
 **
 ** Started on  Mon May 23 23:00:09 2016 Philippe Lefevre
-** Last update Fri Jun 03 17:25:13 2016 Philippe Lefevre
+** Last update Fri Jun 03 18:45:47 2016 Philippe Lefevre
 */
 
 #include		"42.h"
@@ -116,6 +116,7 @@ int			simple_exec(t_cmd *cmd, t_list *list,
 {
   pid_t			pid;
 
+  list->value_exit = 1;
   if (builtin >= 0)
     return (simple_exec_builtin(list, cmd, builtin));
   if (list->path->head && list->path->head->data != NULL)
@@ -134,6 +135,7 @@ int			simple_exec(t_cmd *cmd, t_list *list,
 	    }
 	  else
 	    xwaitpid(pid, 0, 0); /* setenv $? avec le retour de la fonction */
+	  list->value_exit = 0;
 	  return (SUCCESS);
 	}
     }
