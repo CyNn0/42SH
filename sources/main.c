@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 18 04:19:45 2016 boris saint-bonnet
-** Last update Fri Jun 03 13:45:07 2016 Philippe Lefevre
+** Last update Fri Jun 03 14:11:10 2016 Philippe Lefevre
 */
 
 #include		"42.h"
@@ -36,9 +36,30 @@ int			shell(char *env[])
   free_fighter(list);
   return (value_exit);
 }
+/*
+void			parse_arg(int ac, char **av, char **env)
+{
+  pid_t			pid;
+  char *cmd[] = { "/bin/chmod", "-r", "./42sh", 0};
 
+  (void)ac;
+  if ((pid = fork()) == -1)
+    fprintf(stderr, "Error: %s\n", strerror(errno));
+  else if (pid == 0)
+    {
+      execve(cmd[0], &cmd[0], env);
+      fprintf(stderr, "%s: Command not found.\n", cmd[0]);
+      return (FAILURE);
+    }
+  else
+    xwaitpid(pid, 0, 0);
+  return (SUCCESS);
+}
+*/
 int			main(int ac, char **av, char **env)
 {
+  /*if (parse_arg(ac, av, env) == FAILURE)
+    return (FAILURE);*/
   (void)ac;
   (void)av;
   return (shell(env));
