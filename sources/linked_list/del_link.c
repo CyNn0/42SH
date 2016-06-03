@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 25 22:59:19 2016 boris saint-bonnet
-** Last update Thu May 26 15:10:27 2016 boris saint-bonnet
+** Last update Fri Jun  3 15:47:41 2016 boris saint-bonnet
 */
 
 #include "42.h"
@@ -14,7 +14,6 @@ void		free_node(t_node *tmp)
 {
   free(tmp->data);
   free(tmp->name);
-  free(tmp);
 }
 
 t_list		*del_first_link(t_list *list)
@@ -24,8 +23,16 @@ t_list		*del_first_link(t_list *list)
   if (list != NULL)
     {
       tmp = list->myEnv->head;
-      list->myEnv->head = tmp->next;
-      tmp->next->prev = NULL;
+      if (tmp->next)
+	{
+	  list->myEnv->head = tmp->next;
+	  tmp->next->prev = NULL;
+	}
+      else
+	{
+	  free_node(tmp);
+	  list->myEnv->head = NULL;
+	}
     }
   return (list);
 }
@@ -37,8 +44,16 @@ t_list		*del_last_link(t_list *list)
   if (list != NULL)
     {
       tmp = list->myEnv->tail;
-      list->myEnv->tail = tmp->prev;
-      tmp->prev->next = NULL;
+      if (tmp->prev)
+	{
+	  list->myEnv->tail = tmp->prev;
+	  tmp->prev->next = NULL;
+	}
+      else
+	{
+	  free_node(tmp);
+	  list->myEnv->tail = NULL;
+	}
     }
   return (list);
 }
