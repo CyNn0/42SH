@@ -28,8 +28,7 @@ int			print_env(t_env *list)
 
 int			print_prompt(t_list *list)
 {
-  (void)list;
-  /*char			*dirname;
+  char			*dirname;
 
   dirname = get_current_dir_name();
   if (isatty(1) != 1)
@@ -45,7 +44,6 @@ int			print_prompt(t_list *list)
   write(1, " ", 1);
   write(1, DEFAULT, strlen(DEFAULT));
   free(dirname);
-  return (0);*/
-  write(1 ,"-> ", 3);
+  return (0);
   return (SUCCESS);
 }
