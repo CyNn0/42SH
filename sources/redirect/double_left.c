@@ -5,7 +5,7 @@
 ** Login   <Lucas Gambini@epitech.net>
 **
 ** Started on  Mon May 30 10:56:47 2016 Gambini Lucas
-** Last update Wed Jun 01 03:43:22 2016 Philippe Lefevre
+** Last update Wed Jun 01 17:51:40 2016 Gambini Lucas
 */
 
 #include 		"42.h"
@@ -38,6 +38,8 @@ char			*get_buffer(t_red var)
   char			*res;
 
   res = NULL;
+  if (!var.name)
+    return (NULL);
   while (write(1, "? ", 2) && (buff = get_next_line(0)))
     {
       if (strcmp(buff, var.name) == 0)
@@ -56,14 +58,25 @@ int             	double_left(t_cmd *cmd, t_list *list,
 {
   t_red       		var;
   char			*buff;
+  int			pipefd[2];
+  int			reset;
 
+  pipe(pipefd);
   init_double_left(cmd->cmd, &var);
   var.is_builtin = builtin;
-  buff = get_buffer(var);
+  if ((buff = get_buffer(var)) == NULL)
+    return (FAILURE);
+  reset = dup(0);
   if (buff)
-    printf("%s\n", buff);
+    write(pipefd[1], buff, strlen(buff));
+  else
+    return (FAILURE);
+  close(pipefd[1]);
+  dup2(pipefd[0], 0);
   if (exec_left(list, env, var) == FAILURE)
     check_go_on(cmd);
+  close(pipefd[0]);
+  dup2(reset, 0);
   free(var.name);
   free_tab(var.cmd);
   return (SUCCESS);

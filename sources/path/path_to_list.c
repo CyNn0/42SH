@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Thu May 19 23:48:19 2016 boris saint-bonnet
-** Last update Thu May 26 14:02:53 2016 Gambini Lucas
+** Last update Wed Jun  1 12:09:16 2016 boris saint-bonnet
 */
 
 # include "42.h"
@@ -34,7 +34,7 @@ t_list  	*path_to_list(t_list *list)
   if ((path_line = find_path(list)) != NULL)
     var = strdup(path_line);
   else
-    return (list);
+    var = strdup("/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/usr/local/sbin:/bin:/usr/games:/usr/local/games:/home/xx/bin");
   i = path_nb(var);
   if ((list = push_path(list, my_strtok(var, ":"))) == NULL)
     return (NULL);
