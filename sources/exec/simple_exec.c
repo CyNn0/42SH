@@ -5,10 +5,15 @@
 ** Login   <lefevr_h@epitech.net>
 **
 ** Started on  Mon May 23 23:00:09 2016 Philippe Lefevre
-** Last update Wed Jun 01 03:38:05 2016 Philippe Lefevre
+** Last update Fri Jun 03 16:50:41 2016 Philippe Lefevre
 */
 
 #include		"42.h"
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <time.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 void			print_signal_message(int status)
 {
@@ -33,12 +38,14 @@ void			print_signal_message(int status)
       status = WTERMSIG(status);
       i = -1;
       while (++i < 11)
-	if (status == error[i].error_status)
+	{
+	  if (status == error[i].error_status)
 	    fprintf(stderr, "%s\n", error[i].error);
+	}
     }
 }
 
- int			xwaitpid(int pid, int status, int opt)
+int			xwaitpid(int pid, int status, int opt)
 {
   int			ret;
 
@@ -56,7 +63,14 @@ char			*exec_find_path(t_path *path, char *bin)
 {
   t_node		*tmp;
   char			*cmd;
+  struct stat		sb;
 
+  /*if (stat(bin, &sb) == -1)
+    fprintf(stderr, "%s: %s\n", bin, strerror(errno));
+
+  if (sb.st_mode & 0)
+    printf("directory\n");
+*/
   tmp = path->head;
   while (tmp != NULL && bin)
     {
@@ -111,7 +125,8 @@ int			simple_exec(t_cmd *cmd, t_list *list,
 	  else if (pid == 0)
 	    {
 	      execve(cmd->cmd[0], cmd->cmd, env);
-	      fprintf(stderr, "Error: %s\n", strerror(errno));
+	      fprintf(stderr, "%s: %s\n", cmd->cmd[0], strerror(errno));
+	      my_exit(0);
 	    }
 	  else
 	    xwaitpid(pid, 0, 0); /* setenv $? avec le retour de la fonction */
