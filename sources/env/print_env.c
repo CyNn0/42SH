@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Thu May 19 18:58:06 2016 boris saint-bonnet
-** Last update Fri Jun 03 21:54:23 2016 Philippe Lefevre
+** Last update Sat Jun 04 15:24:00 2016 Philippe Lefevre
 */
 
 #include		"42.h"
@@ -19,7 +19,8 @@ int			print_env(t_env *list)
     {
       while (tmp != NULL)
 	{
-	  printf("%s=%s\n", tmp->name, tmp->data);
+	  if (!(tmp->god))
+	    printf("%s=%s\n", tmp->name, tmp->data);
 	  tmp = tmp->next;
 	}
     }

@@ -5,10 +5,10 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 25 04:06:44 2016 boris saint-bonnet
-** Last update Thu May 26 18:41:09 2016 Gambini Lucas
+** Last update Sat Jun 04 15:40:44 2016 Philippe Lefevre
 */
 
-#include "42.h"
+#include	"42.h"
 
 int	        setenv_checking(t_list *list, char **cmd)
 {
@@ -20,6 +20,12 @@ int	        setenv_checking(t_list *list, char **cmd)
   else if (!cmd[1])
     {
       print_env(list->myEnv);
+      return (FAILURE);
+    }
+  if (!((cmd[1][0] >= 'a' && cmd[1][0] <= 'z')
+	|| (cmd[1][0] >= 'A' && cmd[1][0] <= 'Z')))
+    {
+      fprintf(stderr, "setenv: Variable name must begin with a letter.\n");
       return (FAILURE);
     }
   return (SUCCESS);

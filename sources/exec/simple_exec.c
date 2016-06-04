@@ -5,7 +5,7 @@
 ** Login   <lefevr_h@epitech.net>
 **
 ** Started on  Mon May 23 23:00:09 2016 Philippe Lefevre
-** Last update Sat Jun 04 14:39:08 2016 Philippe Lefevre
+** Last update Sat Jun 04 15:39:48 2016 Philippe Lefevre
 */
 
 #include		"42.h"
@@ -93,12 +93,15 @@ char			*exec_find_path(t_path *path, char *bin)
 int			simple_exec_builtin(t_list *list, t_cmd *cmd,
 					    int	builtin)
 {
-    int			(*p[5])(t_list*, char**);
+    int			(*p[8])(t_list*, char**);
 
     p[0] = &builtin_cd;
     p[1] = &builtin_setenv;
     p[2] = &builtin_unsetenv;
     p[3] = &builtin_echo;
+    p[4] = &builtin_exit;
+    p[5] = &builtin_env;
+    p[6] = &builtin_history;
     if (p[builtin](list, cmd->cmd) == FAILURE)
       {
 	check_go_on(cmd);
@@ -113,6 +116,7 @@ int			simple_exec(t_cmd *cmd, t_list *list,
   pid_t			pid;
   struct stat		sb;
   int			status;
+  t_node		*tmp;
 
   list->value_exit = 1;
   if (builtin >= 0)
@@ -133,7 +137,14 @@ int			simple_exec(t_cmd *cmd, t_list *list,
 	      my_exit(-1);
 	    }
 	  else
-	    status = xwaitpid(pid, 0, 0); /* setenv $? avec le retour de la fonction */
+	    status = xwaitpid(pid, 0, 0);
+	  tmp = list->myEnv->head;
+	  while (tmp != NULL)
+	    {
+	      if (!(strcmp("?", tmp->name)))
+		tmp->value_exit = status;
+	      tmp = tmp->next;
+	    }
 	  if (status != 0)
 	    return (FAILURE);
 	  list->value_exit = 0;

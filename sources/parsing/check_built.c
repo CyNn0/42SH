@@ -5,14 +5,14 @@
 ** Login   <puccio_c@epitech.net>
 **
 ** Started on  Mon May 23 17:29:52 2016 cyril puccio
-** Last update Fri May 27 13:52:34 2016 Gambini Lucas
+** Last update Sat Jun 04 15:40:20 2016 Philippe Lefevre
 */
 
 #include		"42.h"
 
 int			check_built(t_list *list, t_cmd *cmd)
 {
-  char			*builtin[6];
+  char			*builtin[8];
   int			i;
   int			j;
 
@@ -22,7 +22,9 @@ int			check_built(t_list *list, t_cmd *cmd)
   builtin[2] = "unsetenv";
   builtin[3] = "echo";
   builtin[4] = "exit";
-  builtin[5] = NULL;
+  builtin[5] = "env";
+  builtin[6] = "history";
+  builtin[7] = NULL;
   while (!(list->do_exit) && cmd->cmd[++i] != NULL)
     {
       j = -1;

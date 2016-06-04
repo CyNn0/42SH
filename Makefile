@@ -76,6 +76,7 @@ SRC		=	sources/main.c				\
 			sources/builtins/echo/print.c		\
 			sources/builtins/echo/get_varenv.c	\
 			sources/builtins/exit.c			\
+			sources/builtins/env.c			\
 			sources/builtins/setenv.c		\
 			sources/builtins/unsetenv.c		\
 			sources/builtins/cd/cd.c		\

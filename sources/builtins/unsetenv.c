@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 25 22:51:35 2016 boris saint-bonnet
-** Last update Fri May 27 14:18:44 2016 Gambini Lucas
+** Last update Sat Jun 04 15:02:51 2016 Philippe Lefevre
 */
 
 #include "42.h"
@@ -39,6 +39,8 @@ int		builtin_unsetenv(t_list *list, char **cmd)
   i = 0;
   if (unsetenv_checking(list, cmd) == FAILURE)
     return (FAILURE);
+  if (!(strcmp("?", cmd[1])))
+    return (SUCCESS);
   while (cmd[++i])
     {
       tmp = list->myEnv->head;

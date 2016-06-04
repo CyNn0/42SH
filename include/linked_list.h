@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 18 04:22:31 2016 boris saint-bonnet
-** Last update Sat Jun 04 14:25:51 2016 Gambini Lucas
+** Last update Sat Jun 04 15:26:01 2016 Philippe Lefevre
 */
 
 #ifndef			_LINKED_LIST_H_
@@ -34,6 +34,7 @@ typedef struct          s_node
 {
   char			*name;
   char			*data;
+  int			value_exit;
   bool			p;
   char			god;
   struct s_node		*prev;
@@ -164,5 +165,6 @@ int			simple_exec_builtin(t_list *list, t_cmd *cmd,
 void			free_list_dbleft(t_list *list);
 int			normal_scatter(t_cmd *cmd, char **env,
 				       t_list *list, int builtin);
+int			builtin_env(t_list *list, char **cmd);
 
 #endif			/* !__LINKED_LIST_H__ */
