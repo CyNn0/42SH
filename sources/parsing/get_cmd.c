@@ -5,7 +5,7 @@
 ** Login   <gambin_l@epitech.net>
 **
 ** Started on  Fri May 20 06:28:24 2016 Lucas Gambini
-** Last update Sat Jun 04 02:41:23 2016 Gambini Lucas
+** Last update Sat Jun  4 03:13:25 2016 boris saint-bonnet
 */
 
 #include		"42.h"
@@ -39,6 +39,8 @@ t_list			*set_cmd(t_list *list, char **tab, char *line)
   i = -1;
   while (tab[++i])
     {
+      if (check_bquotes(tab[i]) == SUCCESS)
+	tab[i] = strdup(my_bquotes(tab[i]));
       if ((glob = globbing(tab[i])) == NULL)
 	return (list);
       if ((cmdtab = cmd_to_tab(glob, ' ', ' ', ' ')) == NULL

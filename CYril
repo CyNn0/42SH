@@ -1,0 +1,49 @@
+Bon pour les alias c'est très simple finalement
+deja tu me feras le plaisir de chargé une seule fois le .42shrc et ps à chaques commande (open et close h24)
+ensuite pour ta liste
+
+t_node
+{
+  char name;
+  char data;
+  bool used;
+  bool loop;
+}
+
+exemple alias ls = ls --color
+	alias ll = ls -l
+
+t_node ex
+{
+ name = ls
+ data = --color
+ used = 0;
+ loop = 0;
+ }
+
+dans ta boucle tu utilises un bool go on que tu set à 1
+cette fonction check tout les alias par tab[i]
+while (go on == 1)
+{
+ if (check alias(node->name, tab[i]) == SUCCESS && node.used = false)
+    {
+     insert_alias;
+     go on = 1;
+     }
+  else
+   go on = 0;
+}
+
+du coup si on ecrit ll
+dans ton premier passage ton strcmp ll alias va return SUCCESS
+pour ll = ls -la et ton go on sera à 1 puisque tu as fais une modification
+du coup ta ligne sera = à ls -la;
+ensuite
+vu que ton go on est encore = à 1
+tu vas repasser dans la boucle
+tu vas voir que ls est un alias pour ls --color du coup
+tu remplaces ls par ls --color
+et ta ligne doit être = à ls --color -la
+tu vas repasser dans ta boucles vu que go on est = 1;
+tu changes rien, tu sors de ta boucle
+avec comme str d'entré ll tu es capable de ressortir ls --color -la
