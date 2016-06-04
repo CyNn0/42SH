@@ -78,3 +78,12 @@
 15:47	exit
 15:50	history
 15:50	exit
+15:52	ls -l
+15:52	l
+15:52	ls
+15:53	exit
+16:12	env -0
+16:12	exit
+16:13	env -0
+16:13	env --null
+16:13	exit
