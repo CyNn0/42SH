@@ -47,3 +47,33 @@ et ta ligne doit être = à ls --color -la
 tu vas repasser dans ta boucles vu que go on est = 1;
 tu changes rien, tu sors de ta boucle
 avec comme str d'entré ll tu es capable de ressortir ls --color -la
+
+alias ls = ls -- color -> 1 1
+alias ll = ls -la -> used 1;
+
+ll
+ls -la
+ls --color -la;
+ued 1 retur
+
+char *my_replace(node *alias, char *str)
+{
+ if (alias->bool == 1)
+    alias_loop
+ return (str = new_str);
+}
+
+WHile (go on)
+{
+	if (match == SUCCESS)
+	   my_replace(new aias
+	   go_on = 1;
+	else
+   	 break;
+}
+
+
+Probleme
+avec ls --color -la tu retrouveras toujours l'alias ls = ls --color et tu vas boucle inf
+du coup tu va faire un char *tmp qui sera = à la dernière commande et tu vas les comparer si ils sont différent ça veut dire que tu
+re set ta commande à chaque tour du coup c'est une alias loop sinon si ils sont egaux, tu as fais le tour de tes alias et tu return
