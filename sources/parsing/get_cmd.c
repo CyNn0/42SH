@@ -5,7 +5,7 @@
 ** Login   <gambin_l@epitech.net>
 **
 ** Started on  Fri May 20 06:28:24 2016 Lucas Gambini
-** Last update Sat Jun 04 14:48:30 2016 Gambini Lucas
+** Last update Sat Jun 04 23:20:39 2016 Philippe Lefevre
 */
 
 #include		"42.h"
@@ -46,6 +46,7 @@ t_list			*set_cmd(t_list *list, char **tab, char *line)
       if ((cmdtab = cmd_to_tab(glob, ' ', ' ', ' ')) == NULL
 	  || ((list = push_cmd(list, cmdtab))) == NULL)
 	return (list);
+      free(glob);
       list->tail->token = get_token(tab[i], line);
       list->tail->flag = 0;
       list->tail->go_on = 1;

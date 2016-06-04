@@ -5,7 +5,7 @@
 ** Login   <gambin_l@epitech.net>
 **
 ** Started on  Sat May 21 08:49:15 2016 Lucas Gambini
-** Last update Tue May 31 17:35:33 2016 boris saint-bonnet
+** Last update Sat Jun 04 22:25:42 2016 Philippe Lefevre
 */
 
 #include		"42.h"

@@ -5,7 +5,7 @@
 ** Login   <gambin_l@epitech.net>
 **
 ** Started on  Fri May 20 06:45:22 2016 Lucas Gambini
-** Last update Fri Jun 03 13:50:07 2016 Philippe Lefevre
+** Last update Sat Jun 04 22:32:18 2016 Philippe Lefevre
 */
 
 #include		"42.h"
@@ -16,7 +16,7 @@ t_list			*free_cmd(t_list *list)
 
   if (list->head == NULL || list->tail == NULL)
     return (list);
-  tmp = list->head->next;
+  tmp = list->head;
   while (tmp != NULL)
     {
       free_tab(tmp->cmd);
@@ -49,9 +49,11 @@ t_list			*push_cmd(t_list *list, char **cmd)
 {
   t_cmd			*new;
 
-  if ((new = malloc(sizeof(t_cmd))) == NULL
-      || list == NULL)
-    return (NULL);
+  if (list == NULL || (new = malloc(sizeof(t_cmd))) == NULL)
+    {
+      free_tab(cmd);
+      return (NULL);
+    }
   new->cmd = cmd;
   new->next = NULL;
   if (list->tail == NULL)

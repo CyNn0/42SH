@@ -5,7 +5,7 @@
 ** Login   <gambin_l@epitech.net>
 **
 ** Started on  Mon May 23 16:43:07 2016 Gambini Lucas
-** Last update Sat Jun 04 14:37:39 2016 Gambini Lucas
+** Last update Sat Jun 04 20:09:30 2016 Philippe Lefevre
 */
 
 #include		"42.h"
@@ -33,14 +33,20 @@ int			exec_scatter(t_list *list)
   while (!(list->do_exit) && tmp && tmp->cmd[0])
     {
       if ((builtin = check_built(list, tmp)) == SUCCESS)
-	return (SUCCESS);
+		    {
+		      free_tab(env);
+		      return (SUCCESS);
+		  }
       if (tmp->go_on == 1)
 	{
 	  if (tmp->token == PIPE)
 	    scatter_pipe(tmp, list, env);
 	  else
 	    if (normal_scatter(tmp, env, list, builtin - 20))
-		return (FAILURE);
+			    {
+				free_tab(env);
+				    return (FAILURE);
+			    }
 	}
       tmp = tmp->next;
     }

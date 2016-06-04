@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 25 04:06:44 2016 boris saint-bonnet
-** Last update Sat Jun 04 16:31:04 2016 Philippe Lefevre
+** Last update Sat Jun 04 23:34:04 2016 Philippe Lefevre
 */
 
 #include	"42.h"
@@ -25,7 +25,7 @@ int	        setenv_checking(t_list *list, char **cmd)
       return (FAILURE);
     }
   if (!((cmd[1][0] >= 'a' && cmd[1][0] <= 'z')
-	|| (cmd[1][0] >= 'A' && cmd[1][0] <= 'Z')))
+	|| (cmd[1][0] >= 'A' && cmd[1][0] <= 'Z') || cmd[1][0] == '_'))
     return (FAILURE + 0 * fprintf(stderr, "setenv: Variable name must begin with a letter.\n"));
   i = -1;
   while (cmd[1][++i])

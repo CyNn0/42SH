@@ -5,10 +5,26 @@
 ** Login   <gambin_l@epitech.net>
 **
 ** Started on  Fri May 20 04:39:28 2016 Lucas Gambini
-** Last update Sat Jun  4 15:02:54 2016 boris saint-bonnet
+** Last update Sat Jun 04 22:51:00 2016 Philippe Lefevre
 */
 
 #include	"42.h"
+
+void		free_hist(t_list *list)
+{
+  t_hist	*tmp;
+
+  tmp = list->myHist->head;
+  while (tmp != NULL)
+    {
+      free(tmp->s);
+      free(tmp->prev);
+      tmp = tmp->next;
+    }
+  if (list->myHist->tail != NULL)
+    free(list->myHist->tail);
+  free(list->myHist);
+}
 
 void		free_env(t_list *list)
 {
@@ -45,13 +61,13 @@ void		free_path(t_list *list)
     free(list->path->tail);
   list->path->head = NULL;
   list->path->tail = NULL;
-  free(tmp);
 }
 
 void		free_fighter(t_list *list)
 {
   free_env(list);
   free_path(list);
+  free_hist(list);
   close(list->history);
   free(list);
 }

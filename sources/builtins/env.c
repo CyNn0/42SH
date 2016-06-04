@@ -5,7 +5,7 @@
 ** Login   <lefevr_h@epitech.net>
 **
 ** Started on  Sat Jun 04 15:21:47 2016 Philippe Lefevre
-** Last update Sat Jun 04 16:13:45 2016 Philippe Lefevre
+** Last update Sat Jun 04 23:35:34 2016 Philippe Lefevre
 */
 
 #include		"42.h"
@@ -27,8 +27,10 @@ int			builtin_env(t_list *list, char **cmd)
     {
       while (tmp != NULL)
 	{
-	  if (!(tmp->god))
-	    printf("%s=%s%c", tmp->name, tmp->data, ((no_line) ? (0) : ('\n')));
+	      if ((tmp->name[0] >= 'a' && tmp->name[0] <= 'z')
+		  || (tmp->name[0] >= 'A' && tmp->name[0] <= 'Z')
+		  || tmp->name[0] == '_')
+		printf("%s=%s%c", tmp->name, tmp->data, ((no_line) ? (0) : ('\n')));
 	  tmp = tmp->next;
 	}
     }

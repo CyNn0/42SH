@@ -5,15 +5,15 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Thu May 19 23:48:19 2016 boris saint-bonnet
-** Last update Fri Jun 03 17:27:19 2016 Gambini Lucas
+** Last update Sat Jun 04 20:22:05 2016 Philippe Lefevre
 */
 
-# include "42.h"
+#include	"42.h"
 
-int     path_nb(char *path)
+int		path_nb(char *path)
 {
-  int   i;
-  int   nb;
+  int		i;
+  int		nb;
 
   i = -1;
   nb = 0;

@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Thu May 19 18:53:01 2016 boris saint-bonnet
-** Last update Sat Jun  4 15:06:15 2016 boris saint-bonnet
+** Last update Sat Jun 04 23:05:01 2016 Philippe Lefevre
 */
 
 #include	"42.h"
@@ -41,7 +41,6 @@ t_node		*init_push_env(t_node *node, char *data, char *name)
     return (NULL);
   node->next = NULL;
   node->p = true;
-  node->god = 0;
   return (node);
 }
 
@@ -60,8 +59,6 @@ t_list		*push_env(t_list *list, char *data, char *name)
 	  if (list->myEnv->tail == NULL)
 	    {
 	      node->prev = NULL;
-	      node->god = 1;
-	      node->name = strdup("?");
 	      list->myEnv->head = node;
 	      list->myEnv->tail = node;
 	    }
@@ -80,10 +77,10 @@ t_list		*push_path(t_list *list, char *data)
 {
   t_node        *node;
 
-  if ((node = malloc(sizeof(*node))) == NULL)
-    return (NULL);
   if (data == NULL)
     return (list);
+  if ((node = malloc(sizeof(*node))) == NULL)
+    return (NULL);
   node->data = strdup(data);
   node->name = NULL;
   node->next = NULL;
