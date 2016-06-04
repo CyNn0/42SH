@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Thu May 19 18:53:01 2016 boris saint-bonnet
-** Last update Sat Jun 04 14:31:21 2016 Gambini Lucas
+** Last update Sat Jun  4 15:06:15 2016 boris saint-bonnet
 */
 
 #include	"42.h"
@@ -20,6 +20,8 @@ t_list		*create_list(t_list *list)
     return (NULL);
   if ((list->myHist = malloc(sizeof(struct s_history))) == NULL)
     return (NULL);
+  if ((list->history = open(".42history", __DOUBLE)) == -1)
+    fprintf(stderr, "%s\n", strerror(errno));
   list->myEnv->head = NULL;
   list->myEnv->tail = NULL;
   list->myHist->head = NULL;
