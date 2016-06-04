@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 18 05:04:14 2016 boris saint-bonnet
-** Last update Sat Jun  4 15:02:10 2016 boris saint-bonnet
+** Last update Sat Jun  4 15:35:29 2016 boris saint-bonnet
 */
 
 #ifndef 		_PROTOTYPE_H_
@@ -21,6 +21,8 @@ char    		*check_separator(char *s);
 /*
 ** STRING
 */
+
+int			line_counters(char *str);
 int			open_history(char *s, int fd);
 int			my_strlen(char *s);
 int     		tab_lenght(char **tab);
@@ -32,5 +34,7 @@ char			*get_current_dir_name(void);
 char			*my_strtok(char *str, char *delim);
 char			*my_strcat(char *dest, char *src);
 char                    *tab_to_cmd(char **tab);
+char			**my_linetab(char *str, int i, int j);
+char			**file_to_tab(int fd);
 
 #endif			/* !PROTOTYPE_H__ */
