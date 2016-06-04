@@ -5,7 +5,7 @@
 ** Login   <hubert_i@epitech.net>
 **
 ** Started on  Sat Jun  4 01:57:24 2016 Hubert Leo
-** Last update Sat Jun 04 23:57:32 2016 Philippe Lefevre
+** Last update Sun Jun  5 00:13:42 2016 Hubert Leo
 */
 
 #include "42.h"
@@ -17,7 +17,7 @@ int		need_globbing(char *src)
   i = -1;
   while (src[++i])
     {
-      if (src[i] == '*')
+      if (src[i] == '*' || src[i] == '?')
 	return (1);
     }
   return (0);
