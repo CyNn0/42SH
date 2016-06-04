@@ -1,89 +1,0 @@
-14:44	ls
-14:44	ls
-14:44	cat .42history
-14:44	history
-14:45	exit
-14:46	cat .42history
-14:48	exit
-14:48	a;aa
-14:48	exit
-14:59	l
-14:59	ls
-14:59	>> ls
-15:0	<< ls
-15:0	< ls
-15:2	exit
-15:3	< mabite
-15:3	exit
-15:3	< ls
-15:3	<< ls
-15:3	> ls
-15:5	exit
-15:6	> ls
-15:6	exit
-15:6	> ls
-15:7	exit
-15:7	> ls
-15:7	exit
-15:7	> ls
-15:7	rm ls
-15:7	l
-15:7	
-15:7	
-15:7	l
-15:7	clear
-15:7	ls
-15:7	
-15:7	
-15:7	ls
-15:7	ls
-15:7	ls
-15:7	cat Makefile
-15:7	
-15:8	cat Makefile
-15:8	
-15:9	exit
-15:9	ls >
-15:10	exit[3~
-15:10	exit
-15:15	ls
-15:15	exo
-15:15		
-15:15	ls
-15:15	ls>toto
-15:15	cat totot
-15:15	cat toto
-15:15	rm toto
-15:15	> ls
-15:15	< ls
-15:17	< ls
-15:17	<< ls
-15:17	>> ls
-15:17	exit
-15:17	>> ls
-15:17	exit
-15:18	ls
-15:18	exit
-15:45	ls
-15:45	history
-15:45	ls
-15:45	ls
-15:45	ls
-15:45	cat .42history
-15:45	history
-15:46	exit
-15:46	history
-15:47	exit
-15:47	history
-15:47	exit
-15:50	history
-15:50	exit
-15:52	ls -l
-15:52	l
-15:52	ls
-15:53	exit
-16:12	env -0
-16:12	exit
-16:13	env -0
-16:13	env --null
-16:13	exit

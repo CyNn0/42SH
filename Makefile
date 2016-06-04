@@ -5,7 +5,7 @@
 ## Login   <saint-_o@epitech.net>
 ##
 ## Started on  Wed May 18 04:15:48 2016 boris saint-bonnet
-## Last update Sat Jun  4 15:44:15 2016 boris saint-bonnet
+## Last update Sat Jun  4 18:57:49 2016 cyril puccio
 ##
 
 CC		=	gcc -g -g3
@@ -25,7 +25,7 @@ FINISH          =       "\033[5;1;35m"
 NAME		=	42sh
 
 CFLAGS		=	-W -Wall -Wextra
-CFLAGS		+=	-Iinclude -ansi -pedantic
+CFLAGS		+=	-Iinclude -pedantic
 CFLAGS		+=	-g -g3
 
 SRC		=	sources/main.c				\

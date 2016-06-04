@@ -5,16 +5,15 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 18 04:19:45 2016 boris saint-bonnet
-** Last update Sat Jun  4 15:03:45 2016 boris saint-bonnet
+** Last update Sat Jun  4 19:04:44 2016 cyril puccio
 */
 
 #include		"42.h"
 
-void			sig_handler(int sig)
+void			get_sigint(int sig)
 {
-  if (sig == SIGINT)
-    printf("received SIGINT\n");
-  signal(SIGINT, SIG_IGN);
+  (void)sig;
+  write(1, "\n", 1);
 }
 
 int			shell(char *env[])
@@ -29,7 +28,7 @@ int			shell(char *env[])
   path_to_list(list);
   list->do_exit = 0;
   list->value_exit = 0;
-  signal(SIGINT, sig_handler);
+  signal(SIGINT, get_sigint);
   while (!(list->do_exit) && !(print_prompt(list))
 	 && (buffer = get_next_line(0)))
     {
