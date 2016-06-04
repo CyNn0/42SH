@@ -5,7 +5,7 @@
 ** Login   <lefevr_h@epitech.net>
 **
 ** Started on  Mon May 23 23:00:09 2016 Philippe Lefevre
-** Last update Fri Jun 03 22:00:04 2016 Philippe Lefevre
+** Last update Sat Jun 04 14:11:24 2016 Philippe Lefevre
 */
 
 #include		"42.h"
@@ -60,7 +60,7 @@ char			*print_type_message(char *bin, int type)
     return (bin);
   if (bin)
     fprintf(stderr, "%s: Command not found.\n", bin);
-  return (NULL);
+  return (bin);
 }
 
 char			*exec_find_path(t_path *path, char *bin)
@@ -87,7 +87,7 @@ char			*exec_find_path(t_path *path, char *bin)
       free(cmd);
       tmp = tmp->next;
     }
-  return (print_type_message(bin, sb.st_mode));
+  return (bin);
 }
 
 int			simple_exec_builtin(t_list *list, t_cmd *cmd,
@@ -111,6 +111,7 @@ int			simple_exec(t_cmd *cmd, t_list *list,
 				    char **env, int builtin)
 {
   pid_t			pid;
+  struct stat		sb;
 
   list->value_exit = 1;
   if (builtin >= 0)
@@ -119,7 +120,8 @@ int			simple_exec(t_cmd *cmd, t_list *list,
     {
       if ((cmd->cmd[0] = exec_find_path(list->path, cmd->cmd[0])) == NULL)
 	return (FAILURE);
-      if (!(access(cmd->cmd[0], X_OK)))
+      stat(cmd->cmd[0], &sb);
+      if (!(access(cmd->cmd[0], X_OK)) && (S_ISREG(sb.st_mode)))
 	{
 	  if ((pid = fork()) == -1)
 	    fprintf(stderr, "%s\n", strerror(errno));
