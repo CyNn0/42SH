@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Thu May 19 19:23:14 2016 boris saint-bonnet
-** Last update Sat Jun 04 23:26:41 2016 Philippe Lefevre
+** Last update Sat Jun 04 23:38:27 2016 Philippe Lefevre
 */
 
 #include	"42.h"
@@ -69,11 +69,11 @@ t_list		*my_env_in_list(t_list *list, char **env)
   i = 0;
   if ((list = create_list(list)) == NULL)
     return (NULL);
-  /*name = strdup("?");
+  name = strdup("?");
   data = strdup("0");
   list = push_env(list, data, name);
   free(name);
-  free(data);*/
+  free(data);
   while (env[i])
     {
       j = get_name(env[i]);

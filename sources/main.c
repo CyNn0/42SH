@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 18 04:19:45 2016 boris saint-bonnet
-** Last update Sat Jun  4 19:04:44 2016 cyril puccio
+** Last update Sat Jun 04 21:08:13 2016 Gambini Lucas
 */
 
 #include		"42.h"
@@ -28,6 +28,7 @@ int			shell(char *env[])
   path_to_list(list);
   list->do_exit = 0;
   list->value_exit = 0;
+  bash_in_list(list);
   signal(SIGINT, get_sigint);
   while (!(list->do_exit) && !(print_prompt(list))
 	 && (buffer = get_next_line(0)))

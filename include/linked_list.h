@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 18 04:22:31 2016 boris saint-bonnet
-** Last update Sat Jun  4 15:43:51 2016 boris saint-bonnet
+** Last update Sat Jun 04 21:06:36 2016 Gambini Lucas
 */
 
 #ifndef			_LINKED_LIST_H_
@@ -98,6 +98,7 @@ typedef struct          s_list
   struct s_path		*path;
   struct s_env		*myEnv;
   struct s_history	*myHist;
+  struct s_bash		*myRc;
   struct s_cmd		*head;
   struct s_cmd		*tail;
   int			do_exit;
@@ -168,5 +169,6 @@ int			normal_scatter(t_cmd *cmd, char **env,
 				       t_list *list, int builtin);
 int			builtin_env(t_list *list, char **cmd);
 int                     builtin_history(t_list *list, char **cmd);
+int			bash_in_list(t_list *list);
 
 #endif			/* !__LINKED_LIST_H__ */
