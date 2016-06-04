@@ -60,9 +60,5 @@ int			current(char *str, char caract);
 char			**my_str_to_wordtab(char *str, char caract);
 char			*get_fusion(char *str, char *str2);
 int			my_error(char *com, char *str);
-
-/* HISTORY */
-
-int			my_history(t_list *list, char **cmd);
   
 #endif			/* !__BUILTIN_H_ */

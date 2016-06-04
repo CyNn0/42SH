@@ -5,10 +5,10 @@
 ** Login   <saint-_o@epitech.net>
 ** 
 ** Started on  Sat Jun  4 15:11:03 2016 boris saint-bonnet
-** Last update Sat Jun  4 15:33:37 2016 boris saint-bonnet
+** Last update Sat Jun  4 15:50:15 2016 boris saint-bonnet
 */
 
-#include "42.h"
+#include	"42.h"
 
 int             line_counters(char *str)
 {
@@ -40,8 +40,8 @@ char            **my_linetab(char *str, int i, int j)
 	{
 	  tab[i][k] = str[j];
 	  tab[i][k++ + 1] = 0;
-	  if ((tab[i] = my_realloc(tab[i], sizeof(char) *
-				   (my_strlen(tab[i]) + 2))) == NULL)
+	  if ((tab[i] = realloc(tab[i], sizeof(char) *
+				   (strlen(tab[i]) + 2))) == NULL)
 	    return (NULL);
 	  j++;
 	}
@@ -66,7 +66,7 @@ char             **file_to_tab(int fd)
     {
       file1d[i] = c;
       file1d[i + 1] = 0;
-      file1d = my_realloc(file1d, sizeof(char) * (my_strlen(file1d) + 2));
+      file1d = realloc(file1d, sizeof(char) * (strlen(file1d) + 2));
       i++;
     }
   if ((file = my_linetab(file1d, 0, 0)) == NULL)
@@ -75,25 +75,25 @@ char             **file_to_tab(int fd)
   return (file);
 }
 
-int		my_history(t_list *list, char **cmd)
+int	        builtin_history(t_list *list, char **cmd)
 {
   char		**hist;
   int		i;
   int		tmp;
-  
-  if((hist = file_to_tab(list->history)) == NULL)
+
+  if(list->history == -1 || (hist = file_to_tab(list->history)) == NULL)
     return (FAILURE);
   i = -1;
   if (!cmd[1])
     while (hist[++i])
-      printf("%d %s\n", i, tab[i]);
+      printf("%d %s\n", i, hist[i]);
   else if (cmd[1])
     {
       tmp = atoi(cmd[1]);
       i = tab_lenght - tmp;
-      while (tab[i])
+      while (hist[i])
 	{
-	  printf("%d %s\n", i, tab[i]);
+	  printf("%d %s\n", i, hist[i]);
 	  i++;
 	}
     }

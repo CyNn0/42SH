@@ -64,3 +64,17 @@
 15:17	exit
 15:18	ls
 15:18	exit
+15:45	ls
+15:45	history
+15:45	ls
+15:45	ls
+15:45	ls
+15:45	cat .42history
+15:45	history
+15:46	exit
+15:46	history
+15:47	exit
+15:47	history
+15:47	exit
+15:50	history
+15:50	exit
