@@ -5,7 +5,7 @@
 ** Login   <lefevr_h@epitech.net>
 **
 ** Started on  Mon May 23 23:00:09 2016 Philippe Lefevre
-** Last update Sat Jun 04 14:11:24 2016 Philippe Lefevre
+** Last update Sat Jun 04 14:39:08 2016 Philippe Lefevre
 */
 
 #include		"42.h"
@@ -51,7 +51,7 @@ int			xwaitpid(int pid, int status, int opt)
     status = WEXITSTATUS(status);
   else
     print_signal_message(status);
-  return (ret);
+  return (status);
 }
 
 char			*print_type_message(char *bin, int type)
@@ -112,6 +112,7 @@ int			simple_exec(t_cmd *cmd, t_list *list,
 {
   pid_t			pid;
   struct stat		sb;
+  int			status;
 
   list->value_exit = 1;
   if (builtin >= 0)
@@ -129,10 +130,12 @@ int			simple_exec(t_cmd *cmd, t_list *list,
 	    {
 	      execve(cmd->cmd[0], cmd->cmd, env);
 	      fprintf(stderr, "%s: %s\n", cmd->cmd[0], strerror(errno));
-	      my_exit(0);
+	      my_exit(-1);
 	    }
 	  else
-	    xwaitpid(pid, 0, 0); /* setenv $? avec le retour de la fonction */
+	    status = xwaitpid(pid, 0, 0); /* setenv $? avec le retour de la fonction */
+	  if (status != 0)
+	    return (FAILURE);
 	  list->value_exit = 0;
 	  return (SUCCESS);
 	}
