@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 18 04:20:11 2016 boris saint-bonnet
-** Last update Sat Jun  4 01:58:52 2016 Hubert Leo
+** Last update Sat Jun  4 14:42:47 2016 boris saint-bonnet
 */
 
 #ifndef			_42_H_
@@ -26,6 +26,7 @@
 # include		<unistd.h>
 # include		<errno.h>
 # include		<time.h>
+# include		<stdio.h>
 
 # include		"prototype.h"
 # include		"get_next_line.h"
@@ -68,5 +69,6 @@ typedef struct		s_error
 
 int			xwaitpid(int pid, int status, int opt);
 void			print_signal_message(int status);
+int			dprintf(int fd, const char *format, ...);
 
 #endif			/* !_42_H_ */
