@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 18 04:20:11 2016 boris saint-bonnet
-** Last update Wed Jun 01 03:59:11 2016 Philippe Lefevre
+** Last update Sat Jun  4 01:58:52 2016 Hubert Leo
 */
 
 #ifndef			_42_H_
@@ -33,6 +33,7 @@
 # include		"parsing.h"
 # include		"exec.h"
 # include		"builtins.h"
+# include		"globbing.h"
 
 /*
 ** DEFINE
