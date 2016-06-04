@@ -5,7 +5,7 @@
 ** Login   <hubert_i@epitech.net>
 **
 ** Started on  Sat Jun  4 01:57:24 2016 Hubert Leo
-** Last update Sat Jun  4 02:17:02 2016 Hubert Leo
+** Last update Sat Jun  4 02:40:40 2016 Hubert Leo
 */
 
 #include "42.h"
@@ -32,7 +32,8 @@ char		*get_globbing(char *src)
   globbuf.gl_offs = 0;
   result = "\0";
   i = 0;
-  glob(src, GLOB_DOOFFS, NULL, &globbuf);
+  if (glob(src, GLOB_DOOFFS | GLOB_NOMATCH, NULL, &globbuf) != 0)
+    return (NULL);
   while (globbuf.gl_pathv[i])
     {
       if (i != 0)
@@ -64,7 +65,11 @@ char		*globbing(char *src)
 	result = get_fusion(result, " ");
       if (need_globbing(args[i]) == 1)
       	{
-      	  tmp = get_globbing(args[i]);
+      	  if ((tmp = get_globbing(args[i])) == NULL)
+	    {
+	      puts("No match.");
+	      return (NULL);
+	    }
 	  result = get_fusion(result, tmp);
       	}
       else
