@@ -5,7 +5,7 @@
 ** Login   <lefevr_h@epitech.net>
 **
 ** Started on  Mon May 23 23:00:09 2016 Philippe Lefevre
-** Last update Sat Jun 04 23:48:40 2016 Philippe Lefevre
+** Last update Sat Jun 04 23:58:40 2016 Philippe Lefevre
 */
 
 #include		"42.h"
@@ -142,7 +142,10 @@ int			simple_exec(t_cmd *cmd, t_list *list,
 	  while (tmp != NULL)
 	    {
 	      if (!(strcmp("?", tmp->name)))
-		tmp->value_exit = status;
+		{
+
+		  tmp->value_exit = status;
+		}
 	      tmp = tmp->next;
 	    }
 	  if (status != 0)

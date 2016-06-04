@@ -5,14 +5,14 @@
 ** Login   <lefevr_h@epitech.net>
 **
 ** Started on  Sat Jun 04 15:38:06 2016 Philippe Lefevre
-** Last update Sat Jun 04 23:48:01 2016 Philippe Lefevre
+** Last update Sat Jun 04 23:57:48 2016 Philippe Lefevre
 */
 
 #include		"42.h"
 
-char			*my_itoa(char *str)
+char			*my_itoa(int i)
 {
-  int			digit;
+/*  int			digit;
 
   digit = 0;
   while (digit < 10)
@@ -20,5 +20,5 @@ char			*my_itoa(char *str)
       text[6] = digit + '0';
       puts(text);
     }
-  return 0;
+  return 0;*/
 }

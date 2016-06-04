@@ -5,7 +5,7 @@
 ** Login   <hubert_i@epitech.net>
 **
 ** Started on  Sat Jun  4 01:57:24 2016 Hubert Leo
-** Last update Sat Jun 04 23:07:56 2016 Philippe Lefevre
+** Last update Sat Jun 04 23:57:32 2016 Philippe Lefevre
 */
 
 #include "42.h"
@@ -77,7 +77,7 @@ char		*globbing(char *src)
 	result = get_fusion(result, args[i]);
       i++;
     }
-  free_tab(args);
+  free(args);
   if (result[0] == '\0')
     return (src);
   else

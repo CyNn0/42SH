@@ -49,6 +49,7 @@ SRC		=	sources/main.c				\
 			sources/parsing/rc.c			\
 			sources/misc/get_next_line.c		\
 			sources/misc/exit.c			\
+			sources/misc/my_itoa.c			\
 			sources/misc/my_strcat.c		\
 			sources/linked_list/linked_list.c	\
 			sources/linked_list/push_bash.c		\
