@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 18 04:19:45 2016 boris saint-bonnet
-** Last update Sat Jun 04 01:34:51 2016 Philippe Lefevre
+** Last update Sat Jun 04 02:07:08 2016 Gambini Lucas
 */
 
 #include		"42.h"
@@ -33,6 +33,7 @@ int			shell(char *env[])
   while (!(list->do_exit) && !(print_prompt(list))
 	 && (buffer = get_next_line(0)))
     {
+      buffer = globbing(buffer);
       /* open_history(buffer); */
       list = add_history(list, buffer);
       if ((list = get_cmd(list, pre_check(buffer, list))) == NULL)

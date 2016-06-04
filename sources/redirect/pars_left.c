@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 25 05:11:17 2016 boris saint-bonnet
-** Last update Fri Jun  3 13:58:30 2016 boris saint-bonnet
+** Last update Fri Jun 03 23:33:15 2016 Gambini Lucas
 */
 
 # include 		"42.h"
@@ -14,7 +14,10 @@ int			dep_init_left(char **cmd, t_red *var, int *i, int *j)
 {
   if (*i == 1)
     {
-      var->cmd[0] = strdup(cmd[++(*i)]);
+      if (cmd[++(*i)])
+	var->cmd[0] = strdup(cmd[*i]);
+      else
+	return (FAILURE);
       while (cmd[++(*i)] && strcmp(cmd[*i], "<") != 0)
 	var->cmd[(*j)++] = strdup(cmd[*i]);
       var->cmd[*j] = NULL;
@@ -64,7 +67,10 @@ int			dep_init_db_var_left(char **cmd, t_red *var,
 {
   if (*i == 1)
     {
-      var->cmd[0] = strdup(cmd[++(*i)]);
+      if (cmd[++(*i)])
+	var->cmd[0] = strdup(cmd[*i]);
+      else
+	return (FAILURE);
       while (cmd[++(*i)] && strcmp(cmd[*i], "<<") != 0)
 	var->cmd[(*j)++] = strdup(cmd[*i]);
       var->cmd[(*j)] = NULL;

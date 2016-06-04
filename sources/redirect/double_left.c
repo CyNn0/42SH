@@ -5,7 +5,7 @@
 ** Login   <Lucas Gambini@epitech.net>
 **
 ** Started on  Mon May 30 10:56:47 2016 Gambini Lucas
-** Last update Wed Jun 01 17:51:40 2016 Gambini Lucas
+** Last update Fri Jun 03 21:59:22 2016 Gambini Lucas
 */
 
 #include 		"42.h"
@@ -68,7 +68,15 @@ int             	double_left(t_cmd *cmd, t_list *list,
     return (FAILURE);
   reset = dup(0);
   if (buff)
-    write(pipefd[1], buff, strlen(buff));
+    {
+      if (cmd->cmd[0])
+	{
+	  write(1, buff, strlen(buff));
+	  return (SUCCESS + 0 * write(1, "\n", 1));
+	}
+      else
+	write(pipefd[1], buff, strlen(buff));
+    }
   else
     return (FAILURE);
   close(pipefd[1]);
