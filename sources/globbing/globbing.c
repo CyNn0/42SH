@@ -5,7 +5,7 @@
 ** Login   <hubert_i@epitech.net>
 **
 ** Started on  Sat Jun  4 01:57:24 2016 Hubert Leo
-** Last update Sat Jun  4 02:03:01 2016 Hubert Leo
+** Last update Sat Jun  4 02:17:02 2016 Hubert Leo
 */
 
 #include "42.h"
@@ -63,15 +63,17 @@ char		*globbing(char *src)
       if (i != 0)
 	result = get_fusion(result, " ");
       if (need_globbing(args[i]) == 1)
-	{
-	  tmp = get_globbing(args[i]);;
+      	{
+      	  tmp = get_globbing(args[i]);
 	  result = get_fusion(result, tmp);
-	  free(tmp);
-	}
+      	}
       else
 	result = get_fusion(result, args[i]);
       i++;
     }
   free(args);
-  return (result);
+  if (result[0] == '\0')
+    return (src);
+  else
+    return (result);
 }
