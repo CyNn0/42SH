@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Tue May 24 21:31:11 2016 boris saint-bonnet
-** Last update Fri Jun 03 23:32:27 2016 Gambini Lucas
+** Last update Sat Jun 04 14:09:56 2016 Gambini Lucas
 */
 
 #include	"42.h"
@@ -66,6 +66,8 @@ int			dep_init_db_var(char **cmd, t_red *var, int *i, int *j)
     {
       if (cmd[++(*i)])
 	var->cmd[0] = strdup(cmd[*i]);
+      else
+	return (FAILURE);
       while (cmd[++(*i)] && strcmp(cmd[*i], ">>") != 0)
 	var->cmd[(*j)++] = strdup(cmd[*i]);
       var->cmd[(*j)] = NULL;

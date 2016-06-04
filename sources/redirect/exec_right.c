@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Mon May 23 20:22:56 2016 boris saint-bonnet
-** Last update Mon May 30 10:52:27 2016 Philippe Lefevre
+** Last update Sat Jun 04 14:23:46 2016 Gambini Lucas
 */
 
 #include 		"42.h"
@@ -35,7 +35,7 @@ int                     exec_right(int fd, t_list *list,
 
   if (var.is_builtin >= 0)
     return (exec_right_builtin(fd, var, list));
-  if (list->path->head->data != NULL)
+  if (list->path->head->data)
     {
       if ((var.cmd[0] = exec_find_path(list->path, var.cmd[0])) == NULL)
 	return (FAILURE);
