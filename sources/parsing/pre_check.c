@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 18 04:54:23 2016 boris saint-bonnet
-** Last update Sat Jun  4 14:40:51 2016 boris saint-bonnet
+** Last update Sat Jun  4 14:44:27 2016 boris saint-bonnet
 */
 
 #include	"42.h"
@@ -89,6 +89,5 @@ char		*pre_check(char *s, t_list *list)
   ret = doubles(ret, ';');
   ret = doubles(ret, '|');
   ret = replace_variable(ret, list);
-  printf("%s\n", ret);
   return (clean_str(ret));
 }
