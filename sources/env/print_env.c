@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Thu May 19 18:58:06 2016 boris saint-bonnet
-** Last update Sat Jun 04 15:24:00 2016 Philippe Lefevre
+** Last update Sat Jun 04 15:41:50 2016 Philippe Lefevre
 */
 
 #include		"42.h"
@@ -15,6 +15,8 @@ int			print_env(t_env *list)
   t_node		*tmp;
 
   tmp = list->head;
+  if (!list->head->data)
+    return (FAILURE);
   if (list != NULL)
     {
       while (tmp != NULL)

@@ -5,7 +5,7 @@
 ## Login   <saint-_o@epitech.net>
 ##
 ## Started on  Wed May 18 04:15:48 2016 boris saint-bonnet
-## Last update Sat Jun  4 02:02:10 2016 Hubert Leo
+## Last update Sat Jun  4 15:34:16 2016 boris saint-bonnet
 ##
 
 CC		=	gcc -g -g3
@@ -82,6 +82,7 @@ SRC		=	sources/main.c				\
 			sources/builtins/cd/cd.c		\
 			sources/builtins/cd/dep_cd.c		\
 			sources/pipe/pipe.c			\
+			sources/history/add_to_file.c		\
 			sources/history/add_to_file.c		\
 			sources/globbing/globbing.c		\
 
