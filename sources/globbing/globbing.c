@@ -5,7 +5,7 @@
 ** Login   <hubert_i@epitech.net>
 **
 ** Started on  Sat Jun  4 01:57:24 2016 Hubert Leo
-** Last update Sat Jun 04 02:47:18 2016 Philippe Lefevre
+** Last update Sat Jun 04 02:49:37 2016 Philippe Lefevre
 */
 
 #include "42.h"
@@ -67,10 +67,8 @@ char		*globbing(char *src)
       	{
       	  if ((tmp = get_globbing(args[i])) == NULL)
 	    {
-	      if (i > 0)
-		fprintf(stderr, "%s: No match.\n", args[i - 1]);
-	      else
-		fprintf(stderr, "%s: No match.\n", args[i]);
+	      fprintf(stderr, "%s: No match.\n", (i > 0) ? (args[i - 1])
+		      : (args[i]));
 	      return (NULL);
 	    }
 	  result = get_fusion(result, tmp);
