@@ -5,7 +5,7 @@
 ** Login   <gambin_l@epitech.net>
 **
 ** Started on  Mon May 23 16:43:07 2016 Gambini Lucas
-** Last update Fri Jun 03 17:28:42 2016 Gambini Lucas
+** Last update Sat Jun 04 14:37:39 2016 Gambini Lucas
 */
 
 #include		"42.h"
@@ -13,12 +13,11 @@
 int			normal_scatter(t_cmd *cmd, char **env,
 				       t_list *list, int builtin)
 {
-  ((cmd->flag == SIMPLE_R) ? (simple_right(cmd, list, env, builtin))
+  return ((cmd->flag == SIMPLE_R) ? (simple_right(cmd, list, env, builtin))
    : ((cmd->flag == SIMPLE_L) ? (simple_left(cmd, list, env, builtin))
       : ((cmd->flag == DOUBLE_R) ? (double_right(cmd, list, env, builtin))
 	 : ((cmd->flag == DOUBLE_L) ? (double_left(cmd, list, env, builtin))
 	    : ((simple_exec(cmd, list, env, builtin)))))));
-  return (SUCCESS);
 }
 
 int			exec_scatter(t_list *list)
@@ -40,7 +39,8 @@ int			exec_scatter(t_list *list)
 	  if (tmp->token == PIPE)
 	    scatter_pipe(tmp, list, env);
 	  else
-	    normal_scatter(tmp, env, list, builtin - 20);
+	    if (normal_scatter(tmp, env, list, builtin - 20))
+		return (FAILURE);
 	}
       tmp = tmp->next;
     }
