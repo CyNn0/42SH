@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Tue May 31 17:23:41 2016 boris saint-bonnet
-** Last update Sat Jun 04 21:24:38 2016 Gambini Lucas
+** Last update Sun Jun 05 01:17:57 2016 Philippe Lefevre
 */
 
 # include		"42.h"
@@ -14,7 +14,8 @@ t_bash			*push_bash(t_bash *list, char *data, char *name)
 {
   t_node		*node;
 
-  node = malloc(sizeof(*node));
+  if ((node = malloc(sizeof(*node))) == NULL)
+    return (NULL);
   if (list != NULL && node != NULL)
     {
       if (data && (node->data = strdup(data)) == NULL)

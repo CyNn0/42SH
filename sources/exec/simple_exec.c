@@ -5,7 +5,7 @@
 ** Login   <lefevr_h@epitech.net>
 **
 ** Started on  Mon May 23 23:00:09 2016 Philippe Lefevre
-** Last update Sat Jun 04 23:58:40 2016 Philippe Lefevre
+** Last update Sat Jun 04 23:59:38 2016 Philippe Lefevre
 */
 
 #include		"42.h"
@@ -143,8 +143,8 @@ int			simple_exec(t_cmd *cmd, t_list *list,
 	    {
 	      if (!(strcmp("?", tmp->name)))
 		{
-
-		  tmp->value_exit = status;
+		  free(tmp->data);
+		  tmp->data = my_itoa(status);
 		}
 	      tmp = tmp->next;
 	    }

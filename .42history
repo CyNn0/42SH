@@ -12,3 +12,64 @@
 23:57	exit
 23:58	ls *
 23:58	exit
+0:5	exit
+0:5	exit
+0:5	./42sh
+0:5	exit  42
+0:6	exit
+0:6	./42sh
+0:6	exit 42
+0:10	make
+0:10	exit
+0:10	./42sh
+0:10	exit 42
+0:11	exit
+0:11	./42sh
+0:11	exit 240
+0:11	exit
+0:15	./42sh
+0:15	exit 234
+0:16	exit
+0:16	./42sh
+0:16	exit 234
+0:16	bc
+0:17	make
+0:17	exit
+0:17	./42sh
+0:17	exit 234
+0:17	./42sh
+0:18	exit 23
+0:18	./42sh
+0:18	1
+0:18	exit 1
+0:18	./42sh
+0:18	exit 256
+0:19	exit
+0:19	./42sh
+0:19	exit 257
+0:20	./42sh
+0:20	exit 234
+0:20	exit
+0:20	./42sh
+0:20	exit 245
+0:25	bc
+1:14	l
+1:14	ls -l
+1:14	exit
+1:14	ls -l
+1:15	exit
+1:15	ls -
+1:15	ls -l
+1:15	ls
+1:15	ls -l
+1:15	exit
+1:15	exit
+1:16	exit
+1:16	exit
+1:16	exit
+1:18	exit
+1:19	exit
+1:19	exit
+1:21	exit
+1:22	exit
+1:25	exit

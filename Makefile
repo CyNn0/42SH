@@ -8,11 +8,8 @@
 ## Last update Sat Jun  4 21:05:15 2016 Lucas Gambini
 ##
 
-CC		=	gcc -g -g3
 
-RM		=	rm -f
-
-PLZ		=	echo PLS
+NAME		=	42sh
 
 ECHO            =       /bin/echo -e
 DEFAULT         =       "\033[00m"
@@ -22,92 +19,94 @@ RED             =       "\033[5;31m"
 YELLOW          =       "\033[1;33m"
 FINISH          =       "\033[5;1;35m"
 
-NAME		=	42sh
+CC		=	gcc -g -g3
+CFLAGS		=	-W -Wall -Wextra -pedantic
+CFLAGS		+=	-Iinclude
 
-CFLAGS		=	-W -Wall -Wextra
-CFLAGS		+=	-Iinclude -pedantic
-CFLAGS		+=	-g -g3
+RM		=	rm -f
 
-SRC		=	sources/main.c				\
-			sources/parsing/check_error.c		\
-			sources/parsing/double.c		\
-			sources/parsing/check_variable.c	\
-			sources/parsing/pre_check.c		\
-			sources/parsing/my_strcut.c		\
-			sources/parsing/get_cmd.c		\
-			sources/parsing/cmd_to_tab.c		\
-			sources/parsing/cmdtab_func.c		\
-                        sources/parsing/my_strtok.c		\
-			sources/parsing/check_bquotes.c		\
-			sources/parsing/simple.c		\
-			sources/parsing/post_parser.c		\
-			sources/parsing/scatter.c		\
-			sources/parsing/check_built.c		\
-			sources/parsing/string.c		\
-			sources/parsing/inihb.c			\
-			sources/parsing/open_bash.c		\
-			sources/parsing/rc.c			\
-			sources/misc/get_next_line.c		\
-			sources/misc/exit.c			\
-			sources/misc/my_itoa.c			\
-			sources/misc/my_strcat.c		\
-			sources/linked_list/linked_list.c	\
-			sources/linked_list/push_bash.c		\
-			sources/linked_list/free_fighter.c	\
-			sources/linked_list/list_cmd.c		\
-			sources/linked_list/history.c		\
-			sources/linked_list/push_variable.c	\
-			sources/linked_list/del_link.c		\
-			sources/linked_list/for_prompt.c	\
-			sources/env/my_env_in_list.c		\
-			sources/env/print_env.c			\
-			sources/path/path_to_list.c		\
-                        sources/path/print_path.c		\
-			sources/redirect/simple_right.c		\
-			sources/redirect/simple_left.c		\
-			sources/redirect/exec_right.c		\
-			sources/redirect/exec_left.c		\
-			sources/redirect/pars_right.c		\
-			sources/redirect/pars_left.c		\
-			sources/redirect/double_right.c		\
-			sources/redirect/double_left.c		\
-			sources/exec/simple_exec.c		\
-			sources/exec/check_go_on.c		\
-			sources/builtins/echo/echo.c		\
-			sources/builtins/echo/check_options.c	\
-			sources/builtins/echo/print.c		\
-			sources/builtins/echo/get_varenv.c	\
-			sources/builtins/exit.c			\
-			sources/builtins/env.c			\
-			sources/builtins/setenv.c		\
-			sources/builtins/unsetenv.c		\
-			sources/builtins/cd/cd.c		\
-			sources/builtins/cd/dep_cd.c		\
-			sources/pipe/pipe.c			\
-			sources/history/add_to_file.c		\
-			sources/history/show_history.c		\
-			sources/globbing/globbing.c		\
+SRCDIR		=	sources
+
+SRC		=	$(SRCDIR)/main.c			\
+			$(SRCDIR)/parsing/check_error.c		\
+			$(SRCDIR)/parsing/double.c		\
+			$(SRCDIR)/parsing/check_variable.c	\
+			$(SRCDIR)/parsing/pre_check.c		\
+			$(SRCDIR)/parsing/my_strcut.c		\
+			$(SRCDIR)/parsing/get_cmd.c		\
+			$(SRCDIR)/parsing/cmd_to_tab.c		\
+			$(SRCDIR)/parsing/cmdtab_func.c		\
+                        $(SRCDIR)/parsing/my_strtok.c		\
+			$(SRCDIR)/parsing/check_bquotes.c	\
+			$(SRCDIR)/parsing/simple.c		\
+			$(SRCDIR)/parsing/post_parser.c		\
+			$(SRCDIR)/parsing/scatter.c		\
+			$(SRCDIR)/parsing/check_built.c		\
+			$(SRCDIR)/parsing/string.c		\
+			$(SRCDIR)/parsing/inihb.c		\
+			$(SRCDIR)/parsing/open_bash.c		\
+			$(SRCDIR)/parsing/rc.c			\
+			$(SRCDIR)/misc/get_next_line.c		\
+			$(SRCDIR)/misc/exit.c			\
+			$(SRCDIR)/misc/my_itoa.c		\
+			$(SRCDIR)/misc/my_strcat.c		\
+			$(SRCDIR)/linked_list/linked_list.c	\
+			$(SRCDIR)/linked_list/push_bash.c	\
+			$(SRCDIR)/linked_list/free_fighter.c	\
+			$(SRCDIR)/linked_list/list_cmd.c	\
+			$(SRCDIR)/linked_list/history.c		\
+			$(SRCDIR)/linked_list/push_variable.c	\
+			$(SRCDIR)/linked_list/del_link.c	\
+			$(SRCDIR)/linked_list/for_prompt.c	\
+			$(SRCDIR)/env/my_env_in_list.c		\
+			$(SRCDIR)/env/print_env.c		\
+			$(SRCDIR)/path/path_to_list.c		\
+                        $(SRCDIR)/path/print_path.c		\
+			$(SRCDIR)/redirect/simple_right.c	\
+			$(SRCDIR)/redirect/simple_left.c	\
+			$(SRCDIR)/redirect/exec_right.c		\
+			$(SRCDIR)/redirect/exec_left.c		\
+			$(SRCDIR)/redirect/pars_right.c		\
+			$(SRCDIR)/redirect/pars_left.c		\
+			$(SRCDIR)/redirect/double_right.c	\
+			$(SRCDIR)/redirect/double_left.c	\
+			$(SRCDIR)/exec/simple_exec.c		\
+			$(SRCDIR)/exec/check_go_on.c		\
+			$(SRCDIR)/builtins/echo/echo.c		\
+			$(SRCDIR)/builtins/echo/check_options.c	\
+			$(SRCDIR)/builtins/echo/print.c		\
+			$(SRCDIR)/builtins/echo/get_varenv.c	\
+			$(SRCDIR)/builtins/exit.c		\
+			$(SRCDIR)/builtins/env.c		\
+			$(SRCDIR)/builtins/setenv.c		\
+			$(SRCDIR)/builtins/unsetenv.c		\
+			$(SRCDIR)/builtins/cd/cd.c		\
+			$(SRCDIR)/builtins/cd/dep_cd.c		\
+			$(SRCDIR)/pipe/pipe.c			\
+			$(SRCDIR)/history/add_to_file.c		\
+			$(SRCDIR)/history/show_history.c	\
+			$(SRCDIR)/globbing/globbing.c
 
 OBJ		=	$(SRC:.c=.o)
 
-all:			$(NAME)
+all		:	$(NAME)
 
-$(NAME):		$(OBJ)
+$(NAME)		:	$(OBJ)
 			@$(CC) -o $(NAME) $(OBJ) $(CFLAGS) && \
 			$(ECHO) $(GREEN) "[BIN]	" $(TEAL) $(NAME) $(DEFAULT) || \
 			$(ECHO) $(RED) "[XXX]	" $(TEAL) $(NAME) $(DEFAULT)
 
-clean:
-			$(RM) $(OBJ)
+.c.o		:
+		        @$(CC) $(CFLAGS) -c $< -o $@ && \
+		        $(ECHO) $(GREEN) "[OK]   " $(TEAL) $< $(DEFAULT) || \
+	        	$(ECHO) $(RED) "[ERROR]" $(TEAL) $< $(DEFAULT)
 
-fclean:			clean
-			$(RM) $(NAME)
+clean		:
+			@$(RM) $(OBJ)
 
-re:			fclean all
+fclean		:	clean
+			@$(RM) $(NAME)
 
-%.o:			%.c
-		        @$(CC) $(CFLAGS) -c $^ -o $@ && \
-		        $(ECHO) $(GREEN) "[OK]   " $(TEAL) $^ $(DEFAULT) ||\
-	        	$(ECHO) $(RED) "[ERROR]" $(TEAL) $^ $(DEFAULT)
+re		:	fclean all
 
-.PHONY:			all clean fclean re
+.PHONY		:	all clean fclean re

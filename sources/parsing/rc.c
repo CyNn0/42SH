@@ -5,7 +5,7 @@
 ** Login   <Lucas Gambini@epitech.net>
 **
 ** Started on  Sat Jun 04 20:56:01 2016 Gambini Lucas
-** Last update Sat Jun 04 21:28:08 2016 Gambini Lucas
+** Last update Sun Jun 05 01:18:29 2016 Philippe Lefevre
 */
 
 # include		"42.h"
@@ -30,11 +30,11 @@ int			bash_in_list(t_list *list)
   if ((fd = open(".42shrc", O_RDWR | O_CREAT | O_APPEND, __RIGHT)) == -1)
     return (fprintf(stderr, "%s: %s\n",
 		    ".42shrc", strerror(errno)) * 0 + FAILURE);
-    while ((buff = get_next_line(fd)))
-      {
-	list->myRc = push_bash(list->myRc, buff, NULL);
-	free(buff);
-      }
+  while ((buff = get_next_line(fd)))
+    {
+      list->myRc = push_bash(list->myRc, buff, NULL);
+      free(buff);
+    }
   show_rc(list);
   return (SUCCESS);
 }

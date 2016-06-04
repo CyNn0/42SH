@@ -5,20 +5,30 @@
 ** Login   <lefevr_h@epitech.net>
 **
 ** Started on  Sat Jun 04 15:38:06 2016 Philippe Lefevre
-** Last update Sat Jun 04 23:57:48 2016 Philippe Lefevre
+** Last update Sun Jun 05 01:14:59 2016 Philippe Lefevre
 */
 
 #include		"42.h"
 
-char			*my_itoa(int i)
+char			*my_itoa(int status)
 {
-/*  int			digit;
+  char			*data;
+  int			digit;
+  int			i;
 
-  digit = 0;
-  while (digit < 10)
+  digit = 1;
+  i = -1;
+  if (status > 9)
+    digit = 2;
+  else if (status > 99)
+    digit = 3;
+  if ((data = malloc(digit + 1)) == NULL)
+    return (NULL);
+  while (++i < digit)
     {
-      text[6] = digit + '0';
-      puts(text);
+      data[i] = (status % 10);
+      status /= 10;
     }
-  return 0;*/
+  data[i] = '\0';
+  return (data);
 }
