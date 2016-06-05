@@ -5,7 +5,7 @@
 ** Login   <gambin_l@epitech.net>
 **
 ** Started on  Mon May 23 16:43:07 2016 Gambini Lucas
-** Last update Sat Jun 04 20:09:30 2016 Philippe Lefevre
+** Last update Sun Jun 05 02:50:35 2016 Philippe Lefevre
 */
 
 #include		"42.h"
@@ -14,10 +14,10 @@ int			normal_scatter(t_cmd *cmd, char **env,
 				       t_list *list, int builtin)
 {
   return ((cmd->flag == SIMPLE_R) ? (simple_right(cmd, list, env, builtin))
-   : ((cmd->flag == SIMPLE_L) ? (simple_left(cmd, list, env, builtin))
-      : ((cmd->flag == DOUBLE_R) ? (double_right(cmd, list, env, builtin))
-	 : ((cmd->flag == DOUBLE_L) ? (double_left(cmd, list, env, builtin))
-	    : ((simple_exec(cmd, list, env, builtin)))))));
+	  : ((cmd->flag == SIMPLE_L) ? (simple_left(cmd, list, env, builtin))
+	     : ((cmd->flag == DOUBLE_R) ? (double_right(cmd, list, env, builtin))
+		: ((cmd->flag == DOUBLE_L) ? (double_left(cmd, list, env, builtin))
+		   : ((simple_exec(cmd, list, env, builtin)))))));
 }
 
 int			exec_scatter(t_list *list)
@@ -33,20 +33,26 @@ int			exec_scatter(t_list *list)
   while (!(list->do_exit) && tmp && tmp->cmd[0])
     {
       if ((builtin = check_built(list, tmp)) == SUCCESS)
-		    {
-		      free_tab(env);
-		      return (SUCCESS);
-		  }
+	{
+	  free_tab(env);
+	  return (SUCCESS);
+	}
       if (tmp->go_on == 1)
 	{
 	  if (tmp->token == PIPE)
-	    scatter_pipe(tmp, list, env);
+	    {
+	      if (scatter_pipe(tmp, list, env) == FAILURE)
+		{
+		  free_tab(env);
+		  return (FAILURE);
+		}
+	    }
 	  else
 	    if (normal_scatter(tmp, env, list, builtin - 20))
-			    {
-				free_tab(env);
-				    return (FAILURE);
-			    }
+	      {
+		free_tab(env);
+		return (FAILURE);
+	      }
 	}
       tmp = tmp->next;
     }

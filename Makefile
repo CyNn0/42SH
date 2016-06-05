@@ -49,6 +49,7 @@ SRC		=	$(SRCDIR)/main.c			\
 			$(SRCDIR)/misc/get_next_line.c		\
 			$(SRCDIR)/misc/my_exit.c		\
 			$(SRCDIR)/misc/my_itoa.c		\
+			$(SRCDIR)/misc/my_atoi.c		\
 			$(SRCDIR)/misc/my_strcat.c		\
 			$(SRCDIR)/misc/xmalloc.c		\
 			$(SRCDIR)/misc/xfree.c			\
