@@ -29,7 +29,7 @@ int		simple_left(t_cmd *cmd, t_list *list, char **env, int builtin)
     check_go_on(cmd);
   dup2(reset, 0);
   close(fd);
-  free(var.name);
+  xfree(var.name);
   free_tab(var.cmd);
   return (SUCCESS);
 }

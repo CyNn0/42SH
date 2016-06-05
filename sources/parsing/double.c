@@ -17,9 +17,9 @@ void		double_first(t_pars *var, char c)
     {
       var->bef = my_strcut(var->ret, 0, 2, 0);
       var->aft = my_strcut(var->ret, 2, 0, 0);
-      free(var->ret);
+      xfree(var->ret);
       var->ret = my_strcatc(var->bef, var->aft, 3, 0);
-      free(var->aft);
+      xfree(var->aft);
     }
 }
 
@@ -29,9 +29,9 @@ void		double_space_after(t_pars *var)
     return;
   var->bef = my_strcut(var->ret, 0, (var->i + 2), 0);
   var->aft = my_strcut(var->ret, (var->i + 2), 0, 0);
-  free(var->ret);
+  xfree(var->ret);
   var->ret = my_strcatc(var->bef, var->aft, 3, 0);
-  free(var->aft);
+  xfree(var->aft);
 }
 
 char		*doubles(char *s, char c)
@@ -39,7 +39,7 @@ char		*doubles(char *s, char c)
   t_pars	var;
 
   var.ret = strdup(s);
-  free(s);
+  xfree(s);
   double_first(&var, c);
   while (check_finish(var.ret, c, 2) == -1)
     {
@@ -51,9 +51,9 @@ char		*doubles(char *s, char c)
 	    {
 	      var.bef = my_strcut(var.ret, 0, (var.i), 0);
 	      var.aft = my_strcut(var.ret, (var.i), 0, 0);
-	      free(var.ret);
+	      xfree(var.ret);
 	      var.ret = my_strcatc(var.bef, var.aft, 3, 0);
-	      free(var.aft);
+	      xfree(var.aft);
 	    }
 	  if (var.ret[var.i] == c && var.ret[var.i + 1] == c &&
 	      var.ret[var.i + 2] != ' ')

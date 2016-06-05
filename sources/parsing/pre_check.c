@@ -48,7 +48,7 @@ char		*clean_str(char *str)
   j = -1;
   if ((ret = malloc(sizeof(char) * ((int)strlen(str) + 1))) == NULL)
     {
-      free(str);
+      xfree(str);
       return (NULL);
     }
   while (i < (int)strlen(str) && (str[i] == ' ' || str[i] == '\t'))
@@ -63,7 +63,7 @@ char		*clean_str(char *str)
         ret[++j] = ' ';
     }
   ret[++j] = '\0';
-  free(str);
+  xfree(str);
   return (ret);
 }
 
@@ -88,10 +88,10 @@ char		*pre_check(char *s, t_list *list)
   char		*ret;
 
   ret = strdup(s);
-  free(s);
+  xfree(s);
   if (check_error(ret) == FAILURE)
     {
-      free(ret);
+      xfree(ret);
       return (NULL);
     }
   ret = simples(ret, '&');

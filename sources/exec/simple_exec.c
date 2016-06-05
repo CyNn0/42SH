@@ -5,7 +5,7 @@
 ** Login   <lefevr_h@epitech.net>
 **
 ** Started on  Mon May 23 23:00:09 2016 Philippe Lefevre
-** Last update Sun Jun 05 16:22:07 2016 Gambini Lucas
+** Last update Mon Jun 06 00:10:28 2016 Gambini Lucas
 */
 
 #include		"42.h"
@@ -79,10 +79,10 @@ char			*exec_find_path(t_path *path, char *bin)
       if (!(access(cmd, F_OK)) && !((access(cmd, X_OK)))
 	  && (S_ISREG(sb.st_mode)))
 	{
-	  free(bin);
+	  xfree(bin);
 	  return (cmd);
 	}
-      free(cmd);
+      xfree(cmd);
       tmp = tmp->next;
     }
   return (bin);

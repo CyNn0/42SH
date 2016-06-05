@@ -16,8 +16,8 @@ void		free_tab(char **tab)
 
   i = -1;
   while (tab[++i])
-    free(tab[i]);
-  free(tab);
+    xfree(tab[i]);
+  xfree(tab);
 }
 
 char		**clean_tab(char **tab)

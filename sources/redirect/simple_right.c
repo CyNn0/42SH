@@ -25,7 +25,7 @@ int		simple_right(t_cmd *cmd, t_list *list, char **env, int builtin)
   if (exec_right(fd, list, env, var) == FAILURE)
     check_go_on(cmd);
   close(fd);
-  free(var.name);
+  xfree(var.name);
   free_tab(var.cmd);
   return (SUCCESS);
 }

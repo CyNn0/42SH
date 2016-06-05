@@ -5,7 +5,7 @@
 ** Login   <lefevr_h@epitech.net>
 **
 ** Started on  Sun Jun 05 03:18:12 2016 Philippe Lefevre
-** Last update Sun Jun 05 05:15:07 2016 Philippe Lefevre
+** Last update Sun Jun 05 18:49:50 2016 Philippe Lefevre
 */
 
 #include		"42.h"
@@ -21,7 +21,7 @@ int			push_exit_value(t_list *list, int pid)
     {
       if (!(strcmp("?", tmp->name)))
 	{
-	  free(tmp->data);
+	  xfree(tmp->data);
 	  tmp->data = my_itoa(status);
 	}
       tmp = tmp->next;

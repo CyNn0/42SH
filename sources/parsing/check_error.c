@@ -53,13 +53,13 @@ int     triple(char *s)
 	  if (s[i] == sep[j] && s[i + 1] == sep[j] && s[i + 2] == sep[j])
 	    {
 	      fprintf(stderr, "Error: parsing nears '%c'\n", s[i + 2]);
-	      free(sep);
+	      xfree(sep);
 	      return (-1);
 	    }
 	  j++;
 	}
     }
-  free(sep);
+  xfree(sep);
   return (0);
 }
 

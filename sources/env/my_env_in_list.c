@@ -73,8 +73,8 @@ t_list		*my_env_in_list(t_list *list, char **env)
   name = strdup("?");
   data = strdup("0");
   list = push_env(list, data, name);
-  free(name);
-  free(data);
+  xfree(name);
+  xfree(data);
   while (env[i])
     {
       j = get_name(env[i]);
@@ -84,8 +84,8 @@ t_list		*my_env_in_list(t_list *list, char **env)
       name = strncpy(name, env[i], j);
       data = strdup(env[i] + (j + 1));
       list = push_env(list, data, name);
-      free(name);
-      free(data);
+      xfree(name);
+      xfree(data);
       i++;
     }
   return (list);

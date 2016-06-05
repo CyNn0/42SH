@@ -44,6 +44,6 @@ t_list  	*path_to_list(t_list *list)
 	return (NULL);
       i--;
     }
-  free(var);
+  xfree(var);
   return (list);
 }

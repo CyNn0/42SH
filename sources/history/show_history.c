@@ -71,7 +71,7 @@ char             **file_to_tab(int fd)
     }
   if ((file = my_linetab(file1d, 0, 0)) == NULL)
     return (NULL);
-  free(file1d);
+  xfree(file1d);
   return (file);
 }
 int		check_clear(char **cmd)

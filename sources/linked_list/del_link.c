@@ -12,8 +12,8 @@
 
 void		free_node(t_node *tmp)
 {
-  free(tmp->data);
-  free(tmp->name);
+  xfree(tmp->data);
+  xfree(tmp->name);
 }
 
 t_list		*del_first_link(t_list *list)
