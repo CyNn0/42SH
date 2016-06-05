@@ -5,7 +5,7 @@
 ** Login   <hubert_i@epitech.net>
 **
 ** Started on  Mon May 23 18:01:20 2016 Hubert Leo
-** Last update	Wed Jun 01 16:05:31 2016 Hubert Leo
+** Last update Sun Jun 05 14:05:48 2016 Gambini Lucas
 */
 
 #ifndef			_BUILTIN_H_
@@ -60,5 +60,10 @@ int			current(char *str, char caract);
 char			**my_str_to_wordtab(char *str, char caract);
 char			*get_fusion(char *str, char *str2);
 int			my_error(char *com, char *str);
-  
+
+/* RC */
+
+int			builtin_source(t_list *list, char **cmd);
+int			builtin_alias(t_list *list, char **cmd);
+
 #endif			/* !__BUILTIN_H_ */

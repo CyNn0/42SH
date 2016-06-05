@@ -1,0 +1,9 @@
+alias l="ls -la" 
+alias ..="cd .."
+# Au dessus c'est pas valide
+alias .. cd ..
+# Ici oui et on peut commenter sans pb
+
+alias l ls -la
+alias ne emacs -nw
+alias ls ls --color=auto
