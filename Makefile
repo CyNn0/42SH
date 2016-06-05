@@ -1,11 +1,11 @@
-##malloc
+##
 ## Makefile for  in /home/xx/Rendu/PSU/42SH
 ##
 ## Made by boris saint-bonnet
 ## Login   <saint-_o@epitech.net>
 ##
 ## Started on  Wed May 18 04:15:48 2016 boris saint-bonnet
-## Last update Sun Jun  5 15:00:31 2016 Lucas Gambini
+## Last update Sun Jun  5 15:08:58 2016 Lucas Gambini
 ##
 
 
