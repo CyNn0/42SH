@@ -1,0 +1,294 @@
+{
+  "module": "B-PSU-156",
+  "project": "42sh",
+  "skills": {
+    "Test 01": {
+      "output": [
+        {
+          "name": "Path 1",
+          "cmd": "./moul.sh -j 01",
+          "expected": "^OK"
+        }
+      ]
+    },
+    "Test 02": {
+      "output": [
+        {
+          "name": "Path 2",
+          "cmd": "./moul.sh -j 02",
+          "expected": "^OK"
+        }
+      ]
+    },
+    "Test 03": {
+      "output": [
+        {
+          "name": "Path 3",
+          "cmd": "./moul.sh -j 03",
+          "expected": "^OK"
+        }
+      ]
+    },
+    "Test 04": {
+      "output": [
+        {
+          "name": "Path 4",
+          "cmd": "./moul.sh -j 04",
+          "expected": "^OK"
+        }
+      ]
+    },
+    "Test 05": {
+      "output": [
+        {
+          "name": "Path 5",
+          "cmd": "./moul.sh -j 05",
+          "expected": "^OK"
+        }
+      ]
+    },
+    "Test 06": {
+      "output": [
+        {
+          "name": "Path 6",
+          "cmd": "./moul.sh -j 06",
+          "expected": "^OK"
+        }
+      ]
+    },
+    "Test 07": {
+      "output": [
+        {
+          "name": "Path 7",
+          "cmd": "./moul.sh -j 07",
+          "expected": "^OK"
+        }
+      ]
+    },
+    "Test 08": {
+      "output": [
+        {
+          "name": "Path 8",
+          "cmd": "./moul.sh -j 08",
+          "expected": "^OK"
+        }
+      ]
+    },
+    "Test 09": {
+      "output": [
+        {
+          "name": "Path 9",
+          "cmd": "./moul.sh -j 09",
+          "expected": "^OK"
+        }
+      ]
+    },
+    "Test 10": {
+      "output": [
+        {
+          "name": "Path 10",
+          "cmd": "./moul.sh -j 10",
+          "expected": "^OK"
+        }
+      ]
+    },
+    "Test 11": {
+      "output": [
+        {
+          "name": "Just a pwd",
+          "cmd": "./moul.sh -j 11",
+          "expected": "^OK"
+        }
+      ]
+    },
+    "Test 12": {
+      "output": [
+        {
+          "name": "Pipe with builtin",
+          "cmd": "./moul.sh -j 12",
+          "expected": "^OK"
+        }
+      ]
+    },
+    "Test 13": {
+      "output": [
+        {
+          "name": "Check exec",
+          "cmd": "./moul.sh -j 13",
+          "expected": "^OK"
+        }
+      ]
+    },
+    "Test 14": {
+      "output": [
+        {
+          "name": "Check exit",
+          "cmd": "./moul.sh -j 14",
+          "expected": "^OK"
+        }
+      ]
+    },
+    "Test 15": {
+      "output": [
+        {
+          "name": "Check non existant bin",
+          "cmd": "./moul.sh -j 15",
+          "expected": "^OK"
+        }
+      ]
+    },
+    "Test 16": {
+      "output": [
+        {
+          "name": "setenv and unsetenv",
+          "cmd": "./moul.sh -j 16",
+          "expected": "^OK"
+        }
+      ]
+    },
+    "Test 17": {
+      "output": [
+        {
+          "name": "cd",
+          "cmd": "./moul.sh -j 17",
+          "expected": "^OK"
+        }
+      ]
+    },
+    "Test 18": {
+      "output": [
+        {
+          "name": "cd and error messages",
+          "cmd": "./moul.sh -j 18",
+          "expected": "^OK"
+        }
+      ]
+    },
+    "Test 19": {
+      "output": [
+        {
+          "name": "space and tab",
+          "cmd": "./moul.sh -j 19",
+          "expected": "^OK"
+        }
+      ]
+    },
+    "Test 20": {
+      "output": [
+        {
+          "name": "separator ;",
+          "cmd": "./moul.sh -j 20",
+          "expected": "^OK"
+        }
+      ]
+    },
+    "Test 21": {
+      "output": [
+        {
+          "name": "simple pipe",
+          "cmd": "./moul.sh -j 21",
+          "expected": "^OK"
+        }
+      ]
+    },
+    "Test 22": {
+      "output": [
+        {
+          "name": "pipe",
+          "cmd": "./moul.sh -j 22",
+          "expected": "^OK"
+        }
+      ]
+    },
+    "Test 23": {
+      "output": [
+        {
+          "name": "multipipe",
+          "cmd": "./moul.sh -j 23",
+          "expected": "^OK"
+        }
+      ]
+    },
+    "Test 24": {
+      "output": [
+        {
+          "name": "multipipe and FDMAX",
+          "cmd": "./moul.sh -j 24",
+          "expected": "^OK"
+        }
+      ]
+    },
+    "Test 25": {
+      "output": [
+        {
+          "name": "multipipe and error",
+          "cmd": "./moul.sh -j 25",
+          "expected": "^OK"
+        }
+      ]
+    },
+    "Test 26": {
+      "output": [
+        {
+          "name": "output redirect",
+          "cmd": "./moul.sh -j 26",
+          "expected": "^OK"
+        }
+      ]
+    },
+    "Test 27": {
+      "output": [
+        {
+          "name": "output double-redirect",
+          "cmd": "./moul.sh -j 27",
+          "expected": "^OK"
+        }
+      ]
+    },
+    "Test 28": {
+      "output": [
+        {
+          "name": "output redirect on bin files",
+          "cmd": "./moul.sh -j 28",
+          "expected": "^OK"
+        }
+      ]
+    },
+    "Test 29": {
+      "output": [
+        {
+          "name": "input redirect",
+          "cmd": "./moul.sh -j 29",
+          "expected": "^OK"
+        }
+      ]
+    },
+    "Test 30": {
+      "output": [
+        {
+          "name": "input redirect, output redirect and multi pipe and ; separator",
+          "cmd": "./moul.sh -j 30",
+          "expected": "^OK"
+        }
+      ]
+    },
+    "Test 31": {
+      "output": [
+        {
+          "name": "inception",
+          "cmd": "./moul.sh -j 31",
+          "expected": "^OK"
+        }
+      ]
+    },
+    "Test 32": {
+      "output": [
+        {
+          "name": "redirect output on input",
+          "cmd": "./moul.sh -j 32",
+          "expected": "^OK"
+        }
+      ]
+    }
+  }
+}
