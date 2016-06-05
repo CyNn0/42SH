@@ -5,7 +5,7 @@
 ** Login   <gambin_l@epitech.net>
 **
 ** Started on  Fri May 20 04:39:28 2016 Lucas Gambini
-** Last update Sun Jun 05 01:25:43 2016 Philippe Lefevre
+** Last update Sun Jun 05 05:18:02 2016 Philippe Lefevre
 */
 
 #include	"42.h"
@@ -34,7 +34,6 @@ void		free_env(t_list *list)
   while (tmp != NULL)
     {
       free(tmp->name);
-      free(tmp->data);
       free(tmp->prev);
       tmp = tmp->next;
     }

@@ -5,7 +5,7 @@
 ** Login   <lefevr_h@epitech.net>
 **
 ** Started on  Mon May 23 23:00:09 2016 Philippe Lefevre
-** Last update Sun Jun 05 02:47:52 2016 Philippe Lefevre
+** Last update Sun Jun 05 06:04:31 2016 Philippe Lefevre
 */
 
 #include		"42.h"
@@ -33,10 +33,8 @@ void			print_signal_message(int status)
       status = WTERMSIG(status);
       i = -1;
       while (++i < 11)
-	{
-	  if (status == error[i].error_status)
-	    fprintf(stderr, "%s\n", error[i].error);
-	}
+	if (status == error[i].error_status)
+	  fprintf(stderr, "%s\n", error[i].error);
     }
 }
 
@@ -107,6 +105,7 @@ int			simple_exec_builtin(t_list *list, t_cmd *cmd,
 	check_go_on(cmd);
 	return (FAILURE);
       }
+    list->value_exit = 0;
     return (SUCCESS);
 }
 
@@ -115,16 +114,15 @@ int			simple_exec(t_cmd *cmd, t_list *list,
 {
   pid_t			pid;
   struct stat		sb;
-  int			status;
-  t_node		*tmp;
 
   list->value_exit = 1;
   if (builtin >= 0)
     return (simple_exec_builtin(list, cmd, builtin));
   if (list->path->head && list->path->head->data != NULL)
-    {
-      if ((cmd->cmd[0] = exec_find_path(list->path, cmd->cmd[0])) == NULL)
-	return (FAILURE);
+	{
+	  if ((cmd->cmd[0] = exec_find_path(list->path, cmd->cmd[0])) == NULL)
+	    return (FAILURE);
+	}
       stat(cmd->cmd[0], &sb);
       if (!(access(cmd->cmd[0], X_OK)) && (S_ISREG(sb.st_mode)))
 	{
@@ -134,27 +132,14 @@ int			simple_exec(t_cmd *cmd, t_list *list,
 	    {
 	      execve(cmd->cmd[0], cmd->cmd, env);
 	      fprintf(stderr, "%s: %s\n", cmd->cmd[0], strerror(errno));
-	      my_exit(-1);
+	      my_exit(FAILURE);
 	    }
-	  else
-	    status = xwaitpid(pid, 0, 0);
-	  tmp = list->myEnv->head;
-	  while (tmp != NULL)
-	    {
-	      if (!(strcmp("?", tmp->name)))
-		{
-		  free(tmp->data);
-		  tmp->data = my_itoa(status);
-		}
-	      tmp = tmp->next;
-	    }
-	  if (status != 0)
-	    return (FAILURE);
-	  list->value_exit = 0;
-	  return (SUCCESS);
+	  return (push_exit_value(list, pid));
 	}
-    }
   fprintf(stderr, "%s: Command not found.\n", cmd->cmd[0]);
+  list->value_exit = 1;
+  if (cmd->token == PIPE)
+    my_exit(1);
   check_go_on(cmd);
   return (FAILURE);
 }

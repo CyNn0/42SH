@@ -5,7 +5,7 @@
 ** Login   <hubert_i@epitech.net>
 **
 ** Started on  Sun Jan 24 14:35:00 2016 Hubert Leo
-** Last update Fri May 27 14:33:28 2016 Gambini Lucas
+** Last update Sun Jun 05 04:23:17 2016 Philippe Lefevre
 */
 
 #include 		"42.h"
@@ -51,7 +51,7 @@ int			my_cd_moins(t_list *list)
       old_pwd = search_env(env, "OLDPWD");
       pwd = search_env(env, "PWD");
       if (chdir(old_pwd) == -1)
-	my_error(old_pwd, "%s: No such file or directory.\n");
+	fprintf(stderr, "%s: %s.\n", old_pwd, strerror(errno));
       command = my_str_to_wordtab(get_fusion("s PWD ", old_pwd), ' ');
       builtin_setenv(list, command);
       command = my_str_to_wordtab(get_fusion("s OLDPWD ", pwd), ' ');
@@ -100,7 +100,7 @@ char			*my_cd_bis(t_list *list, char **command, char *pwd)
     {
       if (chdir(command[1]) == -1)
 	{
-	  my_error(command[1], "%s: No such file or directory.\n");
+	  fprintf(stderr, "%s: %s.\n", command[1], strerror(errno));
 	  return (0);
 	}
       pwd = command[1];
@@ -113,7 +113,7 @@ char			*my_cd_bis(t_list *list, char **command, char *pwd)
       pwd = get_fusion(pwd, command[1]);
       if (chdir(pwd) == -1)
 	{
-	  my_error(command[1], "%s: No such file or directory.\n");
+	  fprintf(stderr, "%s: %s.\n", command[1], strerror(errno));
 	  return (0);
 	}
     }

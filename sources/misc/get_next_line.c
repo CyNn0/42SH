@@ -1,14 +1,14 @@
 /*
 ** get_next_line.c for get_next_line in /home/puccio_c/rendu/minishell/PSU_2015_minishell2/lib/my/src
-** 
+**
 ** Made by cyril puccio
 ** Login   <puccio_c@epitech.net>
-** 
+**
 ** Started on  Wed Apr 27 14:48:02 2016 cyril puccio
-** Last update Tue May 31 14:25:06 2016 cyril puccio
+** Last update Sun Jun 05 05:12:18 2016 Philippe Lefevre
 */
 
-#include "get_next_line.h"
+#include	"42.h"
 
 static int      my_lenstr(char *s)
 {

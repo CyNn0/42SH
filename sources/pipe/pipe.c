@@ -5,7 +5,7 @@
 ** Login   <lefevr_h@epitech.net>
 **
 ** Started on  Mon May 23 19:04:26 2016 Philippe Lefevre
-** Last update Sun Jun 05 02:55:47 2016 Philippe Lefevre
+** Last update Sun Jun 05 06:07:22 2016 Philippe Lefevre
 */
 
 #include		"42.h"
@@ -46,13 +46,16 @@ int			exec_pipe(t_cmd *cmd, t_list *list, char **env,
 	dup2(cmd->fd[1], 1);
       if ((builtin = check_built(list, cmd)) == SUCCESS)
 	my_exit(SUCCESS);
-      my_exit(normal_scatter(cmd, env, list, builtin - 20));
+      normal_scatter(cmd, env, list, builtin - 20);
+      printf("[[[%d]]]\n", list->value_exit);
+      my_exit(list->value_exit);
     }
+  list->value_exit = 0;
   if (count[0] != 0)
     close(cmd->prev->fd[0]);
   if (count[0] < count[1] - 1)
     close(cmd->fd[1]);
-  return (SUCCESS);
+  return (list->value_exit);
 }
 
 int			scatter_pipe(t_cmd *cmd, t_list *list, char **env)
@@ -61,13 +64,15 @@ int			scatter_pipe(t_cmd *cmd, t_list *list, char **env)
   int			count[2];
   int			status;
 
+  list->value_exit = 1;
   if ((count[1] = prepare_pipe(cmd)) == 0)
     return (FAILURE);
   tmp = cmd;
   count[0] = -1;
   while (++count[0] < count[1])
     {
-      exec_pipe(tmp, list, env, count);
+      if ((list->value_exit = exec_pipe(tmp, list, env, count)) != SUCCESS)
+	break;
       tmp = tmp->next;
     }
   tmp = cmd;
@@ -78,7 +83,5 @@ int			scatter_pipe(t_cmd *cmd, t_list *list, char **env)
       tmp = tmp->next;
     }
   while ((status = waitpid(-1, 0, 0)) != -1);
-  if (status == -1)
-    list->value_exit = 1;
   return (SUCCESS);
 }

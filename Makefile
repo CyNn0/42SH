@@ -61,6 +61,7 @@ SRC		=	$(SRCDIR)/main.c			\
 			$(SRCDIR)/linked_list/push_variable.c	\
 			$(SRCDIR)/linked_list/del_link.c	\
 			$(SRCDIR)/linked_list/for_prompt.c	\
+			$(SRCDIR)/linked_list/push_exit_value.c	\
 			$(SRCDIR)/env/my_env_in_list.c		\
 			$(SRCDIR)/env/print_env.c		\
 			$(SRCDIR)/path/path_to_list.c		\
