@@ -5,7 +5,7 @@
 ** Login   <Lucas Gambini@epitech.net>
 **
 ** Started on  Sun Jun 05 14:04:29 2016 Gambini Lucas
-** Last update Sun Jun 05 14:59:24 2016 Gambini Lucas
+** Last update Sun Jun 05 15:07:50 2016 Gambini Lucas
 */
 
 # include		"42.h"
@@ -36,6 +36,8 @@ int			check_line(char **cmd)
   int			i;
 
   i = -1;
+  if (!cmd || !cmd[1])
+    return (FAILURE);
   while (cmd[1][++i])
     {
       if (cmd[1][i] == '=' || cmd[1][i] == '\"')
