@@ -5,12 +5,16 @@
    Login   <puccio_c@epitech.net>
    
    Started on  Sun Jun  5 16:46:22 2016 cyril puccio
-   Last update Sun Jun  5 17:16:25 2016 cyril puccio
+   Last update Sun Jun  5 17:24:14 2016 cyril puccio
   
 
 Il faut Fork pour les builtin afin de catcher le ctrl + c afin de pouvoir quitter les process qui read sur l'entrée standart
 Ne pas oublier de refaire les tableaux de pointeur sur fonction afin d'éitez les Segfault lors des redirections
 1 erreur valgrind si commande = "< cmd") remplacer cmd par une commande
+
+  	 		      ! ATTENTION !
+
+DOUBLE FREE OR CORUPTION si entrer "&" ou "&&" ou ";" sans rien d'autre dans la ligne de commande.
 
                                                       
                                  .i;;;;i.                                  
@@ -48,5 +52,3 @@ Ne pas oublier de refaire les tableaux de pointeur sur fonction afin d'éitez le
              .;CoIIIIIUAA666666699999ZZZZZZZZZZZZZZZZZZZZ6ov.       
 
 			    ! ATTENTION !
-
-DOUBLE FREE OR CORUPTION si entrer "&" ou "&&" ou ";" sans rien d'autre dans la ligne de commande.
