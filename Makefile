@@ -5,7 +5,7 @@
 ## Login   <saint-_o@epitech.net>
 ##
 ## Started on  Wed May 18 04:15:48 2016 boris saint-bonnet
-## Last update Sat Jun  4 21:05:15 2016 Lucas Gambini
+## Last update Sun Jun  5 02:06:59 2016 Philippe Lefevre
 ##
 
 
@@ -108,6 +108,7 @@ clean		:
 
 fclean		:	clean
 			@$(RM) $(NAME)
+			@$(RM) .42history
 
 re		:	fclean all
 
