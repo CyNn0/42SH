@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 18 04:20:11 2016 boris saint-bonnet
-** Last update Sat Jun 04 21:03:49 2016 Gambini Lucas
+** Last update Sun Jun  5 02:09:11 2016 boris saint-bonnet
 */
 
 #ifndef			_42_H_
@@ -56,6 +56,7 @@
 # define		__RIGHT		S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH
 # define 		__SIMPLE	O_WRONLY | O_CREAT | O_TRUNC, __RIGHT
 # define 		__DOUBLE	O_WRONLY | O_CREAT | O_APPEND, __RIGHT
+# define		__HIST		O_RDWR | O_CREAT | O_APPEND, __RIGHT
 
 /*
 ** STRUCTURES
