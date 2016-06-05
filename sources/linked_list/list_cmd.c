@@ -20,10 +20,10 @@ t_list			*free_cmd(t_list *list)
   while (tmp != NULL)
     {
       free_tab(tmp->cmd);
-      free(tmp->prev);
+      xfree(tmp->prev);
       tmp = tmp->next;
     }
-  free(list->tail);
+  xfree(list->tail);
   list->head = NULL;
   list->tail = NULL;
   return (list);

@@ -41,10 +41,10 @@ char		*get_globbing(char *src)
       result = get_fusion(result, globbuf.gl_pathv[i]);
       i++;
     }
-  free(src);
+  xfree(src);
   i = 0;
   while (globbuf.gl_pathv[i])
-    free(globbuf.gl_pathv[i++]);
+    xfree(globbuf.gl_pathv[i++]);
   return (result);
 }
 
@@ -77,7 +77,7 @@ char		*globbing(char *src)
 	result = get_fusion(result, args[i]);
       i++;
     }
-  free(args);
+  xfree(args);
   if (result[0] == '\0')
     return (src);
   else

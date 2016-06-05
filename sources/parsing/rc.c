@@ -33,7 +33,7 @@ int			bash_in_list(t_list *list)
   while ((buff = get_next_line(fd)))
     {
       list->myRc = push_bash(list->myRc, buff, NULL);
-      free(buff);
+      xfree(buff);
     }
   show_rc(list);
   return (SUCCESS);

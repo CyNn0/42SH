@@ -5,7 +5,7 @@
 ** Login   <lefevr_h@epitech.net>
 **
 ** Started on  Sun Jun 05 01:44:53 2016 Philippe Lefevre
-** Last update Sun Jun 05 05:17:28 2016 Philippe Lefevre
+** Last update Sun Jun 05 19:07:05 2016 Philippe Lefevre
 */
 
 #include		"42.h"
@@ -13,5 +13,8 @@
 void			xfree(void *ptr)
 {
   if (ptr != NULL)
-    free(ptr);
+    {
+      free(ptr);
+      ptr = NULL;
+    }
 }

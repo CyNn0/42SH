@@ -32,7 +32,7 @@ char		*simples_v(char *s, char c)
   t_pars        var;
 
   var.ret = strdup(s);
-  free(s);
+  xfree(s);
   simple_first(&var, c);
   while ((check_finish_v(var.ret, c) == -1))
     {
@@ -44,9 +44,9 @@ char		*simples_v(char *s, char c)
 	    {
 	      var.bef = my_strcut(var.ret, 0, (var.i), 0);
 	      var.aft = my_strcut(var.ret, (var.i), 0, 0);
-	      free(var.ret);
+	      xfree(var.ret);
 	      var.ret = my_strcatc(var.bef, var.aft, 3, 0);
-	      free(var.aft);
+	      xfree(var.aft);
 	    }
 	}
     }

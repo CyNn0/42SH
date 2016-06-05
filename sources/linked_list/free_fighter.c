@@ -17,13 +17,13 @@ void		free_hist(t_list *list)
   tmp = list->myHist->head;
   while (tmp != NULL)
     {
-      free(tmp->s);
-      free(tmp->prev);
+      xfree(tmp->s);
+      xfree(tmp->prev);
       tmp = tmp->next;
     }
   if (list->myHist->tail != NULL)
-    free(list->myHist->tail);
-  free(list->myHist);
+    xfree(list->myHist->tail);
+  xfree(list->myHist);
 }
 
 void		free_env(t_list *list)
@@ -33,13 +33,13 @@ void		free_env(t_list *list)
   tmp = list->myEnv->head;
   while (tmp != NULL)
     {
-      free(tmp->name);
-      free(tmp->prev);
+      xfree(tmp->name);
+      xfree(tmp->prev);
       tmp = tmp->next;
     }
   if (list->myEnv->tail != NULL)
-    free(list->myEnv->tail);
-  free(list->myEnv);
+    xfree(list->myEnv->tail);
+  xfree(list->myEnv);
 }
 
 void		free_path(t_list *list)
@@ -52,12 +52,12 @@ void		free_path(t_list *list)
     return;
   while (tmp != NULL)
     {
-      free(tmp->data);
-      free(tmp->prev);
+      xfree(tmp->data);
+      xfree(tmp->prev);
       tmp = tmp->next;
     }
   if (list->path->tail != NULL)
-    free(list->path->tail);
+    xfree(list->path->tail);
   list->path->head = NULL;
   list->path->tail = NULL;
 }
@@ -68,5 +68,5 @@ void		free_fighter(t_list *list)
   free_path(list);
   free_hist(list);
   close(list->history);
-  free(list);
+  xfree(list);
 }

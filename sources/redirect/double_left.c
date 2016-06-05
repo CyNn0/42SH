@@ -5,7 +5,7 @@
 ** Login   <Lucas Gambini@epitech.net>
 **
 ** Started on  Mon May 30 10:56:47 2016 Gambini Lucas
-** Last update Sun Jun 05 05:15:07 2016 Philippe Lefevre
+** Last update Sun Jun 05 18:49:50 2016 Philippe Lefevre
 */
 
 #include 		"42.h"
@@ -48,7 +48,7 @@ char			*get_buffer(t_red var)
 	res = strdup(buff);
       else
 	res = my_concate(res, buff);
-      free(buff);
+      xfree(buff);
     }
   return (res);
 }
@@ -85,7 +85,7 @@ int             	double_left(t_cmd *cmd, t_list *list,
     check_go_on(cmd);
   close(pipefd[0]);
   dup2(reset, 0);
-  free(var.name);
+  xfree(var.name);
   free_tab(var.cmd);
   return (SUCCESS);
 }

@@ -46,7 +46,7 @@ static char     *add_to_line(char *line, int cur, char *buff, int *start)
   my_sstrncpy(new + old, buff + *start, cur);
   new[old + cur] = 0;
   if (line)
-    free(line);
+    xfree(line);
   *start += cur + 1;
   return (new);
 }

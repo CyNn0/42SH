@@ -5,7 +5,7 @@
 ** Login   <gambin_l@epitech.net>
 **
 ** Started on  Fri May 20 06:28:24 2016 Lucas Gambini
-** Last update Sat Jun 04 23:20:39 2016 Philippe Lefevre
+** Last update Sun Jun 05 19:08:08 2016 Philippe Lefevre
 */
 
 #include		"42.h"
@@ -46,16 +46,15 @@ t_list			*set_cmd(t_list *list, char **tab, char *line)
       if ((cmdtab = cmd_to_tab(glob, ' ', ' ', ' ')) == NULL
 	  || ((list = push_cmd(list, cmdtab))) == NULL)
 	return (list);
-      free(glob);
       list->tail->token = get_token(tab[i], line);
       list->tail->flag = 0;
       list->tail->go_on = 1;
       if (list->tail->prev)
 	(list->tail->prev->token == DOUBLE_PIPE) ? (list->tail->go_on = 0)
 	  : (list->tail->go_on = 1);
-      free(tab[i]);
+      xfree(tab[i]);
     }
-  free(tab);
+  xfree(tab);
   return (list);
 }
 
@@ -68,6 +67,6 @@ t_list			*get_cmd(t_list *list, char *line)
   tab = clean_tab(tab);
   list = set_cmd(list, tab, line);
   list = post_parser(list);
-  free(line);
+  xfree(line);
   return (list);
 }

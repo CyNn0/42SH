@@ -5,7 +5,7 @@
 ** Login   <lefevr_h@epitech.net>
 **
 ** Started on  Mon May 23 19:04:26 2016 Philippe Lefevre
-** Last update Sun Jun 05 06:07:22 2016 Philippe Lefevre
+** Last update Sun Jun 05 18:49:50 2016 Philippe Lefevre
 */
 
 #include		"42.h"
@@ -47,8 +47,7 @@ int			exec_pipe(t_cmd *cmd, t_list *list, char **env,
       if ((builtin = check_built(list, cmd)) == SUCCESS)
 	my_exit(SUCCESS);
       normal_scatter(cmd, env, list, builtin - 20);
-      printf("[[[%d]]]\n", list->value_exit);
-      my_exit(list->value_exit);
+      my_exit(1);
     }
   list->value_exit = 0;
   if (count[0] != 0)
@@ -79,7 +78,7 @@ int			scatter_pipe(t_cmd *cmd, t_list *list, char **env)
   count[0] = -1;
   while (++count[0] < count[1])
     {
-      free(tmp->fd);
+      xfree(tmp->fd);
       tmp = tmp->next;
     }
   while ((status = waitpid(-1, 0, 0)) != -1);

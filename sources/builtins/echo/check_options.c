@@ -44,5 +44,5 @@ int		check_options(t_echo *flags, char *cmd)
 
 void		free_echo(t_echo *flags)
 {
-  free(flags);
+  xfree(flags);
 }

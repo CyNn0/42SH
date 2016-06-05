@@ -55,7 +55,7 @@ int		builtin_echo(t_list *list, char **cmd)
 	  if ((printable = preparsing_echo(echo, cmd)) != NULL)
 	    {
 	      echo_print(echo, printable);
-	      free(printable);
+	      xfree(printable);
 	    }
 	  break;
       	}
