@@ -91,3 +91,6 @@
 2:0	cat result2
 2:0	cat fic >> fic
 2:0	cat fic
+2:5	ls
+2:5	ls -l
+2:5	exit

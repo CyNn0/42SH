@@ -1,0 +1,85 @@
+2:3	ls -la /bin .
+2:3	ls -la /bin .
+2:3	ls -la /bin .
+2:3	ls -la /bin .
+2:3	ls -la /bin .
+2:3	ls -la /bin .
+2:3	ls -la /bin .
+2:3	ls -la /bin .
+2:3	ls -la /bin .
+2:3	ls -la /bin .
+2:3	pwd
+2:3	setenv | /bin/grep PATH
+2:3	pwd ; cd bin ; ls -l
+2:3	cd ..
+2:3	bin/cat
+2:3	pwd
+2:3	exit 25
+2:3	coucou
+2:3	unsetenv HOSTTYPE VENDOR OSTYPE MACHTYPE SHLVL PWD LOGNAME USER GROUP HOST REMOTEHOST
+2:3	unsetenv _
+2:3	unsetenv LS_COLORS
+2:3	unsetenv NOTE
+2:3	setenv toto
+2:3	setenv tata coucou
+2:3	env
+2:3	/bin/env
+2:3	setenv titi abcd
+2:3	unsetenv tata
+2:3	env
+2:3	mkdir plopplop
+2:3	cd plopplop
+2:3	pwd
+2:3	cd -
+2:3	echo KEY
+2:3	pwd
+2:3	cd /
+2:3	ls
+2:3	cd -
+2:3	ls
+2:3	cd testdircd
+2:3	
+2:3	ls
+2:3	ls -l
+2:3	ls     -l
+2:3	     ls     -l
+2:3	ls -l     
+2:3	    ls     -l     -a    
+2:3	ls	
+2:3		ls
+2:3		ls	-l
+2:3			    ls	     	-l    		  	 -a    		
+2:3	    	  ls  -l;echo toto  ;  ls	;	echo plop
+2:3	ls /dev | grep tty
+2:3	ls | grep plop
+2:3		 ls   -l	/dev|	grep tty
+2:3	ls /dev | cat  | tr y Y | grep ttY | cat
+2:3	ls -lR /dev | cat  | tr y Y | grep ttY | cat | cat | cat | cat | cat | cat |cat
+2:3	ls -lR /dev | cat  | tr y Y | grep ttY | cat | cati | cat
+2:3	ls /dev > fic
+2:3	echo toto
+2:3	cat fic
+2:3	ls /dev > fic
+2:3	echo toto
+2:3	echo plop >> fic
+2:3	ls / >> fic
+2:3	echo titi
+2:3	cat fic
+2:3	cat /bin/ls > myls
+2:3	chmod 755 myls
+2:3	./myls
+2:3	grep tty < fic
+2:3	grep tty < fic | tr y Y > ficout ; cat ficout | sed s/tt/uu/g > ficout2 ; cat ficout2 | tr u I
+2:3	ls
+2:3	echo ls | /bin/tcsh > result
+2:3	echo ls | ./42sh > result2
+2:3	ls
+2:3	cat result
+2:3	cat result2
+2:3	cat fic >> fic
+2:3	cat fic
+2:5	ls
+2:5	ls -l
+2:5	cd .
+2:5	cexit
+2:5	exit
