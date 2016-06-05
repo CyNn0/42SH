@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 ** 
 ** Started on  Sat Jun  4 15:11:03 2016 boris saint-bonnet
-** Last update Sun Jun  5 03:09:42 2016 boris saint-bonnet
+** Last update Sun Jun  5 03:13:28 2016 boris saint-bonnet
 */
 
 #include	"42.h"
@@ -85,6 +85,7 @@ int	        builtin_history(t_list *list, char **cmd)
   if((fd = open("tmp/.42history", __HIST)) == -1)
     return (FAILURE);
   i = -1;
+  list = list;
   hist = file_to_tab(fd);
   if (!cmd[1])
     while (hist[++i + 1])
@@ -99,5 +100,6 @@ int	        builtin_history(t_list *list, char **cmd)
 	  i++;
 	}
     }
+  free_tab(hist);
   return (SUCCESS);
 }

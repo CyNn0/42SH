@@ -27,3 +27,7 @@
 3:9	exit
 3:9	history 5
 3:9	exit
+3:13	hist
+3:13	history
+3:13	history 5
+3:14	exit
