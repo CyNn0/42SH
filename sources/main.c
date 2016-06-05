@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 18 04:19:45 2016 boris saint-bonnet
-** Last update Sat Jun 04 21:08:13 2016 Gambini Lucas
+** Last update Sun Jun 05 01:59:31 2016 Philippe Lefevre
 */
 
 #include		"42.h"
@@ -30,14 +30,15 @@ int			shell(char *env[])
   list->value_exit = 0;
   bash_in_list(list);
   signal(SIGINT, get_sigint);
-  while (!(list->do_exit) && !(print_prompt(list))
-	 && (buffer = get_next_line(0)))
+  print_prompt(list);
+  while (!(list->do_exit) && (buffer = get_next_line(0)))
     {
       open_history(buffer, list->history);
       list = add_history(list, buffer);
       if ((list = get_cmd(list, pre_check(buffer, list))) == NULL)
 	continue;
       exec_scatter(list);
+      print_prompt(list);
       list = free_cmd(list);
     }
   value_exit = list->value_exit;

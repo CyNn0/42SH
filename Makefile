@@ -1,4 +1,4 @@
-##
+##malloc
 ## Makefile for  in /home/xx/Rendu/PSU/42SH
 ##
 ## Made by boris saint-bonnet
@@ -47,9 +47,11 @@ SRC		=	$(SRCDIR)/main.c			\
 			$(SRCDIR)/parsing/open_bash.c		\
 			$(SRCDIR)/parsing/rc.c			\
 			$(SRCDIR)/misc/get_next_line.c		\
-			$(SRCDIR)/misc/exit.c			\
+			$(SRCDIR)/misc/my_exit.c		\
 			$(SRCDIR)/misc/my_itoa.c		\
 			$(SRCDIR)/misc/my_strcat.c		\
+			$(SRCDIR)/misc/xmalloc.c		\
+			$(SRCDIR)/misc/xfree.c			\
 			$(SRCDIR)/linked_list/linked_list.c	\
 			$(SRCDIR)/linked_list/push_bash.c	\
 			$(SRCDIR)/linked_list/free_fighter.c	\

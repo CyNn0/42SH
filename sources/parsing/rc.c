@@ -5,7 +5,7 @@
 ** Login   <Lucas Gambini@epitech.net>
 **
 ** Started on  Sat Jun 04 20:56:01 2016 Gambini Lucas
-** Last update Sun Jun 05 01:18:29 2016 Philippe Lefevre
+** Last update Sun Jun 05 01:57:27 2016 Philippe Lefevre
 */
 
 # include		"42.h"
@@ -17,7 +17,7 @@ void			show_rc(t_list *list)
   tmp = list->myRc->head;
   while (tmp)
     {
-      printf("name: %s && data: %s\n", tmp->name, tmp->data);
+      /*printf("name: %s && data: %s\n", tmp->name, tmp->data);*/
       tmp = tmp->next;
     }
 }
