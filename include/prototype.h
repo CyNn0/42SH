@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 18 05:04:14 2016 boris saint-bonnet
-** Last update Sun Jun  5 02:48:03 2016 boris saint-bonnet
+** Last update Sun Jun  5 03:11:01 2016 boris saint-bonnet
 */
 
 #ifndef 		_PROTOTYPE_H_
@@ -28,6 +28,7 @@ int			my_strlen(char *s);
 int     		tab_lenght(char **tab);
 char			*my_strdup(char *str);
 char			*my_itoa(int i);
+int			my_atoi(char *str);
 char			*my_strndup(const char *src, size_t n);
 char    		*my_epurstr(char *str);
 char			*strdup(const char *chaine);

@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 18 04:19:45 2016 boris saint-bonnet
-** Last update Sun Jun  5 02:51:56 2016 boris saint-bonnet
+** Last update Sun Jun  5 03:11:41 2016 boris saint-bonnet
 */
 
 #include		"42.h"
@@ -38,7 +38,8 @@ int			shell(char *env[])
       if ((list = get_cmd(list, pre_check(buffer, list))) == NULL)
 	continue;
       exec_scatter(list);
-      print_prompt(list);
+      if (!(list->do_exit) )
+	print_prompt(list);
       list = free_cmd(list);
     }
   value_exit = list->value_exit;

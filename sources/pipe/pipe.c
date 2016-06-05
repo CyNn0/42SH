@@ -5,7 +5,7 @@
 ** Login   <lefevr_h@epitech.net>
 **
 ** Started on  Mon May 23 19:04:26 2016 Philippe Lefevre
-** Last update Fri Jun 03 13:07:59 2016 Philippe Lefevre
+** Last update Sun Jun 05 02:55:47 2016 Philippe Lefevre
 */
 
 #include		"42.h"
@@ -59,6 +59,7 @@ int			scatter_pipe(t_cmd *cmd, t_list *list, char **env)
 {
   t_cmd			*tmp;
   int			count[2];
+  int			status;
 
   if ((count[1] = prepare_pipe(cmd)) == 0)
     return (FAILURE);
@@ -76,6 +77,8 @@ int			scatter_pipe(t_cmd *cmd, t_list *list, char **env)
       free(tmp->fd);
       tmp = tmp->next;
     }
-  while (waitpid(-1, 0, 0) != -1);
+  while ((status = waitpid(-1, 0, 0)) != -1);
+  if (status == -1)
+    list->value_exit = 1;
   return (SUCCESS);
 }

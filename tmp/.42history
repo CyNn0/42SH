@@ -1,0 +1,29 @@
+2:55	ls
+2:55	lsp
+2:55	kfopfkc
+2:55	history
+2:56	cat tmp/.42history
+2:57	exit
+2:57	ls
+2:57	hist
+2:57	history
+2:57	exit
+2:57	ls
+2:57	hist
+2:57	history
+2:57	exit
+3:5	hist
+3:5	history
+3:5	history 5
+3:6	history
+3:6	timeout 3 history 5
+3:7	hist 5
+3:7	history 5
+3:8	cat tmp/.42history | wc -l
+3:8	exit
+3:8	ls
+3:8	history
+3:9	history 5
+3:9	exit
+3:9	history 5
+3:9	exit

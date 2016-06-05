@@ -1,6 +1,6 @@
 #!/bin/bash
 
-MYSHELL="$PWD/42sh"
+MYSHELL="../42sh"
 REFER="/bin/tcsh -f"
 
 CAT=`which cat`
