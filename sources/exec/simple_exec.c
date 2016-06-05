@@ -5,7 +5,7 @@
 ** Login   <lefevr_h@epitech.net>
 **
 ** Started on  Mon May 23 23:00:09 2016 Philippe Lefevre
-** Last update Sun Jun 05 06:04:31 2016 Philippe Lefevre
+** Last update Sun Jun 05 14:04:14 2016 Gambini Lucas
 */
 
 #include		"42.h"
@@ -100,6 +100,7 @@ int			simple_exec_builtin(t_list *list, t_cmd *cmd,
     p[4] = &builtin_exit;
     p[5] = &builtin_env;
     p[6] = &builtin_history;
+    p[7] = &builtin_alias;
     if (p[builtin](list, cmd->cmd) == FAILURE)
       {
 	check_go_on(cmd);

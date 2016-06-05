@@ -5,7 +5,7 @@
 ## Login   <saint-_o@epitech.net>
 ##
 ## Started on  Wed May 18 04:15:48 2016 boris saint-bonnet
-## Last update Sun Jun  5 02:06:59 2016 Philippe Lefevre
+## Last update Sun Jun  5 15:00:31 2016 Lucas Gambini
 ##
 
 
@@ -45,7 +45,6 @@ SRC		=	$(SRCDIR)/main.c			\
 			$(SRCDIR)/parsing/string.c		\
 			$(SRCDIR)/parsing/inihb.c		\
 			$(SRCDIR)/parsing/open_bash.c		\
-			$(SRCDIR)/parsing/rc.c			\
 			$(SRCDIR)/misc/get_next_line.c		\
 			$(SRCDIR)/misc/my_exit.c		\
 			$(SRCDIR)/misc/my_itoa.c		\
@@ -84,8 +83,10 @@ SRC		=	$(SRCDIR)/main.c			\
 			$(SRCDIR)/builtins/env.c		\
 			$(SRCDIR)/builtins/setenv.c		\
 			$(SRCDIR)/builtins/unsetenv.c		\
+			$(SRCDIR)/builtins/source.c		\
 			$(SRCDIR)/builtins/cd/cd.c		\
 			$(SRCDIR)/builtins/cd/dep_cd.c		\
+			$(SRCDIR)/builtins/alias.c		\
 			$(SRCDIR)/pipe/pipe.c			\
 			$(SRCDIR)/history/add_to_file.c		\
 			$(SRCDIR)/history/show_history.c	\
