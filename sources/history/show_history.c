@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 ** 
 ** Started on  Sat Jun  4 15:11:03 2016 boris saint-bonnet
-** Last update Sun Jun  5 03:13:28 2016 boris saint-bonnet
+** Last update Sun Jun  5 03:27:04 2016 boris saint-bonnet
 */
 
 #include	"42.h"
@@ -74,6 +74,23 @@ char             **file_to_tab(int fd)
   free(file1d);
   return (file);
 }
+int		check_clear(char **cmd)
+{
+  int		fd;
+
+  if (cmd[1] && (strcmp(cmd[1], "-c")) == 0)
+    {
+      if ((fd = open("tmp/.42history", __HISTC)) == -1)
+	return (FAILURE);
+      open_history(cmd[0]);
+    }
+  else
+    {
+      (void)fd;
+      return (FAILURE);
+    }
+  return (SUCCESS);
+}
 
 int	        builtin_history(t_list *list, char **cmd)
 {
@@ -86,11 +103,13 @@ int	        builtin_history(t_list *list, char **cmd)
     return (FAILURE);
   i = -1;
   list = list;
+  if (check_clear(cmd) == SUCCESS)
+    return (SUCCESS);
   hist = file_to_tab(fd);
   if (!cmd[1])
     while (hist[++i + 1])
       printf("%d %s\n", i, hist[i]);
-  else if (cmd[1])
+  else if (cmd[1] && (strcmp(cmd[1], "-c")) != 0)
     {
       tmp = atoi(cmd[1]);
       i = (tab_lenght(hist) - tmp);
