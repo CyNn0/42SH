@@ -1,0 +1,13 @@
+  
+   NOTE for note in /home/puccio_c/rendu/minishell/42SH
+   
+   Made by cyril puccio
+   Login   <puccio_c@epitech.net>
+   
+   Started on  Sun Jun  5 16:46:22 2016 cyril puccio
+   Last update Sun Jun  5 16:48:02 2016 cyril puccio
+  
+
+Il faut Fork pour les builtin afin de catcher le ctrl + c afin de pouvoir quitter les process qui read sur l'entrée standart
+Ne pas oublier de refaire les tableaux de pointeur sur fonction afin d'éitez les Segfault lors des redirections
+1 erreur valgrind si commande = "< cmd") remplacer cmd par une commande

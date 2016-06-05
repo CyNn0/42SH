@@ -5,7 +5,7 @@
 ** Login   <lefevr_h@epitech.net>
 **
 ** Started on  Sun Jun 05 02:59:36 2016 Philippe Lefevre
-** Last update Sun Jun  5 03:04:14 2016 Philippe Lefevre
+** Last update Sun Jun  5 16:45:33 2016 cyril puccio
 */
 
 #include		"42.h"
@@ -23,6 +23,6 @@ int			my_atoi(char *str)
     if (str[i++] == '-')
       neg *= -1;
   while (str[i] && str[i] >= '0' && str[i] <= '9')
-    nb = nb * 10 + (str[i++] + '0');
+    nb = nb * 10 + (str[i++] - 48);
   return (nb * neg);
 }
