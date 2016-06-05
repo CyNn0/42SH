@@ -5,7 +5,7 @@
 ** Login   <Lucas Gambini@epitech.net>
 **
 ** Started on  Sat Jun 04 20:56:01 2016 Gambini Lucas
-** Last update Sun Jun 05 14:43:38 2016 Gambini Lucas
+** Last update Sun Jun 05 19:18:30 2016 Gambini Lucas
 */
 
 # include		"42.h"
@@ -14,19 +14,14 @@ int			free_alias(t_list *list)
 {
   t_node		*tmp;
 
-  if (list->myRc && list->myRc->head)
-    {
-      if (list->myRc->head->next)
-	tmp = list->myRc->head->next;
-      else
-	{
-	  free(list->myRc->head);
-	  list->myRc->head = NULL;
-	  return (FAILURE);
-	}
-    }
+  if (list->myRc->head->next)
+    tmp = list->myRc->head->next;
   else
-    return (FAILURE);
+{
+      free(list->myRc->head);
+      list->myRc->head = NULL;
+      return (FAILURE);
+    }
   while (tmp)
     {
       free(tmp->prev->data);
@@ -35,6 +30,8 @@ int			free_alias(t_list *list)
     }
   if (list->myRc->tail)
     free(list->myRc->tail);
+  list->myRc->head = NULL;
+  list->myRc->tail = NULL;
   return (SUCCESS);
 }
 
@@ -44,18 +41,18 @@ int			builtin_source(t_list *list, char **cmd)
   char			*buff;
 
   (void)cmd;
+  if (list->myRc->head)
+    free_alias(list);
   if ((fd = open("tmp/.42shrc", O_RDWR | O_CREAT | O_APPEND, __RIGHT)) == -1)
     return (FAILURE);
-  free_alias(list);
+  list = free_cmd(list);
   while ((buff = get_next_line(fd)))
     {
-      if (buff[0] && buff[0] != '#')
-	{
-	if ((list = get_cmd(list, pre_check(buff, list))) == NULL)
-	  continue;
-	exec_scatter(list);
-	  list = free_cmd(list);
-	}
+      if ((list = get_cmd(list, pre_check(buff, list))) == NULL)
+	continue;
+      exec_scatter(list);
+      list = free_cmd(list);
     }
+  close(fd);
   return (SUCCESS);
 }

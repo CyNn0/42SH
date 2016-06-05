@@ -7,3 +7,6 @@ alias .. cd ..
 alias l ls -la
 alias ne emacs -nw
 alias ls ls --color=auto
+
+alias toto titi
+alias titi toto

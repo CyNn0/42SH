@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 18 04:54:23 2016 boris saint-bonnet
-** Last update Sat Jun  4 14:44:27 2016 boris saint-bonnet
+** Last update Sun Jun 05 16:49:36 2016 Gambini Lucas
 */
 
 #include	"42.h"
@@ -67,6 +67,22 @@ char		*clean_str(char *str)
   return (ret);
 }
 
+char		*check_comment(char *line)
+{
+  int		i;
+
+  i = -1;
+  while (line[++i])
+    {
+      if (line[i] == '#')
+	{
+	  line[i] = 0;
+	  break;
+	}
+    }
+  return (line);
+}
+
 char		*pre_check(char *s, t_list *list)
 {
   char		*ret;
@@ -89,5 +105,6 @@ char		*pre_check(char *s, t_list *list)
   ret = doubles(ret, ';');
   ret = doubles(ret, '|');
   ret = replace_variable(ret, list);
+  ret = check_comment(ret);
   return (clean_str(ret));
 }

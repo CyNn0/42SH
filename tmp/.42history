@@ -3,3 +3,188 @@
 15:2	echo lol
 15:2	echo ""
 15:3	exit
+15:13	ls && ls
+15:13	ls || ls
+15:14	lol && ls
+15:14	lol || ls
+15:14	rm mabite && ls
+15:14	exit
+15:30	source
+15:32	alias
+15:32	souce
+15:32	source
+15:33	source
+15:34	source
+15:38	source
+15:38	source
+15:39	source
+15:43	source
+15:46	source
+15:52	source
+15:53	source
+15:53	exit
+15:53	source
+15:53	exit
+15:55	exit
+16:32	source
+16:46	source
+16:49	exit
+16:49	ls
+16:49	ls
+16:49	ls -la
+16:49	ls # ls
+16:50	exit
+16:50	source
+16:51	source
+16:51	exit
+16:51	source
+16:54	exit
+16:54	source
+17:7	exit
+17:12	&&
+17:12	exit
+17:12	&&
+17:16	source
+18:30	ls
+18:30	exit
+18:31	source
+18:31	# Au dessus c'est pas valide
+18:31	alias .. cd ..
+18:31	# Ici oui et on peut commenter sans pb
+18:31	
+18:31	alias l ls -la
+18:31	alias ne emacs -nw
+18:31	alias ls ls --color=auto
+18:35	m
+18:35	exit
+18:36	source
+18:36	source
+18:36	source
+18:36	exit
+18:36	source
+18:39	exit
+18:39	source
+18:50	exit
+18:53	exit
+19:0	ls
+19:0	ls > toto
+19:0	> toto ls
+19:0	cat toto
+19:1	exit
+19:16	ls
+19:16	ls
+19:16	exit
+19:17	ls
+19:17	exit
+19:19	ls
+19:19	l
+19:20	exit
+19:22	exit
+19:22	exit
+19:24	ls
+19:25	exit
+19:29	ls
+19:29	lol
+19:29	cat tmp/.42shrc
+19:29	l
+19:30	l="ls
+19:30	ne
+19:30	exit
+19:30	ne
+19:30	exit
+19:32	l
+19:32	l
+19:32	ls
+19:32	l
+19:32	ne
+19:32	exit
+19:32	ls
+19:32	l
+19:32	ls
+19:32	ne
+19:32	clear
+19:32	mal
+19:32	l
+19:32	cat
+19:33	xeit
+19:33	exit
+20:7	ls
+20:10	exit
+20:12	ls
+20:13	exit
+20:13	ls
+20:14	ne
+20:16	exit
+20:18	ne
+20:18	ne toto
+20:18	exit
+20:18	ne
+20:20	exit
+21:16	ls
+21:17	exit
+21:28	ne
+21:30	export lol mabite
+21:30	exit
+22:19	ls
+22:20	exit
+22:49	ls
+22:49	exit
+22:52	ls | grep include
+23:1	exit
+23:4	ls
+23:5	exit
+23:5	ls
+23:6	exit
+23:6	ls
+23:6	exit
+23:6	ne
+23:7	exit
+23:9	ne
+23:10	exit
+23:24	ne
+23:24	exit
+23:34	ne
+23:36	exit
+23:37	e
+23:37	ne
+23:38	exit
+23:46	ne
+23:47	exit
+23:50	ne toto
+23:52	exit
+23:52	ne toto
+23:53	exit
+23:53	ne toto
+23:54	exit
+23:54	ne toto
+23:54	exit
+23:54	ne toto
+23:54	exit
+23:54	ne toto
+23:56	exit
+23:56	ne toto
+23:57	exit
+23:58	ne toto
+23:58	l
+23:59	cat tmp/.42shrc
+23:59	ls
+23:59	clear
+23:59	cat tmp/.42shrc
+23:59	l
+23:59	ne
+23:59	ne toto
+0:0	ne toto ne
+0:0	ne toto && l
+0:0	exit
+0:1	toto
+0:2	exit
+0:2	toto
+0:2	titi
+0:3	exit
+0:6	exit
+0:6	l
+0:6	l
+0:6	ne toto
+0:6	l
+0:6	rm toto
+0:6	exit

@@ -5,7 +5,7 @@
 ## Login   <saint-_o@epitech.net>
 ##
 ## Started on  Wed May 18 04:15:48 2016 boris saint-bonnet
-## Last update Sun Jun  5 15:08:58 2016 Lucas Gambini
+## Last update Sun Jun  5 19:19:35 2016 Lucas Gambini
 ##
 
 
@@ -38,13 +38,13 @@ SRC		=	$(SRCDIR)/main.c			\
 			$(SRCDIR)/parsing/cmdtab_func.c		\
                         $(SRCDIR)/parsing/my_strtok.c		\
 			$(SRCDIR)/parsing/check_bquotes.c	\
+			$(SRCDIR)/parsing/swap_alias.c		\
 			$(SRCDIR)/parsing/simple.c		\
 			$(SRCDIR)/parsing/post_parser.c		\
 			$(SRCDIR)/parsing/scatter.c		\
 			$(SRCDIR)/parsing/check_built.c		\
 			$(SRCDIR)/parsing/string.c		\
 			$(SRCDIR)/parsing/inihb.c		\
-			$(SRCDIR)/parsing/open_bash.c		\
 			$(SRCDIR)/misc/get_next_line.c		\
 			$(SRCDIR)/misc/my_exit.c		\
 			$(SRCDIR)/misc/my_itoa.c		\
@@ -52,6 +52,7 @@ SRC		=	$(SRCDIR)/main.c			\
 			$(SRCDIR)/misc/my_strcat.c		\
 			$(SRCDIR)/misc/xmalloc.c		\
 			$(SRCDIR)/misc/xfree.c			\
+			$(SRCDIR)/misc/modular_pwd.c		\
 			$(SRCDIR)/linked_list/linked_list.c	\
 			$(SRCDIR)/linked_list/push_bash.c	\
 			$(SRCDIR)/linked_list/free_fighter.c	\

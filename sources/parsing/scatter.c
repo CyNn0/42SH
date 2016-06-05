@@ -5,7 +5,7 @@
 ** Login   <gambin_l@epitech.net>
 **
 ** Started on  Mon May 23 16:43:07 2016 Gambini Lucas
-** Last update Sun Jun 05 05:29:54 2016 Philippe Lefevre
+** Last update Sun Jun 05 19:21:21 2016 Gambini Lucas
 */
 
 #include		"42.h"
@@ -36,6 +36,7 @@ int			exec_scatter(t_list *list)
   path_to_list(list);
   while (!(list->do_exit) && tmp && tmp->cmd[0])
     {
+      tmp = swap_alias(tmp, list->myRc);
       if ((builtin = check_built(list, tmp)) == SUCCESS)
 	{
 	  free_tab(env);

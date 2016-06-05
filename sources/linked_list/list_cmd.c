@@ -5,10 +5,10 @@
 ** Login   <gambin_l@epitech.net>
 **
 ** Started on  Fri May 20 06:45:22 2016 Lucas Gambini
-** Last update Sat Jun 04 22:32:18 2016 Philippe Lefevre
+** Last update Sun Jun 05 18:50:13 2016 Gambini Lucas
 */
 
-#include		"42.h"
+# include		"42.h"
 
 t_list			*free_cmd(t_list *list)
 {
@@ -23,7 +23,8 @@ t_list			*free_cmd(t_list *list)
       free(tmp->prev);
       tmp = tmp->next;
     }
-  free(list->tail);
+  if (list->tail)
+    free(list->tail);
   list->head = NULL;
   list->tail = NULL;
   return (list);

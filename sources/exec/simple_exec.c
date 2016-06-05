@@ -5,7 +5,7 @@
 ** Login   <lefevr_h@epitech.net>
 **
 ** Started on  Mon May 23 23:00:09 2016 Philippe Lefevre
-** Last update Sun Jun 05 14:04:14 2016 Gambini Lucas
+** Last update Sun Jun 05 16:22:07 2016 Gambini Lucas
 */
 
 #include		"42.h"
@@ -91,7 +91,7 @@ char			*exec_find_path(t_path *path, char *bin)
 int			simple_exec_builtin(t_list *list, t_cmd *cmd,
 					    int	builtin)
 {
-    int			(*p[8])(t_list*, char**);
+    int			(*p[9])(t_list*, char**);
 
     p[0] = &builtin_cd;
     p[1] = &builtin_setenv;
@@ -100,7 +100,8 @@ int			simple_exec_builtin(t_list *list, t_cmd *cmd,
     p[4] = &builtin_exit;
     p[5] = &builtin_env;
     p[6] = &builtin_history;
-    p[7] = &builtin_alias;
+    p[7] = &builtin_source;
+    p[8] = &builtin_alias;
     if (p[builtin](list, cmd->cmd) == FAILURE)
       {
 	check_go_on(cmd);
