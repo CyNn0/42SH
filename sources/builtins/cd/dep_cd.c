@@ -5,7 +5,7 @@
 ** Login   <Lucas Gambini@epitech.net>
 **
 ** Started on  Fri May 27 14:23:26 2016 Gambini Lucas
-** Last update Sat Jun 04 23:17:54 2016 Philippe Lefevre
+** Last update Mon Jun  6 20:33:50 2016 boris saint-bonnet
 */
 
 #include		"42.h"
@@ -48,12 +48,12 @@ char			**my_str_to_wordtab(char *str, char caract)
 
   i = 0;
   l = 0;
-  tab = malloc((countword(str, caract) + 1) * sizeof(char*));
+  tab = xmalloc((countword(str, caract) + 1) * sizeof(char*));
   while (str[i] == caract)
     i++;
   while (str[i] != 0)
     {
-      tab[l] = malloc((current(&str[i], caract) + 1) * sizeof(char));
+      tab[l] = xmalloc((current(&str[i], caract) + 1) * sizeof(char));
       t = 0;
       while (str[i] != caract && str[i] != '\0')
 	tab[l][t++] = str[i++];

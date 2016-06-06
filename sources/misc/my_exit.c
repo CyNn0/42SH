@@ -5,10 +5,9 @@
 ** Login   <lefevr_h@epitech.net>
 **
 ** Started on  Mon May 23 19:57:19 2016 Philippe Lefevre
-** Last update Tue May 31 20:37:04 2016 Philippe Lefevre
+** Last update Mon Jun  6 19:43:33 2016 boris saint-bonnet
 */
 
-#define			_POSIX_SOURCE
 #include		"42.h"
 
 int			my_exit(int status)
