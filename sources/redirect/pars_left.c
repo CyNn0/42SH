@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 25 05:11:17 2016 boris saint-bonnet
-** Last update Mon Jun  6 19:17:01 2016 cyril puccio
+** Last update Mon Jun  6 19:27:42 2016 cyril puccio
 */
 
 # include 		"42.h"
@@ -50,7 +50,7 @@ int			error_left(t_cmd *cmd, t_red *var, int i)
       var->name = NULL;
       cmd->go_on = 0;
       return (FAILURE);
-    } 
+    }
   return (SUCCESS);
 }
 
