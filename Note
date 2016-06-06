@@ -1,3 +1,7 @@
+cat /dev/urandom | ./42sh
+
+broken pipe à chaque fois
+
 *** Error in `./42sh': free(): invalid pointer: 0x00007f8a91646c58 ***
 ==6887==
 ==6887== Process terminating with default action of signal 13 (SIGPIPE)
