@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 18 05:04:14 2016 boris saint-bonnet
-** Last update Mon Jun  6 04:46:09 2016 boris saint-bonnet
+** Last update Mon Jun 06 19:42:44 2016 Philippe Lefevre
 */
 
 #ifndef 		_PROTOTYPE_H_
@@ -22,8 +22,6 @@ char    		*check_separator(char *s);
 ** STRING
 */
 
-int			line_counters(char *str);
-int			open_history(char *s);
 int			my_strlen(char *s);
 int     		tab_lenght(char **tab);
 char			*my_strdup(char *str);
@@ -43,5 +41,7 @@ int			push_exit_value(t_list *list, int pid);
 void			xfree(void *ptr);
 void			*xmalloc(size_t size);
 void			set_pwd(char *pwd);
+int			save_history(t_list *list);
+int			open_history(t_list *list);
 
 #endif			/* !PROTOTYPE_H__ */

@@ -5,21 +5,64 @@
 ** Login   <gambin_l@epitech.net>
 **
 ** Started on  Fri May 27 14:35:49 2016 Gambini Lucas
-** Last update Fri May 27 14:36:02 2016 Gambini Lucas
+** Last update Mon Jun 06 19:50:35 2016 Philippe Lefevre
 */
 
-# include	"42.h"
+#include		"42.h"
 
-t_list		*add_history(t_list *list, char *line)
+int			open_history(t_list *list)
 {
-  t_hist	*new;
+  char			*buf;
 
+  if ((list->history = open(".42history", __HIST)) == -1)
+    return (FAILURE);
+  while ((buf = get_next_line(list->history)) != NULL)
+    {
+      list = add_history(list, buf);
+      free(buf);
+    }
+  if ((close(list->history)) == -1)
+    exit(FAILURE + 0 * fprintf(stderr, "%s\n", strerror(errno)));
+  return (SUCCESS);
+}
+
+int			save_history(t_list *list)
+{
+  t_hist		*history;
+  t_hist		*tmp;
+
+  history = list->myHist->head;
+  tmp = history;
+  if ((list->history = open(".42history", __SIMPLE)) == -1)
+    return (FAILURE);
+  while (tmp != NULL)
+    {
+      dprintf(list->history, "%s", tmp->s);
+      tmp = tmp->next;
+    }
+  if ((close(list->history)) == -1)
+    exit(FAILURE + 0 * fprintf(stderr, "%s\n", strerror(errno)));
+  return (SUCCESS);
+}
+
+t_list			*add_history(t_list *list, char *line)
+{
+  t_hist		*new;
+  struct tm		*inst;
+  time_t		sec;
+  static int		nb = -1;
+  char			*new_line;
+
+  time(&sec);
+  inst = localtime(&sec);
+  new_line = xmalloc(15 + strlen(line));
+  sprintf(new_line, "     %d\t%d:%d\t%s\n", ++nb, inst->tm_hour, inst->tm_min, line);
   if ((new = malloc(sizeof(*new))) == NULL)
     return (list);
   if (new != NULL)
     {
       if (!line || line[0] == 0 || line[0] == '\n'
-	  || (new->s = strdup(line)) == NULL)
+	  || (new->s = strdup(new_line)) == NULL)
 	return (list);
       new->next = NULL;
       if (list->myHist->tail == NULL)
@@ -35,5 +78,43 @@ t_list		*add_history(t_list *list, char *line)
 	  list->myHist->tail = new;
 	}
     }
+  free(new_line);
   return (list);
+}
+
+int			clear_history(t_list *list)
+{
+  t_hist		*tmp;
+
+  tmp = list->myHist->head;
+  while (tmp != NULL)
+    {
+      xfree(tmp->s);
+      xfree(tmp->prev);
+      tmp = tmp->next;
+    }
+  list->myHist->head = NULL;
+  list->myHist->tail = NULL;
+  return (SUCCESS);
+}
+
+int			builtin_history(t_list *list, char **cmd)
+{
+  t_hist		*history;
+  t_hist		*tmp;
+
+  if (!cmd[1])
+    {
+      history = list->myHist->head;
+      tmp = history;
+      while (tmp != NULL)
+	{
+	  printf("%s", tmp->s);
+	  tmp = tmp->next;
+	}
+      return (SUCCESS);
+    }
+  else if (cmd[1] && !(strcmp(cmd[1], "-c")))
+    return (clear_history(list));
+  return (FAILURE);
 }

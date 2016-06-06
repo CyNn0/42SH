@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 18 04:19:45 2016 boris saint-bonnet
-** Last update Mon Jun  6 04:50:15 2016 boris saint-bonnet
+** Last update Mon Jun 06 19:53:30 2016 Philippe Lefevre
 */
 
 #include		"42.h"
@@ -26,6 +26,7 @@ int			shell(char *env[])
   list = NULL;
   if ((list = my_env_in_list(list, env)) == NULL)
     return (FAILURE);
+  open_history(list);
   path_to_list(list);
   list->do_exit = 0;
   list->value_exit = 0;
@@ -34,7 +35,6 @@ int			shell(char *env[])
   print_prompt(list);
   while (!(list->do_exit) && (buffer = get_next_line(0)))
     {
-      open_history(buffer);
       list = add_history(list, buffer);
       if ((list = get_cmd(list, pre_check(buffer, list))) == NULL)
 	continue;

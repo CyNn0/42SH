@@ -91,9 +91,6 @@ SRC		=	$(SRCDIR)/main.c				\
 			$(SRCDIR)/builtins/alias.c			\
 			$(SRCDIR)/builtins/my_swap.c			\
 			$(SRCDIR)/pipe/pipe.c				\
-			$(SRCDIR)/history/add_to_file.c			\
-			$(SRCDIR)/history/show_history.c		\
-			$(SRCDIR)/history/print_history.c		\
 			$(SRCDIR)/globbing/globbing.c
 
 OBJ		=	$(SRC:.c=.o)
