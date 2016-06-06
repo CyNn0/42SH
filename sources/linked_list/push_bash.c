@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Tue May 31 17:23:41 2016 boris saint-bonnet
-** Last update Sun Jun 05 14:02:36 2016 Gambini Lucas
+** Last update Mon Jun 06 19:07:49 2016 Gambini Lucas
 */
 
 # include		"42.h"
@@ -18,9 +18,8 @@ t_bash			*push_bash(t_bash *list, char *data, char *name)
     return (NULL);
   if (list != NULL && node != NULL)
     {
-      if (data && (node->data = strdup(data)) == NULL)
-	return (list);
-      if (name && (node->name = strdup(name)) == NULL)
+      if ((data && (node->data = strdup(data)) == NULL)
+	|| (name && (node->name = strdup(name)) == NULL))
 	return (list);
       node->next = NULL;
       node->p = false;
