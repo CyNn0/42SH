@@ -5,7 +5,7 @@
 ** Login   <lefevr_h@epitech.net>
 **
 ** Started on  Mon Jun 06 20:41:33 2016 Philippe Lefevre
-** Last update Mon Jun 06 21:06:54 2016 Philippe Lefevre
+** Last update Mon Jun 06 21:12:13 2016 Philippe Lefevre
 */
 
 #include		"42.h"
@@ -84,13 +84,14 @@ t_list			*add_history(t_list *list, char *line)
   inst = localtime(&sec);
   new_line = xmalloc(16 + strlen(line));
   memset(new_line, '\0', 16 + strlen(line));
-  sprintf(new_line, "     %d\t%d:%d\t%s\n", ++nb, inst->tm_hour, inst->tm_min, line);
+  sprintf(new_line, "     %d\t%d:%d\t%s\n", ++nb, inst->tm_hour,
+	  inst->tm_min, line);
   if ((new = malloc(sizeof(*new))) == NULL)
     return (list);
   if (new != NULL)
     {
       if (!line || line[0] == 0 || line[0] == '\n'
-	  || (new->s = strdup(new_line)) == NULL)
+	  || (new->s = new_line) == NULL)
 	return (list);
       new->next = NULL;
       if (list->myHist->tail == NULL)
@@ -106,7 +107,6 @@ t_list			*add_history(t_list *list, char *line)
 	  list->myHist->tail = new;
 	}
     }
-  free(new_line);
   return (list);
 }
 
