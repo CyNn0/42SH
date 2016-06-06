@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 18 04:22:31 2016 boris saint-bonnet
-** Last update Mon Jun 06 21:26:07 2016 Philippe Lefevre
+** Last update Mon Jun 06 21:44:21 2016 Philippe Lefevre
 */
 
 #ifndef			_LINKED_LIST_H_
@@ -173,5 +173,8 @@ int			normal_scatter(t_cmd *cmd, char **env,
 int			builtin_env(t_list *list, char **cmd);
 int                     builtin_history(t_list *list, char **cmd);
 int			bash_in_list(t_list *list);
+char			*hist_save_path(t_list *list);
+int			open_history(t_list *list);
+int			save_history(t_list *list);
 
 #endif			/* !__LINKED_LIST_H__ */

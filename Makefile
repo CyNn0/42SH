@@ -57,6 +57,7 @@ SRC		=	$(SRCDIR)/main.c				\
 			$(SRCDIR)/linked_list/free_fighter.c		\
 			$(SRCDIR)/linked_list/list_cmd.c		\
 			$(SRCDIR)/linked_list/history.c			\
+			$(SRCDIR)/linked_list/history_init.c		\
 			$(SRCDIR)/linked_list/push_variable.c		\
 			$(SRCDIR)/linked_list/del_link.c		\
 			$(SRCDIR)/linked_list/for_prompt.c		\
@@ -112,7 +113,6 @@ clean		:
 
 fclean		:	clean
 			@$(RM) $(NAME)
-			@$(RM) tmp/.42history
 
 re		:	fclean all
 
