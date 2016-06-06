@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 18 04:19:45 2016 boris saint-bonnet
-** Last update Mon Jun  6 20:33:28 2016 Lucas Gambini
+** Last update Mon Jun 06 21:06:57 2016 Philippe Lefevre
 */
 
 #include		"42.h"
@@ -17,16 +17,6 @@ void			get_sigint(int sig)
   dprintf(0, "%s", get_pwd());
 }
 
-void			init_shell(t_list *list)
-{
-  path_to_list(list);
-  list->do_exit = 0;
-  list->value_exit = 0;
-  signal(SIGINT, get_sigint);
-  builtin_source(list, NULL);
-  print_prompt(list);
-}
-
 int			shell(char *env[])
 {
   char			*buffer;
@@ -36,8 +26,13 @@ int			shell(char *env[])
   list = NULL;
   if ((list = my_env_in_list(list, env)) == NULL)
     return (FAILURE);
-  init_shell(list);
   /*open_history(list);*/
+  path_to_list(list);
+  list->do_exit = 0;
+  list->value_exit = 0;
+  signal(SIGINT, get_sigint);
+  builtin_source(list, NULL);
+  print_prompt(list);
   while (!(list->do_exit) && (buffer = get_next_line(0)))
     {
       list = add_history(list, buffer);

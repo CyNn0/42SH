@@ -5,7 +5,7 @@
 ** Login   <lefevr_h@epitech.net>
 **
 ** Started on  Mon Jun 06 20:41:33 2016 Philippe Lefevre
-** Last update Mon Jun 06 21:01:28 2016 Philippe Lefevre
+** Last update Mon Jun 06 21:06:54 2016 Philippe Lefevre
 */
 
 #include		"42.h"
@@ -26,7 +26,6 @@ char			*hist_save_path(t_list *list)
           save = strcat(save, "/");
 	  save = strcat(save, ".42history");
 	  save[strlen(tmp->data) + 11] = '\0';
-	  printf("{{{{%s}}}}\n", save);
 	  return (save);
 	}
       tmp = tmp->next;
