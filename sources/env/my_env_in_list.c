@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Thu May 19 19:23:14 2016 boris saint-bonnet
-** Last update Mon Jun 06 17:05:21 2016 Gambini Lucas
+** Last update Mon Jun 06 17:06:49 2016 Gambini Lucas
 */
 
 #include	"42.h"
@@ -78,7 +78,7 @@ t_list		*my_env_in_list(t_list *list, char **env)
   while (env[++i])
     {
       j = get_name(env[i]);
-      name = xmalloc((j + 1) * sizeof(char)));
+      name = xmalloc((j + 1) * sizeof(char));
       name[j] = '\0';
       name = strncpy(name, env[i], j);
       data = strdup(env[i] + (j + 1));
