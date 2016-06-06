@@ -5,7 +5,7 @@
 ** Login   <gambin_l@epitech.net>
 **
 ** Started on  Fri May 20 06:45:22 2016 Lucas Gambini
-** Last update Mon Jun 06 00:09:40 2016 Gambini Lucas
+** Last update Mon Jun 06 02:09:53 2016 Gambini Lucas
 */
 
 # include		"42.h"
@@ -16,10 +16,10 @@ t_list			*free_cmd(t_list *list)
 
   if (list->head == NULL || list->tail == NULL)
     return (list);
-  tmp = list->head;
+  tmp = list->head->next;
   while (tmp != NULL)
     {
-      free_tab(tmp->cmd);
+      free_tab(tmp->prev->cmd);
       xfree(tmp->prev);
       tmp = tmp->next;
     }
