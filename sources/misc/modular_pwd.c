@@ -5,7 +5,7 @@
 ** Login   <Lucas Gambini@epitech.net>
 **
 ** Started on  Sun Jun 05 17:29:44 2016 Gambini Lucas
-** Last update Sun Jun 05 17:34:14 2016 Gambini Lucas
+** Last update Mon Jun  6 04:52:40 2016 boris saint-bonnet
 */
 
 # include		"42.h"
@@ -14,7 +14,7 @@ char			*modular_pwd(char boolean, char *new_pwd)
 {
   static char		*pwd = NULL;
 
-  if (boolean && pwd)
+  if (boolean && new_pwd)
     {
       if (pwd != NULL)
 	free(pwd);

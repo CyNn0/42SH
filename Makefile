@@ -5,7 +5,7 @@
 ## Login   <saint-_o@epitech.net>
 ##
 ## Started on  Wed May 18 04:15:48 2016 boris saint-bonnet
-## Last update Sun Jun  5 19:13:20 2016 Philippe Lefevre
+## Last update Mon Jun  6 04:21:03 2016 boris saint-bonnet
 ##
 
 
@@ -46,6 +46,7 @@ SRC		=	$(SRCDIR)/main.c				\
 			$(SRCDIR)/parsing/inihb.c			\
 			$(SRCDIR)/misc/get_next_line.c			\
 			$(SRCDIR)/misc/my_exit.c			\
+			$(SRCDIR)/misc/modular_pwd.c			\
 			$(SRCDIR)/misc/my_itoa.c			\
 			$(SRCDIR)/misc/my_atoi.c			\
 			$(SRCDIR)/misc/my_strcat.c			\

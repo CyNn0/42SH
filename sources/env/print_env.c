@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Thu May 19 18:58:06 2016 boris saint-bonnet
-** Last update Sun Jun 05 14:54:56 2016 Gambini Lucas
+** Last update Mon Jun  6 04:42:18 2016 boris saint-bonnet
 */
 
 #include		"42.h"
@@ -33,21 +33,23 @@ int			print_prompt(t_list *list)
 {
   char			*dirname;
   char			*ptr_user;
-
+  char			*prompt;
+  
   if (isatty(0) != 1)
     return (FAILURE);
-  dirname = get_current_dir_name();
-  ptr_user = find_user(list, "USER");
-  write(1, GREEN, strlen(CYAN));
-  if (ptr_user != NULL)
-    {
-      write(1, ptr_user, strlen(ptr_user));
-      write(1, ":", 1);
-  }
-  write(1, CYAN, strlen(CYAN));
-  write(1, dirname, strlen(dirname));
-  write(1, " ", 1);
-  write(1, DEFAULT, strlen(DEFAULT));
+  if ((dirname = get_current_dir_name()) == NULL)
+    dirname = "PWD";
+  if ((ptr_user = find_user(list, "USER")) == NULL)
+    ptr_user = "USER";
+  if ((prompt = malloc((strlen(ptr_user) + strlen(dirname) + strlen(GREEN) +
+			strlen(DEFAULT) + strlen(CYAN) + 4) * sizeof(char))) == NULL)
+    return (FAILURE);
+  memset(prompt, '\0', (strlen(ptr_user) + strlen(dirname) + strlen(GREEN) +
+			strlen(DEFAULT) + strlen(CYAN) + 4));
+  sprintf(prompt, "%s%s:%s%s %s", GREEN, ptr_user, CYAN, dirname, DEFAULT);
+  set_pwd(prompt);
+  write(1, prompt, strlen(prompt));
   xfree(dirname);
+  xfree(prompt);
   return (SUCCESS);
 }

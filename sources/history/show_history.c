@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 ** 
 ** Started on  Sat Jun  4 15:11:03 2016 boris saint-bonnet
-** Last update Sun Jun  5 03:27:04 2016 boris saint-bonnet
+** Last update Mon Jun  6 01:43:18 2016 boris saint-bonnet
 */
 
 #include	"42.h"
@@ -113,7 +113,7 @@ int	        builtin_history(t_list *list, char **cmd)
     {
       tmp = atoi(cmd[1]);
       i = (tab_lenght(hist) - tmp);
-      while (hist[i + 1])
+      while (hist[i] && hist[i + 1])
 	{
 	  printf("%d %s\n", i, hist[i]);
 	  i++;

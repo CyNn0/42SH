@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 18 04:19:45 2016 boris saint-bonnet
-** Last update Mon Jun 06 01:22:38 2016 Philippe Lefevre
+** Last update Mon Jun  6 04:50:15 2016 boris saint-bonnet
 */
 
 #include		"42.h"
@@ -14,6 +14,7 @@ void			get_sigint(int sig)
 {
   (void)sig;
   write(1, "\n", 1);
+  dprintf(0, "%s", get_pwd());
 }
 
 int			shell(char *env[])
