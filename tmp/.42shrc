@@ -1,5 +1,8 @@
 alias l ls -la
+alias ll ls -l
 alias ls ls --color
 alias la ls -la 
+alias emacs emacs -nw
+alias ne emacs
 alias salut toto
 alias toto salut
