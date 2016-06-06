@@ -5,24 +5,28 @@
 ** Login   <gambin_l@epitech.net>
 **
 ** Started on  Fri May 27 14:35:49 2016 Gambini Lucas
-** Last update Mon Jun 06 19:59:09 2016 Philippe Lefevre
+** Last update Mon Jun 06 20:20:33 2016 Philippe Lefevre
 */
 
 #include		"42.h"
 
+int			secure_path()
+{
+
+}
 int			open_history(t_list *list)
 {
   char			*buf;
+  int			fd;
 
-  if ((list->history = open(".42history", __HIST)) == -1)
+  if ((fd = open(".42history", __HIST)) == -1)
     return (FAILURE);
-  while ((buf = get_next_line(list->history)) != NULL)
+  while ((buf = get_next_line(fd)) != NULL)
     {
       list = add_history(list, buf);
       free(buf);
     }
-  if ((close(list->history)) == -1)
-    exit(FAILURE + 0 * fprintf(stderr, "%s\n", strerror(errno)));
+  close(fd);
   return (SUCCESS);
 }
 
@@ -30,18 +34,18 @@ int			save_history(t_list *list)
 {
   t_hist		*history;
   t_hist		*tmp;
+  int			fd;
 
   history = list->myHist->head;
   tmp = history;
-  if ((list->history = open(".42history", __SIMPLE)) == -1)
+  if ((fd = open(".42history", __HISTC)) == -1)
     return (FAILURE);
   while (tmp != NULL)
     {
-      dprintf(list->history, "%s", tmp->s);
+      dprintf(fd, "%s", tmp->s);
       tmp = tmp->next;
     }
-  if ((close(list->history)) == -1)
-    exit(FAILURE + 0 * fprintf(stderr, "%s\n", strerror(errno)));
+  close(fd);
   return (SUCCESS);
 }
 
@@ -50,7 +54,7 @@ t_list			*add_history(t_list *list, char *line)
   t_hist		*new;
   struct tm		*inst;
   time_t		sec;
-  static int		nb = -1;
+  static int		nb = 0;
   char			*new_line;
 
   time(&sec);

@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 18 04:20:11 2016 boris saint-bonnet
-** Last update Mon Jun 06 17:48:51 2016 Gambini Lucas
+** Last update Mon Jun 06 20:16:37 2016 Philippe Lefevre
 */
 
 #ifndef			_42_H_
@@ -57,8 +57,8 @@
 # define		__RIGHT		S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH
 # define 		__SIMPLE	O_WRONLY | O_CREAT | O_TRUNC, __RIGHT
 # define 		__DOUBLE	O_WRONLY | O_CREAT | O_APPEND, __RIGHT
-# define		__HIST		O_RDWR | O_CREAT | O_APPEND, __RIGHT
-# define		__HISTC		O_RDWR | O_CREAT | O_TRUNC, __RIGHT
+# define		__HIST		O_RDONLY
+# define		__HISTC		O_TRUNC | O_WRONLY | O_CREAT, __RIGHT
 
 /*
 ** STRUCTURES
