@@ -15,3 +15,5 @@ Erreur dans double_right.c a la ligne 23 : chaine de plus de 80 caracteres
 Erreur dans simple_right.c a la ligne 27 : chaine de plus de 80 caracteres
 Erreur dans pars_right.c a la ligne 63 : fonction de plus de 25 lignes
 Erreur dans pars_right.c a la ligne 127 : fonction de plus de 25 lignes
+
+salut
