@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Tue May 31 19:56:35 2016 boris saint-bonnet
-** Last update Mon Jun  6 01:54:41 2016 boris saint-bonnet
+** Last update Mon Jun  6 12:46:35 2016 cyril puccio
 */
 
 #include		"42.h"
@@ -89,7 +89,7 @@ char			*replace_variable(char *str, t_list *list)
   int			i;
 
   i = -1;
-  
+
   if (check_variable(str) == FAILURE)
     return (str);
   tmp = simples_v(str, '$');

@@ -5,7 +5,7 @@
 ** Login   <gambin_l@epitech.net>
 **
 ** Started on  Fri May 20 04:39:28 2016 Lucas Gambini
-** Last update Sun Jun 05 05:18:02 2016 Philippe Lefevre
+** Last update Mon Jun 06 01:42:49 2016 Gambini Lucas
 */
 
 #include	"42.h"
@@ -67,6 +67,7 @@ void		free_fighter(t_list *list)
   free_env(list);
   free_path(list);
   free_hist(list);
+  free_alias(list);
   close(list->history);
   xfree(list);
 }

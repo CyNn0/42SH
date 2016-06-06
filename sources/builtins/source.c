@@ -5,7 +5,7 @@
 ** Login   <Lucas Gambini@epitech.net>
 **
 ** Started on  Sat Jun 04 20:56:01 2016 Gambini Lucas
-** Last update Sun Jun 05 19:18:30 2016 Gambini Lucas
+** Last update Mon Jun 06 02:36:24 2016 Gambini Lucas
 */
 
 # include		"42.h"
@@ -14,6 +14,8 @@ int			free_alias(t_list *list)
 {
   t_node		*tmp;
 
+  if (!list->myRc->head)
+    return (FAILURE);
   if (list->myRc->head->next)
     tmp = list->myRc->head->next;
   else
@@ -53,6 +55,7 @@ int			builtin_source(t_list *list, char **cmd)
       exec_scatter(list);
       list = free_cmd(list);
     }
+  list = free_cmd(list);
   close(fd);
   return (SUCCESS);
 }

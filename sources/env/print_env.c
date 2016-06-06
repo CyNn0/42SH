@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Thu May 19 18:58:06 2016 boris saint-bonnet
-** Last update Mon Jun  6 04:42:18 2016 boris saint-bonnet
+** Last update Mon Jun  6 12:58:12 2016 cyril puccio
 */
 
 #include		"42.h"
@@ -34,7 +34,7 @@ int			print_prompt(t_list *list)
   char			*dirname;
   char			*ptr_user;
   char			*prompt;
-  
+
   if (isatty(0) != 1)
     return (FAILURE);
   if ((dirname = get_current_dir_name()) == NULL)

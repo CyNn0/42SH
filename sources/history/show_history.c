@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 ** 
 ** Started on  Sat Jun  4 15:11:03 2016 boris saint-bonnet
-** Last update Mon Jun  6 01:43:18 2016 boris saint-bonnet
+** Last update Mon Jun  6 13:42:02 2016 cyril puccio
 */
 
 #include	"42.h"
@@ -48,7 +48,7 @@ char            **my_linetab(char *str, int i, int j)
       tab[i++][k] = 0;
       j++;
     }
-  tab[i] = 0;
+  tab[i] = NULL;
   return (tab);
 }
 
@@ -83,6 +83,7 @@ int		check_clear(char **cmd)
       if ((fd = open("tmp/.42history", __HISTC)) == -1)
 	return (FAILURE);
       open_history(cmd[0]);
+      close(fd);
     }
   else
     {
@@ -95,30 +96,23 @@ int		check_clear(char **cmd)
 int	        builtin_history(t_list *list, char **cmd)
 {
   char		**hist;
-  int		i;
   int		tmp;
   int		fd;
-  
-  if((fd = open("tmp/.42history", __HIST)) == -1)
+
+  if ((fd = open("tmp/.42history", __HIST)) == -1)
     return (FAILURE);
-  i = -1;
   list = list;
   if (check_clear(cmd) == SUCCESS)
     return (SUCCESS);
   hist = file_to_tab(fd);
   if (!cmd[1])
-    while (hist[++i + 1])
-      printf("%d %s\n", i, hist[i]);
+    print_history(hist);
   else if (cmd[1] && (strcmp(cmd[1], "-c")) != 0)
     {
-      tmp = atoi(cmd[1]);
-      i = (tab_lenght(hist) - tmp);
-      while (hist[i] && hist[i + 1])
-	{
-	  printf("%d %s\n", i, hist[i]);
-	  i++;
-	}
+      tmp = my_atoi(cmd[1]);
+      printx_history(hist, tmp);
     }
   free_tab(hist);
+  close(fd);
   return (SUCCESS);
 }

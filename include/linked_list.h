@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 18 04:22:31 2016 boris saint-bonnet
-** Last update Mon Jun 06 06:34:23 2016 Philippe Lefevre
+** Last update Mon Jun  6 09:40:55 2016 boris saint-bonnet
 */
 
 #ifndef			_LINKED_LIST_H_
@@ -35,7 +35,7 @@ typedef struct          s_node
   char			*name;
   char			*data;
   int			value_exit;
-  bool			p;
+  int			p;
   char			god;
   struct s_node		*prev;
   struct s_node		*next;
@@ -114,6 +114,7 @@ typedef struct		s_red
   int			is_builtin;
 }			t_red;
 
+t_cmd                   *ret_cmd(t_cmd *cmd, char **tab);
 t_red			parsing_sr(char **cmd);
 t_red			parsing_dr(char **cmd);
 t_list			*create_list(t_list *list);
