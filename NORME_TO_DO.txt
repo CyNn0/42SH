@@ -1,9 +1,13 @@
 Options de debug dans le Makefile
 Erreur dans check_built.c a la ligne 40 : fonction de plus de 25 lignes
 Erreur dans scatter.c a la ligne 57 : fonction de plus de 25 lignes
-Erreur dans history.c a la ligne 59 : chaine de plus de 80 caracteres
+Erreur dans history.c a la ligne 60 : chaine de plus de 80 caracteres
 Erreur dans history.c a la ligne 75 : fonction de plus de 25 lignes
 Erreur dans globbing.c a la ligne 78 : fonction de plus de 25 lignes
 Erreur dans simple_exec.c a la ligne 54 : fonction de plus de 25 lignes
+Erreur dans main.c a la ligne 29 : point-virgule ou virgule mal place
+Erreur dans main.c a la ligne 29 : Commentaires dans le code
 Erreur dans main.c a la ligne 47 : fonction de plus de 25 lignes
+Erreur dans main.c a la ligne 47 : point-virgule ou virgule mal place
+Erreur dans main.c a la ligne 47 : Commentaires dans le code
 Erreur dans double_left.c a la ligne 84 : fonction de plus de 25 lignes
