@@ -5,7 +5,7 @@
 ** Login   <lefevr_h@epitech.net>
 **
 ** Started on  Mon Jun 06 20:41:33 2016 Philippe Lefevre
-** Last update Mon Jun 06 21:12:13 2016 Philippe Lefevre
+** Last update Mon Jun 06 21:35:31 2016 Philippe Lefevre
 */
 
 #include		"42.h"
@@ -43,7 +43,7 @@ int			open_history(t_list *list)
     return (FAILURE);
   while ((buf = get_next_line(fd)) != NULL)
     {
-      list = add_history(list, buf);
+      list = add_history(list, buf, 0);
       free(buf);
     }
   close(fd);
@@ -70,7 +70,7 @@ int			save_history(t_list *list)
   return (SUCCESS);
 }
 
-t_list			*add_history(t_list *list, char *line)
+t_list			*add_history(t_list *list, char *line, int status)
 {
   t_hist		*new;
   struct tm		*inst;
@@ -80,18 +80,28 @@ t_list			*add_history(t_list *list, char *line)
 
   if (line[0] == '\0')
     return (list);
-  time(&sec);
-  inst = localtime(&sec);
-  new_line = xmalloc(16 + strlen(line));
-  memset(new_line, '\0', 16 + strlen(line));
-  sprintf(new_line, "     %d\t%d:%d\t%s\n", ++nb, inst->tm_hour,
-	  inst->tm_min, line);
+  if (status)
+    {
+      time(&sec);
+      inst = localtime(&sec);
+      new_line = xmalloc(16 + strlen(line));
+      memset(new_line, '\0', 16 + strlen(line));
+      sprintf(new_line, "     %d\t%d:%d\t%s\n", ++nb, inst->tm_hour,
+	      inst->tm_min, line);
+    }
+  else
+    {
+      new_line = xmalloc(strlen(line) + 2);
+      new_line = strcpy(new_line, line);
+      new_line = strcat(new_line, "\n\0");
+      nb++;
+    }
   if ((new = malloc(sizeof(*new))) == NULL)
     return (list);
   if (new != NULL)
     {
       if (!line || line[0] == 0 || line[0] == '\n'
-	  || (new->s = new_line) == NULL)
+	  || ((new->s = new_line) == NULL))
 	return (list);
       new->next = NULL;
       if (list->myHist->tail == NULL)
