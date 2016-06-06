@@ -5,7 +5,7 @@
 ** Login   <gambin_l@epitech.net>
 **
 ** Started on  Mon May 23 16:43:07 2016 Gambini Lucas
-** Last update Sun Jun 05 19:21:21 2016 Gambini Lucas
+** Last update Mon Jun 06 02:15:46 2016 Philippe Lefevre
 */
 
 #include		"42.h"
@@ -28,7 +28,6 @@ int			exec_scatter(t_list *list)
 {
   char			**env;
   t_cmd			*tmp;
-  int			builtin;
 
   tmp = list->head;
   free_path(list);
@@ -37,11 +36,6 @@ int			exec_scatter(t_list *list)
   while (!(list->do_exit) && tmp && tmp->cmd[0])
     {
       tmp = swap_alias(tmp, list->myRc);
-      if ((builtin = check_built(list, tmp)) == SUCCESS)
-	{
-	  free_tab(env);
-	  return (SUCCESS);
-	}
       if (tmp->go_on == 1)
 	{
 	  if (tmp->token == PIPE)
@@ -53,7 +47,7 @@ int			exec_scatter(t_list *list)
 		}
 	    }
 	  else
-	    normal_scatter(tmp, env, list, builtin - 20);
+	    normal_scatter(tmp, env, list, -20);
 	}
       tmp = tmp->next;
     }

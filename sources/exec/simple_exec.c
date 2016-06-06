@@ -5,7 +5,7 @@
 ** Login   <lefevr_h@epitech.net>
 **
 ** Started on  Mon May 23 23:00:09 2016 Philippe Lefevre
-** Last update Mon Jun 06 00:10:28 2016 Gambini Lucas
+** Last update Mon Jun 06 03:07:11 2016 Philippe Lefevre
 */
 
 #include		"42.h"
@@ -107,7 +107,8 @@ int			simple_exec_builtin(t_list *list, t_cmd *cmd,
 	check_go_on(cmd);
 	return (FAILURE);
       }
-    list->value_exit = 0;
+    if (builtin != 4)
+      list->value_exit = 0;
     return (SUCCESS);
 }
 
@@ -118,15 +119,15 @@ int			simple_exec(t_cmd *cmd, t_list *list,
   struct stat		sb;
 
   list->value_exit = 1;
-  if (builtin >= 0)
-    return (simple_exec_builtin(list, cmd, builtin));
+  if ((builtin += check_built(list, cmd)) >= 0)
+	return (simple_exec_builtin(list, cmd, builtin));
   if (list->path->head && list->path->head->data != NULL)
 	{
 	  if ((cmd->cmd[0] = exec_find_path(list->path, cmd->cmd[0])) == NULL)
 	    return (FAILURE);
 	}
       stat(cmd->cmd[0], &sb);
-      if (!(access(cmd->cmd[0], X_OK)) && (S_ISREG(sb.st_mode)))
+      if ((S_ISREG(sb.st_mode)) && (!(access(cmd->cmd[0], X_OK)) || (cmd->cmd[0][0] == '.' && cmd->cmd[0][1] == '/')))
 	{
 	  if ((pid = fork()) == -1)
 	    fprintf(stderr, "%s\n", strerror(errno));
@@ -136,12 +137,10 @@ int			simple_exec(t_cmd *cmd, t_list *list,
 	      fprintf(stderr, "%s: %s\n", cmd->cmd[0], strerror(errno));
 	      my_exit(FAILURE);
 	    }
+	  list->value_exit = 0;
 	  return (push_exit_value(list, pid));
 	}
   fprintf(stderr, "%s: Command not found.\n", cmd->cmd[0]);
-  list->value_exit = 1;
-  if (cmd->token == PIPE)
-    my_exit(1);
   check_go_on(cmd);
   return (FAILURE);
 }

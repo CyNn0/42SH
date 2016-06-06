@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Thu May 19 18:53:01 2016 boris saint-bonnet
-** Last update Sun Jun 05 15:01:30 2016 Gambini Lucas
+** Last update Mon Jun 06 02:55:53 2016 Philippe Lefevre
 */
 
 #include	"42.h"
@@ -22,8 +22,7 @@ t_list		*create_list(t_list *list)
     return (NULL);
   if ((list->myRc = malloc(sizeof(struct s_bash))) == NULL)
     return (NULL);
-  if ((list->history = open("tmp/.42history", __DOUBLE)) == -1)
-    fprintf(stderr, "%s\n", strerror(errno));
+  list->history = open("tmp/.42history", __DOUBLE);
   list->myEnv->head = NULL;
   list->myEnv->tail = NULL;
   list->myHist->head = NULL;

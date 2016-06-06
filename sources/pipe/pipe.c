@@ -5,7 +5,7 @@
 ** Login   <lefevr_h@epitech.net>
 **
 ** Started on  Mon May 23 19:04:26 2016 Philippe Lefevre
-** Last update Sun Jun 05 18:49:50 2016 Philippe Lefevre
+** Last update Mon Jun 06 01:05:07 2016 Philippe Lefevre
 */
 
 #include		"42.h"
@@ -37,7 +37,7 @@ int			exec_pipe(t_cmd *cmd, t_list *list, char **env,
 
   if (((cmd->fd = malloc(sizeof(int) * 2)) == NULL)
       || ((pipe(cmd->fd) == -1) || ((pid = fork()) == -1)))
-    my_exit(fprintf(stderr, "Error: %s\n", strerror(errno)) * 0 + FAILURE);
+    my_exit(fprintf(stderr, "%s\n", strerror(errno)) * 0 + FAILURE);
   else if (pid == 0)
     {
       if (count[0] != 0)

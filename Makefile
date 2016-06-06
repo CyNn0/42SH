@@ -85,12 +85,12 @@ SRC		=	$(SRCDIR)/main.c				\
 			$(SRCDIR)/builtins/source.c			\
 			$(SRCDIR)/builtins/cd/cd.c			\
 			$(SRCDIR)/builtins/cd/dep_cd.c			\
-			$(SRCDIR)/builtins/swap_alias.c		\
+			$(SRCDIR)/builtins/swap_alias.c			\
 			$(SRCDIR)/builtins/alias.c			\
 			$(SRCDIR)/pipe/pipe.c				\
 			$(SRCDIR)/history/add_to_file.c			\
 			$(SRCDIR)/history/show_history.c		\
-			$(SRCDIR)/globbing/globbing.c		\
+			$(SRCDIR)/globbing/globbing.c
 
 OBJ		=	$(SRC:.c=.o)
 
