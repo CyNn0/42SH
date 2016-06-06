@@ -5,10 +5,10 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Tue May 24 21:31:11 2016 boris saint-bonnet
-** Last update Mon Jun 06 06:54:18 2016 Philippe Lefevre
+** Last update Mon Jun  6 19:37:26 2016 cyril puccio
 */
 
-#include		"42.h"
+# include		"42.h"
 
 int			dep_init_var(char **cmd, t_red *var, int *i, int *j)
 {
@@ -33,6 +33,25 @@ int			dep_init_var(char **cmd, t_red *var, int *i, int *j)
   return (SUCCESS);
 }
 
+int                     error_right(t_cmd *cmd, t_red *var, int i)
+{
+  if (i == 0)
+    {
+      fprintf(stderr, "Invalid null command.\n");
+      var->cmd = NULL;
+      cmd->go_on = 0;
+      return (FAILURE);
+    }
+  else if (!(cmd->cmd[i + 1]))
+    {
+      fprintf(stderr, "Missing name for redirect.\n");
+      var->name = NULL;
+      cmd->go_on = 0;
+      return (FAILURE);
+    }
+  return (SUCCESS);
+}
+
 void			init_var(t_cmd *cmd, t_red *var)
 {
   char			**swap;
@@ -48,20 +67,8 @@ void			init_var(t_cmd *cmd, t_red *var)
     {
       if ((strcmp(cmd->cmd[i], ">")) == 0)
 	{
-	  if (i == 0)
-	    {
-	      fprintf(stderr, "Invalid null command.\n");
-              var->cmd = NULL;
-	      cmd->go_on = 0;
-	      return;
-	    }
-	  else if (!(cmd->cmd[i + 1]))
-	    {
-	      fprintf(stderr, "Missing name for redirect.\n");
-	      var->name = NULL;
-              cmd->go_on = 0;
-	      return;
-	    }
+	  if (error_right(cmd, var, i) == FAILURE)
+            return;
 	  var->name = strdup(cmd->cmd[++i]);
 	  if (dep_init_var(cmd->cmd, var, &i, &j) == FAILURE)
 	    break;
@@ -112,20 +119,8 @@ void            	init_double(t_cmd *cmd, t_red *var)
     {
       if ((strcmp(cmd->cmd[i], ">>")) == 0)
 	{
-          if (i == 0)
-	    {
-	      fprintf(stderr, "Invalid null command.\n");
-	      var->cmd = NULL;
-              cmd->go_on = 0;
-	      return;
-	    }
-	  else if (!(cmd->cmd[i + 1]))
-	    {
-    	      fprintf(stderr, "Missing name for redirect\n");
-    	      var->name = NULL;
-              cmd->go_on = 0;
-    	      return;
-    	    }
+	  if (error_right(cmd, var, i) == FAILURE)
+            return;
 	  var->name = strdup(cmd->cmd[++i]);
 	  if (dep_init_db_var(cmd->cmd, var, &i, &j) == FAILURE)
 	    break;
@@ -134,13 +129,4 @@ void            	init_double(t_cmd *cmd, t_red *var)
   swap = cmd->cmd;
   cmd->cmd = var->cmd;
   var->cmd = swap;
-}
-
-int             tab_lenght(char **tab)
-{
-  int           i;
-
-  i = -1;
-  while (tab[++i]);
-  return (i);
 }
