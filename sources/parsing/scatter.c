@@ -5,7 +5,7 @@
 ** Login   <gambin_l@epitech.net>
 **
 ** Started on  Mon May 23 16:43:07 2016 Gambini Lucas
-** Last update Mon Jun 06 02:15:46 2016 Philippe Lefevre
+** Last update Mon Jun 06 04:16:27 2016 Philippe Lefevre
 */
 
 #include		"42.h"
@@ -13,6 +13,7 @@
 int			normal_scatter(t_cmd *cmd, char **env,
 				       t_list *list, int builtin)
 {
+  cmd = swap_alias(cmd, list->myRc);
   return ((cmd->flag == SIMPLE_R)
 	   ? (simple_right(cmd, list, env, builtin))
 	   : ((cmd->flag == SIMPLE_L)
@@ -35,7 +36,6 @@ int			exec_scatter(t_list *list)
   path_to_list(list);
   while (!(list->do_exit) && tmp && tmp->cmd[0])
     {
-      tmp = swap_alias(tmp, list->myRc);
       if (tmp->go_on == 1)
 	{
 	  if (tmp->token == PIPE)

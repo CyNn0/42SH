@@ -5,12 +5,12 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Tue May 24 21:31:11 2016 boris saint-bonnet
-** Last update Mon Jun 06 03:48:15 2016 Philippe Lefevre
+** Last update Mon Jun 06 06:54:18 2016 Philippe Lefevre
 */
 
-#include	"42.h"
+#include		"42.h"
 
-int		dep_init_var(char **cmd, t_red *var, int *i, int *j)
+int			dep_init_var(char **cmd, t_red *var, int *i, int *j)
 {
   if (*i == 1)
     {
@@ -33,11 +33,11 @@ int		dep_init_var(char **cmd, t_red *var, int *i, int *j)
   return (SUCCESS);
 }
 
-void            init_var(t_cmd *cmd, t_red *var)
+void			init_var(t_cmd *cmd, t_red *var)
 {
-  char		**swap;
-  int           i;
-  int           j;
+  char			**swap;
+  int			i;
+  int			j;
 
   i = -1;
   j = 1;
@@ -48,10 +48,18 @@ void            init_var(t_cmd *cmd, t_red *var)
     {
       if ((strcmp(cmd->cmd[i], ">")) == 0)
 	{
-	  if (!(cmd->cmd[i + 1]))
+	  if (i == 0)
 	    {
-	      fprintf(stderr, "Error: parsing nears '%c'\n", cmd->cmd[i][0]);
+	      fprintf(stderr, "Invalid null command.\n");
+              var->cmd = NULL;
+	      cmd->go_on = 0;
+	      return;
+	    }
+	  else if (!(cmd->cmd[i + 1]))
+	    {
+	      fprintf(stderr, "Missing name for redirect.\n");
 	      var->name = NULL;
+              cmd->go_on = 0;
 	      return;
 	    }
 	  var->name = strdup(cmd->cmd[++i]);
@@ -104,12 +112,20 @@ void            	init_double(t_cmd *cmd, t_red *var)
     {
       if ((strcmp(cmd->cmd[i], ">>")) == 0)
 	{
-          if (!(cmd->cmd[i + 1]))
+          if (i == 0)
 	    {
-	      fprintf(stderr, "Error: parsing nears '%c'\n", cmd->cmd[i][0]);
-	      var->name = NULL;
+	      fprintf(stderr, "Invalid null command.\n");
+	      var->cmd = NULL;
+              cmd->go_on = 0;
 	      return;
 	    }
+	  else if (!(cmd->cmd[i + 1]))
+	    {
+    	      fprintf(stderr, "Missing name for redirect\n");
+    	      var->name = NULL;
+              cmd->go_on = 0;
+    	      return;
+    	    }
 	  var->name = strdup(cmd->cmd[++i]);
 	  if (dep_init_db_var(cmd->cmd, var, &i, &j) == FAILURE)
 	    break;

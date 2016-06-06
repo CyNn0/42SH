@@ -5,7 +5,7 @@
 ** Login   <lefevr_h@epitech.net>
 **
 ** Started on  Mon May 23 19:04:26 2016 Philippe Lefevre
-** Last update Mon Jun 06 01:05:07 2016 Philippe Lefevre
+** Last update Mon Jun 06 07:03:49 2016 Philippe Lefevre
 */
 
 #include		"42.h"
@@ -21,7 +21,6 @@ int			prepare_pipe(t_cmd *cmd)
     {
       if (tmp->token == PIPE || (tmp->prev && tmp->prev->token == PIPE))
 	{
-	  tmp->go_on = 0;
 	  count_pipe += 1;
 	}
       tmp = tmp->next;
@@ -33,10 +32,10 @@ int			exec_pipe(t_cmd *cmd, t_list *list, char **env,
 				   int count[2])
 {
   pid_t			pid;
-  int			builtin;
+  int			status;
 
   if (((cmd->fd = malloc(sizeof(int) * 2)) == NULL)
-      || ((pipe(cmd->fd) == -1) || ((pid = fork()) == -1)))
+      || ((pipe(cmd->fd) == -1) || ((pid = vfork()) == -1)))
     my_exit(fprintf(stderr, "%s\n", strerror(errno)) * 0 + FAILURE);
   else if (pid == 0)
     {
@@ -44,12 +43,10 @@ int			exec_pipe(t_cmd *cmd, t_list *list, char **env,
 	dup2(cmd->prev->fd[0], 0);
       if (count[0] < (count[1] - 1))
 	dup2(cmd->fd[1], 1);
-      if ((builtin = check_built(list, cmd)) == SUCCESS)
-	my_exit(SUCCESS);
-      normal_scatter(cmd, env, list, builtin - 20);
-      my_exit(1);
+      if ((status = normal_scatter(cmd, env, list, -20)) == FAILURE)
+	list->pipe_failure = 1;
+      my_exit(status);
     }
-  list->value_exit = 0;
   if (count[0] != 0)
     close(cmd->prev->fd[0]);
   if (count[0] < count[1] - 1)
@@ -63,7 +60,7 @@ int			scatter_pipe(t_cmd *cmd, t_list *list, char **env)
   int			count[2];
   int			status;
 
-  list->value_exit = 1;
+  list->pipe_failure = 0;
   if ((count[1] = prepare_pipe(cmd)) == 0)
     return (FAILURE);
   tmp = cmd;
@@ -79,8 +76,9 @@ int			scatter_pipe(t_cmd *cmd, t_list *list, char **env)
   while (++count[0] < count[1])
     {
       xfree(tmp->fd);
+      tmp->go_on = 0;
       tmp = tmp->next;
     }
   while ((status = waitpid(-1, 0, 0)) != -1);
-  return (SUCCESS);
+  return (list->pipe_failure);
 }

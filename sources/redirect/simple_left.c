@@ -5,7 +5,7 @@
 ** Login   <hubert_i@epitech.net>
 **
 ** Started on  Thu May 26 01:33:04 2016 Hubert Leo
-** Last update Sat Jun 04 15:16:44 2016 Gambini Lucas
+** Last update Mon Jun 06 07:04:36 2016 Philippe Lefevre
 */
 
 # include 	"42.h"
@@ -16,7 +16,12 @@ int		simple_left(t_cmd *cmd, t_list *list, char **env, int builtin)
   int		fd;
   int		reset;
 
-  init_simpleleft(cmd->cmd, &var);
+  (void)builtin;
+  init_simpleleft(cmd, &var);
+  if (!(cmd->go_on))
+    return (FAILURE);
+  if (cmd->prev && cmd->prev->token == PIPE)
+    return (FAILURE + 0 * fprintf(stderr, "Ambiguous output redirect.\n"));
   var.is_builtin = builtin;
   if ((fd = open(var.name, O_RDONLY)) == -1)
     return (fprintf(stderr, "%s: %s\n",

@@ -5,12 +5,12 @@
 ** Login   <Lucas Gambini@epitech.net>
 **
 ** Started on  Mon May 23 19:17:09 2016 Gambini Lucas
-** Last update Mon Jun 06 03:42:27 2016 Philippe Lefevre
+** Last update Mon Jun 06 06:34:05 2016 Philippe Lefevre
 */
 
 #ifndef                 _EXEC_H_
 # define                _EXEC_H_
-
+# include		"42.h"
 # include               <signal.h>
 
 int                     check_built(t_list *list, t_cmd *cmd);
@@ -22,6 +22,6 @@ int                     exec_right(int fd, t_list *list,
 int                     exec_left(t_list *list,
 				  char **env, t_red var);
 int			check_go_on(t_cmd *cmd);
-void            	init_simpleleft(char **cmd, t_red *var);
+void            	init_simpleleft(t_cmd *cmd, t_red *var);
 
 #endif                  /* !_EXEC_H_ */

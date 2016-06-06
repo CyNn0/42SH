@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 18 04:22:31 2016 boris saint-bonnet
-** Last update Mon Jun 06 03:49:29 2016 Philippe Lefevre
+** Last update Mon Jun 06 06:34:23 2016 Philippe Lefevre
 */
 
 #ifndef			_LINKED_LIST_H_
@@ -103,6 +103,7 @@ typedef struct          s_list
   struct s_cmd		*tail;
   int			do_exit;
   int			value_exit;
+  int			pipe_failure;
   int			history;
 }                       t_list;
 
@@ -153,7 +154,7 @@ char			*pre_check(char *s, t_list *list);
 void			simple_first(t_pars *var, char c);
 void			double_first(t_pars *var, char c);
 void			init_double(t_cmd *cmd, t_red *var);
-void			init_double_left(char **cmd, t_red *var);
+void			init_double_left(t_cmd *cmd, t_red *var);
 void			init_var(t_cmd *cmd, t_red *var);
 void			free_fighter(t_list *list);
 void			show_cmd_list(t_list *list);
