@@ -5,7 +5,7 @@
 ** Login   <lefevr_h@epitech.net>
 **
 ** Started on  Sat Jun 04 15:21:47 2016 Philippe Lefevre
-** Last update Sat Jun 04 23:35:34 2016 Philippe Lefevre
+** Last update Mon Jun 06 17:18:16 2016 Philippe Lefevre
 */
 
 #include		"42.h"
@@ -34,5 +34,5 @@ int			builtin_env(t_list *list, char **cmd)
 	  tmp = tmp->next;
 	}
     }
-  return (0);
+  return (SUCCESS);
 }

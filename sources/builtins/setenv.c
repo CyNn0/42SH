@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 25 04:06:44 2016 boris saint-bonnet
-** Last update Mon Jun  6 12:47:20 2016 cyril puccio
+** Last update Mon Jun 06 17:33:19 2016 Philippe Lefevre
 */
 
 #include	"42.h"
@@ -14,14 +14,10 @@ int	        setenv_checking(t_list *list, char **cmd)
 {
   int		i;
 
+  (void)list;
   if (tab_lenght(cmd) > 3)
     {
       fprintf(stderr, "%s: Too many arguments.\n", cmd[0]);
-      return (FAILURE);
-    }
-  else if (!cmd[1])
-    {
-      print_env(list->myEnv);
       return (FAILURE);
     }
   if (!((cmd[1][0] >= 'a' && cmd[1][0] <= 'z')
@@ -43,6 +39,8 @@ int		builtin_setenv(t_list *list, char **cmd)
 {
   t_node        *tmp;
 
+  if (tab_lenght(cmd) == 1)
+    return (builtin_env(list, cmd));
   if ((setenv_checking(list, cmd)) == FAILURE)
     return (FAILURE);
   tmp = list->myEnv->head;

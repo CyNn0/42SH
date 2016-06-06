@@ -5,7 +5,7 @@
 ** Login   <lefevr_h@epitech.net>
 **
 ** Started on  Mon May 23 23:00:09 2016 Philippe Lefevre
-** Last update Mon Jun 06 15:12:45 2016 Philippe Lefevre
+** Last update Mon Jun 06 17:38:33 2016 Philippe Lefevre
 */
 
 #include		"42.h"
@@ -43,8 +43,10 @@ char			*exec_find_secure_path(t_list *list, char *bin)
   while (tmp != NULL)
     {
       if ((strcmp("PATH", tmp->name)) == 0)
-	if (tmp->data == NULL)
-          return (NULL);
+	{
+	  if (strlen(tmp->data) == 0)
+	    return (bin);
+	}
       tmp = tmp->next;
     }
       if ((cmd = malloc(4 + strlen(bin) + 2)) == NULL)
