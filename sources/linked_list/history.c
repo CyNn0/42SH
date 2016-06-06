@@ -1,21 +1,46 @@
 /*
-** history.c for hist in /home/gambin_l/Shared/42SH/sources/linked_list
+** history.c for 42SH in /home/lefevr_h/Workspace/Github/42SH/sources/linked_list
 **
-** Made by Lucas Gambini
-** Login   <gambin_l@epitech.net>
+** Made by Philippe Lefevre
+** Login   <lefevr_h@epitech.net>
 **
-** Started on  Fri May 27 14:35:49 2016 Gambini Lucas
-** Last update Mon Jun 06 20:38:08 2016 Philippe Lefevre
+** Started on  Mon Jun 06 20:41:33 2016 Philippe Lefevre
+** Last update Mon Jun 06 21:01:28 2016 Philippe Lefevre
 */
 
 #include		"42.h"
+
+char			*hist_save_path(t_list *list)
+{
+  t_node		*tmp;
+  char			*save;
+
+  tmp = list->myEnv->head;
+  save = NULL;
+  while (tmp != NULL)
+    {
+      if (!(strcmp(tmp->name, "HOME")) && tmp->data != NULL)
+	{
+	  save = xmalloc(strlen(tmp->data) + 12);
+          save = strcpy(save, tmp->data);
+          save = strcat(save, "/");
+	  save = strcat(save, ".42history");
+	  save[strlen(tmp->data) + 11] = '\0';
+	  printf("{{{{%s}}}}\n", save);
+	  return (save);
+	}
+      tmp = tmp->next;
+    }
+  return (NULL);
+}
 
 int			open_history(t_list *list)
 {
   char			*buf;
   int			fd;
 
-  if ((fd = open(".42history", __HIST)) == -1)
+  list->path_history = hist_save_path(list);
+  if ((fd = open(list->path_history, __HIST)) == -1)
     return (FAILURE);
   while ((buf = get_next_line(fd)) != NULL)
     {
@@ -34,7 +59,7 @@ int			save_history(t_list *list)
 
   history = list->myHist->head;
   tmp = history;
-  if ((fd = open(".42history", __HISTC)) == -1)
+  if ((fd = open(list->path_history,  __HISTC)) == -1)
     return (FAILURE);
   while (tmp != NULL)
     {
@@ -42,6 +67,7 @@ int			save_history(t_list *list)
       tmp = tmp->next;
     }
   close(fd);
+  free(list->path_history);
   return (SUCCESS);
 }
 
@@ -53,10 +79,12 @@ t_list			*add_history(t_list *list, char *line)
   static int		nb = 0;
   char			*new_line;
 
+  if (line[0] == '\0')
+    return (list);
   time(&sec);
   inst = localtime(&sec);
   new_line = xmalloc(16 + strlen(line));
-  memset(new_line, 0, 16 + strlen(line));
+  memset(new_line, '\0', 16 + strlen(line));
   sprintf(new_line, "     %d\t%d:%d\t%s\n", ++nb, inst->tm_hour, inst->tm_min, line);
   if ((new = malloc(sizeof(*new))) == NULL)
     return (list);
@@ -114,6 +142,8 @@ int			builtin_history(t_list *list, char **cmd)
       history = list->myHist->tail;
       tmp = history;
       len = my_atoi(cmd[1]);
+      if (len < 0)
+	fprintf(stderr, "%s\n", "history: Badly formed number.");
       while (tmp != NULL && --len)
 	tmp = tmp->prev;
     }

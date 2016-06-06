@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 18 04:22:31 2016 boris saint-bonnet
-** Last update Mon Jun  6 09:40:55 2016 boris saint-bonnet
+** Last update Mon Jun 06 21:00:25 2016 Philippe Lefevre
 */
 
 #ifndef			_LINKED_LIST_H_
@@ -105,6 +105,7 @@ typedef struct          s_list
   int			value_exit;
   int			pipe_failure;
   int			history;
+  char			*path_history;
 }                       t_list;
 
 typedef struct		s_red
