@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 25 05:11:17 2016 boris saint-bonnet
-** Last update Mon Jun 06 06:59:46 2016 Philippe Lefevre
+** Last update Mon Jun 06 15:40:02 2016 Philippe Lefevre
 */
 
 # include 		"42.h"
@@ -54,8 +54,8 @@ void            	init_simpleleft(t_cmd *cmd, t_red *var)
 	    {
 	      fprintf(stderr, "Invalid null command.\n");
 	      var->cmd = NULL;
-	      return;
               cmd->go_on = 0;
+	      return;
 	    }
 	  else if (!(cmd->cmd[i + 1]))
 	    {
