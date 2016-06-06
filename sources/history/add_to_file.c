@@ -5,16 +5,16 @@
 ** Login   <saint-_o@epitech.net>
 ** 
 ** Started on  Tue May 31 18:46:34 2016 boris saint-bonnet
-** Last update Mon Jun  6 13:40:40 2016 cyril puccio
+** Last update Mon Jun  6 19:36:17 2016 boris saint-bonnet
 */
 
 #include		"42.h"
 
-int		open_history(char *s)
+int			open_history(char *s)
 {
-  time_t	sec;
-  int		fd;
-  struct tm	*inst;
+  time_t		sec;
+  int			fd;
+  struct tm		*inst;
 
   if ((fd = open("tmp/.42history", __HIST)) == -1)
     return (FAILURE);

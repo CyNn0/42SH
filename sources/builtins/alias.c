@@ -5,7 +5,7 @@
 ** Login   <Lucas Gambini@epitech.net>
 **
 ** Started on  Sun Jun 05 14:04:29 2016 Gambini Lucas
-** Last update Mon Jun  6 12:50:18 2016 cyril puccio
+** Last update Mon Jun  6 19:40:28 2016 boris saint-bonnet
 */
 
 # include		"42.h"
@@ -31,6 +31,7 @@ char			*just_concate(char *base, char *add)
   ret[i] = '\0';
   return (ret);
 }
+
 int			check_line(char **cmd)
 {
   int			i;
