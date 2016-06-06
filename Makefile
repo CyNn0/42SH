@@ -5,7 +5,7 @@
 ## Login   <saint-_o@epitech.net>
 ##
 ## Started on  Wed May 18 04:15:48 2016 boris saint-bonnet
-## Last update Mon Jun  6 07:40:58 2016 boris saint-bonnet
+## Last update Mon Jun  6 09:38:27 2016 boris saint-bonnet
 ##
 
 
@@ -88,6 +88,7 @@ SRC		=	$(SRCDIR)/main.c				\
 			$(SRCDIR)/builtins/cd/dep_cd.c			\
 			$(SRCDIR)/builtins/swap_alias.c			\
 			$(SRCDIR)/builtins/alias.c			\
+			$(SRCDIR)/builtins/my_swap.c			\
 			$(SRCDIR)/pipe/pipe.c				\
 			$(SRCDIR)/history/add_to_file.c			\
 			$(SRCDIR)/history/show_history.c		\

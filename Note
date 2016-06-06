@@ -1,0 +1,26 @@
+*** Error in `./42sh': free(): invalid pointer: 0x00007f8a91646c58 ***
+==6887==
+==6887== Process terminating with default action of signal 13 (SIGPIPE)
+==6887==    at 0x4F2F490: __write_nocancel (syscall-template.S:81)
+==6887==    by 0x404F55: ??? (in /bin/cat)
+==6887==    by 0x402B7D: ??? (in /bin/cat)
+==6887==    by 0x4023E8: ??? (in /bin/cat)
+==6887==    by 0x4E58A3F: (below main) (libc-start.c:289)
+==6887==
+==6887== HEAP SUMMARY:
+==6887==     in use at exit: 135,167 bytes in 1 blocks
+==6887==   total heap usage: 31 allocs, 30 frees, 138,848 bytes allocated
+==6887==
+==6887== LEAK SUMMARY:
+==6887==    definitely lost: 0 bytes in 0 blocks
+==6887==    indirectly lost: 0 bytes in 0 blocks
+==6887==      possibly lost: 0 bytes in 0 blocks
+==6887==    still reachable: 135,167 bytes in 1 blocks
+==6887==         suppressed: 0 bytes in 0 blocks
+==6887== Rerun with --leak-check=full to see details of leaked memory
+==6887==
+==6887== For counts of detected and suppressed errors, rerun with: -v
+==6887== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+[1]    6887 broken pipe          valgrind cat /dev/urandom |
+       6888 abort (core dumped)  ./42sh
+       
