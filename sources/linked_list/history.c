@@ -5,7 +5,7 @@
 ** Login   <gambin_l@epitech.net>
 **
 ** Started on  Fri May 27 14:35:49 2016 Gambini Lucas
-** Last update Mon Jun 06 20:24:36 2016 Philippe Lefevre
+** Last update Mon Jun 06 20:38:08 2016 Philippe Lefevre
 */
 
 #include		"42.h"
@@ -103,19 +103,24 @@ int			builtin_history(t_list *list, char **cmd)
 {
   t_hist		*history;
   t_hist		*tmp;
+  int			len;
 
-  if (!cmd[1])
-    {
-      history = list->myHist->head;
-      tmp = history;
-      while (tmp != NULL)
-	{
-	  printf("%s", tmp->s);
-	  tmp = tmp->next;
-	}
-      return (SUCCESS);
-    }
-  else if (cmd[1] && !(strcmp(cmd[1], "-c")))
+  history = list->myHist->head;
+  tmp = history;
+  if (cmd[1] && !(strcmp(cmd[1], "-c")))
     return (clear_history(list));
+  else if (cmd[1] && (strcmp(cmd[1], "-c")))
+    {
+      history = list->myHist->tail;
+      tmp = history;
+      len = my_atoi(cmd[1]);
+      while (tmp != NULL && --len)
+	tmp = tmp->prev;
+    }
+  while (tmp != NULL)
+    {
+      printf("%s", tmp->s);
+      tmp = tmp->next;
+    }
   return (FAILURE);
 }
