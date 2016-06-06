@@ -1,11 +1,11 @@
 /*
 ** simple_exec2.c for simple_exec2 in /home/puccio_c/rendu/minishell/42SH/sources/exec
-** 
+**
 ** Made by cyril puccio
 ** Login   <puccio_c@epitech.net>
-** 
+**
 ** Started on  Mon Jun  6 13:22:03 2016 cyril puccio
-** Last update Mon Jun  6 19:43:37 2016 cyril puccio
+** Last update Mon Jun 06 21:52:16 2016 Philippe Lefevre
 */
 
 #include                "42.h"
@@ -51,7 +51,7 @@ int			simple_exec2(t_cmd *cmd, t_list *list, char **env)
       my_exit(FAILURE);
     }
   list->value_exit = 0;
-  return (push_exit_value(list, pid));
+  return (push_exit_value(list, pid, cmd));
 }
 
 char                    *print_type_message(char *bin, int type)
