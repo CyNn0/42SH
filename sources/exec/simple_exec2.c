@@ -5,7 +5,7 @@
 ** Login   <puccio_c@epitech.net>
 ** 
 ** Started on  Mon Jun  6 13:22:03 2016 cyril puccio
-** Last update Mon Jun  6 13:41:04 2016 cyril puccio
+** Last update Mon Jun  6 19:43:37 2016 cyril puccio
 */
 
 #include                "42.h"
@@ -52,4 +52,13 @@ int			simple_exec2(t_cmd *cmd, t_list *list, char **env)
     }
   list->value_exit = 0;
   return (push_exit_value(list, pid));
+}
+
+char                    *print_type_message(char *bin, int type)
+{
+  if (S_ISREG(type))
+    return (bin);
+  if (bin)
+    fprintf(stderr, "%s: Command not found.\n", bin);
+  return (bin);
 }

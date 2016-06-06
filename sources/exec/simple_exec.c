@@ -5,10 +5,10 @@
 ** Login   <lefevr_h@epitech.net>
 **
 ** Started on  Mon May 23 23:00:09 2016 Philippe Lefevre
-** Last update Mon Jun 06 17:38:33 2016 Philippe Lefevre
+** Last update Mon Jun  6 19:43:42 2016 cyril puccio
 */
 
-#include		"42.h"
+# include		"42.h"
 
 int			xwaitpid(int pid, int status, int opt)
 {
@@ -22,15 +22,6 @@ int			xwaitpid(int pid, int status, int opt)
   else
     print_signal_message(status);
   return (status);
-}
-
-char			*print_type_message(char *bin, int type)
-{
-  if (S_ISREG(type))
-    return (bin);
-  if (bin)
-    fprintf(stderr, "%s: Command not found.\n", bin);
-  return (bin);
 }
 
 char			*exec_find_secure_path(t_list *list, char *bin)
@@ -49,18 +40,18 @@ char			*exec_find_secure_path(t_list *list, char *bin)
 	}
       tmp = tmp->next;
     }
-      if ((cmd = malloc(4 + strlen(bin) + 2)) == NULL)
-	return (NULL);
-      cmd = strcpy(cmd, "/bin/");
-      cmd = strcat(cmd, bin);
-      stat(cmd, &sb);
-      if (!(access(cmd, F_OK)) && !((access(cmd, X_OK)))
-	  && (S_ISREG(sb.st_mode)))
-	{
-	  xfree(bin);
-	  return (cmd);
-	}
-      xfree(cmd);
+  if ((cmd = malloc(4 + strlen(bin) + 2)) == NULL)
+    return (NULL);
+  cmd = strcpy(cmd, "/bin/");
+  cmd = strcat(cmd, bin);
+  stat(cmd, &sb);
+  if (!(access(cmd, F_OK)) && !((access(cmd, X_OK)))
+      && (S_ISREG(sb.st_mode)))
+    {
+      xfree(bin);
+      return (cmd);
+    }
+  xfree(cmd);
   return (bin);
 }
 
