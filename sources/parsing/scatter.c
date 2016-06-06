@@ -5,7 +5,7 @@
 ** Login   <gambin_l@epitech.net>
 **
 ** Started on  Mon May 23 16:43:07 2016 Gambini Lucas
-** Last update Mon Jun  6 21:50:05 2016 cyril puccio
+** Last update Mon Jun  6 22:04:22 2016 cyril puccio
 */
 
 #include		"42.h"
@@ -27,15 +27,23 @@ int			normal_scatter(t_cmd *cmd, char **env,
 		   : ((simple_exec(cmd, list, env, builtin)))))));
 }
 
+char			**init_scatter(t_list *list)
+{
+  char                  **env;
+
+  free_path(list);
+  env = extract_env(list->myEnv);
+  path_to_list(list);
+  return (env);
+}
+
 int			exec_scatter(t_list *list)
 {
   char			**env;
   t_cmd			*tmp;
 
   tmp = list->head;
-  free_path(list);
-  env = extract_env(list->myEnv);
-  path_to_list(list);
+  env = init_scatter(list);
   while (!(list->do_exit) && tmp && tmp->cmd[0])
     {
       if (tmp->go_on == 1)
