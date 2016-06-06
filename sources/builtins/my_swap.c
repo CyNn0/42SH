@@ -5,12 +5,12 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Mon Jun  6 09:33:57 2016 boris saint-bonnet
-** Last update Mon Jun 06 16:46:48 2016 Gambini Lucas
+** Last update Mon Jun 06 18:53:31 2016 Gambini Lucas
 */
 
 #include "42.h"
 
-void                    reset_alias(t_bash *list)
+char                    **reset_alias(t_bash *list)
 {
   t_node                *tmp;
 
@@ -20,42 +20,58 @@ void                    reset_alias(t_bash *list)
       tmp->p = 0;
       tmp = tmp->next;
     }
+  return (NULL);
 }
 
-t_cmd                   *swap_alias(t_cmd *cmd, t_bash *bash)
+char			**dep_swap1(t_node *tmp, t_cmd *cmd,
+				    char **tab, int *pos)
+{
+  if (tmp->p > 0)
+    {
+      fprintf(stderr, "Alias loop.\n");
+      cmd->go_on = 0;
+      return (NULL);
+    }
+  tab = prepare_tab(cmd_to_tab(tmp->data, ' ', ' ', ' '), cmd->cmd);
+  tmp->p = ++(*pos);
+  return (tab);
+}
+
+char			**dep_swap2(t_node *tmp, t_cmd *cmd,
+				    char **tab, int *pos)
+{
+  if (tmp->p > 0)
+    {
+      fprintf(stderr, "Alias loop.\n");
+      cmd->go_on = 0;
+      return (NULL);
+    }
+  tab = prepare_tab(cmd_to_tab(tmp->data, ' ', ' ', ' '), tab);
+  tmp->p = ++(*pos);
+  return (tab);
+}
+
+t_cmd                   *swap_alias(t_cmd *cmd, t_bash *bash, int pos)
 {
   t_node                *tmp;
   char                  **tab;
-  int                   pos;
 
-  pos = 0;
-  tab = NULL;
-  reset_alias(bash);
+  tab = reset_alias(bash);
   tmp = bash->head;
   while (tmp)
     {
       if (!tab && strcmp(tmp->name, cmd->cmd[0]) == 0 &&
 	  (tmp->p != pos || pos == 0))
 	{
-	  if (tmp->p > 0)
-	    {
-	      fprintf(stderr, "Alias loop.\n");
-	      return (cmd);
-	    }
-	  tab = prepare_tab(cmd_to_tab(tmp->data, ' ', ' ', ' '), cmd->cmd);
-	  tmp->p = ++pos;
+	  if ((tab = dep_swap1(tmp, cmd, tab, &pos)) == NULL)
+	    return (cmd);
 	  tmp = bash->head;
 	}
       else if (tab && strcmp(tmp->name, tab[0]) == 0 &&
 	       (tmp->p != pos || pos == 0))
 	{
-	  if (tmp->p > 0)
-	    {
-	      fprintf(stderr, "Alias loop.\n");
-	      return (cmd);
-	    }
-	  tab = prepare_tab(cmd_to_tab(tmp->data, ' ', ' ', ' '), tab);
-	  tmp->p = ++pos;
+	  if ((tab = dep_swap2(tmp, cmd, tab, &pos)) == NULL)
+	    return (cmd);
 	  tmp = bash->head;
 	}
       tmp = tmp->next;
