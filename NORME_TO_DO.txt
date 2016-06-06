@@ -3,7 +3,6 @@ Erreur dans exec.h a la ligne 14 : Header systeme mal placee
 Erreur dans check_built.c a la ligne 40 : fonction de plus de 25 lignes
 Erreur dans push_bash.c a la ligne 40 : fonction de plus de 25 lignes
 Erreur dans globbing.c a la ligne 78 : fonction de plus de 25 lignes
-Erreur dans my_env_in_list.c a la ligne 90 : fonction de plus de 25 lignes
 Erreur dans print_env.c a la ligne 47 : Operateur + mal place
 Erreur dans exit.c a la ligne 22 : Commentaires dans le code
 Erreur dans my_swap.c a la ligne 52 : fonction de plus de 25 lignes

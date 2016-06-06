@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Thu May 19 19:23:14 2016 boris saint-bonnet
-** Last update Sun Jun 05 05:15:07 2016 Philippe Lefevre
+** Last update Mon Jun 06 17:05:21 2016 Gambini Lucas
 */
 
 #include	"42.h"
@@ -67,7 +67,7 @@ t_list		*my_env_in_list(t_list *list, char **env)
   char		*name;
   char		*data;
 
-  i = 0;
+  i = -1;
   if ((list = create_list(list)) == NULL)
     return (NULL);
   name = strdup("?");
@@ -75,18 +75,16 @@ t_list		*my_env_in_list(t_list *list, char **env)
   list = push_env(list, data, name);
   xfree(name);
   xfree(data);
-  while (env[i])
+  while (env[++i])
     {
       j = get_name(env[i]);
-      if ((name = malloc((j + 1) * sizeof(char))) == NULL)
-	return (NULL);
+      name = xmalloc((j + 1) * sizeof(char)));
       name[j] = '\0';
       name = strncpy(name, env[i], j);
       data = strdup(env[i] + (j + 1));
       list = push_env(list, data, name);
       xfree(name);
       xfree(data);
-      i++;
     }
   return (list);
 }
