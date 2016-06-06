@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 ** 
 ** Started on  Sat Jun  4 15:11:03 2016 boris saint-bonnet
-** Last update Mon Jun  6 07:40:27 2016 boris saint-bonnet
+** Last update Mon Jun  6 13:42:02 2016 cyril puccio
 */
 
 #include	"42.h"
@@ -98,8 +98,8 @@ int	        builtin_history(t_list *list, char **cmd)
   char		**hist;
   int		tmp;
   int		fd;
-  
-  if((fd = open("tmp/.42history", __HIST)) == -1)
+
+  if ((fd = open("tmp/.42history", __HIST)) == -1)
     return (FAILURE);
   list = list;
   if (check_clear(cmd) == SUCCESS)

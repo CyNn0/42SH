@@ -1,4 +1,3 @@
-
 /*
 ** add_to_file.c for  in /home/xx/Rendu/PSU/42SH
 ** 
@@ -6,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 ** 
 ** Started on  Tue May 31 18:46:34 2016 boris saint-bonnet
-** Last update Sun Jun  5 02:52:48 2016 boris saint-bonnet
+** Last update Mon Jun  6 13:40:40 2016 cyril puccio
 */
 
 #include		"42.h"
@@ -26,6 +25,3 @@ int		open_history(char *s)
     return (FAILURE);
   return (SUCCESS);
 }
-
-
-

@@ -5,7 +5,7 @@
 ** Login   <puccio_c@epitech.net>
 ** 
 ** Started on  Mon Jun  6 13:22:03 2016 cyril puccio
-** Last update Mon Jun  6 13:32:07 2016 cyril puccio
+** Last update Mon Jun  6 13:41:04 2016 cyril puccio
 */
 
 #include                "42.h"
@@ -41,7 +41,7 @@ void                    print_signal_message(int status)
 int			simple_exec2(t_cmd *cmd, t_list *list, char **env)
 {
   pid_t			pid;
-  
+
   if ((pid = fork()) == -1)
     fprintf(stderr, "%s\n", strerror(errno));
   else if (pid == 0)
