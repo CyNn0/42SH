@@ -1,5 +1,4 @@
 Options de debug dans le Makefile
-Erreur dans exec.h a la ligne 14 : Header systeme mal placee
 Erreur dans check_built.c a la ligne 40 : fonction de plus de 25 lignes
 Erreur dans push_bash.c a la ligne 40 : fonction de plus de 25 lignes
 Erreur dans globbing.c a la ligne 78 : fonction de plus de 25 lignes
