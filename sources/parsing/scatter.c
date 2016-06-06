@@ -5,7 +5,7 @@
 ** Login   <gambin_l@epitech.net>
 **
 ** Started on  Mon May 23 16:43:07 2016 Gambini Lucas
-** Last update Mon Jun 06 18:58:55 2016 Gambini Lucas
+** Last update Mon Jun  6 21:50:05 2016 cyril puccio
 */
 
 #include		"42.h"
@@ -49,10 +49,8 @@ int			exec_scatter(t_list *list)
 		}
 	    }
 	  else
-	    {
-	      if (normal_scatter(tmp, env, list, -20) == (FAILURE - 42))
-		return (FAILURE);
-	    }
+	    if (normal_scatter(tmp, env, list, -20) == (FAILURE - 42))
+	      return (FAILURE);
 	}
       tmp = tmp->next;
     }

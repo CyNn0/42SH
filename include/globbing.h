@@ -5,7 +5,7 @@
 ** Login   <hubert_i@epitech.net>
 **
 ** Started on  Sat Jun  4 01:59:27 2016 Hubert Leo
-** Last update Sat Jun  4 02:02:46 2016 Hubert Leo
+** Last update Mon Jun  6 21:41:41 2016 cyril puccio
 */
 
 #ifndef			_GLOBBING_H_
@@ -23,6 +23,6 @@
 
 int		need_globbing(char *src);
 char		*get_globbing(char *src);
-char		*globbing(char *src);
+char		*globbing(char *src, int i);
 
 #endif			/* !__GLOBBING_H_ */
