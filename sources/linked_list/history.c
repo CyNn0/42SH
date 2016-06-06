@@ -5,7 +5,7 @@
 ** Login   <gambin_l@epitech.net>
 **
 ** Started on  Fri May 27 14:35:49 2016 Gambini Lucas
-** Last update Mon Jun 06 19:50:35 2016 Philippe Lefevre
+** Last update Mon Jun 06 19:59:09 2016 Philippe Lefevre
 */
 
 #include		"42.h"
@@ -55,7 +55,8 @@ t_list			*add_history(t_list *list, char *line)
 
   time(&sec);
   inst = localtime(&sec);
-  new_line = xmalloc(15 + strlen(line));
+  new_line = xmalloc(16 + strlen(line));
+  memset(new_line, 0, 16 + strlen(line));
   sprintf(new_line, "     %d\t%d:%d\t%s\n", ++nb, inst->tm_hour, inst->tm_min, line);
   if ((new = malloc(sizeof(*new))) == NULL)
     return (list);
