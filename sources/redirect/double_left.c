@@ -5,7 +5,7 @@
 ** Login   <Lucas Gambini@epitech.net>
 **
 ** Started on  Mon May 30 10:56:47 2016 Gambini Lucas
-** Last update Mon Jun 06 15:36:37 2016 Philippe Lefevre
+** Last update Mon Jun  6 21:30:57 2016 cyril puccio
 */
 
 #include 		"42.h"
@@ -53,13 +53,30 @@ char			*get_buffer(t_red var)
   return (res);
 }
 
-int             	double_left(t_cmd *cmd, t_list *list,
-				    char **env, int builtin)
+int                     check_left(char *buff, t_cmd *cmd, int pipefd[2])
 {
-  t_red       		var;
-  char			*buff;
-  int			pipefd[2];
-  int			reset;
+  if (buff)
+    {
+      if (cmd->cmd[0])
+        {
+          write(1, buff, strlen(buff));
+          return (SUCCESS + 0 * write(1, "\n", 1));
+        }
+      else
+        write(pipefd[1], buff, strlen(buff));
+    }
+  else
+    return (FAILURE);
+  return (0);
+}
+
+int                     double_left(t_cmd *cmd, t_list *list,
+                                    char **env, int builtin)
+{
+  t_red                 var;
+  char                  *buff;
+  int                   pipefd[2];
+  int                   reset;
 
   init_double_left(cmd, &var);
   if (!(cmd->go_on))
@@ -69,18 +86,8 @@ int             	double_left(t_cmd *cmd, t_list *list,
   if ((buff = get_buffer(var)) == NULL)
     return (FAILURE);
   reset = dup(0);
-  if (buff)
-    {
-      if (cmd->cmd[0])
-	{
-	  write(1, buff, strlen(buff));
-	  return (SUCCESS + 0 * write(1, "\n", 1));
-	}
-      else
-	write(pipefd[1], buff, strlen(buff));
-    }
-  else
-    return (FAILURE);
+  if (check_left(buff, cmd, pipefd) != 0)
+    return (check_left(buff, cmd, pipefd));
   close(pipefd[1]);
   dup2(pipefd[0], 0);
   if (exec_left(list, env, cmd) == FAILURE)
