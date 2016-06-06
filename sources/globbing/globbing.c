@@ -5,7 +5,7 @@
 ** Login   <hubert_i@epitech.net>
 **
 ** Started on  Sat Jun  4 01:57:24 2016 Hubert Leo
-** Last update Mon Jun 06 19:27:44 2016 Gambini Lucas
+** Last update Mon Jun  6 21:41:11 2016 cyril puccio
 */
 
 #include "42.h"
@@ -48,17 +48,15 @@ char		*get_globbing(char *src)
   return (result);
 }
 
-char		*globbing(char *src)
+char		*globbing(char *src, int i)
 {
   char		**args;
   char		*result;
   char		*tmp;
-  int		i;
 
   if (src == NULL || (args = my_str_to_wordtab(src, ' ')) == NULL)
     return (NULL);
   result = "\0";
-  i = -1;
   while (args[++i])
     {
       i != 0 ? result = get_fusion(result, " ") : 0;

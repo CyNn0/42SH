@@ -1,9 +1,0 @@
-total 448
--rwxr-xr-x  1 lefevr_h users 433832 Jun  6 21:12 42sh
--rw-r--r--  1 lefevr_h users     44 Jun  6 16:57 auteur
-drwxr-xr-x  2 lefevr_h users   4096 Jun  6 19:54 include
--rw-r--r--  1 lefevr_h users   3588 Jun  6 19:22 Makefile
-drwxr-xr-x  2 lefevr_h users   4096 Jun  6 21:06 moulinette
--rw-r--r--  1 lefevr_h users    852 Jun  6 20:39 NORME_TO_DO.txt
-drwxr-xr-x 12 lefevr_h users   4096 Jun  6 21:10 sources
--rw-r--r--  1 lefevr_h users      0 Jun  6 21:12 toto
