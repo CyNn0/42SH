@@ -5,7 +5,7 @@
 ** Login   <hubert_i@epitech.net>
 **
 ** Started on  Mon May 23 18:01:20 2016 Hubert Leo
-** Last update Mon Jun 06 01:42:34 2016 Gambini Lucas
+** Last update Mon Jun  6 07:40:08 2016 boris saint-bonnet
 */
 
 #ifndef			_BUILTIN_H_
@@ -66,5 +66,10 @@ int			my_error(char *com, char *str);
 int			builtin_source(t_list *list, char **cmd);
 int			builtin_alias(t_list *list, char **cmd);
 int			free_alias(t_list *list);
+
+/* HIST */
+
+int			print_history(char **tab);
+int			printx_history(char **tab, int nb);
 
 #endif			/* !__BUILTIN_H_ */

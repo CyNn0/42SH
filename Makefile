@@ -5,7 +5,7 @@
 ## Login   <saint-_o@epitech.net>
 ##
 ## Started on  Wed May 18 04:15:48 2016 boris saint-bonnet
-## Last update Mon Jun  6 04:21:03 2016 boris saint-bonnet
+## Last update Mon Jun  6 07:40:58 2016 boris saint-bonnet
 ##
 
 
@@ -91,6 +91,7 @@ SRC		=	$(SRCDIR)/main.c				\
 			$(SRCDIR)/pipe/pipe.c				\
 			$(SRCDIR)/history/add_to_file.c			\
 			$(SRCDIR)/history/show_history.c		\
+			$(SRCDIR)/history/print_history.c		\
 			$(SRCDIR)/globbing/globbing.c
 
 OBJ		=	$(SRC:.c=.o)
