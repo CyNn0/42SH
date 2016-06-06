@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Mon Jun  6 09:33:57 2016 boris saint-bonnet
-** Last update Mon Jun 06 18:53:31 2016 Gambini Lucas
+** Last update Mon Jun  6 22:30:01 2016 Lucas Gambini
 */
 
 #include "42.h"
@@ -32,7 +32,8 @@ char			**dep_swap1(t_node *tmp, t_cmd *cmd,
       cmd->go_on = 0;
       return (NULL);
     }
-  tab = prepare_tab(cmd_to_tab(tmp->data, ' ', ' ', ' '), cmd->cmd);
+  if (tmp->data)
+    tab = prepare_tab(cmd_to_tab(tmp->data, ' ', ' ', ' '), cmd->cmd);
   tmp->p = ++(*pos);
   return (tab);
 }
