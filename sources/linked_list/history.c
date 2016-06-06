@@ -5,15 +5,11 @@
 ** Login   <gambin_l@epitech.net>
 **
 ** Started on  Fri May 27 14:35:49 2016 Gambini Lucas
-** Last update Mon Jun 06 20:20:33 2016 Philippe Lefevre
+** Last update Mon Jun 06 20:24:36 2016 Philippe Lefevre
 */
 
 #include		"42.h"
 
-int			secure_path()
-{
-
-}
 int			open_history(t_list *list)
 {
   char			*buf;
