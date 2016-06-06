@@ -5,7 +5,7 @@
 ## Login   <saint-_o@epitech.net>
 ##
 ## Started on  Wed May 18 04:15:48 2016 boris saint-bonnet
-## Last update Mon Jun  6 13:22:58 2016 cyril puccio
+## Last update Mon Jun  6 22:08:48 2016 Philippe Lefevre
 ##
 
 
@@ -19,7 +19,7 @@ RED             =       "\033[5;31m"
 YELLOW          =       "\033[1;33m"
 FINISH          =       "\033[5;1;35m"
 
-CC		=	gcc -g -g3
+CC		=	gcc
 CFLAGS		=	-W -Wall -Wextra -pedantic
 CFLAGS		+=	-Iinclude
 

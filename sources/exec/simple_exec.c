@@ -5,7 +5,7 @@
 ** Login   <lefevr_h@epitech.net>
 **
 ** Started on  Mon May 23 23:00:09 2016 Philippe Lefevre
-** Last update Mon Jun 06 21:55:24 2016 Philippe Lefevre
+** Last update Mon Jun 06 22:06:59 2016 Philippe Lefevre
 */
 
 # include		"42.h"
@@ -110,7 +110,7 @@ int			simple_exec(t_cmd *cmd, t_list *list,
   struct stat		sb;
 
   list->value_exit = 1;
-  if ((builtin += check_built(list, cmd)) >= 0)
+  if ((builtin += check_built(list, cmd, -1)) >= 0)
     return (simple_exec_builtin(list, cmd, builtin));
   if (list->path->head && list->path->head->data != NULL)
     {

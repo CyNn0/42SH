@@ -5,14 +5,14 @@
 ** Login   <Lucas Gambini@epitech.net>
 **
 ** Started on  Mon May 23 19:17:09 2016 Gambini Lucas
-** Last update Mon Jun  6 19:44:12 2016 cyril puccio
+** Last update Mon Jun 06 22:08:03 2016 Philippe Lefevre
 */
 
 #ifndef                 _EXEC_H_
 # define                _EXEC_H_
 # include		"42.h"
 
-int                     check_built(t_list *list, t_cmd *cmd);
+int                     check_built(t_list *list, t_cmd *cmd, int i);
 char                    *exec_find_path(t_path *path, char *bin);
 int                     simple_exec(t_cmd *cmd, t_list *list,
 				    char **env, int builtin);

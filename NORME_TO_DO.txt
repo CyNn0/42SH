@@ -1,8 +1,0 @@
-Options de debug dans le Makefile
-Erreur dans check_built.c a la ligne 40 : fonction de plus de 25 lignes
-Erreur dans scatter.c a la ligne 57 : fonction de plus de 25 lignes
-Erreur dans history.c a la ligne 100 : fonction de plus de 25 lignes
-Erreur dans history.c a la ligne 140 : plus de 5 fonctions dans le fichier
-Erreur dans globbing.c a la ligne 78 : fonction de plus de 25 lignes
-Erreur dans simple_exec.c a la ligne 54 : fonction de plus de 25 lignes
-Vous avez fait 6 fautes de norme

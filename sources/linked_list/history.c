@@ -5,21 +5,18 @@
 ** Login   <lefevr_h@epitech.net>
 **
 ** Started on  Mon Jun 06 20:41:33 2016 Philippe Lefevre
-** Last update Mon Jun 06 21:43:41 2016 Philippe Lefevre
+** Last update Mon Jun 06 22:03:24 2016 Philippe Lefevre
 */
 
 #include		"42.h"
 
-t_list			*add_history(t_list *list, char *line, int status)
+char			*give_new_line(char *line, int status)
 {
-  t_hist		*new;
   struct tm		*inst;
   time_t		sec;
-  static int		nb = 0;
   char			*new_line;
+  static int		nb = 0;
 
-  if (line[0] == '\0')
-    return (list);
   if (status)
     {
       time(&sec);
@@ -36,6 +33,33 @@ t_list			*add_history(t_list *list, char *line, int status)
       new_line = strcat(new_line, "\n\0");
       nb++;
     }
+  return (new_line);
+}
+
+void			add_history_bis(t_list *list, t_hist *new)
+{
+  if (list->myHist->tail == NULL)
+    {
+      new->prev = NULL;
+      list->myHist->head = new;
+      list->myHist->tail = new;
+    }
+  else
+    {
+      list->myHist->tail->next = new;
+      new->prev = list->myHist->tail;
+      list->myHist->tail = new;
+    }
+}
+
+t_list			*add_history(t_list *list, char *line, int status)
+{
+  t_hist		*new;
+  char			*new_line;
+
+  if (line[0] == '\0')
+    return (list);
+  new_line = give_new_line(line, status);
   if ((new = malloc(sizeof(*new))) == NULL)
     return (list);
   if (new != NULL)
@@ -44,18 +68,7 @@ t_list			*add_history(t_list *list, char *line, int status)
 	  || ((new->s = new_line) == NULL))
 	return (list);
       new->next = NULL;
-      if (list->myHist->tail == NULL)
-	{
-	  new->prev = NULL;
-	  list->myHist->head = new;
-	  list->myHist->tail = new;
-	}
-      else
-	{
-	  list->myHist->tail->next = new;
-	  new->prev = list->myHist->tail;
-	  list->myHist->tail = new;
-	}
+      add_history_bis(list, new);
     }
   return (list);
 }
