@@ -5,13 +5,12 @@
 ** Login   <Lucas Gambini@epitech.net>
 **
 ** Started on  Mon May 23 19:17:09 2016 Gambini Lucas
-** Last update Mon Jun 06 15:06:11 2016 Philippe Lefevre
+** Last update Mon Jun 06 17:48:40 2016 Gambini Lucas
 */
 
 #ifndef                 _EXEC_H_
 # define                _EXEC_H_
 # include		"42.h"
-# include               <signal.h>
 
 int                     check_built(t_list *list, t_cmd *cmd);
 char                    *exec_find_path(t_path *path, char *bin);

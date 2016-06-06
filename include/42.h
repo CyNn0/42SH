@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Wed May 18 04:20:11 2016 boris saint-bonnet
-** Last update Sun Jun  5 03:25:54 2016 boris saint-bonnet
+** Last update Mon Jun 06 17:48:51 2016 Gambini Lucas
 */
 
 #ifndef			_42_H_
@@ -27,6 +27,7 @@
 # include		<errno.h>
 # include		<time.h>
 # include		<stdio.h>
+# include               <signal.h>
 
 # include		"prototype.h"
 # include		"get_next_line.h"
