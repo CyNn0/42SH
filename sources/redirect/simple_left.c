@@ -5,7 +5,7 @@
 ** Login   <hubert_i@epitech.net>
 **
 ** Started on  Thu May 26 01:33:04 2016 Hubert Leo
-** Last update Mon Jun 06 07:04:36 2016 Philippe Lefevre
+** Last update Mon Jun 06 14:27:50 2016 Philippe Lefevre
 */
 
 # include 	"42.h"
@@ -30,7 +30,7 @@ int		simple_left(t_cmd *cmd, t_list *list, char **env, int builtin)
     return (SUCCESS);
   reset = dup(0);
   dup2(fd, 0);
-  if (exec_left(list, env, var) == FAILURE)
+  if (exec_left(list, env, cmd) == FAILURE)
     check_go_on(cmd);
   dup2(reset, 0);
   close(fd);

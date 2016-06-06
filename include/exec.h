@@ -5,7 +5,7 @@
 ** Login   <Lucas Gambini@epitech.net>
 **
 ** Started on  Mon May 23 19:17:09 2016 Gambini Lucas
-** Last update Mon Jun 06 06:34:05 2016 Philippe Lefevre
+** Last update Mon Jun 06 14:27:42 2016 Philippe Lefevre
 */
 
 #ifndef                 _EXEC_H_
@@ -20,7 +20,7 @@ int                     simple_exec(t_cmd *cmd, t_list *list,
 int                     exec_right(int fd, t_list *list,
                                    char **env, t_cmd *cmd);
 int                     exec_left(t_list *list,
-				  char **env, t_red var);
+				  char **env, t_cmd *cmd);
 int			check_go_on(t_cmd *cmd);
 void            	init_simpleleft(t_cmd *cmd, t_red *var);
 

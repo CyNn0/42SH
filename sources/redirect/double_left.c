@@ -5,7 +5,7 @@
 ** Login   <Lucas Gambini@epitech.net>
 **
 ** Started on  Mon May 30 10:56:47 2016 Gambini Lucas
-** Last update Mon Jun 06 06:35:20 2016 Philippe Lefevre
+** Last update Mon Jun 06 14:23:55 2016 Philippe Lefevre
 */
 
 #include 		"42.h"
@@ -81,7 +81,7 @@ int             	double_left(t_cmd *cmd, t_list *list,
     return (FAILURE);
   close(pipefd[1]);
   dup2(pipefd[0], 0);
-  if (exec_left(list, env, var) == FAILURE)
+  if (exec_left(list, env, cmd) == FAILURE)
     check_go_on(cmd);
   close(pipefd[0]);
   dup2(reset, 0);
