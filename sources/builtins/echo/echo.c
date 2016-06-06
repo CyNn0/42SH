@@ -41,14 +41,11 @@ int		builtin_echo(t_list *list, char **cmd)
   (void)list;
   if ((echo = init_echo()) == NULL)
     return (FAILURE);
-  i = 1;
-  while (cmd[i])
+  i = 0;
+  while (cmd[++i])
     {
       if (echo->check_flags == 1 && strlen(cmd[i]) >= 1 && cmd[i][0] == '-')
-        {
-	  check_options(echo, cmd[i]);
-	  echo->i = i;
-        }
+	check_options(echo, cmd[i]) ? (echo->i = i) : (echo->i = i);
       else
 	{
 	  echo->check_flags = 0;
@@ -59,9 +56,7 @@ int		builtin_echo(t_list *list, char **cmd)
 	    }
 	  break;
       	}
-      i++;
     }
-  if (echo->flag_n == 0)
-    write(1, "\n", 1);
+  echo->flag_n == 0 ? write(1, "\n", 1) : 0;
   return (SUCCESS);
 }
