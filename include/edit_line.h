@@ -1,15 +1,15 @@
 /*
 ** edit_line.h for  in /home/xx/Rendu/PSU/42SH
-** 
+**
 ** Made by boris saint-bonnet
 ** Login   <saint-_o@epitech.net>
-** 
+**
 ** Started on  Sun Jun  5 04:03:18 2016 boris saint-bonnet
-** Last update Mon Jun  6 03:07:01 2016 boris saint-bonnet
+** Last update Mon Jun  6 15:16:13 2016 Philippe Lefevre
 */
 
-#ifndef			__EDIT_H__
-# define		__EDIT_H__
+#ifndef			EDIT_H_
+# define		EDIT_H_
 
 /*
 **			LINKED_LIST
@@ -49,4 +49,4 @@ typedef struct		s_line
   struct s_pos		cursor;
 }			t_line;
 
-#endif		/* !__EDIT_H__ */
+#endif			/* !EDIT_H_ */
