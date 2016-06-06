@@ -5,7 +5,7 @@
 ** Login   <gambin_l@epitech.net>
 **
 ** Started on  Mon May 23 16:43:07 2016 Gambini Lucas
-** Last update Mon Jun 06 04:16:27 2016 Philippe Lefevre
+** Last update Mon Jun  6 12:37:56 2016 cyril puccio
 */
 
 #include		"42.h"
@@ -15,14 +15,14 @@ int			normal_scatter(t_cmd *cmd, char **env,
 {
   cmd = swap_alias(cmd, list->myRc);
   return ((cmd->flag == SIMPLE_R)
-	   ? (simple_right(cmd, list, env, builtin))
-	   : ((cmd->flag == SIMPLE_L)
-	      ? (simple_left(cmd, list, env, builtin))
-	      : ((cmd->flag == DOUBLE_R)
-		 ? (double_right(cmd, list, env, builtin))
-		 : ((cmd->flag == DOUBLE_L)
-		    ? (double_left(cmd, list, env, builtin))
-		    : ((simple_exec(cmd, list, env, builtin)))))));
+	  ? (simple_right(cmd, list, env, builtin))
+	  : ((cmd->flag == SIMPLE_L)
+	     ? (simple_left(cmd, list, env, builtin))
+	     : ((cmd->flag == DOUBLE_R)
+		? (double_right(cmd, list, env, builtin))
+		: ((cmd->flag == DOUBLE_L)
+		   ? (double_left(cmd, list, env, builtin))
+		   : ((simple_exec(cmd, list, env, builtin)))))));
 }
 
 int			exec_scatter(t_list *list)

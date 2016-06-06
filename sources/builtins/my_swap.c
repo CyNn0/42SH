@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 ** 
 ** Started on  Mon Jun  6 09:33:57 2016 boris saint-bonnet
-** Last update Mon Jun  6 09:37:05 2016 boris saint-bonnet
+** Last update Mon Jun  6 12:45:17 2016 cyril puccio
 */
 
 #include "42.h"
@@ -34,7 +34,8 @@ t_cmd                   *swap_alias(t_cmd *cmd, t_bash *bash)
   tmp = bash->head;
   while (tmp)
     {
-      if (!tab && strcmp(tmp->name, cmd->cmd[0]) == 0 && (tmp->p != pos || pos == 0))
+      if (!tab && strcmp(tmp->name, cmd->cmd[0]) == 0 &&
+	  (tmp->p != pos || pos == 0))
 	{
 	  if (tmp->p > 0)
 	    {
@@ -45,7 +46,8 @@ t_cmd                   *swap_alias(t_cmd *cmd, t_bash *bash)
 	  tmp->p = ++pos;
 	  tmp = bash->head;
 	}
-      else if (tab && strcmp(tmp->name, tab[0]) == 0 && (tmp->p != pos || pos == 0))
+      else if (tab && strcmp(tmp->name, tab[0]) == 0 &&
+	       (tmp->p != pos || pos == 0))
 	{
 	  if (tmp->p > 0)
 	    {

@@ -5,38 +5,10 @@
 ** Login   <lefevr_h@epitech.net>
 **
 ** Started on  Mon May 23 23:00:09 2016 Philippe Lefevre
-** Last update Mon Jun 06 06:13:22 2016 Philippe Lefevre
+** Last update Mon Jun  6 13:32:34 2016 cyril puccio
 */
 
 #include		"42.h"
-
-void			print_signal_message(int status)
-{
-  int			i;
-  t_error   		error[11] =
-  {
-    {SIGHUP, "Hangup"},
-    {SIGQUIT, "Quit (core dumped)"},
-    {SIGABRT, "Abort (core dumped)"},
-    {SIGBUS, "Bus error (core dumped)"},
-    {SIGFPE, "Floating exception (core dumped)"},
-    {SIGKILL, "Killed"},
-    {SIGUSR1, "User signal 1"},
-    {SIGSEGV, "Segmentation fault (core dumped)"},
-    {SIGUSR2, "User signal 2"},
-    {SIGPIPE, "Broken pipe"},
-    {SIGTERM, "Terminated"},
-  };
-
-  if (WIFSIGNALED(status))
-    {
-      status = WTERMSIG(status);
-      i = -1;
-      while (++i < 11)
-	if (status == error[i].error_status)
-	  fprintf(stderr, "%s\n", error[i].error);
-    }
-}
 
 int			xwaitpid(int pid, int status, int opt)
 {
@@ -115,7 +87,6 @@ int			simple_exec_builtin(t_list *list, t_cmd *cmd,
 int			simple_exec(t_cmd *cmd, t_list *list,
 				    char **env, int builtin)
 {
-  pid_t			pid;
   struct stat		sb;
 
   list->value_exit = 1;
@@ -127,19 +98,9 @@ int			simple_exec(t_cmd *cmd, t_list *list,
 	    return (FAILURE);
 	}
       stat(cmd->cmd[0], &sb);
-      if ((S_ISREG(sb.st_mode)) && (!(access(cmd->cmd[0], X_OK)) || (cmd->cmd[0][0] == '.' && cmd->cmd[0][1] == '/')))
-	{
-	  if ((pid = fork()) == -1)
-	    fprintf(stderr, "%s\n", strerror(errno));
-	  else if (pid == 0)
-	    {
-	      execve(cmd->cmd[0], cmd->cmd, env);
-	      fprintf(stderr, "%s: %s\n", cmd->cmd[0], strerror(errno));
-	      my_exit(FAILURE);
-	    }
-	  list->value_exit = 0;
-	  return (push_exit_value(list, pid));
-	}
+      if ((S_ISREG(sb.st_mode)) && (!(access(cmd->cmd[0], X_OK))
+				    || (cmd->cmd[0][0] == '.' && cmd->cmd[0][1] == '/')))
+	return (simple_exec2(cmd, list, env));
   fprintf(stderr, "%s: Command not found.\n", cmd->cmd[0]);
   check_go_on(cmd);
   return (FAILURE);

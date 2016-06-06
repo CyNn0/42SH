@@ -36,11 +36,9 @@ int		echo_print(t_echo *flags, char *cmd)
   int		i;
   char		indooble;
 
-  (void)flags;
-  indooble = (i = 0);
-  if (flags->space == 1)
-    write(1, " ", 1);
-  while (cmd[i])
+  indooble = (i = -1) + 1;
+  flags->space == 1 ? write(1, " ", 1) : 0;
+  while (cmd[++i])
     {
       if (cmd[i] == '"' && indooble == 0)
 	indooble = 1;
@@ -55,14 +53,9 @@ int		echo_print(t_echo *flags, char *cmd)
 	      i++;
 	    }
 	  else
-	    {
-	      if (indooble == 1)
-		write(1, &cmd[i], 1);
-	      else if (indooble == 0 && cmd[i] != '\\')
-		write(1, &cmd[i], 1);
-	    }
+	    indooble == 1 ? write(1, &cmd[i], 1)
+	      : indooble == 0 && cmd[i] != '\\' ? write(1, &cmd[i], 1) : 0;
 	}
-      i++;
     }
   return (0);
 }
