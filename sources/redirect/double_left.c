@@ -5,7 +5,7 @@
 ** Login   <Lucas Gambini@epitech.net>
 **
 ** Started on  Mon May 30 10:56:47 2016 Gambini Lucas
-** Last update Mon Jun 06 14:23:55 2016 Philippe Lefevre
+** Last update Mon Jun 06 15:36:37 2016 Philippe Lefevre
 */
 
 #include 		"42.h"
@@ -61,8 +61,10 @@ int             	double_left(t_cmd *cmd, t_list *list,
   int			pipefd[2];
   int			reset;
 
-  pipe(pipefd);
   init_double_left(cmd, &var);
+  if (!(cmd->go_on))
+    return (FAILURE);
+  pipe(pipefd);
   var.is_builtin = builtin;
   if ((buff = get_buffer(var)) == NULL)
     return (FAILURE);

@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Mon May 23 18:34:11 2016 boris saint-bonnet
-** Last update Mon Jun 06 03:49:57 2016 Philippe Lefevre
+** Last update Mon Jun 06 15:36:45 2016 Philippe Lefevre
 */
 
 # include 	"42.h"
@@ -16,6 +16,8 @@ int             double_right(t_cmd *cmd, t_list *list, char **env, int builtin)
   int           fd;
 
   init_double(cmd, &var);
+  if (!(cmd->go_on))
+    return (FAILURE);
   var.is_builtin = builtin;
   if ((fd = open(var.name, __DOUBLE)) == -1)
     return (fprintf(stderr, "%s: %s\n", var.name, strerror(errno)) * 0 + FAILURE);

@@ -5,7 +5,7 @@
 ** Login   <saint-_o@epitech.net>
 **
 ** Started on  Thu May 19 18:58:06 2016 boris saint-bonnet
-** Last update Mon Jun  6 12:58:12 2016 cyril puccio
+** Last update Mon Jun 06 15:20:10 2016 Philippe Lefevre
 */
 
 #include		"42.h"
@@ -41,8 +41,8 @@ int			print_prompt(t_list *list)
     dirname = "PWD";
   if ((ptr_user = find_user(list, "USER")) == NULL)
     ptr_user = "USER";
-  if ((prompt = malloc((strlen(ptr_user) + strlen(dirname) + strlen(GREEN) +
-			strlen(DEFAULT) + strlen(CYAN) + 4) * sizeof(char))) == NULL)
+  if ((prompt = malloc((strlen(ptr_user) + strlen(dirname) + strlen(GREEN)
+			+ strlen(DEFAULT) + strlen(CYAN) + 4))) == NULL)
     return (FAILURE);
   memset(prompt, '\0', (strlen(ptr_user) + strlen(dirname) + strlen(GREEN) +
 			strlen(DEFAULT) + strlen(CYAN) + 4));
