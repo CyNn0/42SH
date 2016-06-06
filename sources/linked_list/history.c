@@ -5,7 +5,7 @@
 ** Login   <lefevr_h@epitech.net>
 **
 ** Started on  Mon Jun 06 20:41:33 2016 Philippe Lefevre
-** Last update Mon Jun 06 22:03:24 2016 Philippe Lefevre
+** Last update Mon Jun 06 22:20:48 2016 Philippe Lefevre
 */
 
 #include		"42.h"
@@ -21,14 +21,15 @@ char			*give_new_line(char *line, int status)
     {
       time(&sec);
       inst = localtime(&sec);
-      new_line = xmalloc(16 + strlen(line));
+      new_line = xmalloc(17 + strlen(line));
       memset(new_line, '\0', 16 + strlen(line));
       sprintf(new_line, "     %d\t%d:%d\t%s\n", ++nb, inst->tm_hour,
 	      inst->tm_min, line);
     }
   else
     {
-      new_line = xmalloc(strlen(line) + 2);
+      new_line = xmalloc(strlen(line) + 3);
+      memset(new_line, '\0', 3 + strlen(line));
       new_line = strcpy(new_line, line);
       new_line = strcat(new_line, "\n\0");
       nb++;
